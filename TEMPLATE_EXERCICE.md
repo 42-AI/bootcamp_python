@@ -6,7 +6,6 @@
 |  `Files to turn in :`   | `*.py            ` |
 |  `Forbidden function :` | `None            ` |
 |  `Remarks :`            | `n/a             ` |
-| <img width=200/>        | <img width=400/>   |
 
 Description of the exercice
 
