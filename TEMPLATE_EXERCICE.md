@@ -2,10 +2,10 @@
 
 |                         |                    |
 | -----------------------:| ------------------ |
-|  `Turnin direcctory :`  | `ex00            ` |
-|  `Files to turn in :`   | `*.py            ` |
-|  `Forbidden function :` | `None            ` |
-|  `Remarks :`            | `n/a             ` |
+|   Turnin direcctory :   |  ex00              |
+|   Files to turn in :    |  *.py              |
+|   Forbidden function :  |  None              |
+|   Remarks :             |  n/a               |
 
 Description of the exercice
 
