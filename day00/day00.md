@@ -22,5 +22,13 @@ Not helper there
 ```
 
 ### Exercice 00 - $PATH
-### Exercice 01 - The Odd, the Even and the Zero.
-### Exercice 02 - S.O.S.
+### Exercice 01 - Rev Alpha
+### Exercice 02 - The Odd, the Even and the Zero.
+### Exercice 03 - Functionnal file (function)
+### Exercice 04 - Return the functionnal part (return weird values)
+### Exercice 05 - The right format
+### Exercice 06 - A recipe (dict manip)
+### Exercice 07 - Shorter, faster, pythonest. (list comprehension)
+### Exercice 08 - S.O.S.
+### Exercice 09 - ... --- ...
+### Exercice 10 - Loading bar !
