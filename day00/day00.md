@@ -26,9 +26,9 @@ Not helper there
 ### Exercice 02 - The Odd, the Even and the Zero.
 ### Exercice 03 - Functionnal file (function)
 ### Exercice 04 - Return the functionnal part (return weird values)
-### Exercice 05 - The right format
+### Exercice 05 - The right format (print formating)
 ### Exercice 06 - A recipe (dict manip)
 ### Exercice 07 - Shorter, faster, pythonest. (list comprehension)
 ### Exercice 08 - S.O.S.
-### Exercice 09 - ... --- ...
-### Exercice 10 - Loading bar !
+### Exercice 09 - ... --- ... ()
+### Exercice 10 - Loading bar ! ()
