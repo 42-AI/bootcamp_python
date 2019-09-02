@@ -21,14 +21,13 @@ How to install and link python in the $PATH ? It's the first exercice !
 Not helper there
 ```
 
-### Exercice 00 - $PATH
-### Exercice 01 - Rev Alpha
+### Exercice 00 - $PATH.
+### Exercice 01 - Rev Alpha.
 ### Exercice 02 - The Odd, the Even and the Zero.
-### Exercice 03 - Functional file (function)
-### Exercice 04 - Return the functional part (return weird values)
-### Exercice 05 - The right format (print formatting)
-### Exercice 06 - A recipe (dict manip)
-### Exercice 07 - Shorter, faster, pythonest. (list comprehension)
+### Exercice 03 - Functional file.
+### Exercice 04 - Return the functional part.
+### Exercice 05 - The right format.
+### Exercice 06 - A recipe.
+### Exercice 07 - Shorter, faster, pythonest.
 ### Exercice 08 - S.O.S.
-### Exercice 09 - ... --- ... ()
-### Exercice 10 - Loading bar ! ()
+### Exercice 09 - Loading bar !
