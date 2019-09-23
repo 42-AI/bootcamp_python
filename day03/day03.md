@@ -21,17 +21,8 @@ export ....
 install ....
 ```
 
-### Exercise 00 - NumPy Array Creator
+### Exercise 00 - NumPyCreator
 
-Ici l'étudiant apprend à créer un NumPy array à partir de différentes structrues de départ:
-- Une liste
-- Un tuple
-- Un itérable (ex range(5))
-- Un array avec des dimensions spécifiées, mais dont les valeurs peuvent être:
-    - des 0
-    - des 1
-    - une valeur n
-    - rien du tout
 
 ### Exercise 01 - Image Loader
 
