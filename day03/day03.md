@@ -16,25 +16,15 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization
 
 For this day you will use the image provided at the root of this folder.
 
-```
-export ....
-install ....
-```
 
 ### Exercise 00 - NumPyCreator
 
+### Exercise 01 - ImageProcessor
 
-### Exercise 01 - Image Loader
+### Exercise 02 - Basic manipulations
 
-L'étudiant doit écrire un script qui lit le fichier image attaché (à trouver) et le transforme en NumPy array.
-
-Il doit ensuite pouvoir:
-- Afficher les dimensions de l'Image
-- la tronquer
+- tronquer l'image
 - afficher un pixel sur deux (avec le slicing)
-
-
-### Exercise 02 - Stacking and resizing
 
 On demande à l'étudiant d'effectuer des "collages" d'image:
 - Juxtaposition horizontale (hstack)
