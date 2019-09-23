@@ -42,13 +42,12 @@ cell = np.vectorize(cell)
 
 
 ## ft_greyscale:
-auth fun.: .sum(), .zeros() , .broadcast(), .reshape(), .shape
+auth fun.: .sum(), .zeros() , .broadcast_to(), .reshape(), .shape
 
 nb = np.zeros(im.shape, dtype="uint8")
 tmp = ((im.sum(axis=2)/3).astype("uint8"))
 shape = tmp.shape + (1,)
 nb = np.broadcast_to(np.reshape(tmp, shape), im.shape)
-print(nb[400,400])
 
 
 
