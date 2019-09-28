@@ -31,3 +31,4 @@ Not helper there
 ### Exercice 07 - Shorter, faster, pythonest.
 ### Exercice 08 - S.O.S.
 ### Exercice 09 - Loading bar !
+### Exercice 10 - Secret number.
