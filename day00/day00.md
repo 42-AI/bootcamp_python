@@ -30,5 +30,5 @@ Not helper there
 ### Exercice 06 - A recipe.
 ### Exercice 07 - Shorter, faster, pythonest.
 ### Exercice 08 - S.O.S.
-### Exercice 09 - Loading bar !
-### Exercice 10 - Secret number.
+### Exercice 09 - Secret number.
+### Exercice 10 - Loading bar !
