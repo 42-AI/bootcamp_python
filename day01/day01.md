@@ -19,9 +19,9 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 Not helper there
 ```
 
-### Exercice 00 - 
-### Exercice 01 - Family tree.
-### Exercice 02 - 
-### Exercice 03 - 
-### Exercice 04 - 
-### Exercice 05 - 
+### Exercise 00 - 
+### Exercise 01 - Family tree.
+### Exercise 02 - 
+### Exercise 03 - 
+### Exercise 04 - 
+### Exercise 05 - 
