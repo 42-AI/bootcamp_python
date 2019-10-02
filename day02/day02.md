@@ -22,9 +22,9 @@ export ....
 install ....
 ```
 
-### Exercice 00 - Map, filter, reduce.
-### Exercice 01 - 
-### Exercice 02 - 
-### Exercice 03 - 
-### Exercice 04 - 
-### Exercice 05 - 
+### Exercise 00 - Map, filter, reduce.
+### Exercise 01 - 
+### Exercise 02 - 
+### Exercise 03 - 
+### Exercise 04 - 
+### Exercise 05 - 
