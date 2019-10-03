@@ -11,7 +11,7 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 ## General rules
 
 - The norm : during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
-- Forbidden functions : eval, ...
+- Forbidden functions: eval, ...
 
 ## Helper 
 
@@ -19,9 +19,9 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 No helper there
 ```
 
-### Exercice 00 - The book.
-### Exercice 01 - Family tree.
-### Exercice 02 - The vector.
-### Exercice 03 - Generator !
-### Exercice 04 - Working with list.
-### Exercice 05 - Bank account. (global exercice)
+### Exercise 00 - The book.
+### Exercise 01 - Family tree.
+### Exercise 02 - The vector.
+### Exercise 03 - Generator !
+### Exercise 04 - Working with list.
+### Exercise 05 - Bank account. (global exercise)
