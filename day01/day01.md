@@ -19,9 +19,9 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 No helper there
 ```
 
-### Exercice 00 - The book. (class)
-### Exercice 01 - Family tree. (heritage)
-### Exercice 02 - The vector. (build-in)
-### Exercice 03 - Generator ! (generator)
-### Exercice 04 - Working with list. (iterator)
-### Exercice 05 - 
+### Exercice 00 - The book.
+### Exercice 01 - Family tree.
+### Exercice 02 - The vector.
+### Exercice 03 - Generator !
+### Exercice 04 - Working with list.
+### Exercice 05 - Bank account. (global exercice)
