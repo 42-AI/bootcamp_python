@@ -24,4 +24,4 @@ No helper there
 ### Exercice 02 - The vector.
 ### Exercice 03 - Generator !
 ### Exercice 04 - Working with list.
-### Exercice 05 - Bank account. (global exercice)
+### Exercice 05 - Bank account.
