@@ -23,8 +23,7 @@ install ....
 ```
 
 ### Exercise 00 - Map, filter, reduce.
-### Exercise 01 - Pack-Unpack ??
+### Exercise 01 - args and kwargs ?
 ### Exercise 02 - The logger.
 ### Exercise 03 - Json issues
-### Exercise 04 - Collection Module ??
-### Exercise 05 - Package ??
+### Exercise 04 - Package ??
