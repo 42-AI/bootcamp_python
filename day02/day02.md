@@ -23,8 +23,8 @@ install ....
 ```
 
 ### Exercise 00 - Map, filter, reduce.
-### Exercise 01 - 
-### Exercise 02 - 
-### Exercise 03 - 
-### Exercise 04 - 
-### Exercise 05 - 
+### Exercise 01 - Pack-Unpack
+### Exercise 02 - Decorators
+### Exercise 03 - Context Manager
+### Exercise 04 - Collection Module
+### Exercise 05 - Multiprocessing
