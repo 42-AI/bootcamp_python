@@ -33,12 +33,12 @@ On demande à l'étudiant d'effectuer des "collages" d'image:
 
 Aussi: redimensionnement de l'Image
 
-### Exercise 03 - Broadcasting
+~~### Exercise 03 - Broadcasting
 
-Créer un array à dimension flottante qui devra être appliqué à l'image.
-(à développer)
+~~Créer un array à dimension flottante qui devra être appliqué à l'image.
+(à développer)~~
 
-### Exercise 04 - Color filters
+### Exercise 03 - Color filters
 
 Manipulations de certaines couleurs
 - Enlever le bleu
@@ -49,7 +49,7 @@ Application de filtres simples avec np.vectorize
 Transformer en noir et blanc
 
 
-### Exercise 05 - Advanced modifications
+### Exercise 04 - Advanced modifications
 
 Application de filtres plus complexes:
 - Appliquer un flou sur l'Image
