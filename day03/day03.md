@@ -47,7 +47,6 @@ Application de filtres simples avec np.vectorize
 
 Transformer en noir et blanc
 
-
 ### Exercise 04 - Advanced modifications
 
 Application de filtres plus complexes:
