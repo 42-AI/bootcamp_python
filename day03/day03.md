@@ -37,7 +37,6 @@ Aussi: redimensionnement de l'Image
 
 ~~Créer un array à dimension flottante qui devra être appliqué à l'image.
 (à développer)~~
-
 ### Exercise 03 - Color filters
 
 Manipulations de certaines couleurs
