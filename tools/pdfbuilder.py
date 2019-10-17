@@ -97,7 +97,7 @@ class PDFBuilder():
         styles.add(ParagraphStyle(name='ai_h1', parent=styles['Normal'], leading=30, alignment=TA_CENTER, fontSize=30, fontName="Helvetica-Bold"))
         styles.add(ParagraphStyle(name='ai_h2', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=20, fontName="Helvetica-Bold"))
         styles.add(ParagraphStyle(name='ai_h3', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=14, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_code', parent=styles['Normal'], fontName="Courier", backColor='black', textColor='white', borderPadding=0.2*cm))
+        styles.add(ParagraphStyle(name='ai_code', parent=styles['Normal'], fontName="Courier", backColor='black', textColor='white', borderPadding=0.1*cm))
         self.styles = styles
 
     @staticmethod
@@ -168,6 +168,7 @@ class PDFBuilder():
                     ('BOX', (0,0), (-1,-1), 0.25, colors.black),
                 ]))
                 Story.append(table)
+                Story.append(Spacer(1, 1*cm))
                 continue
             if self.styles.has_key('ai_' + tType):
                 Story.append(Paragraph(Content, self.styles['ai_' + tType]))
@@ -194,6 +195,7 @@ class PDFBuilder():
         dir = name=self.name
         main_file = "{dir}/{name}.md".format(dir=dir, name=self.name)
         exercices = glob(dir + '/ex*/*.md')
+        exercices.sort()
         Story = self.MainPage(Story, main_file)
         for file in exercices:
             Story = self.BuildExercice(Story, file)
