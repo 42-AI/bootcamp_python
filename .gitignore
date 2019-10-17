@@ -1,2 +1,5 @@
 *.DS_STORE
 *.pdf
+*.zip
+*__pycache__/*
+*.pyc

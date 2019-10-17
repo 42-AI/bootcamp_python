@@ -1,83 +1,18 @@
-from reportlab.lib.enums import TA_JUSTIFY, TA_CENTER, TA_LEFT
-from reportlab.lib.pagesizes import letter
-from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch, cm
-import re
-
 from glob import glob
 
-def loaddata(filename):
-    with open(filename) as f:
-        lines = f.readlines()
-        data = []
-        isCode = False
-        isTable = False
-        buffer_code = ""
-        buffer_table = []
-        for line in lines:
-            line = line.strip('\n')
-            if line == "":
-                data.append(('space', ''))
-                continue
-            title = line.split(' ')[0]
-            
-            # Markdown to html sanitizer
-            line = line.replace('<br>', '<br/>')
-            line = re.sub(r'\*\*(\S.*?\S)\*\*','<b>\g<1></b>', line)
-            line = re.sub(r'\*(\S.*?\S)\*','<b>\g<1></b>', line)
-            
-            if isTable == True and (len(line) > 0 and line[0] == '|') == False:
-                data.append(('table', buffer_table))
-                buffer_table = []
-                isTable = False
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate
+from reportlab.platypus import Paragraph
+from reportlab.platypus import Spacer
+from reportlab.platypus import Image
+from reportlab.platypus import PageBreak
+from reportlab.platypus import Table
+from reportlab.platypus import TableStyle
+from reportlab.lib.units import cm
 
-            # Code
-            if len(title) >= 3 and title[:3] == '```':
-                if isCode == True:
-                    data.append(('code', buffer_code))
-                    buffer_code = ""
-                    isCode = False
-                else:
-                    isCode = True
-                continue
-            if isCode == True:
-                line = line.replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;').replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;')
-                buffer_code += line + "<br/>"
-                continue
-
-            line = re.sub(r'`(.*?)`','<font name=Courier fontsize=12 textcolor=gray>\g<1></font>', line)
-            
-            # Table
-            if len(line) > 0 and line[0] == '|':
-                isTable = True
-                tmp = line.strip('|').split('|')
-                tmp = [val.strip() for val in tmp]
-                if all(char in ':- ' for char in ''.join(tmp)):
-                    continue
-                buffer_table.append(tmp)
-                continue
-
-            # Headers
-            if title == "#":
-                data.append(('h1', line.strip('# ')))
-                continue
-            elif title == "##":
-                data.append(('h2', line.strip('# ')))
-                continue
-            elif title == "###":
-                data.append(('h3', line.strip('# ')))
-                continue
-            
-            # List
-            if len(title) == 1 and title[0] == '*':
-                data.append(('list', line.strip(' *')))
-                continue
-
-            # Others
-            data.append(('other', line.strip('# ')))
-    return data
+from md_loader import LoadMDfile
+from styles_config import styles
 
 class PDFBuilder():
 
@@ -91,13 +26,6 @@ class PDFBuilder():
             topMargin=72, 
             bottomMargin=18,
         )
-        styles=getSampleStyleSheet()
-        styles.add(ParagraphStyle(name='ai_other', parent=styles['Normal'], alignment=TA_JUSTIFY, fontSize=11))
-        styles.add(ParagraphStyle(name='main_title', parent=styles['Normal'], leading=30, alignment=TA_CENTER, fontSize=40, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_h1', parent=styles['Normal'], leading=30, alignment=TA_CENTER, fontSize=30, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_h2', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=20, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_h3', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=14, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_code', parent=styles['Normal'], fontName="Courier", backColor='black', textColor='white', borderPadding=0.1*cm))
         self.styles = styles
 
     @staticmethod
@@ -120,7 +48,7 @@ class PDFBuilder():
         return Story
 
     def MainPage(self, Story, filename):
-        data = loaddata(filename)
+        data = LoadMDfile().readfile(filename)
         Story = self.FirstPage(Story)
         for tType, Content in data[1:]:
             if tType == 'space':
@@ -156,7 +84,7 @@ class PDFBuilder():
         return table
 
     def BuildExercice(self, Story, filename):
-        data = loaddata(filename)
+        data = LoadMDfile().readfile(filename)
         for tType, Content in data:
             if tType == 'space':
                 Story.append(Spacer(1, 12))
@@ -171,7 +99,11 @@ class PDFBuilder():
                 Story.append(Spacer(1, 1*cm))
                 continue
             if self.styles.has_key('ai_' + tType):
+                if tType == 'code':
+                    Story.append(Spacer(1, 5))
                 Story.append(Paragraph(Content, self.styles['ai_' + tType]))
+                if tType == 'code':
+                    Story.append(Spacer(1, 5))
                 if tType == 'h1':
                    Story.append(Spacer(1, 1*cm))
                 continue
