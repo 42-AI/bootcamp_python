@@ -10,8 +10,9 @@ Basic setup, variables, types, functions, ...
 
 ## General rules
 
-- The norm: during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
-- Forbidden functions: eval, ...
+* The version of python to use is 3.7, you can check the version of python with the following command: `python -V`
+* The norm: during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
+* Forbidden functions: eval, ...
 
 ## Helper 
 
@@ -25,7 +26,7 @@ Not helper there
 ### Exercise 01 - Rev Alpha.
 ### Exercise 02 - The Odd, the Even and the Zero.
 ### Exercise 03 - Functional file.
-### Exercise 04 - Return the functional part.
+### Exercise 04 - Elementary.
 ### Exercise 05 - The right format.
 ### Exercise 06 - A recipe.
 ### Exercise 07 - Shorter, faster, pythonest.
