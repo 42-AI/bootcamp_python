@@ -4,6 +4,7 @@ from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch, cm
+import re
 
 from glob import glob
 
@@ -22,6 +23,16 @@ def loaddata(filename):
                 continue
             title = line.split(' ')[0]
             
+            # Markdown to html sanitizer
+            line = line.replace('<br>', '<br/>')
+            line = re.sub(r'\*\*(\S.*?\S)\*\*','<b>\g<1></b>', line)
+            line = re.sub(r'\*(\S.*?\S)\*','<b>\g<1></b>', line)
+            
+            if isTable == True and (len(line) > 0 and line[0] == '|') == False:
+                data.append(('table', buffer_table))
+                buffer_table = []
+                isTable = False
+
             # Code
             if len(title) >= 3 and title[:3] == '```':
                 if isCode == True:
@@ -35,6 +46,8 @@ def loaddata(filename):
                 line = line.replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;').replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;')
                 buffer_code += line + "<br/>"
                 continue
+
+            line = re.sub(r'`(.*?)`','<font name=Courier fontsize=12 textcolor=gray>\g<1></font>', line)
             
             # Table
             if len(line) > 0 and line[0] == '|':
@@ -45,13 +58,7 @@ def loaddata(filename):
                     continue
                 buffer_table.append(tmp)
                 continue
-            else:
-                if isTable == True:
-                    data.append(('table', buffer_table))
-                    buffer_table = []
-                    isTable = False
-                    continue
-            
+
             # Headers
             if title == "#":
                 data.append(('h1', line.strip('# ')))
@@ -90,12 +97,12 @@ class PDFBuilder():
         styles.add(ParagraphStyle(name='ai_h1', parent=styles['Normal'], leading=30, alignment=TA_CENTER, fontSize=30, fontName="Helvetica-Bold"))
         styles.add(ParagraphStyle(name='ai_h2', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=20, fontName="Helvetica-Bold"))
         styles.add(ParagraphStyle(name='ai_h3', parent=styles['Normal'], leading=20, alignment=TA_LEFT, fontSize=14, fontName="Helvetica-Bold"))
-        styles.add(ParagraphStyle(name='ai_code', parent=styles['Normal'], fontName="Courier-Bold", backColor='black', textColor='white', borderPadding=0.2*cm))
+        styles.add(ParagraphStyle(name='ai_code', parent=styles['Normal'], fontName="Courier", backColor='black', textColor='white', borderPadding=0.2*cm))
         self.styles = styles
 
     @staticmethod
     def BackGroundSetup(canvas, _):
-        background = 'background_42_ai.png'
+        background = 'tools/background_42_ai.png'
         canvas.saveState()
         width, height = letter
         canvas.drawImage(background, 0, 0, width, height)
@@ -107,7 +114,7 @@ class PDFBuilder():
         Story.append(Spacer(1, 12))
         Story.append(Paragraph('Python', self.styles['main_title']))
         Story.append(Spacer(1, 4*cm))
-        im = Image('logo_v4_noir.png', 6*cm, 6*cm)
+        im = Image('tools/logo_v4_noir.png', 6*cm, 6*cm)
         Story.append(im)    
         Story.append(PageBreak())
         return Story
@@ -117,7 +124,7 @@ class PDFBuilder():
         Story = self.FirstPage(Story)
         for tType, Content in data[1:]:
             if tType == 'space':
-                Story.append(Spacer(1, 12))
+                Story.append(Spacer(1, 15))
                 continue
             if tType == 'table':
                 table = Table(self.TableFormater(Content), colWidths=[5*cm, 10*cm], hAlign='LEFT')
@@ -131,11 +138,14 @@ class PDFBuilder():
                 Story.append(Paragraph(Content, self.styles['ai_' + tType]))
                 if tType == 'h1':
                    Story.append(Spacer(1, 1*cm))
+                Story.append(Spacer(1, 5))
                 continue
             if tType == 'list':
                 Story.append(Paragraph('- ' + Content, self.styles["Bullet"]))
+                Story.append(Spacer(1, 5))
                 continue
             Story.append(Paragraph(Content, self.styles["ai_other"]))
+            Story.append(Spacer(1, 5))
         Story.append(PageBreak())
         return Story
 
