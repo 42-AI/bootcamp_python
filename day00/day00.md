@@ -10,9 +10,9 @@ Basic setup, variables, types, functions, ...
 
 ## General rules
 
-- The version of python to use is 3.7, you can check the version of python with the following command: `python -V`
-- The norm: during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
-- Forbidden functions: eval, ...
+* The version of python to use is 3.7, you can check the version of python with the following command: `python -V`
+* The norm: during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
+* Forbidden functions: eval, ...
 
 ## Helper 
 
