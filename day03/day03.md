@@ -1,6 +1,6 @@
 # Piscine Python
 
-# Day01 - NumPy
+# Day03 - NumPy
 
 Today you will learn how to use the Python library that will allow you to manipulate multidimensional arrays and perform complex mathematical operations on matrices.
 
@@ -14,8 +14,7 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization
 
 ## Helper
 
-For this day you will use the image provided at the root of this folder.
-
+For this day you will use the image provided at the root in the resources folder.
 
 ### Exercise 00 - NumPyCreator
 ### Exercise 01 - ImageProcessor
