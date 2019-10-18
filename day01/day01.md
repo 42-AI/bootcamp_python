@@ -10,13 +10,19 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 
 ## General rules
 
-- The norm : during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
-- Forbidden functions: eval, ...
+* Python verion: 3.7
+* The norm : during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
+* Forbidden functions: eval, ...
 
 ## Helper 
 
 ```
-No helper there
+$> which python
+/goinfre/miniconda/bin/python
+$> python -V
+Python 3.7.*
+$> which pip
+/goinfre/miniconda/bin/pip
 ```
 
 ### Exercice 00 - The book.
