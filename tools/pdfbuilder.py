@@ -11,8 +11,8 @@ from reportlab.platypus import Table
 from reportlab.platypus import TableStyle
 from reportlab.lib.units import cm
 
-from md_loader import LoadMDfile
-from styles_config import styles
+from mdloader import LoadMDfile
+from stylesconfig import styles
 
 class PDFBuilder():
 
@@ -120,13 +120,20 @@ class PDFBuilder():
             onFirstPage=PDFBuilder.BackGroundSetup,
             onLaterPages=PDFBuilder.BackGroundSetup,
         )
-    
+
+    def MetaData(self):
+        self.doc.title = self.name+'.pdf'
+        self.doc.author = '42-ai'
+        self.doc.creator = '42-ai'
+        self.doc.subject = 'Python training exercices'
+        self.doc.keywords = ['python', '42', 'coding', 'training']
 
     def Build(self):
+        self.MetaData()
         Story=[]
-        dir = name=self.name
-        main_file = "{dir}/{name}.md".format(dir=dir, name=self.name)
-        exercices = glob(dir + '/ex*/*.md')
+        directory = name=self.name
+        main_file = "{directory}/{name}.md".format(directory=directory, name=self.name)
+        exercices = glob(directory + '/ex*/*.md')
         exercices.sort()
         Story = self.MainPage(Story, main_file)
         for file in exercices:
