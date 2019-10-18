@@ -1,4 +1,4 @@
-# Piscine Python
+# Bootcamp Python
 
 # Day03 - NumPy
 
@@ -6,11 +6,11 @@ Today you will learn how to use the Python library that will allow you to manipu
 
 ## Notions of the day
 
-NumPy array, slicing, stacking, dimensions, broadcasting, normalization
+NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## General rules
 
-- Use the NumPy Library : use NumPy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
+* Use the NumPy Library : use NumPy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
 
 ## Helper
 
