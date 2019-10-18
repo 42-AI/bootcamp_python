@@ -16,8 +16,8 @@ from stylesconfig import styles
 
 class PDFBuilder():
 
-    def __init__(self, dir):
-        self.name = dir 
+    def __init__(self, directory):
+        self.name = directory 
         self.doc = SimpleDocTemplate(
             self.name + ".pdf",
             pagesize=letter,
@@ -26,7 +26,6 @@ class PDFBuilder():
             topMargin=72, 
             bottomMargin=18,
         )
-        print(dir(doc))
         self.styles = styles
 
     @staticmethod
