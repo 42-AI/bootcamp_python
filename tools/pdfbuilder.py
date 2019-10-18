@@ -26,6 +26,7 @@ class PDFBuilder():
             topMargin=72, 
             bottomMargin=18,
         )
+        print(dir(doc))
         self.styles = styles
 
     @staticmethod
@@ -129,6 +130,7 @@ class PDFBuilder():
         self.doc.keywords = ['python', '42', 'coding', 'training']
 
     def Build(self):
+
         self.MetaData()
         Story=[]
         directory = name=self.name
