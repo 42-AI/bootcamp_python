@@ -1,13 +1,13 @@
-# Exercice 1 - Name of the exercice
+# Exercise 1 - Name of the exercise
 
 |                         |                    |
 | -----------------------:| ------------------ |
-|   Turnin direcctory :   |  ex00              |
+|   Turnin directory :    |  ex00              |
 |   Files to turn in :    |  *.py              |
 |   Forbidden function :  |  None              |
 |   Remarks :             |  n/a               |
 
-Description of the exercice
+Description of the exercise
 
 ```python
 print("Code example")
