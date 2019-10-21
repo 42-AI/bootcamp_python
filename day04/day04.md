@@ -18,6 +18,8 @@ Pandas ! And Bamboos !
 pip install pandas
 ```
 
+For this day you will use the dataset athlete_events.csv provided at the root in the data folder.
+
 ### Exercise 00 - FileLoader
 ### Exercise 01 - YoungestFellah
 ### Exercise 02 - ProportionBySport
