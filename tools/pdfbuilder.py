@@ -95,6 +95,20 @@ class PDFBuilder:
         Story.append(Paragraph(Content, self.styles["ai_h3"]))
         return Story
 
+    def addImage(self, Story, Content):
+        table = Table(
+            data=[[Image(Content, 12*cm, 8*cm)]],
+            colWidths=12*cm,
+            rowHeights=8*cm,
+            style=[
+                ('ALIGN', (0, 0), (0, 0), 'CENTER'),
+                ('BOX', (0, 0), (0, 0), 1, colors.black),
+                ('VALIGN', (0, 0), (0, 0), 'MIDDLE'),
+            ]
+        )
+        Story.append(table)
+        return Story
+
     def addTable(self, Story, Content):
         table = Table(
             self.TableFormater(Content), colWidths=[5 * cm, 10 * cm], hAlign="LEFT"
@@ -149,6 +163,9 @@ class PDFBuilder:
             if tType == "list":
                 Story = self.addList(Story, Content)
                 continue
+            if tType == "image":
+                Story = self.addImage(Story, Content)
+                continue
             Story = self.addOther(Story, Content)
         Story.append(PageBreak())
         return Story
@@ -182,7 +199,7 @@ class PDFBuilder:
 
 
 if __name__ == "__main__":
-    for day in glob("day*"):
+    for day in glob("day04"):
         if "." in day:
             continue
         pdf = PDFBuilder(day)
