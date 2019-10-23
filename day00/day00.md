@@ -1,6 +1,6 @@
 # Bootcamp Python
 
-# Day00 - Basic stuff - 11th Commandments
+# Day00 - Basic stuff - Eleven Commandments
 
 The goal of the day is to get started with the python language.
 
