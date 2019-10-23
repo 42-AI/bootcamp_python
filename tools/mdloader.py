@@ -3,6 +3,8 @@ import re
 HTML_TABS = "&nbsp;&nbsp;&nbsp;&nbsp;"
 
 
+# TODO: add image <img src="https://github.com/Talasta/My42Cursus/blob/master/06_lem_in/.resources/esc-caper.gif" width="100%">
+
 class LoadMDfile:
     def __init__(self):
         import re
@@ -20,6 +22,7 @@ class LoadMDfile:
             (self.isH2, self.addH2),
             (self.isH3, self.addH3),
             (self.isList, self.addList),
+            (self.isImg, self.addImg),
             (self.isOther, self.addOther),
         ]
 
@@ -61,7 +64,7 @@ class LoadMDfile:
     def sanitize_code_highlight(string):
         string = re.sub(
             r"`(.*?)`",
-            "<font name=Courier fontsize=12 textcolor=gray>\g<1></font>",
+            "<font name=Courier-Bold fontsize=11 textcolor=red>\g<1></font>",
             string,
         )
         return string
@@ -82,6 +85,13 @@ class LoadMDfile:
 
     def addSpace(self, data, content, attr):
         data.append(("space", ""))
+        return data
+    
+    def isImg(self, content, attr):
+        return content == ""
+
+    def addImg(self, data, content, attr):
+        data.append(("image", content))
         return data
 
     def isCode(self, content, attr):
