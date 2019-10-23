@@ -199,7 +199,7 @@ class PDFBuilder:
 
 
 if __name__ == "__main__":
-    for day in glob("day03"):
+    for day in glob("day*"):
         if "." in day:
             continue
         pdf = PDFBuilder(day)
