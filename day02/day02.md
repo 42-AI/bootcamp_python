@@ -6,11 +6,11 @@ Description of day --
 
 ## Notions of the day
 
-Decorators, multiprocessing, lamba, build package, ...
+Decorators, multiprocessing, lambda, build package, ...
 
 ## General rules
 
-* The norm : during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
+* The norm : during this bootcamp you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
 * Forbidden functions : eval, ...
 
 ## Helper 
