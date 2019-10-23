@@ -11,6 +11,16 @@ styles.add(
 )
 styles.add(
     ParagraphStyle(
+        name="ai_list",
+        parent=styles["Normal"],
+        alignment=TA_JUSTIFY,
+        fontSize=11,
+        bulletText="•",
+        bulletFontSize=11,
+    )
+)
+styles.add(
+    ParagraphStyle(
         name="main_title",
         parent=styles["Normal"],
         leading=30,

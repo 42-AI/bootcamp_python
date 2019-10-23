@@ -1,4 +1,4 @@
-# Piscine Python
+# Bootcamp Python
 
 # Day01 - Theme
 
@@ -10,9 +10,9 @@ Notion 1, Notion 2, ...
 
 ## General rules
 
-- Rule 1 : explanations
-- Rule 2 : explanations
-- Rule 3 : explanations
+- Rule 1: explanations
+- Rule 2: explanations
+- Rule 3: explanations
 
 ## Helper 
 
@@ -23,10 +23,10 @@ export ....
 install ....
 ```
 
-### Exercice 1 - Name of the exercice
+### Exercise 1 - Name of the exercise
 
-### Exercice 2 - Name
+### Exercise 2 - Name of the exercise
 
-### Exercice 3 - Name
+### Exercise 3 - Name of the exercise
 
-### Exercice 4 - Name
+### Exercise 4 - Name of the exercise
