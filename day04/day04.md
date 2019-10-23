@@ -2,7 +2,7 @@
 
 # Day04 - Pandas
 
-Today you will learn how to use the Python library that will allow you to manipulate dataframes.
+Today you will learn how to use a Python library that will allow you to manipulate dataframes.
 
 ## Notions of the day
 
