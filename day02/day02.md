@@ -2,7 +2,7 @@
 
 # Day02 - Basics 3
 
-Description of day --
+Let's continue practicing with more advanced Python programming exercises.
 
 ## Notions of the day
 
