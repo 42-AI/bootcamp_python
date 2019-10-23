@@ -11,15 +11,15 @@ Basic setup, variables, types, functions, ...
 ## General rules
 
 * The version of python to use is 3.7, you can check the version of python with the following command: `python -V`
-* The norm: during this pool you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
+* The norm: during this bootcamp you will follow the Pep8 standards https://www.python.org/dev/peps/pep-0008/
 * Forbidden functions: eval, ...
 
 ## Helper 
 
-How to install and link python in the $PATH? It's the first exercise!
+How do you install and link python in the $PATH? That's the first exercise!
 
 ```
-Not helper there
+No helper here
 ```
 
 ### Exercise 00 - $PATH.
