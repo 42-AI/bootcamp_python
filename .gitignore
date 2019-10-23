@@ -1,3 +1,7 @@
+# Personnal
+*.pdf
+*.zip
+
 # Mac Os
 .DS_Store
 .Spotlight-V100
