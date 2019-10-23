@@ -1,4 +1,4 @@
-# Piscine Python
+# Bootcamp Python
 
 # Day02 - Basics 3
 
