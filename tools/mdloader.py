@@ -17,12 +17,12 @@ class LoadMDfile:
             (self.isSpace, self.addSpace),
             (self.isCode, self.addCode),
             (self.isInnerCode, self.addInnerCode),
+            (self.isImg, self.addImg),
             (self.isTable, self.addTable),
             (self.isH1, self.addH1),
             (self.isH2, self.addH2),
             (self.isH3, self.addH3),
             (self.isList, self.addList),
-            (self.isImg, self.addImg),
             (self.isOther, self.addOther),
         ]
 
@@ -88,10 +88,11 @@ class LoadMDfile:
         return data
     
     def isImg(self, content, attr):
-        return content == ""
+        return attr == "<img"
 
     def addImg(self, data, content, attr):
-        data.append(("image", content))
+        filename = re.compile('src=\"(.*?)\".*', re.IGNORECASE).findall(content)[0]
+        data.append(("image", filename))
         return data
 
     def isCode(self, content, attr):
