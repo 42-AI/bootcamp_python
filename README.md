@@ -57,7 +57,7 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 
 ### Contributors
 
-* ... (@student.42.fr)
+* Tristan Duquesne (tduquesn@student.42.fr)
 
 ### Beta-testers
 
