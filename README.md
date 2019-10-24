@@ -19,6 +19,8 @@
 
 This project is a Python programming and Machine Learning bootcamp created by [42 AI](http://www.42ai.fr).
 
+No prior Python programming or Machine Learning experience required! Your mission, should you choose to accept it, is to come and learn essential knowledge for Machine Learning, Data Science and statistics in a week. You will start with the Python basics and then get familiar with valuable libraries for any programmer interested in the AI field.
+
 42 Artificial Intelligence is a students association of school 42 Paris campus. 
 It aims to foster learning and sharing of knowledge about artificial intelligence by holding various activities such as lectures and workshops.
 <br/>
@@ -44,7 +46,7 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 
 ### Day04 - Pandas
 **Time to use a Python library that will allow you to manipulate dataframes.**
-> Pandas ! And Bamboos ! :panda_face:
+> Pandas! And Bamboos! :panda_face:
 
 ### Rush - Scrapping
 **Scrapper**
@@ -60,5 +62,9 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 
 ### Beta-testers
 
-* ...
-* ...
+* bleveque
+* tduquesn
+* roster
+* qbragard
+* madufour
+* AdrienVAR
