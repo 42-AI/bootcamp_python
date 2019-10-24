@@ -48,8 +48,8 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 **Time to use a Python library that will allow you to manipulate dataframes.**
 > Pandas! And Bamboos! :panda_face:
 
-### Rush - Scrapping
-**Scrapper**
+### Rush - Scraping
+**Scraper**
 > curl - class Sessions, regex: re lib
 <br/>
 
