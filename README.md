@@ -57,14 +57,12 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 
 ### Contributors
 
-* ...
-* ...
+* ... (@student.42.fr)
 
 ### Beta-testers
 
-* bleveque
-* tduquesn
-* roster
-* qbragard
-* madufour
+* Barthélémy Leveque (bleveque@student.42.fr)
+* Remy Oster (roster@student.42.fr)
+* Quentin Bragard (qbragard@student.42.fr)
+* Marie Dufourq (madufour@student.42.fr)
 * AdrienVAR
