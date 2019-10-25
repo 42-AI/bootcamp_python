@@ -23,8 +23,15 @@ Basic setup, variables, types, functions, ...
 
 How do you install and link python in the $PATH? That's the first exercise!
 
+Check out that you have the right python version.
+
 ```
-No helper here
+$> which python
+/goinfre/miniconda/bin/python
+$> python -V
+Python 3.7.*
+$> which pip
+/goinfre/miniconda/bin/pip
 ```
 
 ### Exercise 00 - $PATH.

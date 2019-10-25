@@ -26,7 +26,18 @@ Pandas ! And Bamboos !
 pip install pandas
 ```
 
-For this day you will use the dataset athlete_events.csv provided at the root in the data folder.
+For this day you will use the dataset athlete_events.csv provided in the resources folder in the data folder.
+
+Check out that you have the right python version.
+
+```
+$> which python
+/goinfre/miniconda/bin/python
+$> python -V
+Python 3.7.*
+$> which pip
+/goinfre/miniconda/bin/pip
+```
 
 ### Exercise 00 - FileLoader
 ### Exercise 01 - YoungestFellah

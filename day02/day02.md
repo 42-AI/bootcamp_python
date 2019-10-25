@@ -20,11 +20,15 @@ Decorators, multiprocessing, lambda, build package, ...
 * If you find any issue or mistakes in the subject please create an issue on our dedicated repository on Github:  <href src="https://github.com/42-AI/bootcamp_python/issues"><u><font color=blue>https://github.com/42-AI/bootcamp_python/issues</font></u></href>.
 ## Helper 
 
-How to install and link python in the $PATH
+Check out that you have the right python version.
 
 ```
-export ....
-install ....
+$> which python
+/goinfre/miniconda/bin/python
+$> python -V
+Python 3.7.*
+$> which pip
+/goinfre/miniconda/bin/pip
 ```
 
 ### Exercise 00 - Map, filter, reduce.
