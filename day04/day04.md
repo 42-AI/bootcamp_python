@@ -22,6 +22,8 @@ Pandas! And Bamboos!
 
 ## Helper
 
+For this day you will use the dataset athlete_events.csv provided in the resources folder in the data folder.
+
 ```
 pip install pandas
 ```
@@ -36,8 +38,6 @@ Python 3.7.*
 $> which pip
 /goinfre/miniconda/bin/pip
 ```
-
-For this day you will use the dataset athlete_events.csv provided in the resources folder in the data folder.
 
 
 ### Exercise 00 - FileLoader
