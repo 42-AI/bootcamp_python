@@ -24,6 +24,17 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 For this day you will use the image provided at the root in the resources folder.
 
+Check out that you have the right python version.
+
+```
+$> which python
+/goinfre/miniconda/bin/python
+$> python -V
+Python 3.7.*
+$> which pip
+/goinfre/miniconda/bin/pip
+```
+
 ### Exercise 00 - NumPyCreator
 ### Exercise 01 - ImageProcessor
 ### Exercise 02 - Basic manipulations

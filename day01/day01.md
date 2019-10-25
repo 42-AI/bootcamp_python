@@ -21,6 +21,8 @@ Objects, cast, inheritance, built-in functions, generator, construtors, iterator
 
 ## Helper 
 
+Check out that you have the right python version.
+
 ```
 $> which python
 /goinfre/miniconda/bin/python
