@@ -58,6 +58,8 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 ### Contributors
 
 * Tristan Duquesne (tduquesn@student.42.fr)
+* Maxime Choulika (cmaxime@student.42.fr)
+* Baptiste Lefeuvre (blefeuvr@student.42.fr)
 
 ### Beta-testers
 
@@ -65,4 +67,4 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 * Remy Oster (roster@student.42.fr)
 * Quentin Bragard (qbragard@student.42.fr)
 * Marie Dufourq (madufour@student.42.fr)
-* AdrienVAR
+* Adrien Vardon (advardon@student.42.fr)
