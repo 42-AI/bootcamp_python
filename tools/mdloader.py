@@ -42,7 +42,7 @@ class LoadMDfile:
             # Find type and add content to the data list
             for _is, _add in self.functions:
                 ret = _is(content, attr)
-                if ret == True:
+                if ret is True:
                     data = _add(data, content, attr)
                     break
         return data
@@ -71,7 +71,7 @@ class LoadMDfile:
 
     def stoping_table(self, content):
         return (
-            self.boolTable == True and (len(content) > 0 and content[0] == "|") == False
+            self.boolTable is True and (len(content) > 0 and content[0] == "|") is False
         )
 
     def stopTable(self, data):
@@ -86,7 +86,7 @@ class LoadMDfile:
     def addSpace(self, data, content, attr):
         data.append(("space", ""))
         return data
-    
+
     def isImg(self, content, attr):
         return attr == "<img"
 
@@ -99,7 +99,7 @@ class LoadMDfile:
         return len(attr) >= 3 and attr[:3] == "```"
 
     def addCode(self, data, content, attr):
-        if self.boolCode == True:
+        if self.boolCode is True:
             data.append(("code", self.buffer_code))
             self.buffer_code = ""
             self.boolCode = False
@@ -108,7 +108,7 @@ class LoadMDfile:
         return data
 
     def isInnerCode(self, content, attr):
-        return self.boolCode == True
+        return self.boolCode is True
 
     def addInnerCode(self, data, content, attr):
         content = content.replace("\t", HTML_TABS).replace("    ", HTML_TABS)
