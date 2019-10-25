@@ -6,12 +6,12 @@ Today you will learn how to use a Python library that will allow you to manipula
 
 ## Notions of the day
 
-Pandas ! And Bamboos !
+Pandas! And Bamboos!
 
 ## General rules
 
 * Use the Pandas Library.
-* The version of python to use is 3.7, you can check the version of python with the following command: `python -V`
+* The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`
 * The norm: during this bootcamp you will follow the Pep8 standards <href src="https://www.python.org/dev/peps/pep-0008/"><u><font color=blue>https://www.python.org/dev/peps/pep-0008/</font></u></href>
 * The function eval is never allowed.
 * The exercices are ordered from the easiest to the hardest.
@@ -26,9 +26,7 @@ Pandas ! And Bamboos !
 pip install pandas
 ```
 
-For this day you will use the dataset athlete_events.csv provided in the resources folder in the data folder.
-
-Check out that you have the right python version.
+Ensure that you have the right Python version.
 
 ```
 $> which python
@@ -38,6 +36,9 @@ Python 3.7.*
 $> which pip
 /goinfre/miniconda/bin/pip
 ```
+
+For this day you will use the dataset athlete_events.csv provided in the resources folder in the data folder.
+
 
 ### Exercise 00 - FileLoader
 ### Exercise 01 - YoungestFellah
