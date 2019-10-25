@@ -61,6 +61,7 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 * Maxime Choulika (maxime@42ai.fr)
 * Baptiste Lefeuvre (blefeuvr@student.42.fr)
 * Amric Trudel (amric@42ai.fr)
+* Mathilde Boivin (mboivin@student.42.fr)
 
 
 ### Beta-testers
