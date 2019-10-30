@@ -6,14 +6,13 @@ styles = getSampleStyleSheet()
 
 styles.add(
     ParagraphStyle(
-        name="ai_other", parent=styles["Normal"], alignment=TA_JUSTIFY, fontSize=11
+        name="ai_other", parent=styles["Normal"], fontSize=11
     )
 )
 styles.add(
     ParagraphStyle(
         name="ai_list",
         parent=styles["Normal"],
-        alignment=TA_JUSTIFY,
         fontSize=11,
         bulletText="•",
         bulletFontSize=11,
