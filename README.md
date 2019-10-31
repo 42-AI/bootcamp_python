@@ -19,10 +19,10 @@
 
 This project is a Python programming and Machine Learning bootcamp created by [42 AI](http://www.42ai.fr).
 
-No prior Python programming or Machine Learning experience required! Your mission, should you choose to accept it, is to come and learn essential knowledge for Machine Learning, Data Science and statistics in a week. You will start with the Python basics and then get familiar with valuable libraries for any programmer interested in the AI field.
+No prior Python programming or Machine Learning experience is required! Your mission, should you choose to accept it, is to come and learn some of the essential knowledge for Machine Learning, Data Science and statistics, in a single week. You will start with the basics of the Python language and then get acquainted with some libraries that are valuable to any programmer interested in the field of AI.
 
-42 Artificial Intelligence is a students association of school 42 Paris campus. 
-It aims to foster learning and sharing of knowledge about artificial intelligence by holding various activities such as lectures and workshops.
+42 Artificial Intelligence is a student association of the Paris campus of the school 42. 
+It aims to foster learning and the sharing of knowledge about artificial intelligence, by organizing various activities such as lectures and workshops.
 <br/>
 
 
@@ -33,7 +33,7 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 > Basic setup, variables, types, functions, ...
 
 ### Day01 - Basics 2
-**Get familiar with object-oriented programming and much more.**
+**Get acquainted with object-oriented programming and much more.**
 > Objects, cast, inheritance, built-in functions, generator, construtors, iterator, ...
 
 ### Day02 - Basics 3
@@ -57,11 +57,11 @@ It aims to foster learning and sharing of knowledge about artificial intelligenc
 
 ### Contributors
 
-* Tristan Duquesne (tduquesn@student.42.fr)
 * Maxime Choulika (maxime@42ai.fr)
 * Baptiste Lefeuvre (blefeuvr@student.42.fr)
 * Amric Trudel (amric@42ai.fr)
 * Mathilde Boivin (mboivin@student.42.fr)
+* Tristan Duquesne (tduquesn@student.42.fr)
 * Pierre Peigné (ppeigne@student.42.fr)
 
 ### Beta-testers
