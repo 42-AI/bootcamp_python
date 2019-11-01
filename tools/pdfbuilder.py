@@ -188,7 +188,7 @@ class PDFBuilder:
 
         self.MetaData()
         Story = []
-        directory = name = self.name
+        directory = self.name
         main_file = "{directory}/{name}.md".format(directory=directory, name=self.name)
         exercices = glob(directory + "/ex*/*.md")
         exercices.sort()
