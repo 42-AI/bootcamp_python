@@ -1,0 +1,74 @@
+# Exercise 00 - The book.
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turnin directory :    |  ex00              |
+|   Files to turn in :    |  book.py<br>recipe.py<br>test.py  |
+|   Forbidden function :  |  None              |
+|   Remarks :             |  n/a               |
+
+You will provide a test.py file to test your classes and prove that they are working the right way.  
+You can import all the classes into your test.py file by adding these lines at the top of the test.py file:
+
+```py
+from book import Book
+from recipe import Recipe
+```
+
+You will have to make a class `Book` and a class `Recipe`
+
+Let's describe the `Recipe` class.
+It has some attributes:
+* `name`            (str)  
+* `cooking_lvl`     (int) : range 1 to 5  
+* `cooking_time`    (int) : in minutes (no negative numbers)  
+* `ingredients`     (list) : list of all ingredients each represented by a string  
+* `description`     (str) : description of the recipe  
+* `recipe_type`     (str) : can be "starter", "lunch" or "dessert".   
+
+You have to initialize the object Recipe and check all its values, only the description can be empty.  
+In case of input errors, you should print what they are and exit properly.
+
+You will have to implement the built-in method `__str__`.  
+It's the method called when you execute this code:
+
+```py
+tourte = Recipe(...)
+to_print = str(tourte)
+print(to_print)
+```
+
+It's implemented this way.
+
+```py
+def __str__(self):
+    """Return the string to print with the recipe info"""
+    txt = ""
+    """Your code goes here"""
+    return txt
+```
+
+The Book class also has some attributes:
+* `name`            (str)  
+* `last_update`     ([datetime](https://docs.python.org/3/library/datetime.html))  
+* `creation_date`   ([datetime](https://docs.python.org/3/library/datetime.html))  
+* `recipes_list`    (dict)   : a dictionnary why 3 keys: "starter", "lunch", "dessert".
+
+You will have to implement some methods in Book:
+
+```py
+def get_recipe_by_name(self, name):
+    """Print a recipe with the name `name` and return the instance"""
+    pass
+
+def get_recipes_by_types(self, recipe_type):
+    """Get all recipe names for a given recipe_type """
+    pass
+
+def add_recipe(self, recipe):
+    """Add a recipe to the book and update last_update"""
+    pass
+```
+
+You will have to handle the error if the arg passed in add_recipe is not a Recipe.
+
