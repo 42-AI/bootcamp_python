@@ -22,7 +22,7 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## Helper
 
-For this day you will use the image provided at the root in the resources folder.
+For this day you will use the image provided in the `resources` folder
 
 Ensure that you have the right Python version.
 
