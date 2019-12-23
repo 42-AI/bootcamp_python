@@ -44,4 +44,4 @@ $> which pip
 ### Exercise 07 - Shorter, faster, pythonest.
 ### Exercise 08 - S.O.S.
 ### Exercise 09 - Secret number.
-### Exercise 10 - Loading bar !
+### Exercise 10 - Loading bar!
