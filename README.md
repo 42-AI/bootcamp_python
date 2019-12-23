@@ -27,7 +27,7 @@ No prior Python programming or Machine Learning experience is required! Your mis
 
 ## Curriculum
 
-### Day00 - Basic stuff - Eleven Commandments
+### Day00 - Basics 1 - Eleven Commandments
 **Let's get started with the Python language!** :snake:
 > Basic setup, variables, types, functions, ...
 
