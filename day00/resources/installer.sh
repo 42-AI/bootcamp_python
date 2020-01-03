@@ -2,10 +2,11 @@
 #
 # Ensures the correct Python version is intalled using miniconda
 
-INSTALL_DIR="/goinfre/$USER/miniconda"
+INSTALL_DIR="/goinfre/$USER/miniconda3"
 
 function install_python {
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
+	mkdir -p $INSTALL_DIR
+    curl -s -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     bash ~/miniconda.sh -b -p $INSTALL_DIR
     echo "Python has been installed."
     rm ~/miniconda.sh
