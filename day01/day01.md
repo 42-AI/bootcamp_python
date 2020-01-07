@@ -21,14 +21,14 @@ Objects, cast, class, inheritance, built-in functions, magic methods, generator,
 
 ## Helper 
 
-Make sure that you are using the right version of Python.
+Ensure that you have the right Python version.
 
 ```
-$> which python
+> which python
 /goinfre/miniconda/bin/python
-$> python -V
+> python -V
 Python 3.7.*
-$> which pip
+> which pip
 /goinfre/miniconda/bin/pip
 ```
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="tools/logo_v4_noir.png" width="200" alt="42 AI Logo" />
+  <img src="assets/logo_v4_noir.png" width="200" alt="42 AI Logo" />
 </p>
 
 <h1 align="center">
@@ -21,14 +21,13 @@ This project is a Python programming and Machine Learning bootcamp created by [4
 
 No prior Python programming or Machine Learning experience is required! Your mission, should you choose to accept it, is to come and learn some of the essential knowledge for Machine Learning, Data Science and statistics, in a single week. You will start with the basics of the Python language and then get acquainted with some libraries that are invaluable to any programmer interested in the field of AI or data science.
 
-42 Artificial Intelligence is a student association of the Paris campus of the school 42. 
-It aims to foster the learning and the sharing of knowledge concerning artificial intelligence, by organizing various activities such as lectures and workshops.
+42 Artificial Intelligence is a student organization of the Paris campus of the school 42. Our purpose is to foster discussion, learning, and interest in the field of artificial intelligence, by organizing various activities such as lectures and workshops.
 <br/>
 
 
 ## Curriculum
 
-### Day00 - Basic stuff - Eleven Commandments
+### Day00 - Basics 1 - Eleven Commandments
 **Let's get started with the Python language!** :snake:
 > Basic setup, variables, types, functions, ...
 
