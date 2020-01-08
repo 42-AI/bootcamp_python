@@ -22,16 +22,16 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## Helper
 
-For this day you will use the image provided at the root in the resources folder.
+For this day you will use the image provided in the `resources` folder
 
 Ensure that you have the right Python version.
 
 ```
-$> which python
+> which python
 /goinfre/miniconda/bin/python
-$> python -V
+> python -V
 Python 3.7.*
-$> which pip
+> which pip
 /goinfre/miniconda/bin/pip
 ```
 
