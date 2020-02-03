@@ -39,4 +39,3 @@ Python 3.7.*
 ### Exercise 01 - ImageProcessor
 ### Exercise 02 - Basic manipulations
 ### Exercise 03 - Color filters
-### Exercise 04 - Advanced modifications
