@@ -32,7 +32,7 @@ Python 3.7.*
 ```
 
 ### Exercise 00 - Map, filter, reduce.
-### Exercise 01 - args and kwargs ?
+### Exercise 01 - args and kwargs?
 ### Exercise 02 - The logger.
 ### Exercise 03 - Json issues
-### Exercise 04 - Package ??
+### Exercise 04 - MiniPack
