@@ -35,6 +35,6 @@ Python 3.7.*
 ### Exercice 00 - The book.
 ### Exercice 01 - Family tree.
 ### Exercice 02 - The vector.
-### Exercice 03 - Generator !
-### Exercice 04 - Working with list.
+### Exercice 03 - Generator!
+### Exercice 04 - Working with lists.
 ### Exercice 05 - Bank account.

@@ -37,5 +37,5 @@ Python 3.7.*
 
 ### Exercise 00 - NumPyCreator
 ### Exercise 01 - ImageProcessor
-### Exercise 02 - Basic manipulations
-### Exercise 03 - Color filters
+### Exercise 02 - ScrapBooker
+### Exercise 03 - ColorFilter
