@@ -39,3 +39,4 @@ Python 3.7.*
 ### Exercise 01 - ImageProcessor
 ### Exercise 02 - ScrapBooker
 ### Exercise 03 - ColorFilter
+### Exercise 04 - K-means Clustering
