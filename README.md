@@ -56,12 +56,13 @@ No prior Python programming or Machine Learning experience is required! Your mis
 
 ### Contributors
 
+* Amric Trudel (amric@42ai.fr)
 * Maxime Choulika (maxime@42ai.fr)
 * Baptiste Lefeuvre (blefeuvr@student.42.fr)
-* Amric Trudel (amric@42ai.fr)
 * Mathilde Boivin (mboivin@student.42.fr)
 * Tristan Duquesne (tduquesn@student.42.fr)
 * Pierre Peigné (ppeigne@student.42.fr)
+* Quentin Feuillade Montixi (qfeuilla@student.42.fr)
 
 ### Beta-testers
 
