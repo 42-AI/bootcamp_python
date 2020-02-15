@@ -36,3 +36,4 @@ Python 3.7.*
 ### Exercise 02 - The logger.
 ### Exercise 03 - Json issues
 ### Exercise 04 - MiniPack
+### Exercise 05 - TinyStatistician
