@@ -39,3 +39,4 @@ Python 3.7.*
 ### Exercise 04 - Generator!
 ### Exercise 05 - Working with lists.
 ### Exercise 06 - Bank account.
+### Exercise 07 - K-Nearest Neighbors.
