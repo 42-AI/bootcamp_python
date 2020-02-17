@@ -34,14 +34,14 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - $PATH.
-### Exercise 01 - Rev Alpha.
-### Exercise 02 - The Odd, the Even and the Zero.
-### Exercise 03 - Functional file.
-### Exercise 04 - Elementary.
-### Exercise 05 - The right format.
-### Exercise 06 - A recipe.
-### Exercise 07 - Shorter, faster, pythonest.
-### Exercise 08 - S.O.S.
-### Exercise 09 - Secret number.
+### Exercise 00 - $PATH
+### Exercise 01 - Rev Alpha
+### Exercise 02 - The Odd, the Even and the Zero
+### Exercise 03 - Functional file
+### Exercise 04 - Elementary
+### Exercise 05 - The right format
+### Exercise 06 - A recipe
+### Exercise 07 - Shorter, faster, pythonest
+### Exercise 08 - S.O.S
+### Exercise 09 - Secret number
 ### Exercise 10 - Loading bar!
