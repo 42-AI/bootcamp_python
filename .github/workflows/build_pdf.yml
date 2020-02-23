@@ -1,0 +1,41 @@
+---
+name: Build the PDF documents when the dev branch is updated
+
+# Will run when a PR is merged or when a commit is made directly to the dev branch
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-pdf:
+    name: Build the PDFs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update and upgrade
+      run: |
+        sudo apt-get update
+        sudo apt-get upgrade
+
+      - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+      - name: Install dependencies
+      run: |
+      sudo apt install coreutils
+      sudo apt install git
+      sudo apt install curl
+      sudo apt install zsh
+      sudo apt install wget
+      sudo apt install pandoc
+      sudo apt install texlive-latex-base
+      sudo apt install texlive-latex-extra
+      wget https://github.com/fxbabin/pdf_builder/blob/master/pdf_builder.py
+
+      # - name: Build PDF documents
+      # run: python pdf_builder.py
+
+      # TODO: The PDFs must be built and then put at the root of the bootcamp directory
