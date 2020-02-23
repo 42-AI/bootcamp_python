@@ -1,5 +1,5 @@
 ---
-name: Create release
+name: Release the latest bootcamp version
 
 # Will run when a PR is merged or when a commit is made directly to the master branch
 on:
@@ -10,8 +10,8 @@ on:
 jobs:
   # To skip creation of a release:
   # Put [norelease] in the commit title or add the label norelease to the PR
-  release-on-push:
-    name: Create release and upload PDF documents
+  release-bootcamp:
+    name: Create release and upload the PDFs
     runs-on: ubuntu-latest
 
     steps:
@@ -25,12 +25,12 @@ jobs:
         draft: false
         prerelease: false
 
-      - name: Create Zip File
+      - name: Create a Zip File
       uses: montudor/action-zip@v0.1.0
       with:
         args: zip pdf.zip day00.pdf day01.pdf day02.pdf day03.pdf day04.pdf
 
-      - name: Upload PDF documents to Assets
+      - name: Upload the PDFs to Assets
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
         asset_name: pdf.zip
         asset_content_type: application/zip
 
-      # - name: Upload PDF documents to S3 bucket
+      # - name: Upload the PDFs to S3 bucket
       # uses: jakejarvis/s3-sync-action@master
       # with:
       #   args: 
