@@ -1,0 +1,53 @@
+---
+name: Create release
+
+# Will run when a PR is merged or when a commit is made directly to the master branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # To skip creation of a release:
+  # Put [norelease] in the commit title or add the label norelease to the PR
+  release-on-push:
+    name: Create release and upload PDF documents
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+      - name: Create Zip File
+      uses: montudor/action-zip@v0.1.0
+      with:
+        args: zip pdf.zip day00.pdf day01.pdf day02.pdf day03.pdf day04.pdf
+
+      - name: Upload PDF documents to Assets
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./pdf.zip
+        asset_name: pdf.zip
+        asset_content_type: application/zip
+
+      # - name: Upload PDF documents to S3 bucket
+      #   id: 
+      #   uses: 
+      #   env:
+      #     AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     DEST_DIR: 
+      #     SOURCE_DIR: 
+      #   with:
+      #     args: 
