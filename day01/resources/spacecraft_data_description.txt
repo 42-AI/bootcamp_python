@@ -1,7 +1,0 @@
-#Age: Age of the spacecraft.
-
-#Thrust_power: Power of engines in 10 km/s.
-
-#Terameters: Distance that the spacecraft has traveled in terameters.
-
-#Sell_price: This is the prices at which the customer bought the spacecraft (in kiloeuros).
