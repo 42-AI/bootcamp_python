@@ -31,9 +31,9 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - Map, filter, reduce.
+### Exercise 00 - Map, filter, reduce
 ### Exercise 01 - args and kwargs?
-### Exercise 02 - The logger.
+### Exercise 02 - The logger
 ### Exercise 03 - Json issues
 ### Exercise 04 - MiniPack
 ### Exercise 05 - TinyStatistician
