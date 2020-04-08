@@ -32,10 +32,10 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - The book.
-### Exercise 01 - Family tree.
-### Exercise 02 - The vector.
-### Exercise 03 - The matrix.
+### Exercise 00 - The Book
+### Exercise 01 - Family tree
+### Exercise 02 - The Vector
+### Exercise 03 - The Matrix
 ### Exercise 04 - Generator!
-### Exercise 05 - Working with lists.
-### Exercise 06 - Bank account.
+### Exercise 05 - Working with lists
+### Exercise 06 - Bank account
