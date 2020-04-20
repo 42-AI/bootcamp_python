@@ -43,10 +43,6 @@ No prior Python programming or Machine Learning experience is required! Your mis
 **Time to use a Python library that will allow you to manipulate dataframes.**
 > Pandas! And Bamboos! :panda_face:
 
-### Rush - Scraping
-**Scraper**
-> curl - class Sessions, regex: re lib
-
 ## Acknowledgements
 
 ### Contributors
