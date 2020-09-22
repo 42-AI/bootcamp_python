@@ -63,7 +63,7 @@ No prior Python programming or Machine Learning experience is required! Your mis
 * Marie Dufourq (madufour@student.42.fr)
 * Adrien Vardon (advardon@student.42.fr)
 
-### Thanks to Ilyes and Kévin for the PR
+### Thanks to Ilyes and Kévin for the PR
 
 * Ilyes Bouchlaghem (ibouchla@student.42.fr)
 * Kévin Azoulay-Dessus (kevazoul@student.42lyon.fr)
