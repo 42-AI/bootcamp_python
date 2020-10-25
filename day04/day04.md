@@ -39,7 +39,6 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-
 ### Exercise 00 - FileLoader
 ### Exercise 01 - YoungestFellah
 ### Exercise 02 - ProportionBySport
