@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo_v4_noir.png" width="200" alt="42 AI Logo" />
+  <img src="assets/42ai_logo.png" width="200" alt="42 AI Logo" />
 </p>
 
 <h1 align="center">
