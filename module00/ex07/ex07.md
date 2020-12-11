@@ -1,0 +1,24 @@
+# Exercise 07 - Shorter, faster, pythonest
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex07              |
+|   Files to turn in:     |  filterwords.py    |
+|   Forbidden functions:  |  filter            |
+|   Remarks:              |  n/a               |
+
+Using list comprehensions, you will have to make a program that removes all the words in a string that are shorter than or equal to n letters, and returns the filtered list with no punctuation.  
+The program will accept only two parameters: a string, and an integer n.
+
+**Example:**
+
+```console
+> python filterwords.py "Hello, my friend" 3
+['Hello', 'friend']
+>  python filterwords.py "A robot must protect its own existence as long as such protection does not conflict with the First or Second Law" 6
+['protect', 'existence', 'protection', 'conflict']
+> python filterwords.py Hello World
+ERROR
+> python filterwords.py 300 3
+ERROR
+```

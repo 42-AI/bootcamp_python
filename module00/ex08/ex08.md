@@ -1,0 +1,25 @@
+# Exercise 08 - S.O.S
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex08              |
+|   Files to turn in:     |  sos.py            |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+You will have to make a function which encodes strings into Morse code.  
+The input will accept all alphanumeric characters.
+
+**Example:**
+
+```console
+> python sos.py "SOS"
+... --- ...
+> python sos.py
+> python sos.py "HELLO / WORLD"
+ERROR
+> python sos.py "96 BOULEVARD" "Bessiere"
+----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
+```
+
+@ref: https://morsecode.scphillips.com/morse.html

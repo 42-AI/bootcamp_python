@@ -1,0 +1,95 @@
+# Exercise 06 - A recipe
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex06              |
+|   Files to turn in:     |  recipe.py         |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+It is time to discover Python dictionaries. Dictionaries are collections that contain mappings of unique keys to values.  
+
+***Hints:*** check what is a nested dictionary in Python.
+
+First, you will have to create a cookbook dictionary called `cookbook`.
+
+`cookbook` will store 3 recipes:
+* sandwich
+* cake
+* salad
+
+Each recipe will store 3 values:
+* ingredients: a **list** of ingredients
+* meal: type of meal
+* prep_time: preparation time in minutes
+
+Sandwich's ingredients are *ham*, *bread*, *cheese* and *tomatoes*. It is a *lunch* and it takes *10* minutes of preparation.  
+Cake's ingredients are *flour*, *sugar* and *eggs*. It is a *dessert* and it takes *60* minutes of preparation.  
+Salad's ingredients are *avocado*, *arugula*, *tomatoes* and *spinach*. It is a *lunch* and it takes *15* minutes of preparation.  
+
+1. Get to know dictionaries. In the first place, try to print only the `keys` of the dictionary. Then only the `values`. And to conclude, all the `items`.
+
+2. Write a function to print a recipe from `cookbook`. The function parameter will be: name of the recipe.
+
+3. Write a function to delete a recipe from the dictionary. The function parameter will be: name of the recipe.
+
+4. Write a function to add a new recipe to `cookbook` with its ingredients, its meal type and its preparation time. The function parameters will be: name of recipe, ingredients, meal and prep_time.
+
+5. Write a function to print all recipe names from `cookbook`. Think about formatting the output.
+
+6. Last but not least, make a program using the four functions you just created.
+The program will prompt the user to make a choice between printing the cookbook, printing only one recipe, adding a recipe, deleting a recipe or quitting the cookbook.
+
+It could look like the example below but feel free to organize it the way you want to:
+
+```console
+> python recipe.py
+Please select an option by typing the corresponding number:
+1: Add a recipe
+2: Delete a recipe
+3: Print a recipe
+4: Print the cookbook
+5: Quit
+>> 3
+
+Please enter the recipe's name to get its details:
+>> cake
+
+Recipe for cake:
+Ingredients list: ['flour', 'sugar', 'eggs']
+To be eaten for dessert.
+Takes 60 minutes of cooking.
+```
+
+Your program must continue running until the user exits it (option 5):
+
+```console
+> python recipe.py
+Please select an option by typing the corresponding number:
+1: Add a recipe
+2: Delete a recipe
+3: Print a recipe
+4: Print the cookbook
+5: Quit
+>> 5
+
+Cookbook closed.
+```
+
+The program will also continue running if the user enters a wrong value.
+It will prompt the user again until the value is correct:
+
+```console
+> python recipe.py
+Please select an option by typing the corresponding number:
+1: Add a recipe
+2: Delete a recipe
+3: Print a recipe
+4: Print the cookbook
+5: Quit
+>> test
+
+This option does not exist, please type the corresponding number.
+To exit, enter 5.
+>> 
+```

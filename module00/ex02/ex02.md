@@ -1,0 +1,27 @@
+# Exercise 02 - The Odd, the Even and the Zero
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex02              |
+|   Files to turn in:     |  whois.py          |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+You will have to make a program that checks if a number is odd, even or zero.  
+The program will accept only one parameter, an integer.
+
+**Example:**
+
+```console
+> python whois.py 12
+I'm Even.
+> python whois.py 3
+I'm Odd.
+> python whois.py
+> python whois.py 0
+I'm Zero.
+> python whois.py Hello
+ERROR
+> python whois.py 12 3
+ERROR
+```
