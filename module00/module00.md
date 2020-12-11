@@ -1,16 +1,13 @@
-# Bootcamp Python
+# Module00 - Basic stuff - Eleven Commandments
 
-# Day04 - Pandas
+The goal of the module is to get started with the Python language.
 
-Today you will learn how to use a Python library that will allow you to manipulate dataframes.
+## Notions of the module
 
-## Notions of the day
-
-Pandas! And Bamboos!
+Basic setup, variables, types, functions, ...
 
 ## General rules
 
-* Use the Pandas Library.
 * The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`
 * The norm: during this bootcamp you will follow the [PEP 8 standards](https://www.python.org/dev/peps/pep-0008/). You can install [pycodestyle](https://pypi.org/project/pycodestyle) which is a tool to check your Python code.
 * The function eval is never allowed.
@@ -22,11 +19,7 @@ Pandas! And Bamboos!
 
 ## Helper
 
-For this day you will use the dataset `athlete_events.csv` provided in the `resources` folder.
-
-```
-pip install pandas
-```
+How do you install and link Python in the $PATH? That's the first exercise!
 
 Ensure that you have the right Python version.
 
@@ -39,11 +32,14 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - FileLoader
-### Exercise 01 - YoungestFellah
-### Exercise 02 - ProportionBySport
-### Exercise 03 - HowManyMedals
-### Exercise 04 - SpatioTemporalData
-### Exercise 05 - HowManyMedalsByCountry
-### Exercise 06 - MyPlotLib
-### Exercise 07 - Komparator
+### Exercise 00 - $PATH
+### Exercise 01 - Rev Alpha
+### Exercise 02 - The Odd, the Even and the Zero
+### Exercise 03 - Functional file
+### Exercise 04 - Elementary
+### Exercise 05 - The right format
+### Exercise 06 - A recipe
+### Exercise 07 - Shorter, faster, pythonest
+### Exercise 08 - S.O.S
+### Exercise 09 - Secret number
+### Exercise 10 - Loading bar!
