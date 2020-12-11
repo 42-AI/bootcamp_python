@@ -1,0 +1,83 @@
+# Exercise 04 - Generator!
+
+|                          |                     |
+| ------------------------:| ------------------- |
+|   Turn-in directory:     |  ex04               |
+|   Files to turn in:      |  generator.py       |
+|   Forbidden functions:   |  random.shuffle     |
+|   Authorized functions:  |  random.randint     |
+|   Remarks:               |  n/a                |
+
+Code a function called `generator` that takes a text as input, uses the string `sep` as a splitting parameter, and `yield`s the resulting substrings.
+
+The function can take an optional argument.  
+The options are:
+* `shuffle`: shuffles the list of words.  
+* `unique`: returns a list where each word appears only once.  
+* `ordered`: alphabetically sorts the words.  
+
+```py
+# function prototype
+def generator(text, sep=" ", option=None):
+    '''Option is an optional arg, sep is mandatory'''
+```
+
+You can only call one option at a time.
+
+**Example:**
+
+```py
+>> text = "Le Lorem Ipsum est simplement du faux texte."
+>> for word in generator(text, sep=" "):
+...     print(word)
+...
+Le
+Lorem
+Ipsum
+est
+simplement
+du
+faux
+texte.
+>> for word in generator(text, sep=" ", option="shuffle"):
+...     print(word)
+...
+simplement
+texte.
+est
+faux
+Le
+Lorem
+Ipsum
+du
+>> for word in generator(text, sep=" ", option="ordered"):
+...     print(word)
+...
+Ipsum
+Le
+Lorem
+du
+est
+faux
+simplement
+texte.
+```
+
+```py
+>> text = "Lorem Ipsum Lorem Ipsum"
+>> for word in generator(text, sep=" ", option="unique"):
+...     print(word)
+...
+Lorem
+Ipsum
+```
+
+The function should return "ERROR" one time if the `text` argument is not a string, or if the `option` argument is not valid.
+
+```py
+>> text = 1.0
+>> for word in generator(text, sep="."):
+...     print(word)
+...
+ERROR
+```

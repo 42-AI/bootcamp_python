@@ -1,0 +1,61 @@
+# Exercise 01 - Family tree
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex01              |
+|   Files to turn in:     |  game.py           |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+You will have to make a class and its children.
+
+Create a `GotCharacter` class and initialize it with the following attributes:
+
+* `first_name`
+* `is_alive` (by default is `True`)
+
+Pick up a GoT House (e.g., Stark, Lannister...). Create a child class that inherits from `GotCharacter` and define the following attributes:
+
+* `family_name` (by default should be the same as the Class)
+* `house_words` (e.g., the House words for the Stark House is: "Winter is Coming")
+
+**Example:**
+
+```py
+class Stark(GotCharacter):
+    def __init__(self, first_name=None, is_alive=True):
+        super().__init__(first_name=first_name, is_alive=is_alive)
+        self.family_name = "Stark"
+        self.house_words = "Winter is Coming"
+```
+
+Add two methods to your child class:
+
+* `print_house_words`: prints to screen the House words
+* `die`: changes the value of `is_alive` to `False`
+
+
+Running commands in the Python console, an example of what you should get:
+
+```console
+> python
+>>> from game import GotCharacter, Stark
+>>> arya = Stark("Arya")
+>>> print(arya.__dict__)
+{'first_name': 'Arya', 'is_alive': True, 'family_name': 'Stark', 'house_words': 'Winter is Coming'}
+>>> arya.print_house_words()
+Winter is Coming
+>>> print(arya.is_alive)
+True
+>>> arya.die()
+>>> print(arya.is_alive)
+False
+```
+
+You can add any attribute or method you need to your class and format the docstring the way you want to.  
+Feel free to create other children of `GotCharacter`.
+
+```console
+>>> print(arya.__doc__)
+A class representing the Stark family. Or when bad things happen to good people.
+```
