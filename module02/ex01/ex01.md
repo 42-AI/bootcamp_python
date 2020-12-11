@@ -1,0 +1,65 @@
+# Exercise 01 - args and kwargs?
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex01              |
+|   Files to turn in:     |  main.py           |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+Implement the `what_are_the_vars` function that returns an object with the right attributes.  
+You will have to modify the 'instance' `ObjectC`, NOT the class.  
+Have a look to `getattr`, `setattr`.  
+
+```py
+def what_are_the_vars(...):
+    """Your code"""
+    pass
+
+class ObjectC(object):
+    def __init__(self):
+        pass
+
+def doom_printer(obj):
+    if obj is None:
+        print("ERROR")
+        print("end")
+        return
+    for attr in dir(obj):
+        if attr[0] != '_':
+            value = getattr(obj, attr)
+            print("{}: {}".format(attr, value))
+    print("end")
+
+if __name__ == "__main__":
+    obj = what_are_the_vars(7)
+    doom_printer(obj)
+    obj = what_are_the_vars("ft_lol", "Hi")
+    doom_printer(obj)
+    obj = what_are_the_vars()
+    doom_printer(obj)
+    obj = what_are_the_vars(12, "Yes", [0, 0, 0], a=10, hello="world")
+    doom_printer(obj)
+    obj = what_are_the_vars(42, a=10, var_0="world")
+    doom_printer(obj)
+```
+
+**Example:**
+
+```bash
+>> python main.py
+var_0: 7
+end
+var_0: ft_lol
+var_1: Hi
+end
+end
+a: 10
+hello: world
+var_0: 12
+var_1: Yes
+var_2: [0, 0, 0]
+end
+ERROR
+end
+```

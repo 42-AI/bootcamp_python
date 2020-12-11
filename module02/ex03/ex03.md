@@ -1,0 +1,47 @@
+# Exercise 03 - Json issues
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex03              |
+|   Files to turn in:     |  csvreader.py      |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  Context Manager   |
+
+The context manager will help you handle this task.
+
+Implement a `CsvReader` class that opens, reads, and parses a CSV file.  
+In order to create a context manager, your class will require a few built-in methods: `__init__`, `__enter__` and `__exit__`.  
+It's mandatory to close the file once the process has completed.
+
+```py
+class CsvReader():
+    def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
+        pass
+```
+
+Short for Comma-Separated Values, a CSV file is a delimited text file which uses a comma to separate values. Therefore, the field separator (or delimiter) is usually a comma `,`, but we aim to be able to change this parameter.  
+You can make the class skip lines at the top and the bottom of the file, and also keep the first line as a header if `header` is `True`.
+
+The file shouldn't be corrupted (either a line with too many values or a line with too few values), otherwise return `None`.
+You have to handle the case `file not found`.
+
+You will have to also implement two methods: `getdata()` and `getheader()`
+
+```py
+from csvreader import CsvReader
+
+if __name__ == "__main__":
+    with CsvReader('good.csv') as file:
+        data = file.getdata()
+        header = file.getheader()
+```
+
+```py
+from csvreader import CsvReader
+
+if __name__ == "__main__":
+    with CsvReader('bad.csv') as file:
+        if file == None:
+            print("File is corrupted")
+```
+
