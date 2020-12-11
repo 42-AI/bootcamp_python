@@ -1,0 +1,25 @@
+# Exercise 04 - MiniPack
+
+|                         |                    |
+| -----------------------:| ------------------ |
+|   Turn-in directory:    |  ex04              |
+|   Files to turn in:     |  build.sh, \*.py   |
+|   Forbidden functions:  |  None              |
+|   Remarks:              |  n/a               |
+
+You have to create a package called `ai42`.
+
+It will have 2 functionalities: 
+* the progress bar (module00 ex10), that can be imported via `import ai42.progressbar`
+* the logger (module02 ex02) `import ai42.logging.log`.
+
+You may have to rename the functions and change the architecture of the package.
+
+The package will be installed via pip using the following command:  
+```console
+bash build.sh && pip install ./dist/ai42-1.0.0.tar.gz
+```
+
+The build.sh script has to create the `ai42-1.0.0.tar.gz` file.  
+
+You can ensure whether the package was properly installed by running the command `pip list` that displays the list of installed packages.
