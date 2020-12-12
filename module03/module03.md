@@ -1,15 +1,14 @@
-# Bootcamp Python
+# Module03 - NumPy
 
-# Day00 - Basic stuff - Eleven Commandments
+Today you will learn how to use the Python library that will allow you to manipulate multidimensional arrays (vectors, matrices, tensors...) and perform complex mathematical operations on them.
 
-The goal of the day is to get started with the Python language.
+## Notions of the module
 
-## Notions of the day
-
-Basic setup, variables, types, functions, ...
+NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## General rules
 
+* Use the NumPy Library: use NumPy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
 * The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`
 * The norm: during this bootcamp you will follow the [PEP 8 standards](https://www.python.org/dev/peps/pep-0008/). You can install [pycodestyle](https://pypi.org/project/pycodestyle) which is a tool to check your Python code.
 * The function eval is never allowed.
@@ -21,7 +20,7 @@ Basic setup, variables, types, functions, ...
 
 ## Helper
 
-How do you install and link Python in the $PATH? That's the first exercise!
+For this module you will use the image provided in the `resources` folder
 
 Ensure that you have the right Python version.
 
@@ -34,14 +33,8 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - $PATH
-### Exercise 01 - Rev Alpha
-### Exercise 02 - The Odd, the Even and the Zero
-### Exercise 03 - Functional file
-### Exercise 04 - Elementary
-### Exercise 05 - The right format
-### Exercise 06 - A recipe
-### Exercise 07 - Shorter, faster, pythonest
-### Exercise 08 - S.O.S
-### Exercise 09 - Secret number
-### Exercise 10 - Loading bar!
+### Exercise 00 - NumPyCreator
+### Exercise 01 - ImageProcessor
+### Exercise 02 - ScrapBooker
+### Exercise 03 - ColorFilter
+### Exercise 04 - K-means Clustering

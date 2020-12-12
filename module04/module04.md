@@ -1,16 +1,14 @@
-# Bootcamp Python
+# Module04 - Pandas
 
-# Day03 - NumPy
+Today you will learn how to use a Python library that will allow you to manipulate dataframes.
 
-Today you will learn how to use the Python library that will allow you to manipulate multidimensional arrays (vectors, matrices, tensors...) and perform complex mathematical operations on them.
+## Notions of the module
 
-## Notions of the day
-
-NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
+Pandas! And Bamboos!
 
 ## General rules
 
-* Use the NumPy Library: use NumPy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
+* Use the Pandas Library.
 * The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`
 * The norm: during this bootcamp you will follow the [PEP 8 standards](https://www.python.org/dev/peps/pep-0008/). You can install [pycodestyle](https://pypi.org/project/pycodestyle) which is a tool to check your Python code.
 * The function eval is never allowed.
@@ -22,7 +20,11 @@ NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## Helper
 
-For this day you will use the image provided in the `resources` folder
+For this module you will use the dataset `athlete_events.csv` provided in the `resources` folder.
+
+```
+pip install pandas
+```
 
 Ensure that you have the right Python version.
 
@@ -35,8 +37,11 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - NumPyCreator
-### Exercise 01 - ImageProcessor
-### Exercise 02 - ScrapBooker
-### Exercise 03 - ColorFilter
-### Exercise 04 - K-means Clustering
+### Exercise 00 - FileLoader
+### Exercise 01 - YoungestFellah
+### Exercise 02 - ProportionBySport
+### Exercise 03 - HowManyMedals
+### Exercise 04 - SpatioTemporalData
+### Exercise 05 - HowManyMedalsByCountry
+### Exercise 06 - MyPlotLib
+### Exercise 07 - Komparator

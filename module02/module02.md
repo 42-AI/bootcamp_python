@@ -1,12 +1,10 @@
-# Bootcamp Python
+# Module02 - Basics 3
 
-# Day01 - Basics 2
+Let's continue practicing with more advanced Python programming exercises.
 
-The goal of the day is to get familiar with object-oriented programming and much more.
+## Notions of the module
 
-## Notions of the day
-
-Objects, cast, class, inheritance, built-in functions, magic methods, generator, constructor, iterator, ...
+Decorators, multiprocessing, lambda, build package, ...
 
 ## General rules
 
@@ -32,10 +30,9 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - The Book
-### Exercise 01 - Family tree
-### Exercise 02 - The Vector
-### Exercise 03 - The Matrix
-### Exercise 04 - Generator!
-### Exercise 05 - Working with lists
-### Exercise 06 - Bank account
+### Exercise 00 - Map, filter, reduce
+### Exercise 01 - args and kwargs?
+### Exercise 02 - The logger
+### Exercise 03 - Json issues
+### Exercise 04 - MiniPack
+### Exercise 05 - TinyStatistician
