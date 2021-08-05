@@ -4,7 +4,7 @@ Today you will learn how to use a Python library that will allow you to manipula
 
 ## Notions of the module
 
-Pandas! And Bamboos!
+Pandas! And Bamboos! (DataFrames, Series, slicing, mask ...)
 
 ## General rules
 
@@ -22,6 +22,7 @@ Pandas! And Bamboos!
 
 For this module you will use the dataset `athlete_events.csv` provided in the `resources` folder.
 
+You will need to install pandas library:
 ```
 pip install pandas
 ```
