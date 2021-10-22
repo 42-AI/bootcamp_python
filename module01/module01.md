@@ -33,7 +33,6 @@ Python 3.7.*
 ### Exercise 00 - The Book
 ### Exercise 01 - Family tree
 ### Exercise 02 - The Vector
-### Exercise 03 - The Matrix
-### Exercise 04 - Generator!
-### Exercise 05 - Working with lists
-### Exercise 06 - Bank account
+### Exercise 03 - Generator!
+### Exercise 04 - Working with lists
+### Exercise 05 - Bank account
