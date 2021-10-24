@@ -1,14 +1,14 @@
-# Module03 - NumPy
+# Module03 - Numpy
 
 Today you will learn how to use the Python library that will allow you to manipulate multidimensional arrays (vectors, matrices, tensors...) and perform complex mathematical operations on them.
 
 ## Notions of the module
 
-NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
+Numpy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ## General rules
 
-* Use the NumPy Library: use NumPy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
+* Use the Numpy Library: use Numpy's built-in functions as much as possible. Here you will be given no credit for reinventing the wheel.
 * The version of Python recommended to use is 3.7, you can check the version of Python with the following command: `python -V`
 * The norm: during this bootcamp you will follow the [PEP 8 standards](https://www.python.org/dev/peps/pep-0008/). You can install [pycodestyle](https://pypi.org/project/pycodestyle) which is a tool to check your Python code.
 * The function eval is never allowed.
@@ -33,7 +33,7 @@ $> which pip
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercise 00 - NumPyCreator
+### Exercise 00 - NumpyCreator
 ### Exercise 01 - ImageProcessor
 ### Exercise 02 - ScrapBooker
 ### Exercise 03 - ColorFilter
