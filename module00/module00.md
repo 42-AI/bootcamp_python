@@ -43,3 +43,5 @@ Python 3.7.*
 ### Exercise 08 - S.O.S
 ### Exercise 09 - Secret number
 ### Exercise 10 - Loading bar!
+
+\breakpage

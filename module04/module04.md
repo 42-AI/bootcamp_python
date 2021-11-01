@@ -46,3 +46,5 @@ Python 3.7.*
 ### Exercise 05 - HowManyMedalsByCountry
 ### Exercise 06 - MyPlotLib
 ### Exercise 07 - Komparator
+
+\breakpage
