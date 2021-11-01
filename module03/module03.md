@@ -38,3 +38,5 @@ $> which pip
 ### Exercise 02 - ScrapBooker
 ### Exercise 03 - ColorFilter
 ### Exercise 04 - K-means Clustering
+
+\breakpage
