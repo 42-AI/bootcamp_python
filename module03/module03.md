@@ -39,4 +39,4 @@ $> which pip
 ### Exercise 03 - ColorFilter
 ### Exercise 04 - K-means Clustering
 
-\breakpage
+

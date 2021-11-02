@@ -47,4 +47,4 @@ Python 3.7.*
 ### Exercise 06 - MyPlotLib
 ### Exercise 07 - Komparator
 
-\breakpage
+
