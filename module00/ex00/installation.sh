@@ -16,7 +16,6 @@ function which_shell {
     fi
 }
 
-
 function set_conda {
     HOME=$(echo ~)
     INSTALL_PATH="/goinfre"
@@ -33,7 +32,6 @@ function set_conda {
 	    echo "nothing to be done :)"
         return
     fi
-    echo "hi"
     if [ ! -d $MINICONDA_PATH ]; then
         if [ ! -f $DL_LOCATION$SCRIPT ]; then
             cd $DL_LOCATION
