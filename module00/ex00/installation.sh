@@ -9,13 +9,13 @@ function which_dl {
 }
 
 function which_shell {
-    SHELL=$(ps -o comm= -p \$\$)
-    if ps -o comm= -p \$\$ | grep -iqF zsh; then
+    if echo $SHELL | grep -iqF zsh; then
         echo "zsh"
     else
         echo "bash"
     fi
 }
+
 
 function set_conda {
     HOME=$(echo ~)
@@ -24,28 +24,32 @@ function set_conda {
     PYTHON_PATH=$(which python)
     REQUIREMENTS="jupyter numpy pandas pycodestyle"
     SCRIPT=$(which_dl)
-    SHELL=$(which_shell)
+    MY_SHELL=$(which_shell)
     DL_LINK="https://repo.anaconda.com/miniconda/"$SCRIPT
     DL_LOCATION="/tmp/"
 
-    if echo $PYTHON_PATH | grep -q $INSTALL_PATH; then
-	    echo "good python version :)"
-        exit 0
+
+    if $MINICONDA_PATH/conda info --envs | grep -iqF 42AI; then
+	    echo "nothing to be done :)"
+        return
     fi
+    echo "hi"
     if [ ! -d $MINICONDA_PATH ]; then
         if [ ! -f $DL_LOCATION$SCRIPT ]; then
             cd $DL_LOCATION
 		    curl -LO $DL_LINK
             cd -
         fi
-	    sh $DL_LOCATION$SCRIPT -b -p $INSTALL_PATH"/miniconda3"
+	    sh $DL_LOCATION$SCRIPT -b -p $INSTALL_PATH"/miniconda3" || true
 	fi
-    $MINICONDA_PATH/conda init $SHELL
+    $MINICONDA_PATH/conda init $MY_SHELL
     $MINICONDA_PATH/conda config --set auto_activate_base false
-    if [ $SHELL == "zsh" ]; then
+    if [ $MY_SHELL == "zsh" ]; then
         source ~/.zshrc
     else
         source ~/.bash_profile
     fi
     conda create --name 42AI python=3.7 jupyter numpy pandas pycodestyle
 }
+
+set_conda
