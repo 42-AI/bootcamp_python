@@ -69,7 +69,9 @@ function set_conda {
     fi
 
     printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
+    $CONDA update -n base -c defaults conda -y
     $CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
 }
 
 set_conda
+printf "\n\nIf the conda does not work, reset your terminal\n\n"
