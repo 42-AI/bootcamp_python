@@ -61,17 +61,15 @@ function set_conda {
     $CONDA init $MY_SHELL
     $CONDA config --set auto_activate_base false
 
-    printf "\e[33mRelaunching shell:\e[0m\n"
-    if [ $MY_SHELL == "zsh" ]; then
-        source ~/.zshrc
-    else
-        source ~/.bash_profile
-    fi
-
     printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
     $CONDA update -n base -c defaults conda -y
     $CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
+    printf "\e[33mLaunch the following command or restart your shell:\e[0m\n"
+    if [ $MY_SHELL == "zsh" ]; then
+        printf " source ~/.zshrc\n"
+    else
+        printf " source ~/.bash_profile\n"
+    fi
 }
 
 set_conda
-printf "\n\nIf the conda does not work, reset your terminal\n\n"
