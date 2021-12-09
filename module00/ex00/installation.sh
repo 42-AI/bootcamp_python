@@ -20,14 +20,14 @@ function which_shell {
 
 function when_conda_exist {
     # check and install 42AI environement
-    printf "Checking 42AI environment: "
-    if conda info --envs | grep -iqF 42AI; then
+    printf "Checking 42AI-$USER environment: "
+    if conda info --envs | grep -iqF 42AI-$USER; then
         printf "\e[33mDONE\e[0m\n"
     else
         printf "\e[31mKO\e[0m\n"
         printf "\e[33mCreating 42AI environnment:\e[0m\n"
         conda update -n base -c defaults conda -y
-        conda create --name 42AI python=3.7 jupyter numpy pandas pycodestyle -y
+        conda create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
     fi
 }
 
@@ -68,8 +68,8 @@ function set_conda {
         source ~/.bash_profile
     fi
 
-    printf "\e[33mCreating 42AI environnment:\e[0m\n"
-    $CONDA create --name 42AI python=3.7 jupyter numpy pandas pycodestyle -y
+    printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
+    $CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
 }
 
 set_conda
