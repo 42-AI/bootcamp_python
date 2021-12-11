@@ -66,9 +66,9 @@ function set_conda {
     $CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
     printf "\e[33mLaunch the following command or restart your shell:\e[0m\n"
     if [ $MY_SHELL == "zsh" ]; then
-        printf " source ~/.zshrc\n"
+        printf "\tsource ~/.zshrc\n"
     else
-        printf " source ~/.bash_profile\n"
+        printf "\tsource ~/.bash_profile\n"
     fi
 }
 
