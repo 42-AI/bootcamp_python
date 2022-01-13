@@ -1,0 +1,88 @@
+type:   map
+mapping:
+  "name":
+    type:	str
+    required:	yes
+  "is_primary":
+    type:	bool
+    required:	yes
+  "lg":
+    type:	str
+    required:	yes
+    enum:	[fr, en, ro]
+  "comment":
+    type:	str
+    required:	yes
+  "introduction_md":
+    type:	str
+    required:	yes
+  "disclaimer_md":
+    type:	str
+    required:	yes
+  "guidelines_md":
+    type:	str
+    required:	yes
+    assert:	val != ''
+  "correction_number":
+    type:	int
+    required:	yes
+  "duration":
+    type:	int
+    required:	yes
+  "sections":
+    type:	seq
+    required:	yes
+    sequence:
+      - type:	map
+        required:	yes
+        mapping:
+         "name":
+            type:	str
+            required:	yes
+            assert:     val != ''
+         "position":
+            type:   int
+            required: yes
+         "description":
+            type:	str
+            required:	yes
+         "questions":
+            type:	seq
+            required:	yes
+            sequence:
+              - type:	map
+                required:	yes
+                mapping:
+                  "name":
+                     type:	str
+                     required:	yes
+                     assert:	val != ''
+                  "position":
+                     type:	int
+                  "guidelines":
+                     type:	str
+                     required:	yes
+                     assert:	val != ''
+                  "rating":
+                     type:	str
+                     required:	yes
+                     enum:	[bool, multi]
+                  "kind":
+                     type:	str
+                     required:	yes
+                     enum:	[standard, bonus]
+                  "questions_skills":
+                     type:	seq
+                     required:	yes
+                     sequence:
+                       - type:	map
+                         required:	yes
+                         mapping:
+                          "percentage":
+                             type:	int
+                             required:	yes
+                          "name":
+                             type:	str
+                             required:	yes
+                             enum:	[Unix, Web, Imperative programming, Rigor, Graphics, Functional programming, Parallel computing, Network & system administration, Security, DB & Data, Organization, Adaptation & creativity, Company experience, Object-oriented programming, Group & interpersonal, Technology integration, Algorithms & AI, Ruby, Shell
+                             ]

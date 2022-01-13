@@ -1,0 +1,69 @@
+
+comment: ''
+introduction_md: |
+  Respeta las siguientes directrices:
+
+  - Sé educado, cordial, respetuoso y constructivo a lo largo del proceso
+    de evaluación. El bienestar de la comunidad depende de ello.
+
+  - Identifica con la persona o grupo evaluado los posibles fallos del trabajo.
+    Tómate el tiempo de discutir y debatir los problemas que podáis haber
+    identificado.
+
+  - Debes considerar las posibles diferencias al entender los requisitos del
+    proyecto y el alcance de sus funcionalidades. Mantén siempre una mente
+    abierta y evalúa de la forma más honesta posible. La pedagogía es válida
+    si y solo si la evaluación entre pares se toma seriamente.
+
+
+disclaimer_md: ''
+
+guidelines_md: |
+  - Evalúa solo el trabajo del repositorio Git del estudiante o grupo evaluado.
+
+  - Comprueba dos veces que el repositorio Git pertenece al estudiante o grupo
+    evaluado. Asegúrate de que el trabajo entregado pertenece al proyecto
+    evaluado y que el comando "git clone" se ejecuta en un directorio vacío.
+
+  - Comprueba cuidadosamente que no se han utilizado alias maliciosos para
+    engañarte y hacerte evaluar contenido distinto al entregado en el
+    repositorio oficial.
+
+  - Para evitar sorpresas, comprueba cuidadosamente que tanto el estudiante
+    evaluado como el evaluador han revisado los scripts utilizados para
+    facilitar la evaluación.
+
+  - Si el evaluador no ha completado este proyecto en particular, es obligatorio
+    que lea el subject al completo antes de empezar la evaluación.
+
+  - Utiliza las flags disponibles en esta evaluación para marcar un repositorio
+    vacío, un programa disfuncional, un fallo de Norma, trampas, etc. En estos
+    casos, la evaluación termina y la nota final es 0 (o -42 en caso de trampas).
+    Sin embargo, y a excepción de si se detectan trampas, se recomienda
+    encarecidamente continuar discutiendo el trabajo (aunque no esté terminado)
+    para identificar y evitar repetir problemas similares en el futuro.
+  
+  - Recuerda que, a lo largo de la defensa, no se tolerarán ni segfault, ni otro
+    tipo de terminación de programa prematura, descontrolada o inesperada. En
+    este caso la nota final es 0. Utiliza la flag apropiada.
+    Nunca deberás editar ningún archivo salvo los de configuración, si existen.
+    Si quieres editar un archivo, tómate el tiempo de explicar explícitamente al
+    estudiante evaluado las razones del por qué y asegúrate de que ambos estáis
+    de acuerdo con ello.
+
+  - Debes también verificar la ausencia de leaks de memoria. Cualquier memoria
+    alocada en el heap debe liberarse correctamente antes de finalizar la
+    ejecución.
+    Tienes permitido el uso de distintas herramientas disponibles en el
+    ordenador, como leaks, valgrind, o e_fence. En caso de leaks de memoria,
+    utiliza la flag correspondiente.
+
+- name: Bonus
+  position: 2
+
+  description: |
+    Se mirará la parte extra si y solo si la parte obligatoria es PERFECTA.
+    Por PERFECTA queremos decir que la parte obligatoria debe estar completa
+    de principio a fin, y tu gestión de errores debe no tener fallos, incluso
+    en casos retorcidos o de mal uso. Si la parte obligatoria no ha conseguido
+    todos los puntos durante la defensa, los bonus serán completamente ignorados.
