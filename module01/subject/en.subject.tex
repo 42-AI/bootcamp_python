@@ -1,0 +1,913 @@
+% vim: set ts=4 sw=4 tw=80 noexpandtab:
+
+\documentclass{42-en}
+\usepackage{amsmath}
+
+%******************************************************************************%
+%                                                                              %
+%                                   Prologue                                   %
+%                                                                              %
+%******************************************************************************%
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+]{doclicense}
+
+%****************************************************************%
+%                  Re/definition of commands                     %
+%****************************************************************%
+
+\newcommand{\ailogo}[1]{\def \@ailogo {#1}}\ailogo{assets/42ai_logo.pdf}
+
+%%  Redefine \maketitle
+\makeatletter
+\def \maketitle {
+  \begin{titlepage}
+    \begin{center}
+	%\begin{figure}[t]
+	  %\includegraphics[height=8cm]{\@ailogo}
+	  \includegraphics[height=8cm]{assets/42ai_logo.pdf}
+	%\end{figure}
+      \vskip 5em
+      {\huge \@title}
+      \vskip 2em
+      {\LARGE \@subtitle}
+      \vskip 4em
+    \end{center}
+    %\begin{center}
+	  %\@author
+    %\end{center}
+	%\vskip 5em
+  \vfill
+  \begin{center}
+    \emph{\summarytitle : \@summary}
+  \end{center}
+  \vspace{2cm}
+  %\vskip 5em
+  %\doclicenseThis
+  \end{titlepage}
+}
+\makeatother
+
+\makeatletter
+\def \makeheaderfilesforbidden
+{
+  \noindent
+  \begin{tabularx}{\textwidth}{|X X  X X|}
+    \hline
+  \multicolumn{1}{|>{\raggedright}m{1cm}|}
+  {\vskip 2mm \includegraphics[height=1cm]{assets/42ai_logo.pdf}} &
+  \multicolumn{2}{>{\centering}m{12cm}}{\small Exercise : \@exnumber } &
+  \multicolumn{1}{ >{\raggedleft}p{1.5cm}|}
+%%              {\scriptsize points : \@exscore} \\ \hline
+              {} \\ \hline
+
+  \multicolumn{4}{|>{\centering}m{15cm}|}
+              {\small \@extitle} \\ \hline
+
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Turn-in directory : \ttfamily
+                $ex\@exnumber/$ }
+              \\ \hline
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Files to turn in : \ttfamily \@exfiles }
+              \\ \hline
+
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Forbidden functions : \ttfamily \@exforbidden }
+              \\ \hline
+
+%%  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+%%              {\small Remarks : \ttfamily \@exnotes }
+%%              \\ \hline
+\end{tabularx}
+%% \exnotes
+\exrules
+\exmake
+\exauthorize{None}
+\exforbidden{None}
+\extitle{}
+\exnumber{}
+}
+\makeatother
+
+%%  Syntactic highlights
+\makeatletter
+\newenvironment{pythoncode}{%
+  \VerbatimEnvironment
+  \usemintedstyle{emacs}
+  \minted@resetoptions
+  \setkeys{minted@opt}{bgcolor=black,formatcom=\color{lightgrey},fontsize=\scriptsize}
+  \begin{figure}[ht!]
+    \centering
+    \begin{minipage}{16cm}
+      \begin{VerbatimOut}{\jobname.pyg}}
+{%[
+      \end{VerbatimOut}
+      \minted@pygmentize{c}
+      \DeleteFile{\jobname.pyg}
+    \end{minipage}
+\end{figure}}
+\makeatother
+
+\usemintedstyle{native}
+
+\begin{document}
+
+% =============================================================================%
+%                     =====================================                    %
+
+\title{Python \& ML - Module 01}
+\subtitle{Basic 2}
+\author{
+  Maxime Choulika (cmaxime), Pierre Peigné (ppeigne), Matthieu David (mdavid)
+}
+
+
+\summary
+{
+	The goal of the module is to get familiar with object-oriented programming
+	and much more.
+}
+
+\maketitle
+\input{en.py_proj.tex}
+\newpage
+\tableofcontents
+\startexercices
+
+%                     =====================================                    %
+% =============================================================================%
+
+
+%******************************************************************************%
+%                                                                              %
+%                                   Exercises                                  %
+%                                                                              %
+%******************************************************************************%
+
+% ============================================== %
+% ===========================(start ex 00)       %
+\chapter{Exercise 00}
+\extitle{The Book}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{book.py, recipe.py, test.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+
+% ================================== %
+\section*{Objective}
+% ---------------------------------- %
+The goal of the exercise is to get you familiar with the notions of
+classes and the manipulation of the objects related to those classes.
+
+% ================================== %
+\section*{Instructions}
+% ---------------------------------- %
+You will have to make a class \texttt{Book} and a class \texttt{Recipe}.
+The classes \texttt{Book} and \texttt{Recipe} will be written in \texttt{book.py} and \texttt{recipe.py} respectively.
+
+
+Let's describe the \texttt{Recipe} class. It has some attributes:
+\begin{itemize}
+	\item \texttt{name} (str),
+	\item \texttt{cooking\_lvl} (int): range 1 to 5,
+	\item \texttt{cooking\_time} (int): in minutes (no negative numbers),
+	\item \texttt{ingredients} (list): list of all ingredients each represented by a string,
+	\item \texttt{description} (str): description of the recipe,
+	\item \texttt{recipe\_type} (str): can be "starter", "lunch" or "dessert".
+\end{itemize}
+
+
+You have to initialize the object \texttt{Recipe} and check all its values, only the description can be empty.  
+In case of input errors, you should print what they are and exit properly.
+
+
+You will have to implement the built-in method \texttt{\_\_str\_\_}.  
+This is the method that is called when the following code is executed:
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+tourte = Recipe(...)
+to_print = str(tourte)
+print(to_print)
+\end{minted}
+
+It is implemented this way:
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+def __str__(self):
+    """Return the string to print with the recipe info"""
+    txt = ""
+    """Your code goes here"""
+    return txt
+\end{minted}
+
+The \texttt{Book} class also has some attributes:
+\begin{itemize}
+	\item \texttt{name} (str),
+	\item \texttt{last\_update} \href{https://docs.python.org/3/library/datetime.html}{(datetime)},
+	\item \texttt{creation\_date} \href{https://docs.python.org/3/library/datetime.html}{(datetime)},
+	\item \texttt{recipes\_list} (dict): a dictionnary with 3 keys: "starter", "lunch", "dessert".
+\end{itemize}
+
+You will have to implement some methods in \texttt{Book}:
+
+\begin{minted}[bgcolor=darcula-back	,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+def get_recipe_by_name(self, name):
+    """Prints a recipe with the name \texttt{name} and returns the instance"""
+    pass
+
+def get_recipes_by_types(self, recipe_type):
+    """Get all recipe names for a given recipe_type """
+    pass
+
+def add_recipe(self, recipe):
+    """Add a recipe to the book and update last_update"""
+    pass
+\end{minted}
+
+You will have to handle the error if the argument passed in \texttt{add\_recipe} is not a \texttt{Recipe}.
+
+Finally, you will provide a \texttt{test.py} file to test your classes and prove that they are working well.
+Do not copy the classes into your test file, import them.
+
+% ===========================(fin ex 00)         %
+% ============================================== %
+\newpage
+
+% ============================================== %
+% ===========================(start ex 01)       %
+\chapter{Exercise 01}
+\extitle{Family tree}
+\turnindir{ex01}
+\exnumber{01}
+\exfiles{game.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of the exercise is to tackle the notion inheritance of class.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Create a \texttt{GotCharacter} class and initialize it with the following attributes:
+\begin{itemize}
+  \item \texttt{first\_name},
+  \item  \texttt{is\_alive} (by default is \texttt{True}).
+\end{itemize}
+
+
+Pick up a GoT House (e.g., Stark, Lannister...). Create a child class that inherits from \texttt{GotCharacter} and define the following attributes:
+\begin{itemize}
+  \item \texttt{family\_name} (by default should be the same as the Class)
+  \item \texttt{house\_words} (e.g., the House words for the Stark House is: "Winter is Coming")
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  class Stark(GotCharacter):
+    def __init__(self, first_name=None, is_alive=True):
+        super().__init__(first_name=first_name, is_alive=is_alive)
+        self.family_name = "Stark"
+        self.house_words = "Winter is Coming"
+\end{minted}
+
+Add two methods to your child class:
+\begin{itemize}
+  \item \texttt{print\_house\_words}: prints to screen the House words,
+  \item \texttt{die}: changes the value of \texttt{is\_alive} to \texttt{False}.
+\end{itemize}
+
+
+Running commands in the Python console, an example of what you should get:
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+	$> python
+  >>> from game import GotCharacter, Stark
+  >>> arya = Stark("Arya")
+  >>> print(arya.__dict__)
+  {'first_name': 'Arya', 'is_alive': True, 'family_name': 'Stark', 'house_words': 'Winter is Coming'}
+  >>> arya.print_house_words()
+  Winter is Coming
+  >>> print(arya.is_alive)
+  True
+  >>> arya.die()
+  >>> print(arya.is_alive)
+  False
+\end{minted}
+
+You can add any attribute or method you need to your class and format the docstring the way you want to.  
+Feel free to create other children of \texttt{GotCharacter}.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+	$> python
+  >>> from game import GotCharacter, Stark
+  >>> arya = Stark("Arya")
+  >>> print(arya.__doc__)
+  A class representing the Stark family. Or when bad things happen to good people.
+\end{minted}
+
+
+% ===========================(fin ex 01)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 02)       %
+\chapter{Exercise 02}
+\extitle{The Vector}
+\turnindir{ex02}
+\exnumber{02}
+\exfiles{vector.py, test.py}
+\exforbidden{Numpy library}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of the exercise is to get you used with built-in methods, more
+particularly with those allowing to perform operations.
+Student is expected to code built-in methods for vector-vector and
+vector-scalar operations as rigorously as possible.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+In this exercise, you have to create a \texttt{Vector} class. The goal is to
+create vectors and be able to perform mathematical operations with them.
+\begin{itemize}
+  \item Column vectors are represented as list of lists of single float (\texttt{[[1.], [2.], [3.]]}),
+  \item Row vectors are represented as a list of a list of several floats (\texttt{[[1., 2., 3.]]}).
+\end{itemize}
+
+\warn{A vector is either a single line of floats or a single column of floats. When more than a line/column is consider, it is a matrix, not a vector.}
+
+You will also provide a testing file (\texttt{test.py}) to demonstrate your class
+works as expected. In this testing file, demonstrate:
+\begin{itemize}
+  \item the addition and substraction are working for 2 vectors of the same shape,
+  \item the mutliplication (\texttt{mul} and \texttt{rmul}) are working for a vector and a scalar,
+  \item the division (\texttt{truediv}) is working with a vector and a scalar,
+  \item the division (\texttt{rtruediv}) raises an Arithmetic Error (this test can be commented for the other tests and uncommented to show this one),
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Column vector of shape n * 1
+v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+v1 * 5
+# Output
+Vector([[0.0], [5.0], [10.0], [15.0]])
+
+# Row vector of shape 1 * n
+v1 = Vector([[0.0, 1.0, 2.0, 3.0]])
+v1 * 5
+# Output
+Vector([[0.0, 5.0, 10.0, 15.0]])
+
+v1 / 2.0
+# Output
+Vector([[0.0], [0.5], [1.0], [1.5]])
+
+v1 / 0.0
+# Output
+...
+ZeroDivisionError: division by zero.
+
+2.0 / v1
+# Output:
+...
+NotImplementedError: Division of a scalar by a Vector is not defined here.
+\end{minted}
+
+
+It has 2 attributes:
+\begin{itemize}
+  \item \texttt{values}: list of list of floats (for row vector) or list of lists of single float (for column vector),
+  \item \texttt{shape}: tuple of 2 integers: \texttt{(1,n)} for a row vector of dimension $n$
+  or \texttt{(n,1)} for a column vector of dimension $n$. 
+\end{itemize}
+
+\info{If you did not learn at school what is the dimension of a vector, don't worry.
+      But for now do not think too hard about what dimension means.
+      Just consider the dimension is the number of floats (elements/coordinates) of a vector, and shape gives the layout: if $(1, n)$ the vector is a row, if $(n,1)$ the vector is a column.}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Column vector of shape (n, 1)
+Vector([[0.0], [1.0], [2.0], [3.0]]).shape
+# Output
+(4,1)
+
+Vector([[0.0], [1.0], [2.0], [3.0]]).values
+# Output
+[[0.0], [1.0], [2.0], [3.0]]
+
+# Row vector of shape (1, n)
+Vector([[0.0, 1.0, 2.0, 3.0]]).shape
+# Output
+(1,4)
+
+Vector([[0.0, 1.0, 2.0, 3.0]]).values
+# Output
+[[0.0, 1.0, 2.0, 3.0]]
+\end{minted}
+
+You should be able to initialize the object with:
+\begin{itemize}
+  \item a list of a list of floats: \texttt{Vector([[0.0, 1.0, 2.0, 3.0]])},
+  \item a list of lists of single float: \texttt{Vector([[0.0], [1.0], [2.0], [3.0]])},
+  \item a size: \texttt{Vector(3)} -> the vector will have \texttt{values = [[0.0], [1.0], [2.0]]},
+  \item a range: \texttt{Vector((10,15))} -> the vector will have \texttt{values = [[10.0], [11.0], [12.0], [13.0], [14.0]]}.
+\end{itemize}
+\textit{By default, the vectors are generated as classical column vectors if initialized with a size or range.}
+
+You will implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  __add__
+  __radd__
+  # add & radd : only vectors of same shape.
+  __sub__
+  __rsub__
+  # sub & rsub: only vectors of same shape.
+  __truediv__
+  # truediv : only with scalars (to perform division of Vector by a scalar).
+  __rtruediv__
+  # rtruediv : raises an NotImplementedError with the message "Division of a scalar by a Vector is not defined here."
+  __mul__
+  __rmul__
+  # mul & rmul: only scalars (to perform multiplication of Vector by a scalar).
+  __str__
+  __repr__
+  # must be identical, i.e we expect that print(vector) and vector within python interpretor behave the same, see examples below.
+\end{minted}
+For the operations not defined (e.g multiplication between 2 vectors) you have to raise \texttt{NotImplementedError}.
+\info{So it might be a good idea to implement \texttt{values} and \texttt{\textbf{shape}} before built-in arithmetic functions.}
+
+
+You will also implement: 
+\begin{itemize}
+  \item a \texttt{.dot()} method which produce a dot product between two vectors of same \textbf{shape},
+  \item a \texttt{.T()} method which returns the transpose vector (i.e. a column vector into a row vector, or a row vector into a column vector).
+\end{itemize}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Example 1:
+v1 = Vector(4)
+v1.shape
+# Output:
+(4,1)
+
+v1.T()
+# Output:
+Vector([[0.0, 1.0, 2.0, 3.0]])
+
+v1.T().shape
+# Output:
+(1,4)
+
+# Example 2:
+v2 = Vector((0, 4))
+v2.shape
+# Output:
+(1,4)
+
+v2.T()
+# Output:
+Vector([[0.0], [1.0], [2.0], [3.0]])
+
+v2.T().shape
+# Output:
+(4,1)
+
+Vector((2,2))
+#Output
+None
+\end{minted}
+
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  # Example 1:
+  v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+  v2 = Vector([[2.0], [1.5], [2.25], [4.0]])
+  v1.dot(v2)
+  # Output:
+  18.0
+
+  v3 = Vector([[1.0, 3.0]])
+  v4 = Vector([[2.0, 4.0]])
+  v3.dot(v4)
+  # Output:
+  13.0
+
+  v1
+  # Output: to see what __repr__() should do
+  [[0.0, 1.0, 2.0, 3.0]]
+
+  print(v1)
+  # Output: to see what __str__() should do
+  [[0.0, 1.0, 2.0, 3.0]]
+\end{minted}
+
+
+% ================================= %
+\section*{Mathematic notions}
+% --------------------------------- %
+The authorized vector operations are:  
+
+\begin{itemize}
+  \item Addition between two vectors of same dimension $m$
+  \begin{equation*}
+    x + y  =  
+    \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix} + 
+    \begin{bmatrix} y_1 \\ \vdots \\ y_m\end{bmatrix} \\ 
+     =  \begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_m + y_m \end{bmatrix}
+  \end{equation*}
+  \item Subtraction between two vectors of same dimension $m$
+  \begin{equation*}
+    x - y = 
+    \begin{bmatrix} x_1 \\ \vdots \\ y_m\end{bmatrix} - 
+    \begin{bmatrix} x_1 \\ \vdots \\ y_m\end{bmatrix} 
+    = \begin{bmatrix} x_1 - y_1 \\ \vdots \\ x_m - y_m \end{bmatrix}
+  \end{equation*}
+  \item  Multiplication and division between one vector $m$ and one scalar.
+  \begin{equation*}
+    \alpha x = \alpha \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix}  = 
+    \begin{bmatrix} \alpha x_1 \\ \vdots \\ \alpha x_m \end{bmatrix}
+  \end{equation*}
+  \item  Dot product between two vectors of same dimension $m$  
+  \begin{equation*}
+    x \cdot y = \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix} 
+    \cdot 
+    \begin{bmatrix} y_1 \\ \vdots \\ y_m\end{bmatrix} = 
+    \sum_{i = 1}^{m} x_i \cdot y_i =  x_1 \cdot y_1 + \dots + x_m \cdot y_m 
+  \end{equation*}
+\end{itemize}
+
+Do not forget to handle all types of error properly!
+
+
+% ===========================(fin ex 02)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 03)       %
+\chapter{Exercise 03}
+\extitle{Generator!}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{generator.py}
+\exauthorize{random.randint}
+\exforbidden{random.shuffle}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of the exercise is to discover the concept of generator object in Python.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Code a function called \texttt{generator} that takes a text as input, uses the string
+parameter \texttt{sep} as a splitting parameter, and \texttt{yield}s the resulting substrings.
+
+The function can take an optional argument.
+The options are:
+\begin{itemize}
+  \item \texttt{shuffle}: shuffles the list of words,
+  \item \texttt{unique}: returns a list where each word appears only once,
+  \item \texttt{ordered}: alphabetically sorts the words.
+\end{itemize}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  # function prototype
+  def generator(text, sep=" ", option=None):
+      '''Option is an optional arg, sep is mandatory'''
+\end{minted}
+
+You can only call one option at a time.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  >> text = "Le Lorem Ipsum est simplement du faux texte."
+  >> for word in generator(text, sep=" "):
+  ...     print(word)
+  ...
+  Le
+  Lorem
+  Ipsum
+  est
+  simplement
+  du
+  faux
+  texte.
+  >> for word in generator(text, sep=" ", option="shuffle"):
+  ...     print(word)
+  ...
+  simplement
+  texte.
+  est
+  faux
+  Le
+  Lorem
+  Ipsum
+  du
+  >> for word in generator(text, sep=" ", option="ordered"):
+  ...     print(word)
+  ...
+  Ipsum
+  Le
+  Lorem
+  du
+  est
+  faux
+  simplement
+  texte.
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> text = "Lorem Ipsum Lorem Ipsum"
+>> for word in generator(text, sep=" ", option="unique"):
+...     print(word)
+...
+Lorem
+Ipsum
+\end{minted}
+
+The function should return "ERROR" one time if the \texttt{text} argument is not a string, or if the \texttt{option} argument is not valid.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> text = 1.0
+>> for word in generator(text, sep="."):
+...     print(word)
+...
+ERROR
+\end{minted}
+
+
+% ===========================(fin ex 03)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 04)       %
+\chapter{Exercise 04}
+\extitle{Working with lists}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{eval.py}
+\exforbidden{while}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of the exercise is to discover 2 useful methods for lists, tuples,
+dictionnaries (iterable class objects more generally) named \texttt{zip}
+and \texttt{enumerate}.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Code a class \texttt{Evaluator}, that has two static functions named \texttt{zip\_evaluate}
+and \texttt{enumerate\_evaluate}.\\
+The goal of these 2 functions is to compute the sum of the lengths of every
+\texttt{words} of a given list weighted by a list a \texttt{coefs}.\\
+The lists \texttt{coefs} and \texttt{words} have to be the same length. If this is not the
+case, the function should return -1.\\
+You have to obtain the desired result using \texttt{zip} in the \texttt{zip\_evaluate} function,
+and with \texttt{enumerate} in the \texttt{enumerate\_evaluate} function.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> from eval import Evaluator
+>> 
+>> words = ["Le", "Lorem", "Ipsum", "est", "simple"]
+>> coefs = [1.0, 2.0, 1.0, 4.0, 0.5]
+>> Evaluator.zip_evaluate(coefs, words)
+32.0
+>> words = ["Le", "Lorem", "Ipsum", "n'", "est", "pas", "simple"]
+>> coefs = [0.0, -1.0, 1.0, -12.0, 0.0, 42.42]
+>> Evaluator.enumerate_evaluate(coefs, words)
+-1
+\end{minted}
+
+
+% ===========================(fin ex 04)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 05)       %
+\chapter{Exercise 05}
+\extitle{Bank Account}
+\turnindir{ex05}
+\exnumber{05}
+\exfiles{the\_bank.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goals of this exercise is to discover new built-in functions and
+deepen the class manipulation and to be aware of possibility
+to modify instanced objects.\\
+In this exercise you learn how to modify or add attributes to an object.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+It is all about security.
+Have a look at the class named \texttt{Account} in the snippet of code below.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# in the_bank.py
+class Account(object):
+
+    ID_COUNT = 1
+
+    def __init__(self, name, **kwargs):
+        self.__dict__.update(kwargs)
+        
+        self.id = self.ID_COUNT
+        Account.ID_COUNT += 1
+        self.name = name
+        if not hasattr(self, 'value'):
+            self.value = 0
+
+        if self.value < 0:
+          raise AttributeError("Attribute value cannot be negative.")
+        if not isinstance(self.name, str)
+          raise AttributeError("Attribute name must be a str object.")
+    
+    def transfer(self, amount):
+        self.value += amount
+\end{minted}
+
+Now, it is your turn to code a class named \texttt{Bank}!
+Its purpose will be to handle the security part of each transfer attempt.
+
+Security means checking if the \texttt{Account} is:
+\begin{itemize}
+  \item the right object,
+  \item not corrupted,
+  \item and stores enough money to complete the transfer.
+\end{itemize}
+
+How do we define if a bank account is corrupted? A corrupted bank account has:
+\begin{itemize}
+  \item an even number of attributes,
+  \item an attribute starting with \texttt{b},
+  \item no attribute starting with \texttt{zip} or \texttt{addr},
+  \item no attribute \texttt{name}, \texttt{id} and \texttt{value},
+  \item \texttt{name} not being a string,
+  \item \texttt{id} not being an \texttt{int},
+  \item \texttt{value} not being an \texttt{int} or a \texttt{float}.
+\end{itemize}
+
+Concerning the rest of the attributes (\texttt{addr}, \texttt{zip} and the other not mentioned above)
+there is no specific check expected, meaning you are not expected to evaluate the validity of the account based on them.
+
+Moreover, a basic verification has to be performed when account object is added to Bank instance
+(\texttt{bank.add(Account(...))}).
+The verification in \texttt{add} only check the type of the new_account and
+if there is no account among the one already in Bank instance with the same name.
+
+A transaction is invalid if \texttt{amount < 0} or if the amount is larger than
+the balance of the account.
+Prior the transfer, the validity of the 2 accounts (\texttt{origin} and \texttt{dest}) are checked
+(according to the list of criteria above).
+A transfer between the same account (\texttt{bank.transfer('Wiliam John', 'William John')})
+is valid but there is no fund movement.
+
+\texttt{fix_account} recovers a corrupted account if it parameter \texttt{name} correspond to the attribute
+name of one of the account in \texttt{accounts} (attribute of Bank). If name is not a string or does not corresponded
+to an account name, the method return \texttt{False}.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# in the_bank.py
+class Bank(object):
+    """The bank"""
+    def __init__(self):
+        self.accounts = []
+
+    def add(self, account):
+        """ Add new_account in the Bank
+            @new_account:  Account() new account to append
+            @return   True if success, False if an error occured
+        """
+        # test if new_account is an Account() instance and if 
+        # it can be appended to the attribute accounts
+        
+        # ... Your code  ...
+        self.accounts.append(new_account)
+        #... Your code ...
+
+    def transfer(self, origin, dest, amount):
+        """" Perform the fund transfer
+            @origin:  str(name) of the first account
+            @dest:    str(name) of the destination account
+            @amount:  float(amount) amount to transfer
+            @return   True if success, False if an error occured
+        """
+        # ... Your code  ...
+
+    def fix_account(self, name):
+    """ fix account associated to name if corrupted
+            @name:   str(name) of the account
+            @return  True if success, False if an error occured
+        """
+        # ... Your code  ...
+\end{minted}
+
+Check out the \texttt{dir} built-in function.
+
+\warn{YOU WILL HAVE TO MODIFY THE INSTANCES' ATTRIBUTES IN ORDER TO FIX THEM.}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+The script \texttt{banking_test1.py} is a test which must print \texttt{Failed}.
+The second script \texttt{banking_test2.py} is a test which must print \texttt{Failed} and then \texttt{Success}.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{bash}
+>> python banking_test1.py
+Failed
+# The transaction is not performed has the account of Smith Jane is corrupted (due to the attribute 'bref').
+
+>> python banking_test2.py
+Failed
+Success
+# the account are false due to the abscence of addr attribute, fix_account recover the account,
+# thus they become valid.
+\end{minted}
+
+
+% ===========================(fin ex 05)         %
+% ============================================== %
+
+\newpage
+
+% ================================= %
+\section*{Contact}
+% --------------------------------- %
+You can contact 42AI association by email: contact@42ai.fr\\
+You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
+and/or posutale to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
+
+% ================================= %
+\section*{Acknowledgements}
+% --------------------------------- %
+The modules Python \& ML is the result of a collective work, we would like to thanks:
+\begin{itemize}
+  \item Maxime Choulika (cmaxime),
+  \item Pierre Peigné (ppeigne),
+  \item Matthieu David (mdavid).
+\end{itemize}
+who supervised the creation, the enhancement and this present transcription.
+
+\begin{itemize}
+    \item Amric Trudel (amric@42ai.fr)
+    \item Baptiste Lefeuvre (blefeuvr@student.42.fr)
+    \item Mathilde Boivin (mboivin@student.42.fr)
+    \item Tristan Duquesne (tduquesn@student.42.fr)
+    \item Quentin Feuillade Montixi (qfeuilla@student.42.fr)
+\end{itemize}
+for your investment for the creation and development of these modules.
+
+\begin{itemize}
+    \item Barthélémy Leveque (bleveque@student.42.fr)
+    \item Remy Oster (roster@student.42.fr)
+    \item Quentin Bragard (qbragard@student.42.fr)
+    \item Marie Dufourq (madufour@student.42.fr)
+    \item Adrien Vardon (advardon@student.42.fr)
+\end{itemize}
+who betatest the first version of the modules of Machine Learning.
+\vfill
+\doclicenseThis
+
+\end{document}

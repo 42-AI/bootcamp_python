@@ -1,0 +1,967 @@
+% vim: set ts=4 sw=4 tw=80 noexpandtab:
+
+\documentclass{42-en}
+
+%******************************************************************************%
+%                                                                              %
+%                                   Prologue                                   %
+%                                                                              %
+%******************************************************************************%
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+]{doclicense}
+\usemintedstyle{monokai}
+
+
+%****************************************************************%
+%                  Re/definition of commands                     %
+%****************************************************************%
+
+\newcommand{\ailogo}[1]{\def \@ailogo {#1}}\ailogo{assets/42ai_logo.pdf}
+
+%%  Redefine \maketitle
+\makeatletter
+\def \maketitle {
+  \begin{titlepage}
+    \begin{center}
+	%\begin{figure}[t]
+	  %\includegraphics[height=8cm]{\@ailogo}
+	  \includegraphics[height=8cm]{assets/42ai_logo.pdf}
+	%\end{figure}
+      \vskip 5em
+      {\huge \@title}
+      \vskip 2em
+      {\LARGE \@subtitle}
+      \vskip 4em
+    \end{center}
+    %\begin{center}
+	  %\@author
+    %\end{center}
+	%\vskip 5em
+  \vfill
+  \begin{center}
+    \emph{\summarytitle : \@summary}
+  \end{center}
+  \vspace{2cm}
+  %\vskip 5em
+  %\doclicenseThis
+  \end{titlepage}
+}
+\makeatother
+
+\makeatletter
+\def \makeheaderfilesforbidden
+{
+  \noindent
+  \begin{tabularx}{\textwidth}{|X X  X X|}
+    \hline
+  \multicolumn{1}{|>{\raggedright}m{1cm}|}
+  {\vskip 2mm \includegraphics[height=1cm]{assets/42ai_logo.pdf}} &
+  \multicolumn{2}{>{\centering}m{12cm}}{\small Exercise : \@exnumber } &
+  \multicolumn{1}{ >{\raggedleft}p{1.5cm}|}
+%%              {\scriptsize points : \@exscore} \\ \hline
+              {} \\ \hline
+
+  \multicolumn{4}{|>{\centering}m{15cm}|}
+              {\small \@extitle} \\ \hline
+
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Turn-in directory : \ttfamily
+                $ex\@exnumber/$ }
+              \\ \hline
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Files to turn in : \ttfamily \@exfiles }
+              \\ \hline
+
+  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+              {\small Forbidden functions : \ttfamily \@exforbidden }
+              \\ \hline
+
+%%  \multicolumn{4}{|>{\raggedright}m{15cm}|}
+%%              {\small Remarks : \ttfamily \@exnotes }
+%%              \\ \hline
+\end{tabularx}
+%% \exnotes
+\exrules
+\exmake
+\exauthorize{None}
+\exforbidden{None}
+\extitle{}
+\exnumber{}
+}
+\makeatother
+
+
+\begin{document}
+
+% =============================================================================%
+%                     =====================================                    %
+
+\title{Python \& ML - Module 00}
+\subtitle{Basic stuff - Eleven Commandments}
+\author{
+	Maxime Choulika (cmaxime), Pierre Peigné (ppeigne), Matthieu David (mdavid)
+}
+
+\summary
+{
+	The goal of the module is to get started with the Python language.
+}
+
+\maketitle
+\input{en.py_proj.tex}
+\newpage
+\tableofcontents
+\startexercices
+
+%                     =====================================                    %
+% =============================================================================%
+
+
+%******************************************************************************%
+%                                                                              %
+%                                   Exercises                                  %
+%                                                                              %
+%******************************************************************************%
+
+% ============================================== %
+% ===========================(start ex 00)       %
+\chapter{Exercise 00}
+\extitle{\$PATH}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{answers.txt, requirements.txt}
+\exforbidden{None}
+\makeheaderfilesforbidden
+\newline
+\emph{The first thing you need is a proper working environment.}
+\newline\par
+Most modern Unix-based system have a \texttt{python} interpreter installed by default, 
+but its version might be lower/higher than the one used for these modules. 
+It is also possible that the default \texttt{python} command uses a version 2.x (for legacy reasons). 
+This is obviously very confusing for new developper.
+\newline
+\begin{42console}
+$> python -V
+$> python3 -V
+\end{42console}
+\par
+To deal with those version issues we will use \texttt{conda}. This program allow you to manage your Python package and different working environments.
+\newline\newline
+\emph{Note: the actual requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
+\newpage
+% ================================== %
+\section*{Conda manual install}
+% ---------------------------------- %
+
+We recommend the following path for your \texttt{conda} folder.
+
+% \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{shell}
+% MYPATH="/goinfre/$USER/miniconda3"
+% \end{minted}
+
+\begin{42console}
+MYPATH="/goinfre/$USER/miniconda3"
+\end{42console}
+
+% ================================== %
+\subsection*{1. Download \& Install conda}
+% ---------------------------------- %
+\par
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+# For MAC
+curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+sh Miniconda3-latest-MacOSX-x86_64.sh -b -p $MYPATH
+
+# For Linux
+curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+\end{minted}
+
+% ================================== %
+\subsection*{2. Initial configuration of conda}
+% ---------------------------------- %
+\par
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+# For zsh
+$MYPATH/bin/conda init zsh
+$MYPATH/bin/conda config --set auto_activate_base false
+source ~/.zshrc
+
+# For bash
+$MYPATH/bin/conda init bash
+$MYPATH/bin/conda config --set auto_activate_base false
+source ~/.bash_profile
+\end{minted}
+	
+% ================================== %
+\subsection*{3. Create an environment for 42AI !}
+% ---------------------------------- %
+\par
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle
+\end{minted}
+	
+% ================================== %
+\subsection*{4. Check your 42AI Python environment}
+% ---------------------------------- %
+\par
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+conda info --envs
+conda activate 42AI-$USER
+which python
+python -V
+python -c "print('Hello World!')"
+\end{minted}
+	
+% ================================== %
+\subsection*{Help !}
+% ---------------------------------- %
+
+\begin{itemize}
+	\item \textbf{I have lost my miniconda3 folder !}: Repeat step 1 and 3.
+	\item \textbf{I have lost my home directory !}: Repeat step 2.
+\end{itemize}
+
+\newpage
+% ================================= %
+\section*{Getting started}
+% --------------------------------- %
+
+As an introduction, complete the following questionnaire using Python and \texttt{pip}, save your answers in a file \texttt{answers.txt} (write an answer per line in the text file), and check them with your peers.
+
+Find the commands to:
+\begin{itemize}\itemsep7pt
+	\item Output a list of installed packages.
+	\item Output a list of installed packages and their versions.
+	\item Show the package metadata of \texttt{numpy}.
+	\item Search for PyPI packages whose name or summary contains "tesseract".
+	\item Freeze the packages and their current versions in a \texttt{requirements.txt} file you have to turn-in.
+\end{itemize}
+
+% ===========================(fin ex 00)         %
+% ============================================== %
+\newpage
+
+% ============================================== %
+% ===========================(start ex 01)       %
+\chapter{Exercise 01}
+\extitle{Rev Alpha}
+\turnindir{ex01}
+\exnumber{01}
+\exfiles{exec.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+% \section*{}
+% --------------------------------- %
+Make a program that takes a string as argument, reverses it, swaps its letters case and print the result.
+\newline\par
+If more than one argument are provided, merge them into a single string with each argument separated by a space character.
+\newline\par
+If no argument is provided, print nothing, or the usage.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\par
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+$> python3 exec.py 'Hello World!' | cat -e
+!DLROw OLLEh$
+
+$> python3 exec.py 'Hello' 'my Friend' | cat -e
+DNEIRf YM OLLEh$
+
+$> python3 exec.py
+$>
+\end{minted}
+
+% ===========================(fin ex 01)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 02)       %
+\chapter{Exercise 02}
+\extitle{The Odd, the Even and the Zero}
+\turnindir{ex02}
+\exnumber{02}
+\exfiles{whois.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+% \section*{}
+% --------------------------------- %
+Make a program that takes a number as argument, checks whether it is odd, even or zero, and print the result.
+\newline\par
+If more than one, or not a int is provided as argument, print an error message.
+\newline\par
+If no argument is provided, print nothing, or the usage.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+$> python3 whois.py 12
+I'm Even.
+
+$> python3 whois.py 3
+I'm Odd.
+
+$> python3 whois.py
+
+$> python3 whois.py 0
+I'm Zero.
+
+$> python3 whois.py Hello
+AssertionError: argument is not integer
+
+$> python3 whois.py 12 3
+AssertionError: more than one argument is provided
+\end{minted}
+
+\hint{
+	you can handle errors as you want but take a look at \texttt{assert}
+}
+
+% ===========================(fin ex 02)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 03)       %
+\chapter{Exercise 03}
+\extitle{Functional file}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{count.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+% \section*{}
+% --------------------------------- %
+Create a function called \texttt{text\_analyzer} that displays the sums of
+upper-case characters, lower-case characters, punctuation characters and
+spaces in a given text.
+\newline\newline
+\texttt{text\_analyzer} will take only one parameter: the text to analyze.
+You have to handle the case where the text is empty (maybe by setting a default value).
+If there is no text passed to the function, the user is prompted to give one.
+\newline\newline
+Test it in the Python console.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{42console}
+	$> python
+	>>> from count import text_analyzer
+	>>> text_analyzer("Python 2.0, released 2000, introduced 
+	features like List comprehensions and a garbage collection
+	system capable of collecting reference cycles.")
+	The text contains 143 characters:
+	- 2 upper letters
+	- 113 lower letters
+	- 4 punctuation marks
+	- 18 spaces
+
+	>>> text_analyzer("Python is an interpreted, high-level,
+	general-purpose programming language. Created by Guido van
+	Rossum and first released in 1991, Python's design philosophy
+	emphasizes code readability with its notable use of significant
+	whitespace.")
+	The text contains 234 characters:
+	- 5 upper letters
+	- 187 lower letters
+	- 8 punctuation marks
+	- 30 spaces
+
+	>>> text_analyzer()
+	What is the text to analyse?
+	>> Python is an interpreted, high-level, general-purpose
+	programming language. Created by Guido van Rossum and first
+	released in 1991, Python's design philosophy emphasizes code
+	readability with its notable use of significant whitespace.
+	The text contains 234 characters:
+	- 5 upper letters
+	- 187 lower letters
+	- 8 punctuation marks
+	- 30 spaces
+\end{42console}
+
+Handle the case when more than one parameter is given to \texttt{text\_analyzer}:
+
+\begin{42console}
+	>>> from count import text_analyzer
+	>>> text_analyzer("Python", "2.0")
+	ERROR
+\end{42console}
+
+You're free to write your docstring and format it the way you want.
+
+\begin{42console}
+	>>> print(text_analyzer.__doc__)
+    This function counts the number of upper characters, lower characters,
+    punctuation and spaces in a given text.
+\end{42console}
+
+
+% ===========================(fin ex 03)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 04)       %
+\chapter{Exercise 04}
+\extitle{Elementary}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{operations.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+% \section*{}
+% --------------------------------- %
+You have to make a program that prints the results of the four elementary
+mathematical operations of arithmetic (addition, subtraction, multiplication,
+division) and the modulo operation. This should be accomplished by writing a
+function that takes 2 numbers as parameters and returns 5 values, as formatted
+in the console output below.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{42console}
+	$> python operations.py 10 3
+	Sum:         13
+	Difference:  7
+	Product:     30
+	Quotient:    3.3333333333333335
+	Remainder:   1
+	$>
+	$> python operations.py 42 10
+	Sum:         52
+	Difference:  32
+	Product:     420
+	Quotient:    4.2
+	Remainder:   2
+	$>
+	$> python operations.py 1 0
+	Sum:         1
+	Difference:  1
+	Product:     0
+	Quotient:    ERROR (div by zero)
+	Remainder:   ERROR (modulo by zero)
+	$>
+	$> python operations.py
+	Usage: python operations.py <number1> <number2>
+	Example:
+	    python operations.py 10 3
+	$>
+	$> python operations.py 12 10 5
+	InputError: too many arguments
+
+	Usage: python operations.py <number1> <number2>
+	Example:
+	    python operations.py 10 3
+	$>
+	$> python operations.py "one" "two"
+	InputError: only numbers
+
+	Usage: python operations.py <number1> <number2>
+	Example:
+	    python operations.py 10 3
+	$>
+	$> python operations.py "512" "63.1"
+	InputError: only numbers
+
+	Usage: python operations.py <number1> <number2>
+	Example:
+	    python operations.py 10 3
+\end{42console}
+
+
+% ===========================(fin ex 04)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 05)       %
+\chapter{Exercise 05}
+\extitle{The right format}
+\turnindir{ex05}
+\exnumber{05}
+\exfiles{kata00.py, kata01.py, kata02.py, kata03.py, kata04.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+Let's get familiar with the useful concept of \textbf{string formatting}
+through a kata series.
+
+% ================================= %
+\section*{kata00}
+% --------------------------------- %
+% PYTHON ENV SERAIT MIEUX
+\begin{42console}
+	t = (19,42,21)
+\end{42console}
+
+Including the tuple above in your file, write a program that dynamically builds
+up a formatted string like the following:
+
+\begin{42console}
+	$> python kata00.py
+	The 3 numbers are: 19, 42, 21
+\end{42console}
+
+% ================================= %
+\section*{kata01}
+% --------------------------------- %
+\begin{42console} % PYTHON ENV SERAIT MIEUX
+	languages = {
+    	'Python': 'Guido van Rossum',
+    	'Ruby': 'Yukihiro Matsumoto',
+    	'PHP': 'Rasmus Lerdorf',
+    	}
+\end{42console}
+
+Using the \texttt{languages} dictionary above, a similar exercise:
+
+\begin{42console}
+	$> python kata01.py
+	Python was created by Guido van Rossum
+	Ruby was created by Yukihiro Matsumoto
+	PHP was created by Rasmus Lerdorf
+\end{42console}
+
+% ================================= %
+\section*{kata02}
+% --------------------------------- %
+\begin{42console} % PYTHON ENV SERAIT MIEUX
+	t = (3,30,2019,9,25)
+\end{42console}
+
+Given the tuple above, whose values stand for: \texttt{(hour, minutes, year, month, day)},
+write a program that displays it in the following format:
+
+\begin{42console}
+	$> python kata02.py
+	09/25/2019 03:30
+\end{42console}
+
+% ================================= %
+\section*{kata03}
+% --------------------------------- %
+\begin{42console} % PYTHON ENV SERAIT MIEUX
+	phrase = "The right format"
+\end{42console}
+
+Write a program to display the string above right-aligned, with '-'
+padding and a total length of 42 characters:
+
+\begin{42console}
+	$> python kata03.py | cat -e
+	--------------------------The right format%
+	$> python kata03.py | wc -c
+    42
+\end{42console}
+
+% ================================= %
+\section*{kata04}
+% --------------------------------- %
+\begin{42console} % PYTHON ENV SERAIT MIEUX
+	t = ( 0, 4, 132.42222, 10000, 12345.67)
+\end{42console}
+
+Given the tuple above, return the following result:
+
+\begin{42console}
+	$> python kata04.py
+	module_00, ex_04 : 132.42, 1.00e+04, 1.23e+04
+\end{42console}
+
+
+
+% ===========================(fin ex 05)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 06)       %
+\chapter{Exercise 06}
+\extitle{A recipe}
+\turnindir{ex06}
+\exnumber{06}
+\exfiles{recipe.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+It is time to discover Python dictionaries. Dictionaries are collections
+that contain mappings of unique keys to values.
+
+\hint{Check what is a nested dictionary in Python.}
+
+% ================================= %
+% \section*{}
+% --------------------------------- %
+First, you have to create a cookbook dictionary called \texttt{cookbook}.
+
+\texttt{cookbook} will store 3 recipes:
+\begin{itemize}
+	\item sandwich
+	\item cake
+	\item salad
+\end{itemize}
+
+Each recipe will store 3 values:
+\begin{itemize}
+	\item ingredients: a \textbf{list} of ingredients
+	\item meal: type of meal
+	\item prep\_time: preparation time in minutes
+\end{itemize}
+
+Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
+It is a \textit{lunch} and it takes \textit{10} minutes of preparation.  
+Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
+It is a \textit{dessert} and it takes \textit{60} minutes of preparation.  
+Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
+It is a \textit{lunch} and it takes \textit{15} minutes of preparation.  
+
+\begin{enumerate}
+	\item Get to know dictionaries. In the first place, try to print only the \texttt{keys} of the dictionary. Then only the \texttt{values}. And to conclude, all the \texttt{items}.
+	\item Write a function to print a recipe from \texttt{cookbook}. The function parameter will be the name of the recipe.
+	\item Write a function to delete a recipe from the dictionary. The function parameter will be the name of the recipe.
+	\item Write a function to add a new recipe to \texttt{cookbook} with its ingredients, its meal type and its preparation time. The function parameters will be the name of recipe, ingredients, meal and prep\_time.
+	\item Write a function to print all recipe names from \texttt{cookbook}. Think about formatting the output.
+	\item Last but not least, make a program using the four functions you just created.
+\end{enumerate}
+
+The program will prompt the user to make a choice between printing the cookbook, printing only one recipe, adding a recipe, deleting a recipe or quitting the cookbook.
+
+
+It could look like the example below but feel free to organize it the way you want to:
+
+\begin{42console}
+	$> python recipe.py
+	Please select an option by typing the corresponding number:
+	1: Add a recipe
+	2: Delete a recipe
+	3: Print a recipe
+	4: Print the cookbook
+	5: Quit
+	>> 3
+
+	Please enter the recipe's name to get its details:
+	>> cake
+
+	Recipe for cake:
+	Ingredients list: ['flour', 'sugar', 'eggs']
+	To be eaten for dessert.
+	Takes 60 minutes of cooking.
+	...
+\end{42console}
+
+Your program must continue running until the user exits it (option 5):
+
+\begin{42console}
+	$> python recipe.py
+	Please select an option by typing the corresponding number:
+	1: Add a recipe
+	2: Delete a recipe
+	3: Print a recipe
+	4: Print the cookbook
+	5: Quit
+	>> 5
+
+	Cookbook closed.
+	$>
+\end{42console}
+
+The program will also continue running if the user enters a wrong value.
+It will prompt the user again until the value is correct:
+
+\begin{42console}
+	$> python recipe.py
+	Please select an option by typing the corresponding number:
+	1: Add a recipe
+	2: Delete a recipe
+	3: Print a recipe
+	4: Print the cookbook
+	5: Quit
+	>> test
+
+	This option does not exist, please type the corresponding number.
+	To exit, enter 5.
+	... 
+\end{42console}
+
+
+% ===========================(fin ex 06)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 07)       %
+\chapter{Exercise 07}
+\extitle{Shorter, faster, pythonest}
+\turnindir{ex07}
+\exnumber{07}
+\exfiles{filterwords.py}
+\exforbidden{filter}
+\makeheaderfilesforbidden
+
+Using list comprehensions, you have to make a program that removes all
+the words in a string that are shorter than or equal to n letters, and
+returns the filtered list with no punctuation.
+The program will accept only two parameters: a string, and an integer n.
+The string parameter can contain number: "this string has 1 number.".
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{42console}
+	$> python filterwords.py "Hello, my friend" 3
+	['Hello', 'friend']
+	$> python filterwords.py "A robot must protect its own existence as long as such protection does not conflict with the First or Second Law" 6
+	['protect', 'existence', 'protection', 'conflict']
+	$> python filterwords.py Hello World
+	ERROR
+	$> python filterwords.py 300 3
+	[]
+\end{42console}
+
+
+% ===========================(fin ex 07)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 08)       %
+\chapter{Exercise 08}
+\extitle{S.O.S}
+\turnindir{ex08}
+\exnumber{08}
+\exfiles{sos.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+You have to make a function which encodes strings into Morse code.  
+All alphanumeric characters are accepted by the encoder.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+
+\begin{42console}
+	$> python sos.py "SOS"
+	... --- ...
+	$> python sos.py
+	$> python sos.py "HELLO / WORLD"
+	ERROR
+	$> python sos.py "96 BOULEVARD" "Bessiere"
+	----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
+\end{42console}
+
+\hint{
+	\url{https://morsecode.world/international/morse2.html}
+}
+% ===========================(fin ex 08)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 09)       %
+\chapter{Exercise 09}
+\extitle{Secret number}
+\turnindir{ex09}
+\exnumber{09}
+\exfiles{guess.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+You have to make a program that will be an interactive guessing game.
+It will ask the user to guess a number between 1 and 99.
+The program will tell the user if their input is too high or too low.
+The game ends when the user finds out the secret number or types \texttt{exit}.  
+You will import the \texttt{random} module with the \texttt{randint} function to get a random number. 
+You have to count the number of trials and print that number when the user wins.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{42console}
+	$> python guess.py
+	This is an interactive guessing game!
+	You have to enter a number between 1 and 99 to find out the secret number.
+	Type 'exit' to end the game.
+	Good luck!
+
+	What's your guess between 1 and 99?
+	>> 54
+	Too high!
+	What's your guess between 1 and 99?
+	>> 34
+	Too low!
+	What's your guess between 1 and 99?
+	>> 45
+	Too high!
+	What's your guess between 1 and 99?
+	>> A
+	That's not a number.
+	What's your guess between 1 and 99?
+	>> 43
+	Congratulations, you've got it!
+	You won in 5 attempts!
+	$>
+\end{42console}
+
+If the user discovers the secret number on the first try, tell them.
+If the secret number is 42, make a reference to Douglas Adams.
+
+\begin{42console}
+	$> python guess.py
+	This is an interactive guessing game!
+	You have to enter a number between 1 and 99 to find out the secret number.
+	Type 'exit' to end the game.
+	Good luck!
+	>> 42
+	The answer to the ultimate question of life, the universe and everything is 42.
+	Congratulations! You got it on your first try!
+	$>
+\end{42console}
+
+\begin{42console}
+	$> python guess.py
+	This is an interactive guessing game!
+	You have to enter a number between 1 and 99 to find out the secret number.
+	Type 'exit' to end the game.
+	Good luck!
+
+	What's your guess between 1 and 99?
+	>> exit
+	Goodbye!
+	$>
+\end{42console}
+
+
+% ===========================(fin ex 09)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 10)       %
+\chapter{Exercise 10}
+\extitle{Loading bar!}
+\turnindir{ex10}
+\exnumber{10}
+\exfiles{loading.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+You have to create a function called \texttt{ft\_progress(lst)}.
+
+The function will display the progress of a \texttt{for} loop.
+
+\hint{\texttt{yield} operator!}
+
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(1000)
+	ret = 0
+	for elem in ft_progress(listy):
+	    ret += (elem + 3) % 5
+	    sleep(0.01)
+	print()
+	print(ret)
+\end{42console}
+
+\begin{42console}
+	$> python loading.py
+	ETA: 8.67s [ 23%][=====>                  ] 233/1000 | elapsed time 2.33s
+	...
+	2000
+\end{42console}
+
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(3333)
+	ret = 0
+	for elem in ft_progress(listy):
+		ret += elem
+		sleep(0.005)
+	print()
+	print(ret)
+\end{42console}
+
+\begin{42console}
+	$> python loading.py
+	ETA: 14.67s [  9%][=>                      ] 327/3333 | elapsed time 1.33s
+	...
+	5552778
+\end{42console}
+
+
+% ===========================(fin ex 10)         %
+% ============================================== %
+\newpage
+% ================================= %
+\section*{Contact}
+% --------------------------------- %
+You can contact 42AI association by email: contact@42ai.fr\\
+You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
+and/or apply to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
+
+% ================================= %
+\section*{Acknowledgements}
+% --------------------------------- %
+The modules Python \& ML is the result of a collective work, we would like to thanks:
+\begin{itemize}
+  \item Maxime Choulika (cmaxime),
+  \item Pierre Peigné (ppeigne),
+  \item Matthieu David (mdavid).
+\end{itemize}
+who supervised the creation, the enhancement and this present transcription.
+
+\begin{itemize}
+    \item Amric Trudel (amric@42ai.fr)
+    \item Baptiste Lefeuvre (blefeuvr@student.42.fr)
+    \item Mathilde Boivin (mboivin@student.42.fr)
+    \item Tristan Duquesne (tduquesn@student.42.fr)
+    \item Quentin Feuillade Montixi (qfeuilla@student.42.fr)
+\end{itemize}
+for your investment for the creation and development of these modules.
+
+\begin{itemize}
+    \item Barthélémy Leveque (bleveque@student.42.fr)
+    \item Remy Oster (roster@student.42.fr)
+    \item Quentin Bragard (qbragard@student.42.fr)
+    \item Marie Dufourq (madufour@student.42.fr)
+    \item Adrien Vardon (advardon@student.42.fr)
+\end{itemize}
+who betatest the first version of the modules of Machine Learning.
+\vfill
+\doclicenseThis
+
+\end{document}
