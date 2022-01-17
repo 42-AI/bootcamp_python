@@ -135,27 +135,27 @@
 \exfiles{answers.txt, requirements.txt}
 \exforbidden{None}
 \makeheaderfilesforbidden
-\newline
+
+
 \emph{The first thing you need is a proper working environment.}
-\newline\par
+
 Most modern Unix-based system have a \texttt{python} interpreter installed by default, 
 but its version might be lower/higher than the one used for these modules. 
 It is also possible that the default \texttt{python} command uses a version 2.x (for legacy reasons). 
 This is obviously very confusing for new developper.
-\newline
+
 \begin{42console}
 $> python -V
 $> python3 -V
 \end{42console}
-\par
 To deal with those version issues we will use \texttt{conda}. This program allow you to manage your Python package and different working environments.
-\newline\newline
+
+
 \emph{Note: the actual requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
-\newpage
+
 % ================================== %
 \section*{Conda manual install}
 % ---------------------------------- %
-
 We recommend the following path for your \texttt{conda} folder.
 
 % \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{shell}
@@ -167,9 +167,8 @@ MYPATH="/goinfre/$USER/miniconda3"
 \end{42console}
 
 % ================================== %
-\subsection*{1. Download \& Install conda}
+\subsection*{Download \& Install conda}
 % ---------------------------------- %
-\par
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 # For MAC
 curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
@@ -181,9 +180,8 @@ sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
 \end{minted}
 
 % ================================== %
-\subsection*{2. Initial configuration of conda}
+\subsection*{Initial configuration of conda}
 % ---------------------------------- %
-\par
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 # For zsh
 $MYPATH/bin/conda init zsh
@@ -197,17 +195,15 @@ source ~/.bash_profile
 \end{minted}
 	
 % ================================== %
-\subsection*{3. Create an environment for 42AI !}
+\subsection*{Create an environment for 42AI !}
 % ---------------------------------- %
-\par
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle
 \end{minted}
 	
 % ================================== %
-\subsection*{4. Check your 42AI Python environment}
+\subsection*{Check your 42AI Python environment}
 % ---------------------------------- %
-\par
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 conda info --envs
 conda activate 42AI-$USER
@@ -219,7 +215,6 @@ python -c "print('Hello World!')"
 % ================================== %
 \subsection*{Help !}
 % ---------------------------------- %
-
 \begin{itemize}
 	\item \textbf{I have lost my miniconda3 folder !}: Repeat step 1 and 3.
 	\item \textbf{I have lost my home directory !}: Repeat step 2.
@@ -260,15 +255,14 @@ Find the commands to:
 % \section*{}
 % --------------------------------- %
 Make a program that takes a string as argument, reverses it, swaps its letters case and print the result.
-\newline\par
+
 If more than one argument are provided, merge them into a single string with each argument separated by a space character.
-\newline\par
+
 If no argument is provided, print nothing, or the usage.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-\par
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 $> python3 exec.py 'Hello World!' | cat -e
 !DLROw OLLEh$
@@ -300,15 +294,14 @@ $>
 % \section*{}
 % --------------------------------- %
 Make a program that takes a number as argument, checks whether it is odd, even or zero, and print the result.
-\newline\par
+
 If more than one, or not a int is provided as argument, print an error message.
-\newline\par
+
 If no argument is provided, print nothing, or the usage.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
 $> python3 whois.py 12
 I'm Even.
@@ -354,11 +347,13 @@ AssertionError: more than one argument is provided
 Create a function called \texttt{text\_analyzer} that displays the sums of
 upper-case characters, lower-case characters, punctuation characters and
 spaces in a given text.
-\newline\newline
+
+
 \texttt{text\_analyzer} will take only one parameter: the text to analyze.
 You have to handle the case where the text is empty (maybe by setting a default value).
 If there is no text passed to the function, the user is prompted to give one.
-\newline\newline
+
+
 Test it in the Python console.
 
 % ================================= %
@@ -436,10 +431,10 @@ You're free to write your docstring and format it the way you want.
 % ================================= %
 % \section*{}
 % --------------------------------- %
-You have to make a program that prints the results of the four elementary
-mathematical operations of arithmetic (addition, subtraction, multiplication,
-division) and the modulo operation. This should be accomplished by writing a
-function that takes 2 numbers as parameters and returns 5 values, as formatted
+You have to make a program that prints the results of the four elementary 
+mathematical operations of arithmetic (addition, subtraction, multiplication, 
+division) and the modulo operation.
+This should be accomplished by writing a function that takes 2 numbers as parameters and returns 5 values, as formatted 
 in the console output below.
 
 % ================================= %
@@ -494,7 +489,6 @@ in the console output below.
 	    python operations.py 10 3
 \end{42console}
 
-
 % ===========================(fin ex 04)         %
 % ============================================== %
 
@@ -511,7 +505,7 @@ in the console output below.
 \makeheaderfilesforbidden
 
 Let's get familiar with the useful concept of \textbf{string formatting}
-through a kata series.
+ through a kata series.
 
 % ================================= %
 \section*{kata00}
@@ -521,8 +515,8 @@ through a kata series.
 	t = (19,42,21)
 \end{42console}
 
-Including the tuple above in your file, write a program that dynamically builds
-up a formatted string like the following:
+Including the tuple above in your file, write a program that dynamically 
+builds up a formatted string like the following:
 
 \begin{42console}
 	$> python kata00.py
@@ -541,6 +535,7 @@ up a formatted string like the following:
 \end{42console}
 
 Using the \texttt{languages} dictionary above, a similar exercise:
+Using the texttt{languages} dictionary above, write a program similar to the previous kata:
 
 \begin{42console}
 	$> python kata01.py
@@ -556,7 +551,7 @@ Using the \texttt{languages} dictionary above, a similar exercise:
 	t = (3,30,2019,9,25)
 \end{42console}
 
-Given the tuple above, whose values stand for: \texttt{(hour, minutes, year, month, day)},
+Given the tuple above, whose values stand for: \texttt{(hour, minutes, year, month, day)}, 
 write a program that displays it in the following format:
 
 \begin{42console}
@@ -571,7 +566,7 @@ write a program that displays it in the following format:
 	phrase = "The right format"
 \end{42console}
 
-Write a program to display the string above right-aligned, with '-'
+Write a program to display the string above right-aligned with '-' 
 padding and a total length of 42 characters:
 
 \begin{42console}
@@ -581,6 +576,13 @@ padding and a total length of 42 characters:
     42
 \end{42console}
 
+\begin{42console}
+$> python kata03.py | cat -e
+--------------------------The right format%
+$> python kata03.py | wc -c
+42
+\end{end}
+
 % ================================= %
 \section*{kata04}
 % --------------------------------- %
@@ -588,14 +590,12 @@ padding and a total length of 42 characters:
 	t = ( 0, 4, 132.42222, 10000, 12345.67)
 \end{42console}
 
-Given the tuple above, return the following result:
+Given the tuple above, write a program which displays a formatted string:
 
 \begin{42console}
 	$> python kata04.py
 	module_00, ex_04 : 132.42, 1.00e+04, 1.23e+04
 \end{42console}
-
-
 
 % ===========================(fin ex 05)         %
 % ============================================== %
@@ -612,8 +612,8 @@ Given the tuple above, return the following result:
 \exforbidden{None}
 \makeheaderfilesforbidden
 
-It is time to discover Python dictionaries. Dictionaries are collections
-that contain mappings of unique keys to values.
+It is time to discover Python dictionaries. Dictionaries are collections 
+that contain mappings of unique keys to values. 
 
 \hint{Check what is a nested dictionary in Python.}
 
@@ -637,18 +637,18 @@ Each recipe will store 3 values:
 \end{itemize}
 
 Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
-It is a \textit{lunch} and it takes \textit{10} minutes of preparation.  
+It is a \textit{lunch} and it takes $10$ minutes of preparation.  
 Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
-It is a \textit{dessert} and it takes \textit{60} minutes of preparation.  
+It is a \textit{dessert} and it takes $60$ minutes of preparation.  
 Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
-It is a \textit{lunch} and it takes \textit{15} minutes of preparation.  
+It is a \textit{lunch} and it takes $15$ minutes of preparation.
 
 \begin{enumerate}
 	\item Get to know dictionaries. In the first place, try to print only the \texttt{keys} of the dictionary. Then only the \texttt{values}. And to conclude, all the \texttt{items}.
-	\item Write a function to print a recipe from \texttt{cookbook}. The function parameter will be the name of the recipe.
-	\item Write a function to delete a recipe from the dictionary. The function parameter will be the name of the recipe.
-	\item Write a function to add a new recipe to \texttt{cookbook} with its ingredients, its meal type and its preparation time. The function parameters will be the name of recipe, ingredients, meal and prep\_time.
-	\item Write a function to print all recipe names from \texttt{cookbook}. Think about formatting the output.
+	\item Write a function to print a recipe from \texttt{cookbook} dictionary. The function parameter will be the name of the recipe.
+	\item Write a function to delete a recipe from \texttt{cookbook} dictionary. The function parameter will be the name of the recipe.
+	\item Write a function to add a new recipe to \texttt{cookbook} with its ingredients, its meal type and its preparation time. The function parameters will be the name of recipe, the ingredients, the meal type and preparation time.
+	\item Write a function to print all recipe names from \texttt{cookbook} dictionary. Think about formatting the output.
 	\item Last but not least, make a program using the four functions you just created.
 \end{enumerate}
 
@@ -665,16 +665,15 @@ It could look like the example below but feel free to organize it the way you wa
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
+	
 	>> 3
-
 	Please enter the recipe's name to get its details:
+	
 	>> cake
-
 	Recipe for cake:
 	Ingredients list: ['flour', 'sugar', 'eggs']
 	To be eaten for dessert.
 	Takes 60 minutes of cooking.
-	...
 \end{42console}
 
 Your program must continue running until the user exits it (option 5):
@@ -687,8 +686,8 @@ Your program must continue running until the user exits it (option 5):
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
+	
 	>> 5
-
 	Cookbook closed.
 	$>
 \end{42console}
@@ -704,11 +703,10 @@ It will prompt the user again until the value is correct:
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
+	
 	>> test
-
 	This option does not exist, please type the corresponding number.
 	To exit, enter 5.
-	... 
 \end{42console}
 
 
@@ -736,17 +734,20 @@ The string parameter can contain number: "this string has 1 number.".
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
+
 \begin{42console}
 	$> python filterwords.py "Hello, my friend" 3
 	['Hello', 'friend']
-	$> python filterwords.py "A robot must protect its own existence as long as such protection does not conflict with the First or Second Law" 6
+	$>
+	$>  python filterwords.py "A robot must protect its own existence as long as such protection does not conflict with the First or Second Law" 6
 	['protect', 'existence', 'protection', 'conflict']
+	$>
 	$> python filterwords.py Hello World
 	ERROR
+	$>
 	$> python filterwords.py 300 3
-	[]
+	ERROR
 \end{42console}
-
 
 % ===========================(fin ex 07)         %
 % ============================================== %
@@ -780,6 +781,7 @@ All alphanumeric characters are accepted by the encoder.
 	----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
 \end{42console}
 
+
 \hint{
 	\url{https://morsecode.world/international/morse2.html}
 }
@@ -799,22 +801,23 @@ All alphanumeric characters are accepted by the encoder.
 \makeheaderfilesforbidden
 
 You have to make a program that will be an interactive guessing game.
-It will ask the user to guess a number between 1 and 99.
+It will ask the user to guess a number between $1$ and $99$.
 The program will tell the user if their input is too high or too low.
-The game ends when the user finds out the secret number or types \texttt{exit}.  
+The game ends when the user finds out the secret number or types \texttt{exit}.
 You will import the \texttt{random} module with the \texttt{randint} function to get a random number. 
 You have to count the number of trials and print that number when the user wins.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
+
 \begin{42console}
 	$> python guess.py
 	This is an interactive guessing game!
 	You have to enter a number between 1 and 99 to find out the secret number.
 	Type 'exit' to end the game.
 	Good luck!
-
+	
 	What's your guess between 1 and 99?
 	>> 54
 	Too high!
@@ -831,7 +834,6 @@ You have to count the number of trials and print that number when the user wins.
 	>> 43
 	Congratulations, you've got it!
 	You won in 5 attempts!
-	$>
 \end{42console}
 
 If the user discovers the secret number on the first try, tell them.
@@ -843,11 +845,13 @@ If the secret number is 42, make a reference to Douglas Adams.
 	You have to enter a number between 1 and 99 to find out the secret number.
 	Type 'exit' to end the game.
 	Good luck!
+
+	What's your guess between 1 and 99?
 	>> 42
 	The answer to the ultimate question of life, the universe and everything is 42.
 	Congratulations! You got it on your first try!
-	$>
 \end{42console}
+
 
 \begin{42console}
 	$> python guess.py
@@ -859,9 +863,7 @@ If the secret number is 42, make a reference to Douglas Adams.
 	What's your guess between 1 and 99?
 	>> exit
 	Goodbye!
-	$>
 \end{42console}
-
 
 % ===========================(fin ex 09)         %
 % ============================================== %
