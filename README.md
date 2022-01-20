@@ -30,6 +30,7 @@ No prior Python programming or Machine Learning experience is required! Your mis
 ### Module01 - Basics 2
 **Get acquainted with object-oriented programming and much more.**
 > Objects, cast, inheritance, built-in functions, generator, construtors, iterator, ...
+.
 
 ### Module02 - Basics 3
 **Continue practicing with more advanced Python programming exercises.**
