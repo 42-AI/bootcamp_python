@@ -12,6 +12,7 @@
 
 ### Table of Contents
 
+BLABLA 
 - [Curriculum](#curriculum)
 - [Acknowledgements](#acknowledgements)
 
