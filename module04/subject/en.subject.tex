@@ -165,10 +165,10 @@ load and a display method.
 % ---------------------------------- %
 Write a class named \texttt{FileLoader} which implements the following methods:  
 \begin{itemize}
-  \item \texttt{load(path)}: takes as an argument the file path of the dataset to load,
-    displays a message specifying the dimensions of the dataset (e.g. 340 x 500)
-    and returns the dataset loaded as a pandas.DataFrame,
-  \item \texttt{display(df, n)}: takes a pandas.DataFrame and an integer as arguments,
+  \item \texttt{load(path)}: takes as an argument the file path of the dataset to load, 
+    displays a message specifying the dimensions of the dataset (e.g. 340 x 500) 
+    and returns the dataset loaded as a pandas.DataFrame.
+  \item \texttt{display(df, n)}: takes a pandas.DataFrame and an integer as arguments, 
     displays the first n rows of the dataset if n is positive, or the last n rows if n is negative.
 \end{itemize}
 
@@ -181,8 +181,12 @@ Write a class named \texttt{FileLoader} which implements the following methods:
 from FileLoader import FileLoader
 loader = FileLoader()
 data = loader.load("../data/adult_data.csv")
+# Output
 Loading dataset of dimensions 32561 x 15
+
+
 loader.display(data, 12)
+# Output
 age         workclass  fnlwgt  ... hours-per-week  native-country salary
 0    39         State-gov   77516  ...             40   United-States  <=50K
 1    50  Self-emp-not-inc   83311  ...             13   United-States  <=50K
@@ -229,24 +233,14 @@ man who took part in the Olympics a given year.
 % --------------------------------- %
 This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 
-Write a function \texttt{youngestFellah} that takes two arguments as
-describe by the function signature:
-
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def youngfellah(df, year):
-	"""
-	Get the name of the youngest woman and man for the given year.
-	Args:
-		df: pandas.DataFrame object containing the dataset.
-		year: integer corresponding to a year.
-	Returns:
-		dct: dictionary with 2 keys for female and male athlete.
-	"""
-\end{minted}
+Write a function \texttt{youngestFellah} that takes two arguments:
+\begin{itemize}
+  \item a pandas.DataFrame which contains the dataset
+  \item an Olympic year.
+\end{itemize}
 
 The function returns a dictionary containing the age of the youngest
 woman and man who took part in the Olympics on that year.
-Otherwise the same dictionary with 'nan' is returned.
 The name of the dictionary's keys is up to you, but it must be self-explanatory.
 
 % ================================= %
@@ -259,14 +253,11 @@ data = loader.load('../data/athlete_events.csv')
 # Output
 Loading dataset of dimensions 271116 x 15
 
-from YoungestFellah import youngestfellah
-youngestfellah(data, 2004)
+
+from YoungestFellah import youngestFellah
+youngestFellah(data, 2004)
 # Output
 {'f': 13.0, 'm': 14.0}
-
-youngestfellah(data, 1991)
-# Output
-{'f': 'nan', 'm': 'nan'}
 \end{minted}
 
 
@@ -306,16 +297,13 @@ Write a function \texttt{proportionBySport} that takes four arguments:
   \item a gender.
 \end{itemize}
 
-The function returns a float corresponding to the proportion (percentage)
-of participants who played the given sport among the participants of
-the given gender.
+The function returns a float corresponding to the proportion (percentage) of participants 
+who played the given sport among the participants of the given gender.
 
-The function answers questions like the following:
-"What was the percentage of female basketball players among all the
-female participants of the 2016 Olympics?"
+The function answers questions like the following : 
+"What was the percentage of female basketball players among all the female 
+participants of the 2016 Olympics?"
 
-
-Of course, the function should not raise any exceptions.
 
 \hint{
 Here and further, if needed, drop duplicated sports people
@@ -332,6 +320,7 @@ loader = FileLoader()
 data = loader.load('../data/athlete_events.csv')
 # Output
 Loading dataset of dimensions 271116 x 15
+
 
 from ProportionBySport import proportionBySport
 proportionBySport(data, 2004, 'Tennis', 'F')
@@ -377,16 +366,12 @@ Write a function \texttt{howManyMedals} that takes two arguments:
   \item a participant name.
 \end{itemize}
 
-The function returns a dictionary of dictionaries giving the number and
-type of medals for each year during which the participant won medals.  
-The keys of the main dictionary are the Olympic games years.
-In each year's dictionary, the keys are 'G', 'S', 'B' corresponding to
-the type of medals won (gold, silver, bronze).
-The innermost values correspond to the number of medals of a given type
-won for a given year.
-
-
-The function should not raise any exceptions.
+The function returns a dictionary of dictionaries giving the number and type of medals 
+for each year during which the participant won medals.
+The keys of the main dictionary are the Olympic games years. 
+In each year's dictionary, the keys are 'G', 'S', 'B' corresponding to the type of 
+medals won (gold, silver, bronze). The innermost values correspond to the number of 
+medals of a given type won for a given year.
 
 % ================================= %
 \section*{Examples}
@@ -397,6 +382,7 @@ loader = FileLoader()
 data = loader.load('../data/athlete_events.csv')
 # Output
 Loading dataset of dimensions 271116 x 15
+
 
 from HowManyMedals import howManyMedals
 howManyMedals(data, 'Kjetil Andr Aamodt')
@@ -447,9 +433,6 @@ following methods:
         where the Olympics took place in the given year.
 \end{itemize}
 
-
-No exceptions should be risen by \texttt{where} and \texttt{when}.
-
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
@@ -460,19 +443,23 @@ data = loader.load('../data/athlete_events.csv')
 # Output
 Loading dataset of dimensions 271116 x 15
 
+
 from SpatioTemporalData import SpatioTemporalData
 sp = SpatioTemporalData(data)
 sp.where(1896)
 # Output
 ['Athina']
 
+
 sp.where(2016)
 # Output
 ['Rio de Janeiro']
 
+
 sp.when('Athina')
 # Output
 [2004, 1906, 1896]
+
 
 sp.when('Paris')
 # Output
@@ -520,18 +507,22 @@ The keys of the main dictionary are the Olympic games' years. In each
 year's dictionary, the key are 'G', 'S', 'B' corresponding to the
 type of medals won.
 
-Duplicated medals per team games should be handled and not counted twice. Plus, function should not raise any exceptions.
+Duplicated medals per team games should be handled and not counted twice.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
->>> from FileLoader import FileLoader
->>> loader = FileLoader()
->>> data = loader.load('../data/athlete_events.csv')
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
 Loading dataset of dimensions 271116 x 15
->>> from HowManyMedalsByCountry import howManyMedalsByCountry
->>> howManyMedalsByCountry(data, 'Martian Federation')
+
+
+from HowManyMedalsByCountry import howManyMedalsByCountry
+howManyMedalsByCountry(data, 'Martian Federation')
+# Output
 {2192: {'G': 17, 'S': 14, 'B': 23}, 2196: {'G': 8, 'S': 21, 'B': 19}, 2200: {'G': 26, 'S': 19, 'B': 7}}
 \end{minted}
 
@@ -578,6 +569,10 @@ methods, each of which take two arguments:
   \item a list of feature names.
 \end{itemize}
 
+\hint{
+  What is a feature? https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
+}
+
 \begin{itemize}
   \item \texttt{histogram(data, features)}: plots one histogram for each numerical feature in the list,
   \item \texttt{density(data, features)}: plots the density curve of each numerical feature in the list,
@@ -586,8 +581,6 @@ methods, each of which take two arguments:
         The main diagonal of this matrix shows simple histograms.
   \item \texttt{box\_plot(data, features)}: displays a box plot for each numerical variable in the dataset.
 \end{itemize}
-
-As usual, the different methods should not raise any exceptions.
 
 % ================================= %
 \section*{Examples}
@@ -627,7 +620,7 @@ As usual, the different methods should not raise any exceptions.
 \extitle{Komparator}
 \turnindir{ex07}
 \exnumber{07}
-\exfiles{Komparator.py, MyPlotLib.py}
+\exfiles{Komparator.py, MyPlotLib.py (optional)}
 \exforbidden{None}
 \makeheaderfilesforbidden
 
@@ -647,17 +640,19 @@ This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 Write a class called \texttt{Komparator} whose constructor takes as an argument a pandas.DataFrame which contains the dataset.
 The class must implement the following methods, which take as input two variable names:
 \begin{itemize}
-  \item \texttt{compare\_box\_plots(categorical\_var, numerical\_var)}: displays a box plot with several boxes to compare how
-  the distribution of the numerical variable changes if we only consider the subpopulation which belongs to each category.
-  There should be as many boxes as categories.
-  For example, with Sex and Height, we would compare the height distributions of men vs. women with two boxes on the same graph,
+  \item \texttt{compare\_box\_plots(categorical\_var, numerical\_var)}: displays a series of box plots 
+  to compare how the distribution of the numerical variable changes if we only consider 
+  the subpopulation which belongs to each category. 
+  There should be as many box plots as categories. 
+  For example, with Sex and Height, we would compare 
+  the height distributions of men vs. women with two box plots.
   \item \texttt{density(categorical\_var, numerical\_var)}: displays the density of the numerical variable.
-  Each subpopulation should be represented by a separate curve on the graph,
+  Each subpopulation should be represented by a separate curve on the graph.
   \item \texttt{compare\_histograms(categorical\_var, numerical\_var)}: plots the numerical variable in a separate histogram for each category.
-  As an extra, you can use overlapping histograms with a color code (but no extra point will be granted!).
+  As an extra, you can use overlapping histograms with a color code.
 \end{itemize}
 
-No execptions should be risen by any methods.
+BONUS: Your functions can also accept a list of numerical variables (instead of just one), and output a comparison plot for each variable in the list.
 
 % ===========================(fin ex 07)         %
 % ============================================== %
