@@ -137,7 +137,7 @@
 \makeheaderfilesforbidden
 
 
-\emph{The first thing you need is a proper working environment.}
+\emph{The first thing you need to do is install Python.}
 
 Most modern Unix-based system have a \texttt{python} interpreter installed by default, 
 but its version might be lower/higher than the one used for these modules. 
@@ -156,6 +156,10 @@ To deal with those version issues we will use \texttt{conda}. This program allow
 % ================================== %
 \section*{Conda manual install}
 % ---------------------------------- %
+
+If you want a fully automated install go to **Conda automated install** section.
+The automated part will allow you to reinstall everything more easily in case you use another computer. Below is a step by step installation.
+
 We recommend the following path for your \texttt{conda} folder.
 
 % \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{shell}
@@ -219,6 +223,79 @@ python -c "print('Hello World!')"
 	\item \textbf{I have lost my miniconda3 folder !}: Repeat step 1 and 3.
 	\item \textbf{I have lost my home directory !}: Repeat step 2.
 \end{itemize}
+
+% ================================== %
+\section*{Conda automated install}
+% ---------------------------------- %
+
+A way to install the entire environment is to define a bash function in your `~/.zshrc`.
+
+1. Copy paste the following code into your `~/.zshrc`.
+
+\begin{42console}
+function set_conda {
+	HOME=$(echo ~)
+	INSTALL_PATH="/goinfre"
+	MINICONDA_PATH=$INSTALL_PATH"/miniconda3/bin"
+	PYTHON_PATH=$(which python)
+	SCRIPT="Miniconda3-latest-MacOSX-x86_64.sh"
+	REQUIREMENTS="jupyter numpy pandas"
+	DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+
+	if echo $PYTHON_PATH | grep -q $INSTALL_PATH; then
+		echo "good python version :)"
+	else
+	cd
+	if [ ! -f $SCRIPT ]; then
+		curl -LO $DL_LINK
+		fi
+		if [ ! -d $MINICONDA_PATH ]; then
+			sh $SCRIPT -b -p $INSTALL_PATH"/miniconda3"
+	fi
+	conda install -y $(echo $REQUIREMENTS)
+	clear
+	echo "Which python:"
+	which python
+	if grep -q "^export PATH=$MINICONDA_PATH" ~/.zshrc
+	then
+		echo "export already in .zshrc";
+	else
+		echo "adding export to .zshrc ...";
+		echo "export PATH=$MINICONDA_PATH:\$PATH" >> ~/.zshrc
+	fi
+	source ~/.zshrc
+	fi
+}
+\end{42console}
+
+By default, conda will be installed in the goinfre (look at the `INSTALL_PATH` variable). Feel free to change that path if you want to.
+
+The function can be used whenever we want and will carry out the installation of miniconda and all needed librairies for the module (feel free to add more of them). It will also add a line to export miniconda environment.
+
+2. Source your `.zshrc` with the following command:
+
+\begin{42console}
+source ~/.zshrc
+\end{42console}
+
+
+3. Use the function `set_conda`:
+
+\begin{42console}
+set_conda
+\end{42console}
+```
+
+When the installation is done rerun the `set_conda` function.
+
+4. Check your Python path.
+
+\begin{42console}
+which python
+\end{42console}
+
+Your Python should now be the one corresponding to the miniconda environment!
+
 
 \newpage
 % ================================= %
