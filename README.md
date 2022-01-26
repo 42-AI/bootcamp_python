@@ -13,7 +13,15 @@
 ### Table of Contents
 
 - [Curriculum](#curriculum)
+  - [Module00 - Basics 1 - Eleven Commandments](#module00---basics-1---eleven-commandments)
+  - [Module01 - Basics 2](#module01---basics-2)
+  - [Module02 - Basics 3](#module02---basics-3)
+  - [Module03 - Numpy](#module03---numpy)
+  - [Module04 - Pandas](#module04---pandas)
 - [Acknowledgements](#acknowledgements)
+  - [Contributors](#contributors)
+  - [Beta-testers](#beta-testers)
+  - [Thanks to Ilyes and Kévin for the PR](#thanks-to-ilyes-and-kévin-for-the-pr)
 
 This project is a Python programming and Machine Learning bootcamp created by [42 AI](http://www.42ai.fr).
 
@@ -35,9 +43,9 @@ No prior Python programming or Machine Learning experience is required! Your mis
 **Continue practicing with more advanced Python programming exercises.**
 > Decorators, multiprocessing, lambda, build package, ...
 
-### Module03 - NumPy
-**Learn how to use the NumPy library, manipulate multidimensional arrays and perform complex mathematical operations on matrices!**
-> NumPy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
+### Module03 - Numpy
+**Learn how to use the Numpy library, manipulate multidimensional arrays and perform complex mathematical operations on matrices!**
+> Numpy array, slicing, stacking, dimensions, broadcasting, normalization, etc...
 
 ### Module04 - Pandas
 **Time to use a Python library that will allow you to manipulate dataframes.**
