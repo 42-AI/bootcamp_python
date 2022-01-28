@@ -164,73 +164,86 @@ Introduction to Numpy library.
 \section*{Instructions}
 % ---------------------------------- %
 Write a class named \texttt{NumPyCreator}, that implements all of the following methods.
-Each method receives as an argument a different type of data structure and transforms
-it into a Numpy array:
+Each method receives as an argument a different type of data structure and transforms it into a Numpy array:
 \begin{itemize}
-  \item \texttt{from\_list(lst)}: takes a list or nested list and returns its corresponding Numpy array,
-  \item \texttt{from\_tuple(tpl)}: takes a tuple or nested tuple and returns its corresponding Numpy array,
-  \item \texttt{from\_iterable(itr)}: takes an iterable and returns an array which contains all of its elements,
-  \item \texttt{from\_shape(shape, value)}: returns an array filled with the same value,
-  The first argument is a tuple which specifies the shape of the array, and the second argument specifies the value of all the elements.
-  This value must be 0 by default,
-  \item \texttt{random(shape)}: returns an array filled with random values,
-  It takes as an argument a tuple which specifies the shape of the array,
+  \item \texttt{from\_list(lst)}: takes a list or nested lists and returns its corresponding Numpy array.
+  \item \texttt{from\_tuple(tpl)}: takes a tuple or nested tuples and returns its corresponding Numpy array.
+  \item \texttt{from\_iterable(itr)}: takes an iterable and returns an array which contains all its elements.
+  \item \texttt{from\_shape(shape, value)}: returns an array filled with the same value.
+  The first argument is a tuple which specifies the shape of the array, and the second argument specifies the value of the elements. 
+  This value must be 0 by default.
+  \item \texttt{random(shape)}: returns an array filled with random values.
+  It takes as an argument a tuple which specifies the shape of the array.
   \item \texttt{identity(n)}: returns an array representing the identity matrix of size n.
 \end{itemize}
+
+
+\textit{\textbf{BONUS:}} Add to those methods an optional argument which specifies the datatype (dtype) of the array (e.g. to represent its elements as integers, floats, ...)
+
+\hint All those methods can be implemented in one line. You only need to find the right Numpy functions.
 
 % ================================== %
 \section*{Examples}
 % ---------------------------------- %
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-from NumPyCreator import NumPyCreator
-npc = NumPyCreator()
+from NumpyCreator import NumpyCreator
+npc = NumpyCreator()
 
 npc.from_list([[1,2,3],[6,3,4]])
-# Output:
+# Output :
 array([[1, 2, 3],
        [6, 3, 4]])
 
+
 npc.from_list([[1,2,3],[6,4]])
-# Output
+# Output :
 None
+
 
 npc.from_list([[1,2,3],['a','b','c'],[6,4,7]])
-# Output
-array([['1', '2', '3'],
-       ['a', 'b', 'c'],
-       ['5.0', '6.1', '7.8']], dtype='<U21')
+# Output :
+array([['1','2','3'],
+       ['a','b','c'],
+       ['6','4','7'], dtype='<U21'])
+
 
 npc.from_list(((1,2),(3,4)))
-# Output
+# Output :
 None
 
-npc.from_tuple(("a","b","c"))
-# Output
-array(['a','b','c'])
 
-npc.from_tuple([[1,2,3],[6,3,4]])
-# Output
+npc.from_tuple(("a", "b", "c"))
+# Output :
+array(['a', 'b', 'c'])
+
+
+npc.from_tuple(["a", "b", "c"])
+# Output :
 None
+
 
 npc.from_iterable(range(5))
-# Output
+# Output :
 array([0, 1, 2, 3, 4])
+
 
 shape=(3,5)
 npc.from_shape(shape)
-# Output
+# Output :
 array([[0, 0, 0, 0, 0],
        [0, 0, 0, 0, 0],
        [0, 0, 0, 0, 0]])
 
+
 npc.random(shape)
-# Output
+# Output :
 array([[0.57055863, 0.23519999, 0.56209311, 0.79231567, 0.213768 ],
       [0.39608366, 0.18632147, 0.80054602, 0.44905766, 0.81313615],
       [0.79585328, 0.00660962, 0.92910958, 0.9905421 , 0.05244791]])
 
+
 npc.identity(4)
-# Output
+# Output :
 array([[1., 0., 0., 0.],
        [0., 1., 0., 0.],
        [0., 0., 1., 0.],
@@ -265,11 +278,9 @@ Build a tool that will be helpful to load and display images in the upcoming exe
 
 Write a class named \texttt{ImageProcessor} that implements the following methods:
 \begin{itemize}
-  \item \texttt{load(path)}: opens the .png file specified by the \texttt{path} argument and
-  returns an array with the RGB values of the image pixels
-  It must display a message specifying the dimensions of the image (e.g. 340 x 500),
-  \item \texttt{display(array)}: takes a numpy array as an argument and displays the
-  corresponding RGB image.
+  \item \texttt{load(path)}: opens the PNG file specified by the \texttt{path} argument and returns an array with the RGB values of the pixels image. It must display a message specifying the dimensions of the image (e.g. 340 x 500).
+
+  \item \texttt{display(array)}: takes a numpy array as an argument and displays the corresponding RGB image.
 \end{itemize}
 
 \hint{You can use the library of your choice for this exercise,
@@ -285,27 +296,32 @@ so that you can focus on array manipulation in the upcoming exercises.
 from ImageProcessor import ImageProcessor
 imp = ImageProcessor()
 arr = imp.load("non_existing_file.png")
-# Output
+# Output :
 Exception: FileNotFoundError -- strerror: No such file or directory
 
+
 print(arr)
-# Output
+# Output :
 None
+
 
 arr = imp.load("empty_file.png")
-# Output
+# Output :
 Exception: OSError -- strerror: None
 
+
 print(arr)
-# Output
+# Output :
 None
 
+
 arr = imp.load("../resources/42AI.png")
-# Output
+# Output :
 Loading image of dimensions 200 x 200
 
+
 arr
-# Output
+# Output :
 array([[[0.03529412, 0.12156863, 0.3137255 ],
         [0.03921569, 0.1254902 , 0.31764707],
         [0.04313726, 0.12941177, 0.3254902 ],
@@ -355,6 +371,8 @@ array([[[0.03529412, 0.12156863, 0.3137255 ],
         [0.03921569, 0.10588235, 0.26666668],
         [0.03921569, 0.10588235, 0.26666668],
         [0.03921569, 0.10588235, 0.26666668]]], dtype=float32)
+
+
 imp.display(arr)
 \end{minted}
 
@@ -401,15 +419,18 @@ Implement a class named \texttt{ScrapBooker} with the following methods:
 def crop(self, array, dim, position=(0,0)):
     """
     Crops the image as a rectangle via dim arguments (being the new height
-    and width oof the image) from the coordinates given by position arguments.
+    and width of the image) from the coordinates given by position arguments.
     Args:
+    -----
       array: numpy.ndarray
       dim: tuple of 2 integers.
       position: tuple of 2 integers.
-    Returns:
+    Return:
+    -------
       new_arr: the cropped numpy.ndarray.
-      None otherwise (combinaison of parameters not incompatible).
-    Raises:
+      None (if combinaison of parameters not compatible).
+    Raise:
+    ------
       This function should not raise any Exception.
     """
     ... your code ...
@@ -418,14 +439,17 @@ def thin(self, array, n, axis):
     """
     Deletes every n-th line pixels along the specified axis (0: vertical, 1: horizontal)
     Args:
+    -----
       array: numpy.ndarray.
       n: non null positive integer lower than the number of row/column of the array
          (depending of axis value).
       axis: positive non null integer.
-    Returns:
+    Return:
+    -------
       new_arr: thined numpy.ndarray.
-      None otherwise (combinaison of parameters not incompatible).
-    Raises:
+      None (if combinaison of parameters not compatible).
+    Raise:
+    ------
       This function should not raise any Exception.
     """
     ... your code ...
@@ -434,13 +458,16 @@ def juxtapose(self, array, n, axis):
     """
     Juxtaposes n copies of the image along the specified axis.
     Args:
+    -----
       array: numpy.ndarray.
       n: positive non null integer.
       axis: integer of value 0 or 1.
-    Returns:
+    Return:
+    -------
       new_arr: juxtaposed numpy.ndarray.
-      None otherwise (combinaison of parameters not incompatible).
+      None (combinaison of parameters not compatible).
     Raises:
+    -------
       This function should not raise any Exception.
     """
     ... your code ...
@@ -450,12 +477,15 @@ def mosaic(self, array, dim):
     Makes a grid with multiple copies of the array. The dim argument specifies
     the number of repetition along each dimensions.
     Args:
+    -----
       array: numpy.ndarray.
       dim: tuple of 2 integers.
-    Returns:
+    Return:
+    -------
       new_arr: mosaic numpy.ndarray.
-      None otherwise (combinaison of parameters not incompatible).
+      None (combinaison of parameters not compatible).
     Raises:
+    -------
       This function should not raise any Exception.
       """
       ... your code ...
@@ -485,14 +515,15 @@ from Scrapbooker import ScrapBooker
 spb = ScrapBooker()
 arr1 = np.arange(0,25).reshape(5,5)
 spb.crop(arr1, (3,1),(1,0))
-#Output
+#Output :
 array([[ 5],
        [10],
        [15]])
 
+
 arr2 = np.array("A B C D E F G H I".split() * 6).reshape(-1,9)
 spb.thin(arr2,3,0)
-#Output
+#Output :
 array([['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
        ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
        ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
@@ -500,9 +531,10 @@ array([['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
        ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
        ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K']], dtype='<U1')
 
+
 arr3 = np.array([[1, 2, 3],[1, 2, 3],[1, 2, 3]])
 spb.juxtapose(arr3, 3, 1)
-#Output
+#Output :
 array([[1, 2, 3, 1, 2, 3, 1, 2, 3],
        [1, 2, 3, 1, 2, 3, 1, 2, 3],
        [1, 2, 3, 1, 2, 3, 1, 2, 3]])
@@ -544,11 +576,14 @@ def invert(array):
     """
     Inverts the color of the image received as a numpy array.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -557,11 +592,14 @@ def to_blue(array):
     """
     Applies a blue filter to the image received as a numpy array.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -570,11 +608,14 @@ def to_green(array):
     """
     Applies a green filter to the image received as a numpy array.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -583,11 +624,14 @@ def to_red(array):
     """
     Applies a red filter to the image received as a numpy array.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -601,11 +645,14 @@ def to_celluloid(array):
     Remarks:
         celluloid filter is also known as cel-shading or toon-shading.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -616,14 +663,17 @@ def to_grayscale(array, filter, **kwargs):
     For filter = 'mean'/'m': performs the mean of RBG channels.
     For filter = 'weight'/'w': performs a weighted mean of RBG channels.
     Args:
+    -----
         array: numpy.ndarray corresponding to the image.
         filter: string with accepted values in ['m','mean','w','weight']
         weights: [kwargs] list of 3 floats where the sum equals to 1,
                  corresponding to the weights of each RBG channels.
     Return:
+    -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
     Raises:
+    -------
         This function should not raise any Exception.
     """
 \end{minted}
@@ -631,22 +681,22 @@ def to_grayscale(array, filter, **kwargs):
 You have some restrictions on the authorized methods and operators
 for each filter method in class \texttt{ColorFilter}:
 \begin{itemize}
-  \item \texttt{invert(array)}:
+  \item \texttt{invert}:
   \begin{itemize}
     \item Authorized functions:\texttt{None}
     \item Authorized operator:\texttt{+},\texttt{-}
   \end{itemize}
-  \item \texttt{to\_blue(array)}:
+  \item \texttt{to\_blue}:
   \begin{itemize}
     \item Authorized functions:\texttt{.zeros},\texttt{.shape},\texttt{.dstack}
     \item Authorized operator:\texttt{None}
   \end{itemize}
-  \item \texttt{to\_green(array)}:
+  \item \texttt{to\_green}:
   \begin{itemize}
     \item Authorized functions:\texttt{copy.deepcopy}
     \item Authorized operator:\texttt{*}
   \end{itemize}
-  \item \texttt{to\_red(array)}:
+  \item \texttt{to\_red}:
   \begin{itemize}
     \item Authorized functions:\texttt{.to\_green},\texttt{.to\_blue}
     \item Authorized operator:\texttt{-},\texttt{+}
@@ -655,9 +705,9 @@ for each filter method in class \texttt{ColorFilter}:
   \begin{itemize}
     \item Authorized functions:\texttt{.arange},\texttt{.linspace}
   \end{itemize}
-  \item \texttt{to\_grayscale(array, filter)}:
+  \item \texttt{to\_grayscale}:
   \begin{itemize}
-    \item Authorized functions:\texttt{.sum},\texttt{.shape},\texttt{.tile},\texttt{.reshape},\texttt{.dstack},\texttt{.broadcast\_to},\texttt{.as\_type}
+    \item Authorized functions:\texttt{.sum},\texttt{.shape},\texttt{.reshape},\texttt{.broadcast\_to},\texttt{.as\_type}
     \item Authorized operator:\texttt{*},\texttt{/}
   \end{itemize}
 \end{itemize}
@@ -668,8 +718,9 @@ for each filter method in class \texttt{ColorFilter}:
 from ImageProcessor import ImageProcessor
 imp = ImageProcessor()
 arr = imp.load("assets/42AI.png")
-# Output
+# Output :
 Loading image of dimensions 200 x 200
+
 
 from ColorFilter import ColorFilter
 cf = ColorFilter()
@@ -800,8 +851,7 @@ Create the class \texttt{KmeansClustering} with the following methods:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 class KmeansClustering:
-    def __init__(self, max_iter=20, ncentroid=4):
-        ... parameters control...
+    def __init__(self, max_iter=20, ncentroid=5):
         self.ncentroid = ncentroid # number of centroids
         self.max_iter = max_iter # number of max iterations to update the centroids
         self.centroids = [] # values of the centroids
@@ -811,10 +861,13 @@ class KmeansClustering:
         Run the K-means clustering algorithm.
         For the location of the initial centroids, random pick ncentroids from the dataset.
         Args:
+        -----
           X: has to be an numpy.ndarray, a matrice of dimension m * n.
-        Returns:
+        Return:
+        -------
           None.
         Raises:
+        -------
           This function should not raise any Exception.
         """
         ... your code ...
@@ -823,10 +876,13 @@ class KmeansClustering:
         """
         Predict from wich cluster each datapoint belongs to.
         Args:
+        -----
           X: has to be an numpy.ndarray, a matrice of dimension m * n.
-        Returns:
+        Return:
+        -------
           the prediction has a numpy.ndarray, a vector of dimension m * 1.
         Raises:
+        -------
           This function should not raise any Exception.
         """
         ... your code ...
