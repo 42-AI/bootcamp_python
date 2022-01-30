@@ -127,7 +127,6 @@
 %******************************************************************************%
 
 % ============================================== %
-% ===========================(start ex 00)       %
 \chapter{Exercise 00}
 \extitle{\$PATH}
 \turnindir{ex00}
@@ -136,22 +135,21 @@
 \exforbidden{None}
 \makeheaderfilesforbidden
 
+\emph{The first thing you need is a proper working environment.}
 
-\emph{The first thing you need to do is install Python.}
-
-Most modern Unix-based system have a \texttt{python} interpreter installed by default, 
-but its version might be lower/higher than the one used for these modules. 
-It is also possible that the default \texttt{python} command uses a version 2.x (for legacy reasons). 
+Most modern Unix-based system have a \texttt{python} interpreter installed by default,
+but its version might be lower/higher than the one used for these modules.
+It is also possible that the default \texttt{python} command uses a version 2.X (for legacy reasons).
 This is obviously very confusing for new developper.
 
 \begin{42console}
 $> python -V
 $> python3 -V
 \end{42console}
-To deal with those version issues we will use \texttt{conda}. This program allow you to manage your Python package and different working environments.
 
+To deal with those version issues we will use \texttt{conda}. This program allow you to manage your Python packages and different working environments.
 
-\emph{Note: the actual requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
+\emph{The requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
 
 % ================================== %
 \section*{Conda manual install}
@@ -162,154 +160,185 @@ The automated part will allow you to reinstall everything more easily in case yo
 
 We recommend the following path for your \texttt{conda} folder.
 
-% \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{shell}
-% MYPATH="/goinfre/$USER/miniconda3"
-% \end{minted}
-
 \begin{42console}
-MYPATH="/goinfre/$USER/miniconda3"
+$> MYPATH="/goinfre/$USER/miniconda3"
 \end{42console}
 
 % ================================== %
-\subsection*{Download \& Install conda}
+\subsection*{1. Download \& Install conda}
 % ---------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+\begin{42console}
 # For MAC
-curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
-sh Miniconda3-latest-MacOSX-x86_64.sh -b -p $MYPATH
+$> curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+$> sh Miniconda3-latest-MacOSX-x86_64.sh -b -p $MYPATH
 
 # For Linux
-curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
-\end{minted}
+$> curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+$> sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+\end{42console}
 
 % ================================== %
-\subsection*{Initial configuration of conda}
+\subsection*{2. Initial configuration of conda}
 % ---------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+\begin{42console}
 # For zsh
-$MYPATH/bin/conda init zsh
-$MYPATH/bin/conda config --set auto_activate_base false
-source ~/.zshrc
+$> $MYPATH/bin/conda init zsh
+$> $MYPATH/bin/conda config --set auto_activate_base false
+$> source ~/.zshrc
 
 # For bash
-$MYPATH/bin/conda init bash
-$MYPATH/bin/conda config --set auto_activate_base false
-source ~/.bash_profile
-\end{minted}
-	
+$> $MYPATH/bin/conda init bash
+$> $MYPATH/bin/conda config --set auto_activate_base false
+$> source ~/.bash_profile
+\end{42console}
+
 % ================================== %
-\subsection*{Create an environment for 42AI !}
+\subsection*{3. Create an environment for 42AI !}
 % ---------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
-conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle
-\end{minted}
-	
+\begin{42console}
+$> conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle
+\end{42console}
+
 % ================================== %
-\subsection*{Check your 42AI Python environment}
+\subsection*{4. Check your 42AI Python environment}
 % ---------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
-conda info --envs
-conda activate 42AI-$USER
-which python
-python -V
-python -c "print('Hello World!')"
-\end{minted}
-	
+\begin{42console}
+$> conda info --envs
+$> conda activate 42AI-$USER
+$> which python
+$> python -V
+$> python -c "print('Hello World!')"
+\end{42console}
+
 % ================================== %
 \subsection*{Help !}
 % ---------------------------------- %
 \begin{itemize}
-	\item \textbf{I have lost my miniconda3 folder !}: Repeat step 1 and 3.
-	\item \textbf{I have lost my home directory !}: Repeat step 2.
+	\item \textbf{I have lost my miniconda3 folder !} Repeat step 1 and 3.
+	\item \textbf{I have lost my home directory !} Repeat step 2.
 \end{itemize}
 
+
+\newpage
 % ================================== %
 \section*{Conda automated install}
 % ---------------------------------- %
 
-A way to install the entire environment is to define a bash function in your `~/.zshrc`.
-
-1. Copy paste the following code into your `~/.zshrc`.
-
-\begin{42console}
-	function set_conda {
-		HOME=$(echo ~)
-		INSTALL_PATH="/goinfre"
-		MINICONDA_PATH=$INSTALL_PATH"/miniconda3/bin"
-		PYTHON_PATH=$(which python)
-		SCRIPT="Miniconda3-latest-MacOSX-x86_64.sh"
-		REQUIREMENTS="jupyter numpy pandas"
-		DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
-	
-		if echo $PYTHON_PATH | grep -q $INSTALL_PATH; then
-			echo "good python version :)"
-		else
-		cd
-		if [ ! -f $SCRIPT ]; then
-			curl -LO $DL_LINK
-			fi
-			if [ ! -d $MINICONDA_PATH ]; then
-				sh $SCRIPT -b -p $INSTALL_PATH"/miniconda3"
-		fi
-		conda install -y $(echo $REQUIREMENTS)
-		clear
-		echo "Which python:"
-		which python
-		if grep -q "^export PATH=$MINICONDA_PATH" ~/.zshrc
-		then
-			echo "export already in .zshrc";
-		else
-			echo "adding export to .zshrc ...";
-			echo "export PATH=$MINICONDA_PATH:\$PATH" >> ~/.zshrc
-		fi
-		source ~/.zshrc
-		fi
-	}
-\end{42console}
-
-By default, conda will be installed in the goinfre (look at the `INSTALL_PATH` variable). Feel free to change that path if you want to.
-
-The function can be used whenever we want and will carry out the installation of miniconda and all needed librairies for the module (feel free to add more of them). It will also add a line to export miniconda environment.
-
-2. Source your `.zshrc` with the following command:
+% ================================== %
+\subsection*{Copy and launch the following shell script}
+% ---------------------------------- %
 
 \begin{42console}
-source ~/.zshrc
-\end{42console}
+#!/bin/bash
 
+function which_dl {
+	# If operating system name contains Darwnin: MacOS. Else Linux
+	if uname -s | grep -iqF Darwin; then
+		echo "Miniconda3-latest-MacOSX-x86_64.sh"
+	else
+		echo "Miniconda3-latest-Linux-x86_64.sh"
+	fi
+}
 
-3. Use the function `set_conda`:
+function which_shell {
+	# if $SHELL contains zsh, zsh. Else Bash
+	if echo $SHELL | grep -iqF zsh; then
+		echo "zsh"
+	else
+		echo "bash"
+	fi
+}
 
-\begin{42console}
+function when_conda_exist {
+	# check and install 42AI environement
+	printf "Checking 42AI-$USER environment: "
+	if conda info --envs | grep -iqF 42AI-$USER; then
+		printf "\e[33mDONE\e[0m\n"
+	else
+		printf "\e[31mKO\e[0m\n"
+		printf "\e[33mCreating 42AI environnment:\e[0m\n"
+		conda update -n base -c defaults conda -y
+		conda create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
+	fi
+}
+
+function set_conda {
+	MINICONDA_PATH="/goinfre/$USER/miniconda3"
+	CONDA=$MINICONDA_PATH"/bin/conda"
+	PYTHON_PATH=$(which python)
+	REQUIREMENTS="jupyter numpy pandas pycodestyle"
+	SCRIPT=$(which_dl)
+	MY_SHELL=$(which_shell)
+	DL_LINK="https://repo.anaconda.com/miniconda/"$SCRIPT
+	DL_LOCATION="/tmp/"
+
+	printf "Checking conda: "
+	TEST=$(conda -h 2>/dev/null)
+	if [ $? == 0 ] ; then
+		printf "\e[32mOK\e[0m\n"
+		when_conda_exist
+		return
+	fi
+	printf "\e[31mKO\e[0m\n"
+	if [ ! -f $DL_LOCATION$SCRIPT ]; then
+		printf "\e[33mDonwloading installer:\e[0m\n"
+		cd $DL_LOCATION
+		curl -LO $DL_LINK
+		cd -
+	fi
+	printf "\e[33mInstalling conda:\e[0m\n"
+	sh $DL_LOCATION$SCRIPT -b -p $MINICONDA_PATH
+	printf "\e[33mConda initial setup:\e[0m\n"
+	$CONDA init $MY_SHELL
+	$CONDA config --set auto_activate_base false
+
+	printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
+	$CONDA update -n base -c defaults conda -y
+	$CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
+	printf "\e[33mLaunch the following command or restart your shell:\e[0m\n"
+	if [ $MY_SHELL == "zsh" ]; then
+		printf "\tsource ~/.zshrc\n"
+	else
+		printf "\tsource ~/.bash_profile\n"
+	fi
+}
+
 set_conda
 \end{42console}
-```
 
-When the installation is done rerun the `set_conda` function.
-
-4. Check your Python path.
-
+% ================================== %
+\subsection*{Reset your shell configuration}
+% ---------------------------------- %
 \begin{42console}
-which python
+$> source ~/.zshrc
 \end{42console}
+\emph{Or close and reopen your shell.}
 
-Your Python should now be the one corresponding to the miniconda environment!
-
+% ================================== %
+\subsection*{Check your 42AI Python environment}
+% ---------------------------------- %
+\begin{42console}
+$> conda info --envs
+$> conda activate 42AI-$USER
+$> which python
+$> python -V
+$> python -c "print('Hello World!')"
+\end{42console}
 
 \newpage
 % ================================= %
 \section*{Getting started}
 % --------------------------------- %
 
-As an introduction, complete the following questionnaire using Python and \texttt{pip}, save your answers in a file \texttt{answers.txt} (write an answer per line in the text file), and check them with your peers.
+
+Your \texttt{Python} environment is ready. Complete the following questionnaire using \texttt{python}, \texttt{pip} or \texttt{conda}. Save your answers in a file \texttt{answers.txt} (one answer per line), and check them with your peers.
 
 Find the commands to:
 \begin{itemize}\itemsep7pt
-	\item Output a list of installed packages.
 	\item Output a list of installed packages and their versions.
 	\item Show the package metadata of \texttt{numpy}.
-	\item Search for PyPI packages whose name or summary contains "tesseract".
+	\item Uninstall the package \texttt{numpy}.
+	\item Install the package \texttt{numpy}.
 	\item Freeze the packages and their current versions in a \texttt{requirements.txt} file you have to turn-in.
 \end{itemize}
 
@@ -331,25 +360,25 @@ Find the commands to:
 % ================================= %
 % \section*{}
 % --------------------------------- %
-You have to make a program that reverses the order of a string and the case of its words.
+Make a program that takes a string as argument, reverses it, swaps its letters case and print the result.
 
-If we have more than one argument we have to merge them into a single string and separate each arg by a ' ' (space char).
+If more than one argument are provided, merge them into a single string with each argument separated by a space character.
 
-If no argument is provided, print nothing, or the usage.
+If no argument are provided, do nothing or print an usage.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+\begin{42console}
 $> python3 exec.py 'Hello World!' | cat -e
 !DLROw OLLEh$
-
+$>
 $> python3 exec.py 'Hello' 'my Friend' | cat -e
 DNEIRf YM OLLEh$
-
+$>
 $> python3 exec.py
 $>
-\end{minted}
+\end{42console}
 
 % ===========================(fin ex 01)         %
 % ============================================== %
@@ -372,31 +401,32 @@ $>
 % --------------------------------- %
 Make a program that takes a number as argument, checks whether it is odd, even or zero, and print the result.
 
-If more than one, or not a int is provided as argument, print an error message.
+If more than one argument are provided or if the argument is not an integer, print an error message.
 
-If no argument is provided, print nothing, or the usage.
+If no argument are provided, do nothing or print an usage.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{vim}
+\begin{42console}
 $> python3 whois.py 12
 I'm Even.
-
+$>
 $> python3 whois.py 3
 I'm Odd.
-
+$>
 $> python3 whois.py
-
+$>
 $> python3 whois.py 0
 I'm Zero.
-
+$>
 $> python3 whois.py Hello
-AssertionError: argument is not integer
-
+AssertionError: argument is not an integer
+$>
 $> python3 whois.py 12 3
-AssertionError: more than one argument is provided
-\end{minted}
+AssertionError: more than one argument are provided
+$>
+\end{42console}
 
 \hint{
 	you can handle errors as you want but take a look at \texttt{assert}
@@ -439,7 +469,7 @@ Test it in the Python console.
 \begin{42console}
 	$> python
 	>>> from count import text_analyzer
-	>>> text_analyzer("Python 2.0, released 2000, introduced 
+	>>> text_analyzer("Python 2.0, released 2000, introduced
 	features like List comprehensions and a garbage collection
 	system capable of collecting reference cycles.")
 	The text contains 143 characters:
@@ -447,7 +477,7 @@ Test it in the Python console.
 	- 113 lower letters
 	- 4 punctuation marks
 	- 18 spaces
-	
+
 	>>> text_analyzer("Python is an interpreted, high-level,
 	general-purpose programming language. Created by Guido van
 	Rossum and first released in 1991, Python's design philosophy
@@ -458,7 +488,7 @@ Test it in the Python console.
 	- 187 lower letters
 	- 8 punctuation marks
 	- 30 spaces
-	
+
 	>>> text_analyzer()
 	What is the text to analyse?
 	>> Python is an interpreted, high-level, general-purpose
@@ -508,10 +538,10 @@ You're free to write your docstring and format it the way you want.
 % ================================= %
 % \section*{}
 % --------------------------------- %
-You have to make a program that prints the results of the four elementary 
-mathematical operations of arithmetic (addition, subtraction, multiplication, 
+You have to make a program that prints the results of the four elementary
+mathematical operations of arithmetic (addition, subtraction, multiplication,
 division) and the modulo operation.
-This should be accomplished by writing a function that takes 2 numbers as 
+This should be accomplished by writing a function that takes 2 numbers as
 parameters and returns 5 values, as formatted in the console output below.
 
 % ================================= %
@@ -546,21 +576,21 @@ parameters and returns 5 values, as formatted in the console output below.
 	$>
 	$> python operations.py 12 10 5
 	InputError: too many arguments
-	
+
 	Usage: python operations.py <number1> <number2>
 	Example:
 		python operations.py 10 3
 	$>
 	$> python operations.py "one" "two"
 	InputError: only numbers
-	
+
 	Usage: python operations.py <number1> <number2>
 	Example:
 		python operations.py 10 3
 	$>
 	$> python operations.py "512" "63.1"
 	InputError: only numbers
-	
+
 	Usage: python operations.py <number1> <number2>
 	Example:
 		python operations.py 10 3
@@ -592,7 +622,7 @@ Let's get familiar with the useful concept of \textbf{string formatting}
 	t = (19,42,21)
 \end{42console}
 
-Including the tuple above in your file, write a program that dynamically 
+Including the tuple above in your file, write a program that dynamically
 builds up a formatted string like the following:
 
 \begin{42console}
@@ -628,7 +658,7 @@ Using the texttt{languages} dictionary above, write a program similar to the pre
 	t = (3,30,2019,9,25)
 \end{42console}
 
-Given the tuple above, whose values stand for: \texttt{(hour, minutes, year, month, day)}, 
+Given the tuple above, whose values stand for: \texttt{(hour, minutes, year, month, day)},
 write a program that displays it in the following format:
 
 \begin{42console}
@@ -643,7 +673,7 @@ write a program that displays it in the following format:
 	phrase = "The right format"
 \end{42console}
 
-Write a program to display the string above right-aligned with '-' 
+Write a program to display the string above right-aligned with '-'
 padding and a total length of 42 characters:
 
 \begin{42console}
@@ -689,8 +719,8 @@ Given the tuple above, write a program which displays a formatted string:
 \exforbidden{None}
 \makeheaderfilesforbidden
 
-It is time to discover Python dictionaries. Dictionaries are collections 
-that contain mappings of unique keys to values. 
+It is time to discover Python dictionaries. Dictionaries are collections
+that contain mappings of unique keys to values.
 
 \hint{Check what is a nested dictionary in Python.}
 
@@ -714,9 +744,9 @@ Each recipe will store 3 values:
 \end{itemize}
 
 Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
-It is a \textit{lunch} and it takes $10$ minutes of preparation.  
+It is a \textit{lunch} and it takes $10$ minutes of preparation.
 Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
-It is a \textit{dessert} and it takes $60$ minutes of preparation.  
+It is a \textit{dessert} and it takes $60$ minutes of preparation.
 Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
 It is a \textit{lunch} and it takes $15$ minutes of preparation.
 
@@ -742,10 +772,10 @@ It could look like the example below but feel free to organize it the way you wa
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
-	
+
 	>> 3
 	Please enter the recipe's name to get its details:
-	
+
 	>> cake
 	Recipe for cake:
 	Ingredients list: ['flour', 'sugar', 'eggs']
@@ -763,7 +793,7 @@ Your program must continue running until the user exits it (option 5):
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
-	
+
 	>> 5
 	Cookbook closed.
 	$>
@@ -780,7 +810,7 @@ It will prompt the user again until the value is correct:
 	3: Print a recipe
 	4: Print the cookbook
 	5: Quit
-	
+
 	>> test
 	This option does not exist, please type the corresponding number.
 	To exit, enter 5.
@@ -841,7 +871,7 @@ The string parameter can contain number: "this string has 1 number.".
 \exforbidden{None}
 \makeheaderfilesforbidden
 
-You have to make a function which encodes strings into Morse code.  
+You have to make a function which encodes strings into Morse code.
 All alphanumeric characters are accepted by the encoder.
 
 % ================================= %
@@ -881,7 +911,7 @@ You have to make a program that will be an interactive guessing game.
 It will ask the user to guess a number between $1$ and $99$.
 The program will tell the user if their input is too high or too low.
 The game ends when the user finds out the secret number or types \texttt{exit}.
-You will import the \texttt{random} module with the \texttt{randint} function to get a random number. 
+You will import the \texttt{random} module with the \texttt{randint} function to get a random number.
 You have to count the number of trials and print that number when the user wins.
 
 % ================================= %
@@ -894,7 +924,7 @@ You have to count the number of trials and print that number when the user wins.
 	You have to enter a number between 1 and 99 to find out the secret number.
 	Type 'exit' to end the game.
 	Good luck!
-	
+
 	What's your guess between 1 and 99?
 	>> 54
 	Too high!
@@ -960,7 +990,7 @@ Other example:
 \makeheaderfilesforbidden
 
 
-You are about to discover the \texttt{yield} operator!  
+You are about to discover the \texttt{yield} operator!
 
 So let's create a function called \texttt{ft\_progress(lst)}.
 
