@@ -1,0 +1,58 @@
+%******************************************************************************%
+%                                                                              %
+%                        Common Instructions                                   %
+%                          for C Projects                                      %
+%                                                                              %
+%******************************************************************************%
+
+\chapter{Common Instructions}
+    \begin{itemize}
+
+      \item Your project must be written in C.
+
+      \item Your project must be written in accordance with the Norm.
+        If you have bonus files/functions, they are included in the norm check
+        and you will receive a \texttt{0} if there is a norm error inside.
+
+      \item Your functions should not quit unexpectedly (segmentation
+        fault, bus error, double free, etc) apart from undefined
+        behaviors. If this happens, your project will be considered non
+        functional and will receive a \texttt{0} during the evaluation.
+
+      \item All heap allocated memory space must be properly freed
+        when necessary. No leaks will be tolerated.
+
+      \item If the subject requires it, you must submit a \texttt{Makefile}
+        which will compile your source files to the required output
+        with the flags \texttt{-Wall}, \texttt{-Wextra} and \texttt{-Werror},
+        use cc, and your Makefile must not relink.
+
+      \item Your \texttt{Makefile} must at least contain the rules
+        \texttt{\$(NAME)}, \texttt{all}, \texttt{clean},
+        \texttt{fclean} and \texttt{re}.
+
+      \item To turn in bonuses to your project, you must include a rule
+        \texttt{bonus} to your Makefile, which will add all the various headers, 
+        librairies or functions that are forbidden on the main part of the project. 
+        Bonuses must be in a different file \texttt{\*\_bonus.\{c/h\}} if the subject does not specify anything else.
+	Mandatory and bonus part evaluation is done separately.
+
+      \item If your project allows you to use your \texttt{libft}, you must copy its sources
+        and its associated \texttt{Makefile} in a \texttt{libft} folder with its associated
+        Makefile. Your project's \texttt{Makefile} must compile the library by using its
+        \texttt{Makefile}, then compile the project.
+
+      \item We encourage you to create test programs for your
+        project even though this work \textbf{won't have to be
+          submitted and won't be graded}. It will give you a chance
+        to easily test your work and your peers’ work. You will find
+        those tests especially useful during your defence. Indeed,
+        during defence, you are free to use your tests and/or the
+        tests of the peer you are evaluating.
+
+      \item Submit your work to your assigned git repository. Only the work in the
+        git repository will be graded. If Deepthought is assigned to grade your
+        work, it will be done after your peer-evaluations.
+        If an error happens in any section of your work during Deepthought's grading,
+        the evaluation will stop.
+    \end{itemize}

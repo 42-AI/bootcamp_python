@@ -1,0 +1,38 @@
+comment: ‘’
+introduction_md: |
+ Por favor respeite as seguintes regras:
+ - Permaneça educado, cortês, respeitoso e construtivo
+   durante todo o processo de avaliação. O bem-estar da comunidade depende disso.
+ - Identifique com a pessoa (ou grupo) avaliada as eventuais disfunções do trabalho.
+   Reserve um tempo para discutir e debater os problemas que você identificou.
+ - Você deve considerar que pode haver alguma diferença na maneira como seus colegas entenderam as instruções do projeto e
+   o escopo de suas funcionalidades. Sempre mantenha a mente aberta e avalie-o da maneira mais honesta possível. A pedagogia
+   é válida apenas e somente se a avaliação por pares for conduzida com seriedade.
+disclaimer_md: ‘’
+guidelines_md: |
+ - Classifique apenas o trabalho que está no repositório GiT do aluno ou grupo.
+ - Verifique se o repositório GiT pertence ao aluno ou ao grupo.
+   Verifique se o trabalho é para o projeto relevante e verifique também se “git clone” é usado em uma pasta vazia.
+ - Verifique cuidadosamente se nenhum alias malicioso foi usado para enganá-lo e fazer com que você avalie algo
+   diferente do conteúdo do repositório oficial.
+ - Para evitar surpresas, verifique cuidadosamente se os alunos avaliadores e avaliados analisaram os scripts possíveis
+   para facilitar a classificação.
+ - Se o aluno avaliador ainda não concluiu esse projeto em particular, é obrigatório que ele leia toda a matéria
+   antes de iniciar a defesa.
+ - Use os sinalizadores disponíveis nesta escala para sinalizar um repositório vazio, um programa que não funciona,
+   um erro de norma, trapaça etc. Nesse caso, a classificação termina e a nota final é 0 (ou -42 em caso de trapaça).
+   No entanto, com exceção da trapaça, você deve continuar discutindo seu trabalho (mesmo que não o tenha concluído)
+   para identificar quaisquer problemas que possam ter causado essa falha e evitar repetir o mesmo erro no futuro.
+ - Lembre-se de que, durante a defesa, não deve acontecer nenhum segfault, nenhum outro encerramento inesperado, prematuro, descontrolado
+   ou inesperado do programa, caso contrário, a nota final é 0. Use a sinalização apropriada.
+   Você nunca deve editar nenhum arquivo, exceto o arquivo de configuração, se existir.
+   Se você deseja editar um arquivo, explique os motivos com o aluno avaliado e verifique se os dois estão de acordo com isso.
+sections:
+- name: Bonus
+  position: 2
+
+  description: |
+    Analisaremos seus bônus se e somente se sua parte obrigatória for excelente. 
+    Isso significa que você deve concluir a parte obrigatória, do início ao fim, 
+    e seu gerenciamento de erros deve ser impecável, mesmo em casos de torção ou mau uso. 
+    Portanto, se a parte obrigatória não marcar todo o ponto durante os bônus de defesa, será totalmente ignorada.

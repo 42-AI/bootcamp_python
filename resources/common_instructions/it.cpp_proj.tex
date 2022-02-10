@@ -1,0 +1,107 @@
+%******************************************************************************%
+%                                                                              %
+%                  instructions.tex for 42's Piscine C++                       %
+%                  Created on : Mon Sep  8 15:57:19 2014                       %
+%                  Made by : David "Thor" GIRON <thor@42.fr>                   %
+%                                                                              %
+%******************************************************************************%
+
+
+\chapter{General rules}
+
+
+    \begin{itemize}
+
+		\item Qualsiasi funzione implementata in un header(fatta eccezione per i templates),
+		e qualsiasi header non protetto, porterà ad uno 0 per l'esercizio.
+
+		\item Ogni output dovrà essere indirizzato allo standard output, e terminato da una
+		nuova riga, a meno che non sia specificato diversamente.
+
+		\item I nomi dei file imposti dovranno essere seguiti alla lettera,
+		ls stessa cosa vale per i nomi delle classi, delle funzioni e dei metodi.
+
+		\item Ricorda: Stai programmando in \texttt{C++} ora, non più in
+          \texttt{C}. Quindi:
+		  
+		  \begin{itemize}
+		  
+		  \item	Le seguenti funzioni sono PROIBITE ed il loro utilizzo
+		  porterà inevitabilmente ad uno \texttt{0}, niente domande: \texttt{*alloc},
+		  \texttt{*printf} e \texttt{free}.
+		  
+
+		  \item Sei autorizzato ad utilizzare tutto ciò che si trova nella libreria
+		  standard. COMUNQUE, sarebbe saggio se provassi ad utilizzare 
+		  la versione proto-C++ delle funzioni che sei abituato ad usare in C,
+		  invece di restare fermo a quello che già conosci, questa è una nuova lingua.
+		  E NO, non sei autorizzato ad utilizzare STL fino a che non dovrai utilizzarlo(
+		  module 08). Ciò significa niente vettori/liste/mappe/etc... o qualsivoglia cosa
+		  richieda un include <algorithm> fino a quel momento.
+		  
+
+		  \end{itemize}
+		
+		\item L'utilizzo di qualsiasi funzione o meccanica esplicitamente
+		proibita porterà ad uno \texttt{0}.
+
+	\item Tieni anche a mente che se non è specificato diversamente, 
+		le parole chiave del \texttt{C++}  \texttt{"using namespace"} e \texttt{"friend"}
+		sono proibite. Il loro utilizzo verrà punito con un \texttt{-42}, senza appello.
+
+	\item I file associati con una classe saranno sempre
+          \texttt{ClassName.hpp} e \texttt{ClassName.cpp}, a meno
+          di specifica diversa.
+
+	\item Le cartelle di consegna sono \texttt{ex00/}, \texttt{ex01/},
+          \dots, \texttt{exn/}.
+       
+
+	\item Devi leggere gli esempi attentamente. Possono contenere
+	dei requisisti non ovvi nella descrizione dell'esercizio. Se qualcosa ti sembra
+	 ambiguo, vuol dire che non comprendi il \texttt{C++} abbastanza.
+        
+
+	\item Siccome sei autorizzato ad utilizzare gli strumenti del \texttt{C++} 
+	dei quali hai appreso all'inizio, non sei autorizzato ad utilizzare nessuna
+	libreria esterna. Prima che tu chieda, nelle librerie esterne sono
+	compresi anche \texttt{C++11} e derivati, \texttt{Boost} e qualsiasi cosa il 
+	tuo amico super skillato ti ha detto che \texttt{C++} non può esistere senza.
+
+	\item Potrebbe esserti richiesto di consegnare un numero importante d classi.
+	Può sembrare tedioso, a meno che tu non sia capace di creare uno script
+	per il tuo editor di testo preferito.
+
+        \item Leggi ogni esercizio COMPLETAMENTE prima di iniziarlo!
+        Seriamente, fallo.
+        
+        \item Il compilatore da utilizzare è \texttt{clang++}.
+
+        \item Dovrai compilare utilizzare le seguenti flag: \texttt{-Wall -Wextra -Werror}.
+
+	\item Ognuno dei tuoi include deve poter essere incluso indipendentemente
+	dagli altri. Chiaramente gli include devono contenere ogni include al quale dipendono.
+
+	 \item Se te lo stessi chiedendo, no non vi è uno stile di scrittura obbligatorio in \texttt{C++}. 
+	 Puoi usare lo stile che preferisci, niente restrizioni. Ricorda però che un codice
+	 che il tuo peer non può leggere, è un codice che non può valutare.
+       
+       	    \item Cose importanti: a meno che non sia specificato diversamente, 
+	    NON sarai valutato da un programma. Ti è quindi concesso un certo 
+	    grado di libertà riguardo all'approccio all'esercizio.
+	    Tieni comunque a mente delle costrizioni di ogni esercizio, e NON fare il
+	    pigro, perderesti un SACCO di quello che hanno da offrire!
+	    
+
+		\item Qualche file estraneo tra quelli che consegnerai non sarà un problema.
+	
+		\item Anche se il subject dell'esercizio è corto, vale la pena spenderci
+		un pò di tempo per essere totalmente certi di aver compreso cosa ci si aspetta
+		da te, e che tu l'abbia fatto nella migliore maniera possibile.
+
+        \item Per Odin, per Thor! Usa il tuo cervello!!!
+
+\end{itemize}
+
+%******************************************************************************%
+\newpage

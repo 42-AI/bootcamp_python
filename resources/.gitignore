@@ -1,0 +1,10 @@
+.DS_Store
+.aux
+.log
+.out
+.pyg
+.pyc
+.toc
+.o
+*~
+#*#

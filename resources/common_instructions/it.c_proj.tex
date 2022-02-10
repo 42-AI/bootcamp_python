@@ -1,0 +1,55 @@
+%******************************************************************************%
+%                                                                              %
+%                        Common Instructions                                   %
+%                          for C Projects                                      %
+%                                                                              %
+%******************************************************************************%
+
+\chapter{Common Instructions}
+    \begin{itemize}
+
+	\item Il tuo progetto deve essere scritto seguendo le regole imposte
+	dalla Norma. Se hai dei file o funzioni bonus, saranno inclusi nel controllo
+	della Norma e riceverai uno \texttt{0} se vi sono errori.
+
+	\item Le tue funzioni non devono terminare inaspettatamente(segementation
+	fault, bus error, doppio free, etc) a meno che non si tratti di un comportamento
+	non definito. Se ciò dovesse accadere, il tuo progetto sarà considerato come
+	non funzionante e riceverai uno \texttt{0} durante la valutazione.
+
+	\item Tutta la memoria allocata sull'heap deve essere liberata correttamente 
+	quando necessario. Non sarà tollerato nessun leak.
+	
+	\item Dovrai consegnare un \texttt{Makefile} quando richiesto dal subject.
+	Dovrà compilare i tuoi file sorgente nell;output richiesto utilizzando le flag 
+	\texttt{-Wall}, \texttt{-Wextra} e \texttt{-Werror}.
+	Non deve ricollegare.
+	
+	\item Il tuo \texttt{Makefile} deve contenere almeno le regole
+        \texttt{\$(NAME)}, \texttt{all}, \texttt{clean},
+        \texttt{fclean} e \texttt{re}.
+      
+	\item Per consegnare dei bonus, devi includere la regola \texttt{bonus} 
+	nel tuo Makefile, che aggiungerà tutti gli header, librerie o funzioni proibite
+	nella parte obbligatoria del progetto.
+	I Bonus devono essere in dei file \texttt{\*\_bonus.\{c/h\}}. La valutazione della
+	parte obbligatoria e dei bonus saranno condotte separatamente.
+	
+	\item Se il progetto consente l'utilizzo della tua \texttt{libft}, devi copiare i suoi sorgente
+	ed il suo \texttt{Makefile} in una cartella \texttt{libft}.
+	Il \texttt{Makefile} del tuo progetto deve compilare la libreria usando il suo \texttt{Makefile}, per poi compilare il progetto.
+
+	\item Ti incoraggiamo a creare i tuoi programmi di test
+	per il progetto anche se questi programmi \textbf{non dorvanno
+	essere consegnati e non saranno valutati}. Ti darà la possibilità
+	di testare facilmente il tuo lavoro e quello dei tuoi peer. Troverai questi
+	programmi specialmente utili durante la tua difesa, durante la quale 
+	sarai libero di utilizzare i tuoi, o quelli del tuo peer, file di test.
+
+	 \item Consegna il tuo lavoro nella repository git che ti è stata assegnata.
+	 Verrà valutato solo il lavoro presente nella repository git. Se Deepthought 
+	 dovrà valutare il tuo lavoro, lo farà solo dopo le valutazioni tra pari.
+	 Se Deepthought incontra un errore in qualsiasi sezione del tuo porgetto,
+	 terminerà la valutazione immediatamente.
+     
+    \end{itemize}
