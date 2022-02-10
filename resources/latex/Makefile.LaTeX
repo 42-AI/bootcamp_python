@@ -47,5 +47,6 @@ view: all
 	(type xpdf > /dev/null 2>&1 && xpdf ${TARGETS}) ||\
 	(type evince > /dev/null 2>&1 && evince ${TARGETS})
 
+$(info "From module Makefile.LaTeX")
 
 #******************************************************************************#

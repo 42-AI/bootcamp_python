@@ -10,5 +10,9 @@ DEPS =
 # RELPATH for github actions:
 RELPATH = $(shell pwd)/../../resources/latex/
 
+$(info "From module Makefile before")
 # You should not touch this either
 include $(RELPATH)/Makefile.LaTeX
+
+$(info "From module Makefile after")
+
