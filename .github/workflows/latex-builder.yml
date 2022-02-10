@@ -21,6 +21,36 @@ jobs:
           cp module02.pdf /
           cp module03.pdf /
           cp module04.pdf /
+      - name: Upload pdf artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: modules.pdf
+          path: |
+            /module00.pdf
+            /module01.pdf
+            /module02.pdf
+            /module03.pdf
+            /module04.pdf
+        
+  release-it:
+    runs-on: ubuntu-latest
+    container:
+      image: blang/latex:ubuntu
+    # if: contains(github.ref, "release")
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: version
+        run: echo "::set-output name=version::$(cat version)"
+        id: version
+      - name: Make pdf
+        run: |
+          make
+          cp module00.pdf /
+          cp module01.pdf /
+          cp module02.pdf /
+          cp module03.pdf /
+          cp module04.pdf /
           cp CHANGELOG.md /
       - name: create release
         uses: actions/create-release@v1
