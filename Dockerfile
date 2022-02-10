@@ -9,6 +9,6 @@ WORKDIR /data/bootcamp_python
 RUN pwd\
 	&& make \
 	&& ls -l . \
-	&& ls -l module00
+	&& ls -l module00/subject
 
 
