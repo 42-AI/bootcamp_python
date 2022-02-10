@@ -13,7 +13,7 @@ $(info "From top Makefile")
 all: clean dirs
 
 %.pdf: 
-	$(shell echo "We are taking care of: $@")
+	@echo "We are taking care of: $@"
 	@$(MAKE) -C $(shell dirname $@)
 	cp $@ $(shell dirname `dirname $@`).pdf
 
