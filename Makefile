@@ -8,8 +8,6 @@ TARGETS_DIRS = $(DIRECTORIES:%=%/subject/en.subject.pdf)
 
 TARGETS = 	$(DIRECTORIES:%=%.pdf)
 
-$(info "From top Makefile")
-
 all: clean dirs
 
 %.pdf: 
