@@ -33,7 +33,7 @@ distclean: clean
 
 re: distclean all
 
-%.pdf: %.tex Makefile $(ALL_DEPENDENCIES)
+%.pdf: %.tex #Makefile $(ALL_DEPENDENCIES)
 	pdflatex -shell-escape -halt-on-error $<
 	@if [ $$? = 0 ]; then\
 		pdflatex -shell-escape -halt-on-error $<;\
