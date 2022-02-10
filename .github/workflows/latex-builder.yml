@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: blang/latex:ubuntu
-    if: contains(github.ref, "release")
+    if: "contains(github.ref, 'master')"
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
