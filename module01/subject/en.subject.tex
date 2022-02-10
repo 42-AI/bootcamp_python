@@ -808,7 +808,7 @@ there is no specific check expected, meaning you are not expected to evaluate th
 
 Moreover, a basic verification has to be performed when account object is added to Bank instance
 (\texttt{bank.add(Account(...))}).
-The verification in \texttt{add} only check the type of the new_account and
+The verification in \texttt{add} only check the type of the new\_account and
 if there is no account among the one already in Bank instance with the same name.
 
 A transaction is invalid if \texttt{amount < 0} or if the amount is larger than
@@ -818,7 +818,7 @@ Prior the transfer, the validity of the 2 accounts (\texttt{origin} and \texttt{
 A transfer between the same account (\texttt{bank.transfer('Wiliam John', 'William John')})
 is valid but there is no fund movement.
 
-\texttt{fix_account} recovers a corrupted account if it parameter \texttt{name} correspond to the attribute
+\texttt{fix\_account} recovers a corrupted account if it parameter \texttt{name} correspond to the attribute
 name of one of the account in \texttt{accounts} (attribute of Bank). If name is not a string or does not corresponded
 to an account name, the method return \texttt{False}.
 
@@ -865,8 +865,8 @@ Check out the \texttt{dir} built-in function.
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-The script \texttt{banking_test1.py} is a test which must print \texttt{Failed}.
-The second script \texttt{banking_test2.py} is a test which must print \texttt{Failed} and then \texttt{Success}.
+The script \texttt{banking\_test1.py} is a test which must print \texttt{Failed}.
+The second script \texttt{banking\_test2.py} is a test which must print \texttt{Failed} and then \texttt{Success}.
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{bash}
 >> python banking_test1.py
