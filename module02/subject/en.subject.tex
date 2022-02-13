@@ -167,8 +167,8 @@ The goal of the exercise is to work on the built-in functions \texttt{map},
 Implement the functions \texttt{ft\_map}, \texttt{ft\_filter} and \texttt{ft\_reduce}.
 Take the time to understand the use cases of these two built-in functions
 (\texttt{map} and \texttt{filter}) and the function \texttt{reduce} in functools module.
-You have not to code specific classes to create \texttt{ft\_map},
-\texttt{ft\_filter} or \texttt{ft\_reduce} objects, you should take a closer look
+You are not expected to code specific classes to create \texttt{ft\_map},
+\texttt{ft\_filter} or \texttt{ft\_reduce} objects, take a closer look
 to the examples to know what to do.
 
 Here the signatures of the functions:
@@ -179,7 +179,7 @@ def ft_map(function_to_apply, iterable):
 	Args:
 	  function_to_apply: a function taking an iterable.
 	  iterable: an iterable object (list, tuple, iterator).
-	Returns:
+	Return:
 	  An iterable.
 	  None if the iterable can not be used by the function.
 	"""
@@ -189,7 +189,7 @@ def ft_filter(function_to_apply, iterable):
 	Args:
 	  function_to_apply: a function taking an iterable.
 	  iterable: an iterable object (list, tuple, iterator).
-	Returns:
+	Return:
 	  An iterable.
 	  None if the iterable can not be used by the function.
 	"""
@@ -199,7 +199,7 @@ def ft_reduce(function_to_apply, iterable):
 	Args:
 	  function_to_apply: a function taking an iterable.
 	  iterable: an iterable object (list, tuple, iterator).
-	Returns:
+	Return:
 	  A value, of same type of elements in the iterable parameter.
 	  None if the iterable can not be used by the function.
 	"""
