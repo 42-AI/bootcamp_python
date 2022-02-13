@@ -759,7 +759,7 @@ and with \texttt{enumerate} in the \texttt{enumerate\_evaluate} function.
 \section*{Objective}
 % --------------------------------- %
 The goals of this exercise is to discover new built-in functions and
-deepen the class manipulation and to be aware of possibility
+deepen your class manipulation and to be aware of possibility
 to modify instanced objects.\\
 In this exercise you learn how to modify or add attributes to an object.
 
@@ -814,17 +814,18 @@ How do we define if a bank account is corrupted? A corrupted bank account has:
   \item \texttt{value} not being an \texttt{int} or a \texttt{float}.
 \end{itemize}
 
-Concerning the rest of the attributes (\texttt{addr}, \texttt{zip} and the other not mentioned above)
-there is no specific check expected, meaning you are not expected to evaluate the validity of the account based on them.
+For the rest of the attributes (\texttt{addr}, \texttt{zip}, etc ...
+there is no specific check expected.
+Meaning you are not expected to evaluate the validity of the account based on the type of the other attributes (the conditions listed above are sufficient).
 
-Moreover, a basic verification has to be performed when account object is added to Bank instance
+Moreover, verification has to be performed when account objects are added to to Bank instance 
 (\texttt{bank.add(Account(...))}).
-The verification in \texttt{add} only check the type of the new\_account and
-if there is no account among the one already in Bank instance with the same name.
+The verification in \texttt{add} only check the type of the new\_account and if there 
+is no account among the one already in Bank instance with the same name.
 
 A transaction is invalid if \texttt{amount < 0} or if the amount is larger than
 the balance of the account.
-Prior the transfer, the validity of the 2 accounts (\texttt{origin} and \texttt{dest}) are checked
+Prior to the transfer, the validity of the 2 accounts (\texttt{origin} and \texttt{dest}) are checked
 (according to the list of criteria above).
 A transfer between the same account (\texttt{bank.transfer('Wiliam John', 'William John')})
 is valid but there is no fund movement.
@@ -840,7 +841,7 @@ class Bank(object):
     def __init__(self):
         self.accounts = []
 
-    def add(self, account):
+    def add(self, new_account):
         """ Add new_account in the Bank
             @new_account:  Account() new account to append
             @return   True if success, False if an error occured
@@ -849,8 +850,8 @@ class Bank(object):
         # it can be appended to the attribute accounts
         
         # ... Your code  ...
+
         self.accounts.append(new_account)
-        #... Your code ...
 
     def transfer(self, origin, dest, amount):
         """" Perform the fund transfer
