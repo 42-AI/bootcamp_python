@@ -649,7 +649,7 @@ You can only call one option at a time.
   Lorem
   Ipsum
   du
-  
+
   >> for word in generator(text, sep=" ", option="ordered"):
   ...     print(word)
   ...
@@ -695,6 +695,7 @@ ERROR
 \turnindir{ex04}
 \exnumber{04}
 \exfiles{eval.py}
+\exauthorize{zip and enumerate}
 \exforbidden{while}
 \makeheaderfilesforbidden
 
@@ -710,11 +711,15 @@ and \texttt{enumerate}.
 \section*{Instructions}
 % --------------------------------- %
 Code a class \texttt{Evaluator}, that has two static functions named \texttt{zip\_evaluate}
-and \texttt{enumerate\_evaluate}.\\
+and \texttt{enumerate\_evaluate}.
+
+
 The goal of these 2 functions is to compute the sum of the lengths of every
-\texttt{words} of a given list weighted by a list a \texttt{coefs}.\\
+\texttt{words} of a given list weighted by a list of coefficinents \texttt{coefs} (yes, the 2 functions should do the same thing).
+
 The lists \texttt{coefs} and \texttt{words} have to be the same length. If this is not the
-case, the function should return -1.\\
+case, the function should return -1.
+
 You have to obtain the desired result using \texttt{zip} in the \texttt{zip\_evaluate} function,
 and with \texttt{enumerate} in the \texttt{enumerate\_evaluate} function.
 
