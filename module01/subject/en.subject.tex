@@ -183,7 +183,7 @@ Let's describe the \texttt{Recipe} class. It has some attributes:
   \item \texttt{recipe\_type} (str): can be "starter", "lunch" or "dessert".
 \end{itemize}
 
-You have to initialize the object \texttt{Recipe} and check all its values, only the description can be empty.  
+You have to \textbf{initialize} the object \texttt{Recipe} and check all its values, only the description can be empty.
 In case of input errors, you should print what they are and exit properly.
 
 You will have to implement the built-in method \texttt{\_\_str\_\_}.
@@ -201,7 +201,7 @@ It is implemented this way:
 def __str__(self):
     """Return the string to print with the recipe info"""
     txt = ""
-    """Your code goes here"""
+    """Your code here"""
     return txt
 \end{minted}
 
@@ -230,7 +230,7 @@ def add_recipe(self, recipe):
     #... Your code here ...
 \end{minted}
 
-You will have to handle the error if the argument passed in \texttt{add\_recipe} is not a \texttt{Recipe}.
+You have to handle the error if the argument passed in \texttt{add\_recipe} is not a \texttt{Recipe}.
 
 
 Finally, you will provide a \texttt{test.py} file to test your classes and prove that they are working properly.
@@ -273,16 +273,13 @@ Create a \texttt{GotCharacter} class and initialize it with the following attrib
 \end{itemize}
 
 
-Pick up a GoT House (e.g., Stark, Lannister...). Create a child class that inherits from \texttt{GotCharacter} and 
+Pick up a GoT House (e.g., Stark, Lannister...) and create a child class that inherits from \texttt{GotCharacter} and 
 define the following attributes:
 \begin{itemize}
   \item \texttt{family\_name} (by default should be the same as the Class)
   \item \texttt{house\_words} (e.g., the House words for the Stark House is: "Winter is Coming")
 \end{itemize}
 
-% ================================= %
-\section*{Examples}
-% --------------------------------- %
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
   class Stark(GotCharacter):
     def __init__(self, first_name=None, is_alive=True):
@@ -297,6 +294,9 @@ Add two methods to your child class:
   \item \texttt{die}: changes the value of \texttt{is\_alive} to \texttt{False}.
 \end{itemize}
 
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
 
 Running commands in the Python console, an example of what you should get:
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
@@ -366,6 +366,25 @@ create vectors and be able to perform mathematical operations with them.
 
 \warn{A vector is either a single line of floats or a single column of floats. When more than a line/column is consider, it is a matrix, not a vector.}
 
+
+The class should also has 2 attributes:
+\begin{itemize}
+  \item \texttt{values}: list of list of floats (for row vector) or list of lists of single float (for column vector),
+  \item \texttt{shape}: tuple of 2 integers: \texttt{(1,n)} for a row vector of dimension $n$
+  or \texttt{(n,1)} for a column vector of dimension $n$. 
+\end{itemize}
+
+\info{If you did not learn at school what is the dimension of a vector, don't worry.
+But for now do not think too hard about what dimension means.
+Just consider the dimension is the number of floats (elements/coordinates) of a vector, and shape gives the layout:
+      if $(1, n)$ the vector is a row, if $(n,1)$ the vector is a column.}
+      
+Finally you have to implement 2 methods: 
+\begin{itemize}
+  \item \texttt{.dot()} produce a dot product between two vectors of same \textbf{shape},
+  \item \texttt{.T()} returns the transpose vector (i.e. a column vector into a row vector, or a row vector into a column vector).
+\end{itemize}
+
 You will also provide a testing file (\texttt{test.py}) to demonstrate your class
 works as expected. In this testing file, demonstrate:
 \begin{itemize}
@@ -381,61 +400,105 @@ works as expected. In this testing file, demonstrate:
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 # Column vector of shape n * 1
 v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
-v1 * 5
-# Output
-Vector([[0.0], [5.0], [10.0], [15.0]])
+v2 = v1 * 5
+print(v2)
+# Expected output:
+# Vector([[0.0], [5.0], [10.0], [15.0]])
 
 # Row vector of shape 1 * n
 v1 = Vector([[0.0, 1.0, 2.0, 3.0]])
-v1 * 5
-# Output
-Vector([[0.0, 5.0, 10.0, 15.0]])
+v2 = v1 * 5
+print(v2)
+# Expected output
+# Vector([[0.0, 5.0, 10.0, 15.0]])
 
-v1 / 2.0
-# Output
-Vector([[0.0], [0.5], [1.0], [1.5]])
+v2 = v1 / 2.0
+print(v2)
+# Expected output
+# Vector([[0.0], [0.5], [1.0], [1.5]])
 
 v1 / 0.0
-# Output
-...
-ZeroDivisionError: division by zero.
+# Expected ouput
+# ZeroDivisionError: division by zero.
 
 2.0 / v1
-# Output:
-...
-NotImplementedError: Division of a scalar by a Vector is not defined here.
+# Expected output:
+# NotImplementedError: Division of a scalar by a Vector is not defined here.
 \end{minted}
 
 
-It has 2 attributes:
-\begin{itemize}
-  \item \texttt{values}: list of list of floats (for row vector) or list of lists of single float (for column vector),
-  \item \texttt{shape}: tuple of 2 integers: \texttt{(1,n)} for a row vector of dimension $n$
-  or \texttt{(n,1)} for a column vector of dimension $n$. 
-\end{itemize}
-
-\info{If you did not learn at school what is the dimension of a vector, don't worry.
-      But for now do not think too hard about what dimension means.
-      Just consider the dimension is the number of floats (elements/coordinates) of a vector, and shape gives the layout: if $(1, n)$ the vector is a row, if $(n,1)$ the vector is a column.}
-
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 # Column vector of shape (n, 1)
-Vector([[0.0], [1.0], [2.0], [3.0]]).shape
-# Output
-(4,1)
+print(Vector([[0.0], [1.0], [2.0], [3.0]]).shape)
+# Expected output
+# (4,1)
 
-Vector([[0.0], [1.0], [2.0], [3.0]]).values
-# Output
-[[0.0], [1.0], [2.0], [3.0]]
+print(Vector([[0.0], [1.0], [2.0], [3.0]]).values)
+# Expected output
+# [[0.0], [1.0], [2.0], [3.0]]
 
 # Row vector of shape (1, n)
-Vector([[0.0, 1.0, 2.0, 3.0]]).shape
-# Output
-(1,4)
+print(Vector([[0.0, 1.0, 2.0, 3.0]]).shape)
+# Expected output
+# (1,4)
 
-Vector([[0.0, 1.0, 2.0, 3.0]]).values
-# Output
-[[0.0, 1.0, 2.0, 3.0]]
+print(Vector([[0.0, 1.0, 2.0, 3.0]]).values)
+# Expected output
+# [[0.0, 1.0, 2.0, 3.0]]
+\end{minted}
+
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Example 1:
+v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+print(v1.shape)
+# Expected output:
+(4,1)
+
+print(v1.T())
+# Expected output:
+# Vector([[0.0, 1.0, 2.0, 3.0]])
+
+print(v1.T().shape)
+# Expected output:
+# (1,4)
+
+# Example 2:
+v2 = Vector([[0.0, 1.0, 2.0, 3.0]])
+print(v2.shape)
+# Expected output:
+# (1,4)
+
+print(v2.T())
+# Expected output:
+# Vector([[0.0], [1.0], [2.0], [3.0]])
+
+print(v2.T().shape)
+# Expected output:
+# (4,1)
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  # Example 1:
+  v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+  v2 = Vector([[2.0], [1.5], [2.25], [4.0]])
+  print(v1.dot(v2))
+  # Expected output:
+  # 18.0
+
+  v3 = Vector([[1.0, 3.0]])
+  v4 = Vector([[2.0, 4.0]])
+  print(v3.dot(v4))
+  # Expected output:
+  # 13.0
+
+  v1
+  # Expected output: to see what __repr__() should do
+  # [[0.0, 1.0, 2.0, 3.0]]
+
+  print(v1)
+  # Expected output: to see what __str__() should do
+  # [[0.0, 1.0, 2.0, 3.0]]
 \end{minted}
 
 You should be able to initialize the object with:
@@ -443,11 +506,12 @@ You should be able to initialize the object with:
   \item a list of a list of floats: \texttt{Vector([[0.0, 1.0, 2.0, 3.0]])},
   \item a list of lists of single float: \texttt{Vector([[0.0], [1.0], [2.0], [3.0]])},
   \item a size: \texttt{Vector(3)} -> the vector will have \texttt{values = [[0.0], [1.0], [2.0]]},
-  \item a range: \texttt{Vector((10,15))} -> the vector will have \texttt{values = [[10.0], [11.0], [12.0], [13.0], [14.0]]}.
+  \item a range: \texttt{Vector((10,16))} -> the vector will have \texttt{values = [[10.0], [11.0], [12.0], [13.0], [14.0], [15.0]]}.
 \end{itemize}
+
 \textit{By default, the vectors are generated as classical column vectors if initialized with a size or range.}
 
-You will implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
+To perform arithmetic operations for Vector-Vector or scalar-Vector, you have to implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
   __add__
@@ -465,75 +529,13 @@ You will implement all the following built-in functions (called \texttt{magic/sp
   # mul & rmul: only scalars (to perform multiplication of Vector by a scalar).
   __str__
   __repr__
-  # must be identical, i.e we expect that print(vector) and vector within python interpretor behave the same, see examples below.
-\end{minted}
-For the operations not defined (e.g multiplication between 2 vectors) you have to raise \texttt{NotImplementedError}.
-\info{So it might be a good idea to implement \texttt{values} and \texttt{\textbf{shape}} before built-in arithmetic functions.}
-
-
-You will also implement: 
-\begin{itemize}
-  \item a \texttt{.dot()} method which produce a dot product between two vectors of same \textbf{shape},
-  \item a \texttt{.T()} method which returns the transpose vector (i.e. a column vector into a row vector, or a row vector into a column vector).
-\end{itemize}
-
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-# Example 1:
-v1 = Vector(4)
-v1.shape
-# Output:
-(4,1)
-
-v1.T()
-# Output:
-Vector([[0.0, 1.0, 2.0, 3.0]])
-
-v1.T().shape
-# Output:
-(1,4)
-
-# Example 2:
-v2 = Vector((0, 4))
-v2.shape
-# Output:
-(1,4)
-
-v2.T()
-# Output:
-Vector([[0.0], [1.0], [2.0], [3.0]])
-
-v2.T().shape
-# Output:
-(4,1)
-
-Vector((2,2))
-#Output
-None
+  # must be identical, i.e we expect that print(vector) and vector within python interpretor behave the same, see corresponding example section.
 \end{minted}
 
-
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-  # Example 1:
-  v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
-  v2 = Vector([[2.0], [1.5], [2.25], [4.0]])
-  v1.dot(v2)
-  # Output:
-  18.0
-
-  v3 = Vector([[1.0, 3.0]])
-  v4 = Vector([[2.0, 4.0]])
-  v3.dot(v4)
-  # Output:
-  13.0
-
-  v1
-  # Output: to see what __repr__() should do
-  [[0.0, 1.0, 2.0, 3.0]]
-
-  print(v1)
-  # Output: to see what __str__() should do
-  [[0.0, 1.0, 2.0, 3.0]]
-\end{minted}
+\info{
+  So it might be a good idea to implement \texttt{values} and \texttt{shape} before built-in arithmetic functions.
+  For the case not specify (e.g vector * vector) you should raise \texttt{NotImplementedError}.
+}
 
 
 % ================================= %
