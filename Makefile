@@ -19,10 +19,10 @@ dirs: $(TARGETS_DIRS)
 
 
 build_pdfs:
-	sudo docker run -v "$(shell pwd)/build:/data/bootcamp_python/build" -i latex_build make
+	sudo docker run -v "$(shell pwd)/build:/data/bootcamp_python/build" -i latex_build_py make
 
 build_builder:
-	sudo docker build -t latex_build .
+	sudo docker build -t latex_build_py .
 
 clean:
 	rm -rf $(TARGETS) $(TARGETS_DIRS)
