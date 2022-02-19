@@ -13,10 +13,16 @@ all: clean dirs
 %.pdf: 
 	@echo "We are taking care of: $@"
 	@$(MAKE) -C $(shell dirname $@)
-	cp $@ $(shell dirname `dirname $@`).pdf
+	cp $@ build/$(shell dirname `dirname $@`).pdf
 
 dirs: $(TARGETS_DIRS)
 
+
+build_pdfs:
+	sudo docker run -v "$(shell pwd)/build:/data/bootcamp_python/build" -i latex_build make
+
+build_builder:
+	sudo docker build -t latex_build .
 
 clean:
 	rm -rf $(TARGETS) $(TARGETS_DIRS)
