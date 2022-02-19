@@ -16,21 +16,21 @@ jobs:
       - name: Make pdf
         run: |
           make
-          cp module00.pdf /
-          cp module01.pdf /
-          cp module02.pdf /
-          cp module03.pdf /
-          cp module04.pdf /
+          cp build/module00.pdf /
+          cp build/module01.pdf /
+          cp build/module02.pdf /
+          cp build/module03.pdf /
+          cp build/module04.pdf /
       - name: Upload pdf artifacts
         uses: actions/upload-artifact@v2
         with:
           name: modules.pdf
           path: |
-            /module00.pdf
-            /module01.pdf
-            /module02.pdf
-            /module03.pdf
-            /module04.pdf
+            /build/module00.pdf
+            /build/module01.pdf
+            /build/module02.pdf
+            /build/module03.pdf
+            /build/module04.pdf
         
   release-it:
     runs-on: ubuntu-latest
@@ -46,11 +46,11 @@ jobs:
       - name: Make pdf
         run: |
           make
-          cp module00.pdf /
-          cp module01.pdf /
-          cp module02.pdf /
-          cp module03.pdf /
-          cp module04.pdf /
+          cp build/module00.pdf /
+          cp build/module01.pdf /
+          cp build/module02.pdf /
+          cp build/module03.pdf /
+          cp build/module04.pdf /
           cp CHANGELOG.md /
       - name: create release
         uses: actions/create-release@v1
@@ -69,7 +69,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module00.pdf
+          asset_path: /build/module00.pdf
           asset_name: module00.pdf
           asset_content_type: application/pdf
       - name: Release Module01
@@ -78,7 +78,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module01.pdf
+          asset_path: /build/module01.pdf
           asset_name: module01.pdf
           asset_content_type: application/pdf
       - name: Release Module02
@@ -87,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module02.pdf
+          asset_path: /build/module02.pdf
           asset_name: module02.pdf
           asset_content_type: application/pdf
       - name: Release Module03
@@ -96,7 +96,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module03.pdf
+          asset_path: /build/module03.pdf
           asset_name: module03.pdf
           asset_content_type: application/pdf
       - name: Release Module04
@@ -105,6 +105,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module04.pdf
+          asset_path: /build/module04.pdf
           asset_name: module04.pdf
           asset_content_type: application/pdf
