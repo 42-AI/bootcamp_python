@@ -7,6 +7,7 @@
 %                                   Prologue                                   %
 %                                                                              %
 %******************************************************************************%
+\usepackage{amsmath}
 \usepackage[
     type={CC},
     modifier={by-nc-sa},
@@ -699,17 +700,17 @@ Initiation to very basic statistic notions.
 % --------------------------------- %
 Create a class named \texttt{TinyStatistician} that implements the following methods:
 \begin{itemize}
-  \item \texttt{mean(x)} : computes the mean of a given non-empty list or array \texttt{x}, using a for-loop.
+  \item \texttt{mean(x)}: computes the mean of a given non-empty list or array \texttt{x}, using a for-loop.
   The method returns the mean as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
   Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its mean is:
   $$
   \mu = \frac{\sum_{i = 1}^{m}{x_i}}{m}
   $$
-  \item \texttt{median(x)} : computes the median of a given non-empty list or array \texttt{x}.
+  \item \texttt{median(x)}: computes the median of a given non-empty list or array \texttt{x}.
   The method returns the median as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array. 
-  \item \texttt{quartiles(x)} : computes the $1^\text{st}$ and $3^\text{rd}$ quartiles of a given non-empty array \texttt{x}.
+  \item \texttt{quartiles(x)}: computes the $1^{\text{st}}$ and $3^{\text{rd}}$ quartiles of a given non-empty array \texttt{x}.
   The method returns the quartile as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
-  \item \texttt{var(x)} : computes the variance of a given non-empty list or array \texttt{x}, using a for-loop.
+  \item \texttt{var(x)}: computes the variance of a given non-empty list or array \texttt{x}, using a for-loop.
   The method returns the variance as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
   Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its variance is:
   $$
