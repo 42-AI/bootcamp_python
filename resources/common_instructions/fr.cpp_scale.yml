@@ -1,0 +1,70 @@
+
+comment: ''
+introduction_md: |
+  Veuillez respecter les règles suivantes:
+  - Restez poli, courtois, respectueux et constructif pendant le processus
+    d'évaluation. Le bien-être de la communauté repose là-dessus.
+
+  - Identifiez avec la personne (ou le groupe) évalué les éventuelles 
+    dysfonctionnements du travail. Prenez le temps d'en discuter et 
+    débatez des problèmes identifiés.
+
+  - Vous devez prendre en compte qu'il peut y avoir de legères différences
+    d'interprétation entre les instructions du projet, son scope et ses 
+    fonctionnalités. Gardez un esprit ouvert et notez de la manière la plus
+    honnête possible. La pédagogie n'est valide que si la peer-évaluation
+    est faite sérieusement.
+
+disclaimer_md: |
+  - Ne notez que ce qui est contenu dans le dossier git cloné de l'étudiant
+    ou du groupe.
+
+  - Vérifiez que le dossier git de appartient bien à l'étudiant ou au groupe,
+    que le projet correspond bien, et que "git clone" est utilisé sur un dossier vide.
+
+  - Vérifiez scrupuleusement qu'aucun alias n'a été utilisé pour vous tromper et assurez 
+    vous que vous corrigez bien le rendu officiel.
+
+  - Afin d'éviter toute surprise, vérifiez avec l'évalué les potentiels scripts
+    utilisés pour faciliter l'évaluation.
+
+  - Si, en temps qu'évaluateur, vous n'avez pas fait le projet courant, vous devez 
+    lire le sujet en entier avant de commencer l'évaluation.
+
+  - Utilisez les flags disponibles pour signaler un rendu vide, un programme ne fonctionnant pas,
+    une erreur de norme, un problème de triche... Dans ces situations, l'évaluation est terminée
+    et la note est 0 (ou -42 en cas de triche). Cependant, à l'exception des cas de triche,
+    vous êtes encouragés à continuer la discussion sur le travail rendu (même si pas terminé)
+    pour identifier les problèmes qui ont causé cet échec et éviter de les reproduire dans le futur.
+  
+  - Pendant toute la durée de l'évaluation, aucun segfault ou autre arrêt
+    du programme (inattendu, prémature ou incontrôlé) ne sera toléré. Dans ces cas-là,
+    la note finale est 0. Utilisez le flag approprié.
+    Vous ne devriez jamais avoir à éditer un fichier mis à part un fichier de configuration,
+    si celui-ci existe. Dans le cas ou vous souhaitez modifier un fichier, vous devez expliciter
+    clairement les raisons de l'édition et entre en accord avec l'étudiant évalué avant de faire
+    quoi que ce soit.
+
+      - Il vous revient également de vérifier l'absence de fuite mémoire. Toute mémoire allouée
+    sur la heap doit être proprement libérée avant la fin de l'éxecution.
+    Vous pouvez pour cela utiliser les différents outils présent sur l'ordinateur,
+    tels que leaks, valgrind, ou encore e_fence. En cas de fuite mémoire, cochez le flag approprié.
+
+
+guidelines_md: |
+    Vous devez compiler avec clang++, with -Wall -Wextra -Werror
+    Nous vous rapellons que ce projet est en C++98, et toute fonction/container des versions suivantes n'est pas attendue,
+    et leur utilisation se soldera par un 0.
+
+    Ces points signifient que vous ne devez pas noter l'exercice demandé :
+      - Une fonction est implémentée dans un header (sauf pour les templates)
+      - Un Makefile compile sans les flags et/ou avec autre chose que clang++
+
+    Ces point signifient que vous devez tag le projet en "Fonction Interdite" :
+      - Utilisation d'une fonction "C" (*alloc, *printf, free)
+      - Utilisation d'une fonction interdite dans le projet
+      - Utilisation de "using namespace" ou de "friend"
+      - Utilisation d'une lib externe, ou des features des versions
+        postérieures a C++98
+      - Utilisation d'un container pré-existant de la STL, ou d'une fonction 
+        pré-existante, pour recoder un container

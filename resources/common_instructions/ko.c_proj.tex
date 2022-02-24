@@ -1,0 +1,31 @@
+%******************************************************************************%
+%                                                                              %
+%                        Common Instructions                                   %
+%                          for C Projects                                      %
+%                                                                              %
+%******************************************************************************%
+
+\chapter{Common Instructions}
+    \begin{itemize}
+
+      \item 프로젝트는 Norm에 따라 작성되어야 합니다. 만약 추가 파일 혹은 기능이 있다면 이도 Norm을 따라야 하며 Norm 오류가 있으면 \texttt{0점}을 받습니다.
+
+      \item 정의되지 않은 동작과는 별개로 함수가 예기치 않게 종료 (Segmentation fault, bus error, double free, 등)되어서는 안됩니다. 이 경우 프로젝트가 기능하지 않는 것으로 간주되며 평가시 \texttt{0점}을 받습니다.
+
+      \item 필요하다면 모든 힙 할당 메모리 공간을 적절하게 해제해야합니다. 메모리 누출은 용납되지 않습니다.
+
+      \item 프로젝트가 요구한다면,  \texttt{-Wall}, \texttt{-Wextra} 및 \texttt{-Werror} 플래그를 사용하여 소스 파일을 요구된 형식으로 컴파일하는 Makefile을 제출해야하며, Makefile은 relink해서는 안됩니다.
+
+      \item \texttt{Makefile}은 최소한 다음의 규칙을 포함해야 합니다. \texttt{\$(NAME)}, \texttt{all}, \texttt{clean}, \texttt{fclean} and \texttt{re}.
+
+      \item 프로젝트 보너스를 제출하려면 Makefile에 \texttt{bonus} 관련 규칙을 추가해야합니다. 본 프로젝트에서는 금지된 다양한 헤더, 라이브러리 또는 함수를 포함합니다. 보너스는 다른 파일에 있어야합니다, \texttt{\*\_bonus.\{c/h\}}. 필수 항목과 보너스 항목의 평가는 별개로 진행됩니다.
+
+      \item \texttt{libft}를 사용할 수 있는 프로젝트의 경우, 해당 소스 및 관련 \texttt{Makefile}을 \texttt{libft} 폴더에 복사하십시오. 프로젝트의 \texttt{Makefile}은 라이브러리의 \texttt{Makefile}을 사용하여 라이브러리를 컴파일 한 후 프로젝트를 컴파일해야합니다
+
+      \item \textbf{제출할 필요도 없고 채점 되지도 않지만,} 테스트 프로그램을 작성할 것을 추천합니다. 테스트 프로그램은 프로젝트 코드를 쉽게 테스트 할 수 있게 하며  이러한 테스트는 평가하는 동안 굉장히 유용합니다. 실제로, 평가받는 동안 자신이 만든 테스트 및/또는 평가받는 동료의 테스를 자유롭게 사용할 수 있습니다.
+
+      \item 프로젝트를 지정된 Git 저장소에 제출하십시오. Git 저장소에 제출된 작업물만 채점됩니다. Deepthought이 프로젝트를 채점하는 경우, 동료 평가 후에 수행됩니다. Deepthought의 채점 도중에 프로젝트의 어떤 부분에서던 오류가 발생하면 평가가 바로 중지됩니다.
+      
+    \end{itemize}
+
+

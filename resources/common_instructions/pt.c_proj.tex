@@ -1,0 +1,49 @@
+%******************************************************************************%
+%                                                                              %
+%                        Common Instructions                                   %
+%                          for C Projects                                      %
+%                                                                              %
+%******************************************************************************%
+
+\chapter{Regras gerais}
+    \begin{itemize}
+      \item O seu projeto deve estar codificado dentro da Norma. Se você possui arquivos ou
+        funções bônus, elas serão incluídas na verificação da norma
+        e você receberá 0 no projeto se não seguir a norma.
+
+      \itam Suas funções não devem parar inesperadamente (falha
+      de segmentação, erro bus, double free, etc.), exceto no caso de um comportamento
+      indefinido. Se isso acontecer, o seu projeto será considerado não funcional e você 
+      receberá um 0 no projeto.
+
+      \item Qualquer memória alocada no heap deve ser liberada quando necessário.
+        Nenhum leak será tolerado.
+
+      \item Se o projeto pedir, você deve fazer um Makefile que compilará as suas 
+        fontes para criar a saída solicitada, utilizando as sinalizações \texttt{-Wall},
+        \texttt{-Wextra} et \texttt{-Werror}. O seu Makefile não deve ter relink.
+
+      \item Se o seu projeto pedir um Makefile, o seu Makefile deve no mínimo
+        conter as regras \texttt(NAME), \texttt{all}, \texttt{clean},
+        \texttt{fclean} et \texttt{re}.
+
+      \item Para entregar o bônus, você deve incluir uma regra \texttt{bonus} no seu
+        Makefile que vai adicionar os diversos headers, bibliotecas e funções que não são
+        autorizadas na parte principal do projeto. Os bônus devem ficar em
+        um arquivo \texttt{\*\_bonus.\{c/h\}}. A avaliação da parte obrigatória e
+        e da parte bônus são feitas separadamente.
+
+      \item Se o projeto autorizar o seu \texttt{libft}, você deve copiar suas fontes e 
+        o seu Makefile associado em uma pasta libfit na raiz.
+        O Makefile do seu projeto deve compilar a biblioteca usando o seu Makefile,
+        depois compilar o projeto.
+
+      \item Nós recomendamos criar programas de teste para o seu projeto,
+        mesmo que esse trabalho \textbf{não seja entregue nem avaliado}. Isso te dará uma chance
+        de testar facilmente o seu trabalho assim como o dos seus colegas. 
+
+      \item Você deve entregar o seu trabalho no git que lhe foi atribuído. Somente o trabalho
+        colocado no git será avaliado. Se o Deepthought precisar corrigir o seu trabalho, isso será feito
+        no fim do processo das avaliações dos colegas.
+        Se um erro acontecer durante a avaliação Deepthought, ela será finalizada.
+    \end{itemize}
