@@ -1,0 +1,75 @@
+%******************************************************************************%
+%                                                                              %
+%                  instructions.tex for 42's Piscine C++                       %
+%                  Created on : Mon Sep  8 15:57:19 2014                       %
+%                  Made by : David "Thor" GIRON <thor@42.fr>                   %
+%                                                                              %
+%******************************************************************************%
+
+
+\chapter{Règles Générales}
+
+
+    \begin{itemize}
+        \item Toute fonction implémentée dans une header (sauf pour les templates)
+            ou tout header non-protégé, signifie 0 à l'exercice.
+        
+		\item Tout output doit être affiché sur stdout et terminé par une newline,
+            sauf si autre chose est précisé.
+		\item Les noms de fichiers imposés doivent être suivis à la lettre,
+            tout comme les noms de classe, les noms de fonction, et les 
+            noms de méthodes.
+		\item Rappel : vous codez maintenant en \texttt{C++}, et plus en
+            \texttt{C}. C'est pourquoi :
+            \begin{itemize}
+                \item Les fonctions suivantes sont \textbf{INTERDITES}, et 
+                    leur usage se soldera par un 0: \texttt{*alloc}, 
+                    \texttt{*printf} et \texttt{free}
+                \item Vous avez l'autorisation d'utiliser à peu près toute 
+                    la librairie standard. CEPENDANT, il serait intelligent
+                    d'essayer d'utiliser la version C++ de ce à quoi vous êtes
+                    habitués en C, plutôt que de vous reposer sur vos acquis.
+                    Et vous n'êtes pas autorisés à utiliser la STL jusqu'au 
+                    moment où vous commencez à travailler dessus (module 08).
+                    Ca signifie pas de Vector/List/Map/etc... ou quoi que 
+                    ce soit qui requiert une include <algorithm> jusque là.
+		  \end{itemize}
+        \item L'utilisation d'une fonction ou mécanique explicitement interdite 
+          sera sanctionnée par un \texttt{0}
+        \item Notez également que sauf si la consigne l'autorise, les mot-clés
+          \texttt{using namespace} et \texttt{friend} sont interdits.
+          Leur utilisation sera punie d'un \texttt{0}.
+        \item Les fichiers associés à une classe seront toujours nommés \texttt{ClassName.cpp}
+          et \texttt{ClassName.hpp}, sauf si la consigne demande autre chose.
+        \item Vous devez lire les exemples minutieusement. Ils peuvent contenir
+          des prérequis qui ne sont pas précisés dans les consignes.
+        \item Vous n'êtes pas autorisés à utiliser des librairies externes,
+          incluant \texttt{C++11}, \texttt{Boost}, et tous les autres outils
+          que votre ami super fort vous a recommandé.
+        \item Vous allez surement devoir rendre beaucoup de fichiers de classe,
+          ce qui peut paraitre répétitif jusqu'à ce que vous appreniez a scripter
+          ca dans votre éditeur de code préferé.
+        \item Lisez complètement chaque exercice avant de le commencer.
+        \item Le compilateur est \texttt{clang++}
+        \item Votre code sera compilé avec les flags \texttt{-Wall -Wextra -Werror -std=c++98}
+        \item Chaque include doit pouvoir être incluse indépendamment des autres includes.
+          Un include doit donc inclure toutes ses dépendances.
+        \item Il n'y a pas de norme à respecter en \texttt{C++}. Vous pouvez utiliser 
+          le style que vous préferez. Cependant, un code illisible est un code 
+          que l'on ne peut pas noter.
+        \item Important : vous ne serez pas noté par un programme (sauf si précisé
+          dans le sujet). Cela signifie que vous avez un degré de liberté dans 
+          votre méthode de résolution des exercices. 
+        \item Faites attention aux contraintes, et ne soyez pas fainéant, vous pourriez
+          manquer beaucoup de ce que les exercices ont à offrir
+        \item Ce n'est pas un problème si vous avez des fichiers additionnels. Vous pouvez 
+          choisir de séparer votre code dans plus de fichiers que ce qui est demandé, 
+          tant qu'il n'y a pas de moulinette.
+        \item Même si un sujet est court, cela vaut la peine de passer un peu de temps dessus
+          afin d'être sûr que vous comprenez bien ce qui est attendu de vous, et que vous l'avez 
+          bien fait de la meilleure manière possible.
+
+\end{itemize}
+
+%******************************************************************************%
+\newpage

@@ -1,0 +1,110 @@
+name: Latex Builder
+
+on: [push]
+
+jobs:
+  make-it:
+    runs-on: ubuntu-latest
+    container:
+      image: blang/latex:ubuntu
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: version
+        run: echo "::set-output name=version::$(cat version)"
+        id: version
+      - name: Make pdf
+        run: |
+          make
+          cp build/module00.pdf /
+          cp build/module01.pdf /
+          cp build/module02.pdf /
+          cp build/module03.pdf /
+          cp build/module04.pdf /
+      - name: Upload pdf artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: modules.pdf
+          path: |
+            /module00.pdf
+            /module01.pdf
+            /module02.pdf
+            /module03.pdf
+            /module04.pdf
+        
+  release-it:
+    runs-on: ubuntu-latest
+    container:
+      image: blang/latex:ubuntu
+    if: "contains(github.ref, 'master')"
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: version
+        run: echo "::set-output name=version::$(cat version)"
+        id: version
+      - name: Make pdf
+        run: |
+          make
+          cp build/module00.pdf /
+          cp build/module01.pdf /
+          cp build/module02.pdf /
+          cp build/module03.pdf /
+          cp build/module04.pdf /
+          cp CHANGELOG.md /
+      - name: create release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: release_${{ steps.version.outputs.version }}
+          tag_name: version/${{ steps.version.outputs.version }}
+          body_path: /CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Release Module00
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /module00.pdf
+          asset_name: module00.pdf
+          asset_content_type: application/pdf
+      - name: Release Module01
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /module01.pdf
+          asset_name: module01.pdf
+          asset_content_type: application/pdf
+      - name: Release Module02
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /module02.pdf
+          asset_name: module02.pdf
+          asset_content_type: application/pdf
+      - name: Release Module03
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /module03.pdf
+          asset_name: module03.pdf
+          asset_content_type: application/pdf
+      - name: Release Module04
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /module04.pdf
+          asset_name: module04.pdf
+          asset_content_type: application/pdf

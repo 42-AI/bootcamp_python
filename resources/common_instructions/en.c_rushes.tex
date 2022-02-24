@@ -1,0 +1,17 @@
+\item Your project must be written in accordance with the Norm.
+        If you have bonus files/functions, they are included in the norm check
+        and you will receive a \texttt{0} if there is a norm error inside.
+
+\item Your functions should not quit unexpectedly (segmentation
+        fault, bus error, double free, etc) apart from undefined
+        behaviors. If this happens, your project will be considered non
+        functional and will receive a \texttt{0} during the evaluation.
+    
+\item If the subject requires it, you must submit a \texttt{Makefile}
+        which will compile your source files to the required output
+        with the flags \texttt{-Wall}, \texttt{-Wextra} and \texttt{-Werror},
+        use cc, and your Makefile must not relink.
+
+\item Your \texttt{Makefile} must at least contain the rules
+        \texttt{\$(NAME)}, \texttt{all}, \texttt{clean},
+        \texttt{fclean} and \texttt{re}.

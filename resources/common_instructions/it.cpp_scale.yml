@@ -1,0 +1,67 @@
+---
+comment: ''
+introduction_md: |
+  - Valuta solo il lavoro presente nella repository GiT dello studente o
+    del gruppo.
+
+  - Controlla che la repository GiT appartenga allo studente od al gruppo.
+    Assicurati che il lavoro sia rilevante per il progetto e che "git clone"
+    venga utilizzato in una cartella vuota.
+
+  - Controlla attentamente che non sia stato utilizzato nessun alias malizioso
+    per imbrogliarti e farti valutare qualcosa di diverso dal contenuto della
+    repository ufficiale.
+
+  - Per evitare qualsiasi sorpresa, assicurati che sia il valutato che il valutatore
+    comprendano i possibili script che verranno utilizzati per facilitare la valutazione.
+
+  - Se lo studente che valuta non ha completato quel particolare progetto, è obbligatorio per
+    tale studente leggere l'intero subject prima di iniziare la difesa
+
+  - Utilizza le flag disponibili per segnalare una repository vuota, un programma non funzionante,
+    un errore di norma, cheat etc. In questi casi la valutazione termina immediatamente
+    ed il voto finale è 0(-42 in caso di cheat). Vi invitiamo comunque, a parte nel caso
+    di un cheat, di discutere del lavoro svolto(anche se non terminato) in modo da identificare
+    le problematiche che possono aver causato questo fallimento.
+  
+  - Ricorda che per tutta la durata delle difesa non saranno tollerati segfault,
+    od altre terminazioni inaspettate, premature o incontrollate del programma, pena uno 0.
+    Utilizza la flag appropriata.
+    Non dovresti mai aver bisogno di modificare nessun file fatta eccezione per il file 
+    di configurazione, dovesse esso esistere.
+    Se vuoi modificare un file, prenditi il tempo per esplicitare le motivazioni allo
+    studente valutato ed assicurati che siate entrambi d'accordo.
+
+  - Dovrai anche verificare l'assenza di leak di memoria. Tutta la memoria allocata sull'heap
+    deve essere liberata correttamente prima del termine dell'esecuzione.
+    Ti è consentito l'utilizzo di uno qualsiasi degli strumenti disponibili sul computer,
+    tipo leaks, valgrind, o e_fence. In caso di leak di memoria, seleziona la flag appropriata.
+
+disclaimer_md: |
+  Sei pregato di rispettare le seguenti regole:
+
+  - Resta educato, cortese, rispettoso e costruttivo durante il processo di valutazione.
+    Ne va del benessere della comunità.
+
+  - Identifica con a persona(od il gruppo) valutato le eventuali disfunzioni del lavoro.
+    Prenditi il tempo per discutere e dibattere i problemi che hai identificato.
+
+  - Devi considerare che possono esserci delle differenza tra come tu ed i tuoi peer
+    avete interpretato le istruzioni del progetto e l'ambito delle sue funzionalità.
+    Mantieni sempre la mente aperta e valutalo/a più onestamente possibile. La pedagogia
+    ha validità solo se le valutazioni tra peer vengono condotte seriamente.
+
+guidelines_md: |
+    Devi compilare con clan++, con -Wall -Wextra -Werror.
+    Ricorda che questo progetto è in C++98 ed i container membri o funzioni di C++20 NON sono aspettati.
+
+    Una qualsiasi di queste motivazioni significa che non devi valutare l'esercizio in questione:
+      - Una funzione implementata in un header(fatta eccezione per un template)
+      - Un Makefile compila senza flag e/o con qualcosa di diverso da clang++
+
+    Una qualsiasi di queste motivazioni significa che devi flaggare il progetto come Forbidden Function:
+      - Viene utilizzata una funzione "C"(*alloc, *printf, free)
+      - Viene utilizzata una funzione non consentita nel subject
+      - Viene utilizzato "using namespace" o "friend"
+      - Viene utilizzata una libreria esterna o delle funzionalità di C++20
+      - Viene utilizzato un container, o una funzione, già esistente per implementare un altro container
