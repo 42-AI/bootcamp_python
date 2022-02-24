@@ -12,6 +12,7 @@
 
 ### Table of Contents
 
+- [Download](#download)
 - [Curriculum](#curriculum)
   - [Module00 - Basics 1 - Eleven Commandments](#module00---basics-1---eleven-commandments)
   - [Module01 - Basics 2](#module01---basics-2)
@@ -28,6 +29,11 @@ This project is a Python programming and Machine Learning bootcamp created by [4
 No prior Python programming or Machine Learning experience is required! Your mission, should you choose to accept it, is to come and learn some of the essential knowledge for Machine Learning, Data Science and statistics, in a single week. You will start with the basics of the Python language and then get acquainted with some libraries that are invaluable to any programmer interested in the field of AI or data science.
 
 42 Artificial Intelligence is a student organization of the Paris campus of the school 42. Our purpose is to foster discussion, learning, and interest in the field of artificial intelligence, by organizing various activities such as lectures and workshops.
+
+## Download
+
+The pdf files of each module can be downloaded from our realease page:
+[https://github.com/42-AI/bootcamp_python/releases](https://github.com/42-AI/bootcamp_python/releases)
 
 ## Curriculum
 
