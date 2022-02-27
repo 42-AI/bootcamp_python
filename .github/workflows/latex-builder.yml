@@ -13,9 +13,13 @@ jobs:
       - name: version
         run: echo "::set-output name=version::$(cat version)"
         id: version
+      - uses: actions/checkout@master
+        with:
+          name: 42-AI/42_resources
+          ref: refs/heads/release
       - name: Make pdf
         run: |
-          git clone git@github.com:42-AI/42_resources.git resources
+          mv 42_resources resources
           make
           cp build/module00.pdf /
           cp build/module01.pdf /
