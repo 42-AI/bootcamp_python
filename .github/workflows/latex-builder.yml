@@ -15,7 +15,7 @@ jobs:
         id: version
       - uses: actions/checkout@master
         with:
-          name: 42-AI/42_resources
+          repository: 42-AI/42_resources
           ref: refs/heads/release
       - name: Make pdf
         run: |
