@@ -1,0 +1,51 @@
+#******************************************************************************#
+#                                                                              #
+#               Makefile.LaTeX for LaTeX                                       #
+#               Created on : Mon Oct  5 17:01:29 2015                          #
+#               Make by : Uriel "Korfuri" Corfa <uriel@corfa.fr>               #
+#               Made by : David "Thor" GIRON <thor@staff.42.fr>                #
+#                                                                              #
+#******************************************************************************#
+
+RESSOURCE_FILES		=	$(RELPATH)/Makefile.LaTeX	\
+						$(RELPATH)/atbeginend.sty	\
+						$(RELPATH)/tocloft.sty		\
+						$(RELPATH)/minted.sty		\
+						$(RELPATH)/multirow.sty		\
+						$(RELPATH)/42-fr.cls		\
+						$(RELPATH)/back.pdf		\
+						$(RELPATH)/42_logo.pdf		\
+						$(RELPATH)/info.pdf		\
+						$(RELPATH)/helphint.pdf		\
+						$(RELPATH)/warn.pdf
+
+ALL_DEPENDENCIES	=	$(RESSOURCE_FILES) $(DEPS)
+
+export TEXINPUTS	:=	..:.:$(RELPATH):${TEXINPUTS}:
+
+all: $(TARGETS)
+
+clean:
+	rm -f *.aux *.ent *.log *.out *.toc *.nav *.snm *.vrb *.pyg
+
+distclean: clean
+	rm -f $(TARGETS)
+
+re: distclean all
+
+%.pdf: %.tex Makefile $(ALL_DEPENDENCIES)
+	pdflatex -shell-escape -halt-on-error $<
+	@if [ $$? = 0 ]; then\
+		pdflatex -shell-escape -halt-on-error $<;\
+		echo "Build OK";\
+	else\
+		echo "Build Failed";\
+		exit 1;\
+	fi
+
+view: all
+	(type xpdf > /dev/null 2>&1 && xpdf ${TARGETS}) ||\
+	(type evince > /dev/null 2>&1 && evince ${TARGETS})
+
+
+#******************************************************************************#
