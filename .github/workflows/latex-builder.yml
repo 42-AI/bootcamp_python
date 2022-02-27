@@ -13,10 +13,10 @@ jobs:
       - name: version
         run: echo "::set-output name=version::$(cat version)"
         id: version
-      - uses: actions/checkout@master
-        with:
-          repository: 42-AI/42_resources
-          ref: refs/heads/release
+#       - uses: actions/checkout@v2
+#         with:
+#           repository: 42-AI/42_resources
+#           ref: refs/heads/release
       - name: Make pdf
         run: |
           mv 42_resources resources
