@@ -17,9 +17,9 @@ jobs:
 #         with:
 #           repository: 42-AI/42_resources
 #           ref: refs/heads/release
+#           mv 42_resources resources
       - name: Make pdf
         run: |
-          mv 42_resources resources
           make
           cp build/module00.pdf /
           cp build/module01.pdf /
