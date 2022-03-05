@@ -422,12 +422,12 @@ def crop(self, array, dim, position=(0,0)):
     and width of the image) from the coordinates given by position arguments.
     Args:
     -----
-      array: numpy.ndarray
+      array: numpy.array
       dim: tuple of 2 integers.
       position: tuple of 2 integers.
     Return:
     -------
-      new_arr: the cropped numpy.ndarray.
+      new_arr: the cropped numpy.array.
       None (if combinaison of parameters not compatible).
     Raise:
     ------
@@ -440,13 +440,13 @@ def thin(self, array, n, axis):
     Deletes every n-th line pixels along the specified axis (0: vertical, 1: horizontal)
     Args:
     -----
-      array: numpy.ndarray.
+      array: numpy.array.
       n: non null positive integer lower than the number of row/column of the array
          (depending of axis value).
       axis: positive non null integer.
     Return:
     -------
-      new_arr: thined numpy.ndarray.
+      new_arr: thined numpy.array.
       None (if combinaison of parameters not compatible).
     Raise:
     ------
@@ -459,12 +459,12 @@ def juxtapose(self, array, n, axis):
     Juxtaposes n copies of the image along the specified axis.
     Args:
     -----
-      array: numpy.ndarray.
+      array: numpy.array.
       n: positive non null integer.
       axis: integer of value 0 or 1.
     Return:
     -------
-      new_arr: juxtaposed numpy.ndarray.
+      new_arr: juxtaposed numpy.array.
       None (combinaison of parameters not compatible).
     Raises:
     -------
@@ -478,11 +478,11 @@ def mosaic(self, array, dim):
     the number of repetition along each dimensions.
     Args:
     -----
-      array: numpy.ndarray.
+      array: numpy.array.
       dim: tuple of 2 integers.
     Return:
     -------
-      new_arr: mosaic numpy.ndarray.
+      new_arr: mosaic numpy.array.
       None (combinaison of parameters not compatible).
     Raises:
     -------
@@ -577,10 +577,10 @@ def invert(array):
     Inverts the color of the image received as a numpy array.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -593,10 +593,10 @@ def to_blue(array):
     Applies a blue filter to the image received as a numpy array.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -609,10 +609,10 @@ def to_green(array):
     Applies a green filter to the image received as a numpy array.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -625,10 +625,10 @@ def to_red(array):
     Applies a red filter to the image received as a numpy array.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -646,10 +646,10 @@ def to_celluloid(array):
         celluloid filter is also known as cel-shading or toon-shading.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -664,13 +664,13 @@ def to_grayscale(array, filter, **kwargs):
     For filter = 'weight'/'w': performs a weighted mean of RBG channels.
     Args:
     -----
-        array: numpy.ndarray corresponding to the image.
+        array: numpy.array corresponding to the image.
         filter: string with accepted values in ['m','mean','w','weight']
         weights: [kwargs] list of 3 floats where the sum equals to 1,
                  corresponding to the weights of each RBG channels.
     Return:
     -------
-        array: numpy.ndarray corresponding to the transformed image.
+        array: numpy.array corresponding to the transformed image.
         None: otherwise.
     Raises:
     -------
@@ -862,7 +862,7 @@ class KmeansClustering:
         For the location of the initial centroids, random pick ncentroids from the dataset.
         Args:
         -----
-          X: has to be an numpy.ndarray, a matrice of dimension m * n.
+          X: has to be an numpy.array, a matrice of dimension m * n.
         Return:
         -------
           None.
@@ -877,10 +877,10 @@ class KmeansClustering:
         Predict from wich cluster each datapoint belongs to.
         Args:
         -----
-          X: has to be an numpy.ndarray, a matrice of dimension m * n.
+          X: has to be an numpy.array, a matrice of dimension m * n.
         Return:
         -------
-          the prediction has a numpy.ndarray, a vector of dimension m * 1.
+          the prediction has a numpy.array, a vector of dimension m * 1.
         Raises:
         -------
           This function should not raise any Exception.
