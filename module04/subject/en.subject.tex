@@ -233,7 +233,7 @@ man who took part in the Olympics a given year.
 % --------------------------------- %
 This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 
-Write a function \texttt{youngestFellah} that takes two arguments:
+Write a function \texttt{youngest\_fellah} that takes two arguments:
 \begin{itemize}
   \item a pandas.DataFrame which contains the dataset
   \item an Olympic year.
@@ -254,8 +254,8 @@ data = loader.load('../data/athlete_events.csv')
 Loading dataset of dimensions 271116 x 15
 
 
-from YoungestFellah import youngestFellah
-youngestFellah(data, 2004)
+from YoungestFellah import youngest_fellah
+youngest_fellah(data, 2004)
 # Output
 {'f': 13.0, 'm': 14.0}
 \end{minted}
@@ -289,7 +289,7 @@ the participants of a given genders.
 % --------------------------------- %
 This exercise uses the dataset \texttt{athlete\_events.csv}.
 
-Write a function \texttt{proportionBySport} that takes four arguments:
+Write a function \texttt{proportion\_by\_sport} that takes four arguments:
 \begin{itemize}
   \item a pandas.DataFrame of the dataset,
   \item an olympic year,
@@ -322,8 +322,8 @@ data = loader.load('../data/athlete_events.csv')
 Loading dataset of dimensions 271116 x 15
 
 
-from ProportionBySport import proportionBySport
-proportionBySport(data, 2004, 'Tennis', 'F')
+from ProportionBySport import proportion_by_sport
+proportion_by_sport(data, 2004, 'Tennis', 'F')
 # Output
 0.01935634328358209
 \end{minted}
@@ -360,7 +360,7 @@ for each year during which the participant won medals.
 This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 
 
-Write a function \texttt{howManyMedals} that takes two arguments:
+Write a function \texttt{how\_many\_medals} that takes two arguments:
 \begin{itemize}
   \item a pandas.DataFrame which contains the dataset,
   \item a participant name.
@@ -384,8 +384,8 @@ data = loader.load('../data/athlete_events.csv')
 Loading dataset of dimensions 271116 x 15
 
 
-from HowManyMedals import howManyMedals
-howManyMedals(data, 'Kjetil Andr Aamodt')
+from HowManyMedals import how_many_medals
+how_many_medals(data, 'Kjetil Andr Aamodt')
 # Output
 {1992: {'G': 1, 'S': 0, 'B': 1},
  1994: {'G': 0, 'S': 2, 'B': 1},
@@ -495,7 +495,7 @@ each competition where the country delegation earned medals.
 % --------------------------------- %
 This exercise uses the following dataset: \texttt{athlete\_events.csv}
 
-Write a function \texttt{howManyMedalsByCountry} that takes two arguments:
+Write a function \texttt{how\_many\_medals\_by\_country} that takes two arguments:
 \begin{itemize}
   \item a pandas.DataFrame which contains the dataset  
   \item a country name.
@@ -520,8 +520,8 @@ data = loader.load('../data/athlete_events.csv')
 Loading dataset of dimensions 271116 x 15
 
 
-from HowManyMedalsByCountry import howManyMedalsByCountry
-howManyMedalsByCountry(data, 'Martian Federation')
+from HowManyMedalsByCountry import how_many_medals_by_country
+how_many_medals_by_country(data, 'Martian Federation')
 # Output
 {2192: {'G': 17, 'S': 14, 'B': 23}, 2196: {'G': 8, 'S': 21, 'B': 19}, 2200: {'G': 26, 'S': 19, 'B': 7}}
 \end{minted}
