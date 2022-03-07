@@ -166,15 +166,15 @@ Introduction to Numpy library.
 Write a class named \texttt{NumPyCreator}, that implements all of the following methods.
 Each method receives as an argument a different type of data structure and transforms it into a Numpy array:
 \begin{itemize}
-  \item \texttt{from\_list(lst)}: takes a list or nested lists and returns its corresponding Numpy array.
-  \item \texttt{from\_tuple(tpl)}: takes a tuple or nested tuples and returns its corresponding Numpy array.
-  \item \texttt{from\_iterable(itr)}: takes an iterable and returns an array which contains all its elements.
-  \item \texttt{from\_shape(shape, value)}: returns an array filled with the same value.
+  \item \texttt{from\_list(self, lst)}: takes a list or nested lists and returns its corresponding Numpy array.
+  \item \texttt{from\_tuple(self, tpl)}: takes a tuple or nested tuples and returns its corresponding Numpy array.
+  \item \texttt{from\_iterable(self, itr)}: takes an iterable and returns an array which contains all its elements.
+  \item \texttt{from\_shape(self, shape, value)}: returns an array filled with the same value.
   The first argument is a tuple which specifies the shape of the array, and the second argument specifies the value of the elements. 
   This value must be 0 by default.
-  \item \texttt{random(shape)}: returns an array filled with random values.
+  \item \texttt{random(self, shape)}: returns an array filled with random values.
   It takes as an argument a tuple which specifies the shape of the array.
-  \item \texttt{identity(n)}: returns an array representing the identity matrix of size n.
+  \item \texttt{identity(self, n)}: returns an array representing the identity matrix of size n.
 \end{itemize}
 
 
