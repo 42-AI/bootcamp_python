@@ -572,7 +572,7 @@ You are not allowed to use anything else.
 Write a class named \texttt{ColorFilter} with 6 methods with the following exact signatures:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def invert(array):
+def invert(self, array):
     """
     Inverts the color of the image received as a numpy array.
     Args:
@@ -588,7 +588,7 @@ def invert(array):
     """
 \end{minted}
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def to_blue(array):
+def to_blue(self, array):
     """
     Applies a blue filter to the image received as a numpy array.
     Args:
@@ -604,7 +604,7 @@ def to_blue(array):
     """
 \end{minted}
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def to_green(array):
+def to_green(self, array):
     """
     Applies a green filter to the image received as a numpy array.
     Args:
@@ -620,7 +620,7 @@ def to_green(array):
     """
 \end{minted}
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def to_red(array):
+def to_red(self, array):
     """
     Applies a red filter to the image received as a numpy array.
     Args:
@@ -636,7 +636,7 @@ def to_red(array):
     """
 \end{minted}
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def to_celluloid(array):
+def to_celluloid(self, array):
     """
     Applies a celluloid filter to the image received as a numpy array.
     Celluloid filter must display at least four thresholds of shades.
@@ -657,7 +657,7 @@ def to_celluloid(array):
     """
 \end{minted}
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-def to_grayscale(array, filter, **kwargs):
+def to_grayscale(self, array, filter, **kwargs):
     """
     Applies a grayscale filter to the image received as a numpy array.
     For filter = 'mean'/'m': performs the mean of RBG channels.
