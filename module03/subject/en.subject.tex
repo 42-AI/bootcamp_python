@@ -283,6 +283,8 @@ Write a class named \texttt{ImageProcessor} that implements the following method
   \item \texttt{display(array)}: takes a numpy array as an argument and displays the corresponding RGB image.
 \end{itemize}
 
+You must handle errors, if the file passed as argument does not exist or if it can't be read as an image, with an appropriate message of your choice.
+
 \hint{You can use the library of your choice for this exercise,
 but converting the image to a numpy array is mandatory.
 The goal of this exercise is to dispense with the technicality of loading and displaying images,
@@ -510,7 +512,7 @@ starting from the left. Indexing starts from 0.
 % --------------------------------- %
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 import numpy as np
-from Scrapbooker import ScrapBooker
+from ScrapBooker import ScrapBooker
 
 spb = ScrapBooker()
 arr1 = np.arange(0,25).reshape(5,5)
@@ -737,7 +739,7 @@ cf.to_celluloid(arr)
 
 cf.to_grayscale(arr, 'm')
 
-cf.to_grayscale(arr, 'weighted', [0.2, 0.3, 0.5])
+cf.to_grayscale(arr, 'weight', weights = [0.2, 0.3, 0.5])
 \end{minted}
 
 \begin{figure}[h!]
@@ -795,7 +797,7 @@ You can see the code in 42AI repository \href{https://github.com/42-AI/StyleTran
 \turnindir{ex04}
 \exnumber{04}
 \exfiles{Kmeans.py}
-\exforbidden{None}
+\exforbidden{Any functions allowing you to perform K-Means}
 \makeheaderfilesforbidden
 
 ALERT! DATA CORRUPTED
