@@ -309,6 +309,8 @@ participants of the 2016 Olympics?"
 Here and further, if needed, drop duplicated sports people
 to count only unique ones. Beware to call the dropping function
 at the right moment and with the right parameters, in order not to omit any individuals.
+Also, you have to think about according to which \texttt{subset} you need to drop.
+Is it according to \texttt{Name} or \texttt{ID} ?
 }
 
 % ================================= %
@@ -325,7 +327,7 @@ Loading dataset of dimensions 271116 x 15
 from ProportionBySport import proportion_by_sport
 proportion_by_sport(data, 2004, 'Tennis', 'F')
 # Output
-0.01935634328358209
+0.019302325581395347
 \end{minted}
 
 We assume that we are always using appropriate arguments as input,
