@@ -507,6 +507,7 @@ You should be able to initialize the object with:
   \item a list of lists of single float: \texttt{Vector([[0.0], [1.0], [2.0], [3.0]])},
   \item a size: \texttt{Vector(3)} -> the vector will have \texttt{values = [[0.0], [1.0], [2.0]]},
   \item a range: \texttt{Vector((10,16))} -> the vector will have \texttt{values = [[10.0], [11.0], [12.0], [13.0], [14.0], [15.0]]}.
+    in \texttt{Vector((a,b))}, if \texttt{a > b}, you must display accurate error message.
 \end{itemize}
 
 \textit{By default, the vectors are generated as classical column vectors if initialized with a size or range.}
