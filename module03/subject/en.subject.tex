@@ -685,32 +685,33 @@ for each filter method in class \texttt{ColorFilter}:
 \begin{itemize}
   \item \texttt{invert}:
   \begin{itemize}
-    \item Authorized functions:\texttt{None}
-    \item Authorized operator:\texttt{+},\texttt{-}
+    \item Authorized functions: \texttt{.copy}.
+    \item Authorized operators: \texttt{+},\texttt{-},\texttt{=}.
   \end{itemize}
   \item \texttt{to\_blue}:
   \begin{itemize}
-    \item Authorized functions:\texttt{.zeros},\texttt{.shape},\texttt{.dstack}
-    \item Authorized operator:\texttt{None}
+    \item Authorized functions: \texttt{.copy}, \texttt{.zeros},\texttt{.shape},\texttt{.dstack}.
+    \item Authorized operators: \texttt{=}.
   \end{itemize}
   \item \texttt{to\_green}:
   \begin{itemize}
-    \item Authorized functions:\texttt{copy.deepcopy}
-    \item Authorized operator:\texttt{*}
+    \item Authorized functions: \texttt{.copy}.
+    \item Authorized operators: \texttt{*}, \texttt{=}.
   \end{itemize}
   \item \texttt{to\_red}:
   \begin{itemize}
-    \item Authorized functions:\texttt{.to\_green},\texttt{.to\_blue}
-    \item Authorized operator:\texttt{-},\texttt{+}
+    \item Authorized functions: \texttt{.copy}, \texttt{.to\_green},\texttt{.to\_blue}.
+    \item Authorized operators: \texttt{-},\texttt{+}, \texttt{=}.
   \end{itemize}
   \item \texttt{to\_celluloid(array)}:
   \begin{itemize}
-    \item Authorized functions:\texttt{.arange},\texttt{.linspace}
+    \item Authorized functions: \texttt{.copy}, \texttt{.arange},\texttt{.linspace}, \texttt{.min}, \texttt{.max}.
+    \item Authorized operators: \texttt{=}, \texttt{<=}, \texttt{>}, \texttt{\&} (or \texttt{and}).
   \end{itemize}
   \item \texttt{to\_grayscale}:
   \begin{itemize}
-    \item Authorized functions:\texttt{.sum},\texttt{.shape},\texttt{.reshape},\texttt{.broadcast\_to},\texttt{.as\_type}
-    \item Authorized operator:\texttt{*},\texttt{/}
+    \item Authorized functions: \texttt{.sum},\texttt{.shape},\texttt{.reshape},\texttt{.broadcast\_to},\texttt{.as\_type}.
+    \item Authorized operators: \texttt{*},\texttt{/}, \texttt{=}.
   \end{itemize}
 \end{itemize}
 % ================================= %
