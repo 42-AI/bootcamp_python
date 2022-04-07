@@ -588,8 +588,8 @@ Do not forget to handle all types of error properly!
 \turnindir{ex03}
 \exnumber{03}
 \exfiles{generator.py}
-\exauthorize{random.randint}
-\exforbidden{random.shuffle}
+\exauthorize{random.randint, random.choice}
+\exforbidden{random.shuffle, random.sample}
 \makeheaderfilesforbidden
 
 
@@ -601,7 +601,7 @@ The goal of the exercise is to discover the concept of generator object in Pytho
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
-Code a function called \texttt{generator} that takes a text as input, uses the string
+Code a function called \texttt{generator} that takes a text as input (only printable characters), uses the string
 parameter \texttt{sep} as a splitting parameter, and \texttt{yield}s the resulting substrings.
 
 The function can take an optional argument.
