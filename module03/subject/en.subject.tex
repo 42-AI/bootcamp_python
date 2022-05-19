@@ -439,7 +439,7 @@ def crop(self, array, dim, position=(0,0)):
 
 def thin(self, array, n, axis):
     """
-    Deletes every n-th line pixels along the specified axis (0: vertical, 1: horizontal)
+    Deletes every n-th line pixels along the specified axis (0: Horizontal, 1: Vertical)
     Args:
     -----
       array: numpy.ndarray.
@@ -526,12 +526,12 @@ array([[ 5],
 arr2 = np.array("A B C D E F G H I".split() * 6).reshape(-1,9)
 spb.thin(arr2,3,0)
 #Output :
-array([['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
-       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
-       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
-       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
-       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
-       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K']], dtype='<U1')
+array([['A', 'B', 'D', 'E', 'G', 'H'],
+       ['A', 'B', 'D', 'E', 'G', 'H'],
+       ['A', 'B', 'D', 'E', 'G', 'H'],
+       ['A', 'B', 'D', 'E', 'G', 'H'],
+       ['A', 'B', 'D', 'E', 'G', 'H'],
+       ['A', 'B', 'D', 'E', 'G', 'H']], dtype='<U1')
 
 
 arr3 = np.array([[1, 2, 3],[1, 2, 3],[1, 2, 3]])
