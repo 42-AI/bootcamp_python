@@ -668,8 +668,9 @@ def to_grayscale(self, array, filter, **kwargs):
     -----
         array: numpy.ndarray corresponding to the image.
         filter: string with accepted values in ['m','mean','w','weight']
-        weights: [kwargs] list of 3 floats where the sum equals to 1,
+        weights: [kwargs] 3 floats where the sum equals to 1,
                  corresponding to the weights of each RBG channels.
+		 expecting keys: 'r_weight', 'g_weight' and 'b_weight'.
     Return:
     -------
         array: numpy.ndarray corresponding to the transformed image.
@@ -739,7 +740,7 @@ cf.to_celluloid(arr)
 
 cf.to_grayscale(arr, 'm')
 
-cf.to_grayscale(arr, 'weight', weights = [0.2, 0.3, 0.5])
+cf.to_grayscale(arr, 'weight', r_weight=0.2, 'g_weight'=0.3, 'b_weight'=0.5)
 \end{minted}
 
 \begin{figure}[h!]
