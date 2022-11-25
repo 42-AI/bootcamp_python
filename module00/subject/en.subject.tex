@@ -420,9 +420,79 @@ $>
 \newpage
 % ===========================(start ex 03)       %
 \chapter{Exercise 03}
-\extitle{Functional file}
+\extitle{Elementary}
 \turnindir{ex03}
 \exnumber{03}
+\exfiles{operations.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+% \section*{}
+Write a program that takes two integers A and B as arguments and prints the result of the following operations:
+\begin{42console}
+Sum:         A+B
+Difference: A-B
+Product:     A*B
+Quotient:    A/B
+Remainder:   A%B
+\end{42console}
+
+\begin{itemize}
+	\item If more or less than two argument are provided or if either of the argument is not an integer, print an error message.
+	\item If no argument are provided, do nothing or print an usage.
+	\item If an operation is impossible, print an error message instead of a numerical result.
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+\begin{42console}
+$> python3 operations.py 10 3
+Sum:         13
+Difference:  7
+Product:     30
+Quotient:    3.3333...
+Remainder:   1
+$>
+$> python3 operations.py 42 10
+Sum:         52
+Difference:  32
+Product:     420
+Quotient:    4.2
+Remainder:   2
+$>
+$> python3 operations.py 1 0
+Sum:         1
+Difference:  1
+Product:     0
+Quotient:    ERROR (division by zero)
+Remainder:   ERROR (modulo by zero)
+$>
+$> python3 operations.py
+Usage: python operations.py <number1> <number2>
+Example:
+	python operations.py 10 3
+$>
+$> python3 operations.py 12 10 5
+AssertionError: too many arguments
+$>
+$> python3 operations.py "one" "two"
+AssertionError: only integers
+$>
+\end{42console}
+
+\hint{
+	No bonus point to be gained from handling decimal point or scientific notation. Keep it simple.
+}
+
+% ===========================(fin ex 03)         %
+\newpage
+% ===========================(start ex 04)       %
+\chapter{Exercise 04}
+\extitle{Functional file}
+\turnindir{ex04}
+\exnumber{04}
 \exfiles{count.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -510,84 +580,164 @@ The text contains 8 character(s):
 - 1 space(s)
 \end{42console}
 
-% ===========================(fin ex 03)         %
-\newpage
-% ===========================(start ex 04)       %
-\chapter{Exercise 04}
-\extitle{Elementary}
-\turnindir{ex04}
-\exnumber{04}
-\exfiles{operations.py}
-\exforbidden{None}
-\makeheaderfilesforbidden
-
-
-% ================================= %
-% \section*{}
-Write a program that takes two integers A and B as arguments and prints the result of the following operations:
-\begin{42console}
-Sum:         A+B
-Difference: A-B
-Product:     A*B
-Quotient:    A/B
-Remainder:   A%B
-\end{42console}
-
-\begin{itemize}
-	\item If more or less than two argument are provided or if either of the argument is not an integer, print an error message.
-	\item If no argument are provided, do nothing or print an usage.
-	\item If an operation is impossible, print an error message instead of a numerical result.
-\end{itemize}
-
-% ================================= %
-\section*{Examples}
-\begin{42console}
-$> python3 operations.py 10 3
-Sum:         13
-Difference:  7
-Product:     30
-Quotient:    3.3333...
-Remainder:   1
-$>
-$> python3 operations.py 42 10
-Sum:         52
-Difference:  32
-Product:     420
-Quotient:    4.2
-Remainder:   2
-$>
-$> python3 operations.py 1 0
-Sum:         1
-Difference:  1
-Product:     0
-Quotient:    ERROR (division by zero)
-Remainder:   ERROR (modulo by zero)
-$>
-$> python3 operations.py
-Usage: python operations.py <number1> <number2>
-Example:
-	python operations.py 10 3
-$>
-$> python3 operations.py 12 10 5
-AssertionError: too many arguments
-$>
-$> python3 operations.py "one" "two"
-AssertionError: only integers
-$>
-\end{42console}
-
-\hint{
-	No bonus point to be gained from handling decimal point or scientific notation. Keep it simple.
-}
-
 % ===========================(fin ex 04)         %
 \newpage
 % ===========================(start ex 05)       %
-
 \chapter{Exercise 05}
-\extitle{The right format}
+\extitle{A recipe}
 \turnindir{ex05}
 \exnumber{05}
+\exfiles{recipe.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Part 1: Nested Dictionaries}
+
+Create a dictionary called \texttt{cookbook}. You will use this \texttt{cookbook} to store recipe.
+\\\\
+A recipe is a \textbf{dictionary} that stores (at least) 3 couples key-value:
+\begin{itemize}
+	\item ''ingredients": a \textbf{list of string} representing the list of ingredients
+	\item "meal": a \textbf{string} representing the type of meal
+	\item "prep\_time": a \textbf{non-negative integer} representing a time in minutes
+\end{itemize}
+
+In the \texttt{cookbook}, the  \textbf{key} to a recipe is the recipe name.
+\\
+Initialize your \texttt{cookbook} with 3 recipes:
+\begin{itemize}
+	\item The Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
+It is a \textit{lunch} and it takes $10$ minutes of preparation.
+	\item The Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
+It is a \textit{dessert} and it takes $60$ minutes of preparation.
+	\item The Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
+It is a \textit{lunch} and it takes $15$ minutes of preparation.
+\end{itemize}
+
+% ================================= %
+\section*{Part 2: A series of Helpful Functions}
+
+Create a series of useful functions to handle your \texttt{cookbook}:
+
+\begin{enumerate}
+	\item A function that print all recipe names.
+	\item A function that takes a recipe name and print its details.
+	\item A function that takes a recipe name and delete it.
+	\item A function that add a recipe from user input. You will need a name, a list of ingredient, a meal type and a preparation time.
+\end{enumerate}
+\subsection*{input example}
+\begin{42console}
+>>> Enter a name:
+chips
+>>> Enter ingredients:
+potatoes
+oil
+salt
+
+>>> Enter a meal type:
+lunch
+>>> Enter a preparation time:
+15
+\end{42console}
+
+% ================================= %
+\section*{Part 3: A command line executable !}
+
+Create a program that use your \texttt{cookbook} and your functions.\\
+
+The program will prompt the user to make a choice between printing the cookbook content, printing one recipe, adding a recipe, deleting a recipe or quitting the cookbook.\\
+
+Your program will continue to ask for prompt until the user decide to quit it. The program cannot crash if a wrong value is entered: you must handle the error and ask for another prompt.
+
+\begin{42console}
+$> python3 recipe.py
+Welcome to the Python Cookbook !
+List of available option:
+   1: Add a recipe
+   2: Delete a recipe
+   3: Print a recipe
+   4: Print the cookbook
+   5: Quit
+
+Please select an option:
+>> 3
+
+Please enter a recipe name to get its details:
+>> cake
+
+Recipe for cake:
+   Ingredients list: ['flour', 'sugar', 'eggs']
+   To be eaten for dessert.
+   Takes 60 minutes of cooking.
+
+Please select an option:
+>> Hello
+
+Sorry, this option does not exist.
+List of available option:
+   1: Add a recipe
+   2: Delete a recipe
+   3: Print a recipe
+   4: Print the cookbook
+   5: Quit
+
+Please select an option:
+>> 5
+
+Cookbook closed. Goodbye !
+$>
+\end{42console}
+
+
+% ===========================(fin ex 05)         %
+\newpage
+% ===========================(start ex 06)       %
+\chapter{Exercise 06}
+\extitle{Shorter, faster, pythonest}
+\turnindir{ex06}
+\exnumber{06}
+\exfiles{filterwords.py}
+\exforbidden{filter}
+\makeheaderfilesforbidden
+
+Make a program that takes a string S and an integer N as argument and print the list of words in S that contains more than N non-punctuation characters.
+
+\begin{itemize}
+	\item Words are separated from each other by space characters
+	\item Punctuation symbols must be removed from the printed list: they are neither part of a word nor a separator
+	\item The program must contains at least one \textbf{list comprehension} expression. 
+\end{itemize}
+
+If the number of argument is different from 2, or if the type of any argument is wrong, the program prints an error message.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+
+\begin{42console}
+$> python3 filterwords.py 'Hello, my friend' 3
+['Hello', 'friend']
+$> python3 filterwords.py 'Hello, my friend' 10
+[]
+$>  python3 filterwords.py 'A robot must protect its own existence as long as such protection does not conflict with the First or Second Law' 6
+['protect', 'existence', 'protection', 'conflict']
+$> python3 filterwords.py Hello World
+ERROR
+$> python3 filterwords.py 3 'Hello, my friend'
+ERROR
+$> python3 filterwords.py
+ERROR
+\end{42console}
+
+% ===========================(fin ex 06)         %
+\newpage
+% ===========================(start ex 07)       %
+
+\chapter{Exercise 07}
+\extitle{The right format}
+\turnindir{ex07}
+\exnumber{07}
 \exfiles{kata00.py, kata01.py, kata02.py, kata03.py, kata04.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -701,199 +851,67 @@ $> python3 kata04.py | cut -c 10,18
 ,:
 \end{42console}
 
-% ===========================(fin ex 05)         %
+% ===========================(fin ex 07)         %
 \newpage
-% ===========================(start ex 06)       %
-\chapter{Exercise 06}
-\extitle{A recipe}
-\turnindir{ex06}
-\exnumber{06}
-\exfiles{recipe.py}
-\exforbidden{None}
+% ============================================== %
+% ===========================(start ex 08)       %
+\chapter{Exercise 08}
+\extitle{Loading bar!}
+\turnindir{ex08}
+\exnumber{08}
+\exfiles{loading.py}
+\exforbidden{\texttt{tqdm} or any library for automatic loading bar}
 \makeheaderfilesforbidden
 
-% ================================= %
-\section*{Part 1: Nested Dictionaries}
 
-Create a dictionary called \texttt{cookbook}. You will use this \texttt{cookbook} to store recipe.
-\\\\
-A recipe is a \textbf{dictionary} that stores (at least) 3 couples key-value:
-\begin{itemize}
-	\item ''ingredients": a \textbf{list of string} representing the list of ingredients
-	\item "meal": a \textbf{string} representing the type of meal
-	\item "prep\_time": a \textbf{non-negative integer} representing a time in minutes
-\end{itemize}
+You are about to discover the \texttt{yield} operator!
 
-In the \texttt{cookbook}, the  \textbf{key} to a recipe is the recipe name.
-\\
-Initialize your \texttt{cookbook} with 3 recipes:
-\begin{itemize}
-	\item The Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
-It is a \textit{lunch} and it takes $10$ minutes of preparation.
-	\item The Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
-It is a \textit{dessert} and it takes $60$ minutes of preparation.
-	\item The Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
-It is a \textit{lunch} and it takes $15$ minutes of preparation.
-\end{itemize}
+So let's create a function called \texttt{ft\_progress(lst)}.
 
-% ================================= %
-\section*{Part 2: A series of Helpful Functions}
+The function will display the progress of a \texttt{for} loop.
 
-Create a series of useful functions to handle your \texttt{cookbook}:
-
-\begin{enumerate}
-	\item A function that print all recipe names.
-	\item A function that takes a recipe name and print its details.
-	\item A function that takes a recipe name and delete it.
-	\item A function that add a recipe from user input. You will need a name, a list of ingredient, a meal type and a preparation time.
-\end{enumerate}
-\subsection*{input example}
-\begin{42console}
->>> Enter a name:
-chips
->>> Enter ingredients:
-potatoes
-oil
-salt
-
->>> Enter a meal type:
-lunch
->>> Enter a preparation time:
-15
-\end{42console}
-
-% ================================= %
-\section*{Part 3: A command line executable !}
-
-Create a program that use your \texttt{cookbook} and your functions.\\
-
-The program will prompt the user to make a choice between printing the cookbook content, printing one recipe, adding a recipe, deleting a recipe or quitting the cookbook.\\
-
-Your program will continue to ask for prompt until the user decide to quit it. The program cannot crash if a wrong value is entered: you must handle the error and ask for another prompt.
-
-\begin{42console}
-$> python3 recipe.py
-Welcome to the Python Cookbook !
-List of available option:
-   1: Add a recipe
-   2: Delete a recipe
-   3: Print a recipe
-   4: Print the cookbook
-   5: Quit
-
-Please select an option:
->> 3
-
-Please enter a recipe name to get its details:
->> cake
-
-Recipe for cake:
-   Ingredients list: ['flour', 'sugar', 'eggs']
-   To be eaten for dessert.
-   Takes 60 minutes of cooking.
-
-Please select an option:
->> Hello
-
-Sorry, this option does not exist.
-List of available option:
-   1: Add a recipe
-   2: Delete a recipe
-   3: Print a recipe
-   4: Print the cookbook
-   5: Quit
-
-Please select an option:
->> 5
-
-Cookbook closed. Goodbye !
-$>
-\end{42console}
-
-
-% ===========================(fin ex 06)         %
-\newpage
-% ===========================(start ex 07)       %
-\chapter{Exercise 07}
-\extitle{Shorter, faster, pythonest}
-\turnindir{ex07}
-\exnumber{07}
-\exfiles{filterwords.py}
-\exforbidden{filter}
-\makeheaderfilesforbidden
-
-Make a program that takes a string S and an integer N as argument and print the list of words in S that contains more than N non-punctuation characters.
-
-\begin{itemize}
-	\item Words are separated from each other by space characters
-	\item Punctuation symbols must be removed from the printed list: they are neither part of a word nor a separator
-	\item The program must contains at least one \textbf{list comprehension} expression. 
-\end{itemize}
-
-If the number of argument is different from 2, or if the type of any argument is wrong, the program prints an error message.
 
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-
-\begin{42console}
-$> python3 filterwords.py 'Hello, my friend' 3
-['Hello', 'friend']
-$> python3 filterwords.py 'Hello, my friend' 10
-[]
-$>  python3 filterwords.py 'A robot must protect its own existence as long as such protection does not conflict with the First or Second Law' 6
-['protect', 'existence', 'protection', 'conflict']
-$> python3 filterwords.py Hello World
-ERROR
-$> python3 filterwords.py 3 'Hello, my friend'
-ERROR
-$> python3 filterwords.py
-ERROR
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(1000)
+	ret = 0
+	for elem in ft_progress(listy):
+	    ret += (elem + 3) % 5
+	    sleep(0.01)
+	print()
+	print(ret)
 \end{42console}
 
-% ===========================(fin ex 07)         %
-\newpage
-% ===========================(start ex 08)       %
-\chapter{Exercise 08}
-\extitle{S.O.S}
-\turnindir{ex08}
-\exnumber{08}
-\exfiles{sos.py}
-\exforbidden{None}
-\makeheaderfilesforbidden
-
-Make a program that takes a string as argument and encode it into Morse code.
-
-\begin{itemize}
-	\item The program supports space and alphanumeric characters
-	\item An alphanumeric character is represented by dots \texttt{.} and dashes \texttt{-}: 
-	\item A space character is represented by a slash \texttt{/}
-	\item Complete morse characters are separated by a single space\\
-\end{itemize}
-
-If more than one argument are provided, merge them into a single string with each argument separated by a space character.\\
-
-If no argument is provided, do nothing or print an usage.
-
-% ================================= %
-\section*{Examples}
 \begin{42console}
-	$> python3 sos.py "SOS"
-	... --- ...
-	$> python3 sos.py
-	$> python3 sos.py "HELLO / WORLD"
-	ERROR
-	$> python3 sos.py "96 BOULEVARD" "Bessiere"
-	----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
+	$> python loading.py
+	ETA: 8.67s [ 23%][=====>                  ] 233/1000 | elapsed time 2.33s
+	...
+	2000
 \end{42console}
 
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(3333)
+	ret = 0
+	for elem in ft_progress(listy):
+		ret += elem
+		sleep(0.005)
+	print()
+	print(ret)
+\end{42console}
 
-\hint{
-	\url{https://morsecode.world/international/morse2.html}
-}
+\begin{42console}
+	$> python loading.py
+	ETA: 14.67s [  9%][=>                      ] 327/3333 | elapsed time 1.33s
+	...
+	5552778
+\end{42console}
+
+\info{We advise you to go take a look at the wonderful tqdm library, it will come in handy in many situations}
+
 % ===========================(fin ex 08)         %
 % ============================================== %
-
 \newpage
 
 % ============================================== %
@@ -978,65 +996,47 @@ Other example:
 
 \newpage
 
-% ============================================== %
 % ===========================(start ex 10)       %
 \chapter{Exercise 10}
-\extitle{Loading bar!}
+\extitle{S.O.S}
 \turnindir{ex10}
 \exnumber{10}
-\exfiles{loading.py}
-\exforbidden{\texttt{tqdm} or any library for automatic loading bar}
+\exfiles{sos.py}
+\exforbidden{None}
 \makeheaderfilesforbidden
 
+Make a program that takes a string as argument and encode it into Morse code.
 
-You are about to discover the \texttt{yield} operator!
+\begin{itemize}
+	\item The program supports space and alphanumeric characters
+	\item An alphanumeric character is represented by dots \texttt{.} and dashes \texttt{-}: 
+	\item A space character is represented by a slash \texttt{/}
+	\item Complete morse characters are separated by a single space\\
+\end{itemize}
 
-So let's create a function called \texttt{ft\_progress(lst)}.
+If more than one argument are provided, merge them into a single string with each argument separated by a space character.\\
 
-The function will display the progress of a \texttt{for} loop.
-
+If no argument is provided, do nothing or print an usage.
 
 % ================================= %
 \section*{Examples}
-% --------------------------------- %
-\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
-	listy = range(1000)
-	ret = 0
-	for elem in ft_progress(listy):
-	    ret += (elem + 3) % 5
-	    sleep(0.01)
-	print()
-	print(ret)
-\end{42console}
-
 \begin{42console}
-	$> python loading.py
-	ETA: 8.67s [ 23%][=====>                  ] 233/1000 | elapsed time 2.33s
-	...
-	2000
+	$> python3 sos.py "SOS"
+	... --- ...
+	$> python3 sos.py
+	$> python3 sos.py "HELLO / WORLD"
+	ERROR
+	$> python3 sos.py "96 BOULEVARD" "Bessiere"
+	----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
 \end{42console}
 
-\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
-	listy = range(3333)
-	ret = 0
-	for elem in ft_progress(listy):
-		ret += elem
-		sleep(0.005)
-	print()
-	print(ret)
-\end{42console}
 
-\begin{42console}
-	$> python loading.py
-	ETA: 14.67s [  9%][=>                      ] 327/3333 | elapsed time 1.33s
-	...
-	5552778
-\end{42console}
-
-\info{We advise you to go take a look at the wonderful tqdm library, it will come in handy in many situations}
-
+\hint{
+	\url{https://morsecode.world/international/morse2.html}
+}
 % ===========================(fin ex 10)         %
 % ============================================== %
+
 \newpage
 % ================================= %
 \section*{Contact}
