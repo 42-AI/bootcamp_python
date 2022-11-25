@@ -402,9 +402,83 @@ how_many_medals(data, 'Kjetil Andr Aamodt')
 % ============================================== %
 % ===========================(start ex 04)       %
 \chapter{Exercise 04}
-\extitle{SpatioTemporalData}
+\extitle{MyPlotLib}
 \turnindir{ex04}
 \exnumber{04}
+\exfiles{MyPlotLib.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal the exercise is to introduce plotting methods among the different
+libraries Pandas, Matplotlib, Seaborn or Scipy.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the following dataset: \texttt{athlete\_events.csv}
+
+Write a class called \texttt{MyPlotLib}. This class implements different plotting
+methods, each of which take two arguments:
+\begin{itemize}
+  \item a pandas.DataFrame which contains the dataset,
+  \item a list of feature names.
+\end{itemize}
+
+\hint{
+  What is a feature? https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
+}
+
+\begin{itemize}
+  \item \texttt{histogram(data, features)}: plots one histogram for each numerical feature in the list,
+  \item \texttt{density(data, features)}: plots the density curve of each numerical feature in the list,
+  \item \texttt{pair\_plot(data, features)}: plots a matrix of subplots (also called scatter plot matrix).
+        On each subplot shows a scatter plot of one numerical variable against another one.
+        The main diagonal of this matrix shows simple histograms.
+  \item \texttt{box\_plot(data, features)}: displays a box plot for each numerical variable in the dataset.
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+
+\begin{figure}[h!]
+  \begin{minipage}[l]{0.49\linewidth}
+    \includegraphics[scale=0.39]{assets/ex06_histogram.png}
+    \caption{histogram}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.49\linewidth}
+    \includegraphics[scale=0.39]{assets/ex06_density.png}
+    \caption{density}
+  \end{minipage}
+  
+  \begin{minipage}[l]{0.49\linewidth}
+    \includegraphics[scale=0.39]{assets/ex06_pair_plot.png}
+    \caption{pair plot}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.49\linewidth}
+    \includegraphics[scale=0.39]{assets/ex06_box_plot.png}
+    \caption{box plot}
+  \end{minipage}  
+\end{figure}
+
+
+% ===========================(fin ex 04)         %
+% ============================================== %
+
+\newpage
+
+% ============================================== %
+% ===========================(start ex 05)       %
+\chapter{Exercise 05}
+\extitle{SpatioTemporalData}
+\turnindir{ex05}
+\exnumber{05}
 \exfiles{FileLoader.py, SpatioTemporalData.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -467,17 +541,17 @@ sp.when('Paris')
 \end{minted}
 
 
-% ===========================(fin ex 04)         %
+% ===========================(fin ex 05)         %
 % ============================================== %
 
 \newpage
 
 % ============================================== %
-% ===========================(start ex 05)       %
-\chapter{Exercise 05}
+% ===========================(start ex 06)       %
+\chapter{Exercise 06}
 \extitle{HowManyMedalsByCountry}
-\turnindir{ex05}
-\exnumber{05}
+\turnindir{ex06}
+\exnumber{06}
 \exfiles{FileLoader.py, HowManyMedalsByCountry.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -542,84 +616,11 @@ and is sanctioned.
 The \texttt{athlete\_events.csv} dataset might not always take these posterior
 changes into account.
 
-% ===========================(fin ex 05)         %
-% ============================================== %
-
-\newpage
-
-% ============================================== %
-% ===========================(start ex 06)       %
-\chapter{Exercise 06}
-\extitle{MyPlotLib}
-\turnindir{ex06}
-\exnumber{06}
-\exfiles{MyPlotLib.py}
-\exforbidden{None}
-\makeheaderfilesforbidden
-
-
-% ================================= %
-\section*{Objective}
-% --------------------------------- %
-The goal the exercise is to introduce plotting methods among the different
-libraries Pandas, Matplotlib, Seaborn or Scipy.
-
-% ================================= %
-\section*{Instructions}
-% --------------------------------- %
-This exercise uses the following dataset: \texttt{athlete\_events.csv}
-
-Write a class called \texttt{MyPlotLib}. This class implements different plotting
-methods, each of which take two arguments:
-\begin{itemize}
-  \item a pandas.DataFrame which contains the dataset,
-  \item a list of feature names.
-\end{itemize}
-
-\hint{
-  What is a feature? https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
-}
-
-\begin{itemize}
-  \item \texttt{histogram(data, features)}: plots one histogram for each numerical feature in the list,
-  \item \texttt{density(data, features)}: plots the density curve of each numerical feature in the list,
-  \item \texttt{pair\_plot(data, features)}: plots a matrix of subplots (also called scatter plot matrix).
-        On each subplot shows a scatter plot of one numerical variable against another one.
-        The main diagonal of this matrix shows simple histograms.
-  \item \texttt{box\_plot(data, features)}: displays a box plot for each numerical variable in the dataset.
-\end{itemize}
-
-% ================================= %
-\section*{Examples}
-% --------------------------------- %
-
-\begin{figure}[h!]
-  \begin{minipage}[l]{0.49\linewidth}
-    \includegraphics[scale=0.39]{assets/ex06_histogram.png}
-    \caption{histogram}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[c]{0.49\linewidth}
-    \includegraphics[scale=0.39]{assets/ex06_density.png}
-    \caption{density}
-  \end{minipage}
-  
-  \begin{minipage}[l]{0.49\linewidth}
-    \includegraphics[scale=0.39]{assets/ex06_pair_plot.png}
-    \caption{pair plot}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[c]{0.49\linewidth}
-    \includegraphics[scale=0.39]{assets/ex06_box_plot.png}
-    \caption{box plot}
-  \end{minipage}  
-\end{figure}
-
-
 % ===========================(fin ex 06)         %
 % ============================================== %
 
 \newpage
+
 
 % ============================================== %
 % ===========================(start ex 07)       %
