@@ -349,9 +349,91 @@ end
 % ============================================== %
 % ===========================(start ex 02)       %
 \chapter{Exercise 02}
-\extitle{The logger}
+\extitle{TinyStatistician}
 \turnindir{ex02}
 \exnumber{02}
+\exfiles{TinyStatistician.py}
+\exforbidden{Any function that calculates mean, median, quartiles, variance or standar deviation for you.}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+Initiation to very basic statistic notions.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Create a class named \texttt{TinyStatistician} that implements the following methods:
+\begin{itemize}
+  \item \texttt{mean(x)}: computes the mean of a given non-empty list or array \texttt{x}, using a for-loop.
+  The method returns the mean as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
+  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its mean is:
+  $$
+  \mu = \frac{\sum_{i = 1}^{m}{x_i}}{m}
+  $$
+  \item \texttt{median(x)}: computes the median of a given non-empty list or array \texttt{x}.
+  The method returns the median as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array. 
+  \item \texttt{quartiles(x)}: computes the $1^{\text{st}}$ and $3^{\text{rd}}$ quartiles of a given non-empty array \texttt{x}.
+  The method returns the quartile as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
+  \item \texttt{var(x)}: computes the variance of a given non-empty list or array \texttt{x}, using a for-loop.
+  The method returns the variance as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
+  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its variance is:
+  $$
+  \sigma^2 = \frac{\sum_{i = 1}^{m}{(x_i - \mu)^2}}{m} = \frac{\sum_{i = 1}^{m}{[x_i - (\frac{1}{m}\sum_{j = 1}^{m}{x_j}})]^2}{m}
+  $$
+  \item \texttt{std(x)} : computes the standard deviation of a given non-empty list  or array \texttt{x}, using a for-loop.
+  The method returns the standard deviation as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
+  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its standard deviation is:
+  $$
+  \sigma = \sqrt{\frac{\sum_{i = 1}^{m}{(x_i - \mu)^2}}{m}} = \sqrt{\frac{\sum_{i = 1}^{m}{[x_i - (\frac{1}{m}\sum_{j = 1}^{m}{x_j}})]^2}{m}}
+  $$
+\end{itemize}
+
+All methods take a \texttt{list} or a \texttt{numpy.ndarray} as parameter.\\
+We are assuming that all inputs have a correct format, i.e. a list or array of numeric type or empty list or array.
+You don't have to protect your functions against input errors.
+
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from TinyStatistician import TinyStatistician
+tstat = TinyStatistician()
+a = [1, 42, 300, 10, 59]
+
+tstat.mean(a)
+# Expected result: 82.4
+
+tstat.median(a)
+# Expected result: 42.0
+
+tstat.quartile(a)
+# Expected result: [10.0, 59.0]
+
+tstat.var(a)
+# Expected result: 12279.439999999999
+
+tstat.std(a)
+# Expected result: 110.81263465868862  
+\end{minted}
+
+
+
+% ===========================(fin ex 02)         %
+% ============================================== %
+
+\newpage
+
+
+% ============================================== %
+% ===========================(start ex 03)       %
+\chapter{Exercise 03}
+\extitle{The logger}
+\turnindir{ex03}
+\exnumber{03}
 \exfiles{logger.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -466,17 +548,17 @@ if __name__ == "__main__":
 Pay attention, the length between ":" and "[" is 20].
 Draw the corresponding conclusions on this part of a log entry.
 
-% ===========================(fin ex 02)         %
+% ===========================(fin ex 03)         %
 % ============================================== %
 
 \newpage
 
 % ============================================== %
-% ===========================(start ex 03)       %
-\chapter{Exercise 03}
+% ===========================(start ex 04)       %
+\chapter{Exercise 04}
 \extitle{Json issues}
-\turnindir{ex03}
-\exnumber{03}
+\turnindir{ex04}
+\exnumber{04}
 \exfiles{csvreader.py}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -572,17 +654,17 @@ if __name__ == "__main__":
 \end{minted}
 
 
-% ===========================(fin ex 03)         %
+% ===========================(fin ex 04)         %
 % ============================================== %
 
 \newpage
 
 % ============================================== %
-% ===========================(start ex 04)       %
-\chapter{Exercise 04}
+% ===========================(start ex 05)       %
+\chapter{Exercise 05}
 \extitle{MiniPack}
-\turnindir{ex04}
-\exnumber{04}
+\turnindir{ex05}
+\exnumber{05}
 \exfiles{build.sh, *.py, *.md, *.cfg, *.txt}
 \exforbidden{None}
 \makeheaderfilesforbidden
@@ -677,90 +759,10 @@ that displays the list of installed packages and check the metadata of the packa
 \texttt{pip show -v my\_minipack}.
 Of course do not reproduce the exact same metadata, change the author information, modify the summary Topic and Audience items if you want to.
 }
-% ===========================(fin ex 04)         %
-% ============================================== %
-\newpage
-
-% ============================================== %
-% ===========================(start ex 05)       %
-\chapter{Exercise 05}
-\extitle{TinyStatistician}
-\turnindir{ex05}
-\exnumber{05}
-\exfiles{TinyStatistician.py}
-\exforbidden{Any function that calculates mean, median, quartiles, variance or standar deviation for you.}
-\makeheaderfilesforbidden
-
-
-% ================================= %
-\section*{Objective}
-% --------------------------------- %
-Initiation to very basic statistic notions.
-
-% ================================= %
-\section*{Instructions}
-% --------------------------------- %
-Create a class named \texttt{TinyStatistician} that implements the following methods:
-\begin{itemize}
-  \item \texttt{mean(x)}: computes the mean of a given non-empty list or array \texttt{x}, using a for-loop.
-  The method returns the mean as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
-  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its mean is:
-  $$
-  \mu = \frac{\sum_{i = 1}^{m}{x_i}}{m}
-  $$
-  \item \texttt{median(x)}: computes the median of a given non-empty list or array \texttt{x}.
-  The method returns the median as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array. 
-  \item \texttt{quartiles(x)}: computes the $1^{\text{st}}$ and $3^{\text{rd}}$ quartiles of a given non-empty array \texttt{x}.
-  The method returns the quartile as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
-  \item \texttt{var(x)}: computes the variance of a given non-empty list or array \texttt{x}, using a for-loop.
-  The method returns the variance as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
-  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its variance is:
-  $$
-  \sigma^2 = \frac{\sum_{i = 1}^{m}{(x_i - \mu)^2}}{m} = \frac{\sum_{i = 1}^{m}{[x_i - (\frac{1}{m}\sum_{j = 1}^{m}{x_j}})]^2}{m}
-  $$
-  \item \texttt{std(x)} : computes the standard deviation of a given non-empty list  or array \texttt{x}, using a for-loop.
-  The method returns the standard deviation as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
-  Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its standard deviation is:
-  $$
-  \sigma = \sqrt{\frac{\sum_{i = 1}^{m}{(x_i - \mu)^2}}{m}} = \sqrt{\frac{\sum_{i = 1}^{m}{[x_i - (\frac{1}{m}\sum_{j = 1}^{m}{x_j}})]^2}{m}}
-  $$
-\end{itemize}
-
-All methods take a \texttt{list} or a \texttt{numpy.ndarray} as parameter.\\
-We are assuming that all inputs have a correct format, i.e. a list or array of numeric type or empty list or array.
-You don't have to protect your functions against input errors.
-
-
-% ================================= %
-\section*{Examples}
-% --------------------------------- %
-\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
-from TinyStatistician import TinyStatistician
-tstat = TinyStatistician()
-a = [1, 42, 300, 10, 59]
-
-tstat.mean(a)
-# Expected result: 82.4
-
-tstat.median(a)
-# Expected result: 42.0
-
-tstat.quartile(a)
-# Expected result: [10.0, 59.0]
-
-tstat.var(a)
-# Expected result: 12279.439999999999
-
-tstat.std(a)
-# Expected result: 110.81263465868862  
-\end{minted}
-
-
-
 % ===========================(fin ex 05)         %
 % ============================================== %
-
 \newpage
+
 
 % ================================= %
 \section*{Contact}
