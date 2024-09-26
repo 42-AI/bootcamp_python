@@ -22,7 +22,7 @@ jobs:
           cp build/module03.pdf /
           cp build/module04.pdf /
       - name: Upload pdf artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: modules.pdf
           path: |
