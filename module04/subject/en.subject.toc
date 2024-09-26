@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {I}Common Instructions}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {II}Exercise 00}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {III}Exercise 01}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {IV}Exercise 02}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {V}Exercise 03}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {VI}Exercise 04}{11}{chapter.6}%
+\contentsline {chapter}{\numberline {VII}Exercise 05}{13}{chapter.7}%
+\contentsline {chapter}{\numberline {VIII}Exercise 06}{15}{chapter.8}%
+\contentsline {chapter}{\numberline {IX}Exercise 07}{17}{chapter.9}%
