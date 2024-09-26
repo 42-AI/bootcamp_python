@@ -9,7 +9,7 @@ jobs:
       image: blang/latex:ubuntu
     steps:
       - name: checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: version
         run: echo "::set-output name=version::$(cat version)"
         id: version
@@ -39,7 +39,7 @@ jobs:
     if: "contains(github.ref, 'master')"
     steps:
       - name: checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: version
         run: echo "::set-output name=version::$(cat version)"
         id: version
@@ -53,7 +53,7 @@ jobs:
           cp build/module04.pdf /
           cp CHANGELOG.md /
       - name: create release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         id: create_release
         with:
           draft: false
