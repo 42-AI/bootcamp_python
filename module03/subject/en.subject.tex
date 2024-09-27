@@ -158,17 +158,18 @@
 % ================================== %
 \section*{Objective}
 % ---------------------------------- %
-Introduction to Numpy library.
+Introduction to the Numpy library.
 
 % ================================== %
 \section*{Instructions}
 % ---------------------------------- %
 Write a class named \texttt{NumPyCreator}, that implements all of the following methods.
+
 Each method receives as an argument a different type of data structure and transforms it into a Numpy array:
 \begin{itemize}
   \item \texttt{from\_list(self, lst)}: takes a list or nested lists and returns its corresponding Numpy array.
   \item \texttt{from\_tuple(self, tpl)}: takes a tuple or nested tuples and returns its corresponding Numpy array.
-  \item \texttt{from\_iterable(self, itr)}: takes an iterable and returns an array which contains all its elements.
+  \item \texttt{from\_iterable(self, itr)}: takes an iterable and returns an array which contains all of its elements.
   \item \texttt{from\_shape(self, shape, value)}: returns an array filled with the same value.
   The first argument is a tuple which specifies the shape of the array, and the second argument specifies the value of the elements. 
   This value must be 0 by default.
@@ -178,9 +179,9 @@ Each method receives as an argument a different type of data structure and trans
 \end{itemize}
 
 
-\textit{\textbf{BONUS:}} Add to those methods an optional argument which specifies the datatype (dtype) of the array (e.g. to represent its elements as integers, floats, ...)
+\textit{\textbf{BONUS:}} Add to these methods an optional argument which specifies the datatype (dtype) of the array (e.g. to represent its elements as integers, floats, ...)
 
-\hint All those methods can be implemented in one line. You only need to find the right Numpy functions.
+\hint{Each of these methods can be implemented in one line. You only need to find the right Numpy functions.}
 
 % ================================== %
 \section*{Examples}
@@ -268,7 +269,7 @@ array([[1., 0., 0., 0.],
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-Basic manipulation of image via matplotlib library.
+Basic manipulation of image via the Matplotlib library.
 
 
 % ================================= %
@@ -278,17 +279,16 @@ Build a tool that will be helpful to load and display images in the upcoming exe
 
 Write a class named \texttt{ImageProcessor} that implements the following methods:
 \begin{itemize}
-  \item \texttt{load(path)}: opens the PNG file specified by the \texttt{path} argument and returns an array with the RGB values of the pixels image. It must display a message specifying the dimensions of the image (e.g. 340 x 500).
+  \item \texttt{load(path)}: opens the PNG file specified by the \texttt{path} argument and returns an array with the RGB values of the pixels in the image. It must display a message specifying the dimensions of the image (e.g. 340 x 500).
 
   \item \texttt{display(array)}: takes a numpy array as an argument and displays the corresponding RGB image.
 \end{itemize}
 
-You must handle errors, if the file passed as argument does not exist or if it can't be read as an image, with an appropriate message of your choice.
+You must handle these errors: if the file passed as argument does not exist or if it can't be read as an image, with an appropriate message of your choice.
 
-\hint{You can use the library of your choice for this exercise,
-but converting the image to a numpy array is mandatory.
+\hint{You can use the library of your choice for this exercise, but converting the image to a numpy array is mandatory.
 The goal of this exercise is to dispense with the technicality of loading and displaying images,
-so that you can focus on array manipulation in the upcoming exercises.
+so that you can focus on array manipulations in the upcoming exercises.
 }
 
 % ================================= %
@@ -383,7 +383,7 @@ imp.display(arr)
   \includegraphics[scale=0.5]{assets/capture_display_img.png}
 \end{figure}
 
-The image must to be displayed in a separate window when running in the console.
+The image must be displayed in a separate window when running in the console.
 
 % ===========================(fin ex 01)         %
 % ============================================== %
@@ -403,7 +403,7 @@ The image must to be displayed in a separate window when running in the console.
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-Manipulation and initiation to slicing method on numpy arrays.
+Manipulation and initiation to slicing on numpy arrays.
 
 % ================================= %
 \section*{Instructions}
@@ -422,16 +422,19 @@ def crop(self, array, dim, position=(0,0)):
     """
     Crops the image as a rectangle via dim arguments (being the new height
     and width of the image) from the coordinates given by position arguments.
+    
     Args:
     -----
-      array: numpy.ndarray
-      dim: tuple of 2 integers.
+      array:    numpy.ndarray
+      dim:      tuple of 2 integers.
       position: tuple of 2 integers.
-    Return:
+
+    Returns:
     -------
-      new_arr: the cropped numpy.ndarray.
-      None (if combinaison of parameters not compatible).
-    Raise:
+      new_arr:  the cropped numpy.ndarray.
+      None:     (if the combination of parameters is not possible).
+    
+    Raises:
     ------
       This function should not raise any Exception.
     """
@@ -439,18 +442,21 @@ def crop(self, array, dim, position=(0,0)):
 
 def thin(self, array, n, axis):
     """
-    Deletes every n-th line pixels along the specified axis (0: Horizontal, 1: Vertical)
+    Deletes every n-th line pixels along the specified axis (0: vertical, 1: horizontal)
+
     Args:
     -----
-      array: numpy.ndarray.
-      n: non null positive integer lower than the number of row/column of the array
-         (depending of axis value).
-      axis: positive non null integer.
-    Return:
+      array:   numpy.ndarray.
+      n:       non null positive integer lower than the number of row/column of the array
+                (depending of axis value).
+      axis:    positive non null integer.
+
+    Returns:
     -------
-      new_arr: thined numpy.ndarray.
-      None (if combinaison of parameters not compatible).
-    Raise:
+      new_arr:  thined numpy.ndarray.
+      None:     (if the combination of parameters is not possible).
+
+    Raises:
     ------
       This function should not raise any Exception.
     """
@@ -459,15 +465,18 @@ def thin(self, array, n, axis):
 def juxtapose(self, array, n, axis):
     """
     Juxtaposes n copies of the image along the specified axis.
+ 
     Args:
     -----
-      array: numpy.ndarray.
-      n: positive non null integer.
-      axis: integer of value 0 or 1.
-    Return:
+      array:    numpy.ndarray.
+      n:        positive non null integer.
+      axis:     integer of value 0 or 1.
+ 
+    Returns:
     -------
-      new_arr: juxtaposed numpy.ndarray.
-      None (combinaison of parameters not compatible).
+      new_arr:  juxtaposed numpy.ndarray.
+      None:     (if the combination of parameters is not possible).
+ 
     Raises:
     -------
       This function should not raise any Exception.
@@ -478,14 +487,17 @@ def mosaic(self, array, dim):
     """
     Makes a grid with multiple copies of the array. The dim argument specifies
     the number of repetition along each dimensions.
+
     Args:
     -----
-      array: numpy.ndarray.
-      dim: tuple of 2 integers.
+      array:    numpy.ndarray.
+      dim:      tuple of 2 integers.
+    
     Return:
     -------
-      new_arr: mosaic numpy.ndarray.
-      None (combinaison of parameters not compatible).
+      new_arr:  mosaic numpy.ndarray.
+      None      (combinaison of parameters not compatible).
+    
     Raises:
     -------
       This function should not raise any Exception.
@@ -526,12 +538,12 @@ array([[ 5],
 arr2 = np.array("A B C D E F G H I".split() * 6).reshape(-1,9)
 spb.thin(arr2,3,0)
 #Output :
-array([['A', 'B', 'D', 'E', 'G', 'H'],
-       ['A', 'B', 'D', 'E', 'G', 'H'],
-       ['A', 'B', 'D', 'E', 'G', 'H'],
-       ['A', 'B', 'D', 'E', 'G', 'H'],
-       ['A', 'B', 'D', 'E', 'G', 'H'],
-       ['A', 'B', 'D', 'E', 'G', 'H']], dtype='<U1')
+array([['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
+       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
+       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
+       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
+       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K'],
+       ['A', 'B', 'D', 'E', 'G', 'H', 'J', 'K']], dtype='<U1')
 
 
 arr3 = np.array([[1, 2, 3],[1, 2, 3],[1, 2, 3]])
@@ -563,12 +575,13 @@ array([[1, 2, 3, 1, 2, 3, 1, 2, 3],
 % --------------------------------- %
 Manipulation of loaded image via numpy arrays, broadcasting.
 
-
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
 You have to develop a tool that can apply a variety of color filters on images.
+
 For this exercise, the authorized functions and operators are specified for each methods.
+
 You are not allowed to use anything else.
 
 Write a class named \texttt{ColorFilter} with 6 methods with the following exact signatures:
@@ -669,9 +682,8 @@ def to_grayscale(self, array, filter, **kwargs):
         array: numpy.ndarray corresponding to the image.
         filter: string with accepted values in ['m','mean','w','weight']
         weights: [kwargs] 3 floats where the sum equals to 1,
-                 corresponding to the weights of each RBG channels.
-		 expecting keys: 'r_weight', 'g_weight' and 'b_weight'.
-    Return:
+                  corresponding to the weights of each RBG channels.
+                  Expecting keys: 'r_weight', 'g_weight' and 'b_weight'.
     -------
         array: numpy.ndarray corresponding to the transformed image.
         None: otherwise.
@@ -783,7 +795,7 @@ cf.to_grayscale(arr, 'weight', r_weight=0.2, 'g_weight'=0.3, 'b_weight'=0.5)
 \end{figure}
 
 \info{
-The first image is a stylisation of elon musk that has been generated using a style transfer algorithm implemented in our lab.
+The first image is a stylization of Elon Musk that has been generated using a style transfer algorithm implemented in our lab.
 You can see the code in 42AI repository \href{https://github.com/42-AI/StyleTransferMirror}{StyleTransferMirror}}
 
 % ===========================(fin ex 03)         %
@@ -806,30 +818,35 @@ ALERT! DATA CORRUPTED
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-Implementation of a basic Kmeans algorithm.
+Implementation of a basic K-means algorithm.
 
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
 The solar system census dataset is corrupted! The citizens' homelands are missing!  
+
 You must implement the K-means clustering algorithm in order to recover the citizens' origins.\\
 
 You can find good explanations on how K-means is working here:
 \href{https://bigdata-madesimple.com/possibly-the-simplest-way-to-explain-k-means-algorithm/}{Possibly the simplest way to explain K-Means algorithm}
 
 The missing part is how to compute the distance between 2 data points (cluster centroid or a row in the data).
-In our case the data we have to process is composed of 3 values (height, weight and bone\_density).
+
+In our case, the data we have to process is composed of 3 values (height, weight and bone\_density).
+
 Thus, each data point is a vector of 3 values.
-Now that we have mathematically defined our data points (vector of 3 values),
-it is very easy to compute the distance between two points using vector properties.\\
+
+Now that we have mathematically defined our data points (vector of 3 values), it is very easy to compute the distance between two points using vector properties.\\
+
 You can use L1 distance, L2 distance, cosine similarity, and so forth...
+
 Choosing the distance to use is called hyperparameter tuning.
+
 I would suggest you to try with the easiest setting (L1 distance) first.\\
 
 What you will notice is that the final result of the "training"/"fitting" will depend a lot on the random initialization.
-Commonly, in machine-learning libraries, K-means is run multiple times
-(with different random initializations) and the best result is saved.  
 
+Commonly, in machine-learning libraries, K-means is run multiple times (with different random initializations) and the best result is saved.  
 
 NB: To implement the fit function, keep in mind that a centroid can be considered as the gravity center of a set of points.  
 
@@ -839,16 +856,14 @@ Your program \texttt{Kmeans.py} takes 3 parameters: \texttt{filepath}, \texttt{m
   python Kmeans.py filepath='../ressources/solar_system_census.csv' ncentroid=4 max_iter=30
 \end{42console}
 
-
-it is expected by running your program to:
+Your program is expected to:
 \begin{itemize}
-  \item parse the arguments,
+  \item parse its arguments,
   \item read the dataset,
   \item fit the dataset,
   \item display the coordinates of the different centroids and the associated region (for the case \texttt{ncentroid=4}),
   \item display the number of individuals associated to each centroid,
-  \item (Optional) display on 3 differents plots, corresponding to 3 combinaisons of 2 parameters,
-    the results. Use different colors to distinguish  between Venus, Earth, Mars and Belt asteroids citizens.
+  \item (Optional) display the results  on 3 differents plots, corresponding to 3 combinations of 2 parameters, using different colors to distinguish between Venus,Earth, Mars and Belt asteroids citizens.
 \end{itemize}
 
 Create the class \texttt{KmeansClustering} with the following methods:  
@@ -863,7 +878,7 @@ class KmeansClustering:
     def fit(self, X):
         """
         Run the K-means clustering algorithm.
-        For the location of the initial centroids, random pick ncentroids from the dataset.
+        For the location of the initial centroids, randomly pick n centroids from the dataset.
         Args:
         -----
           X: has to be an numpy.ndarray, a matrice of dimension m * n.
@@ -897,8 +912,9 @@ class KmeansClustering:
 % --------------------------------- %
 The dataset, named \textbf{solar\_system\_census} can be found in
 the resources folder.  
+
 It is a part of the solar system census dataset, and contains biometric
-informations such as the height, weight, and bone density of solar
+data such as the height, weight, and bone density of solar
 system citizens.  
 
 Solar citizens come from four registered areas:
@@ -924,7 +940,7 @@ Once your clusters are found, try to find matches between clusters and the citiz
 % ================================= %
 \section*{Examples}
 % --------------------------------- %
-Here is an exemple of the algorithm K-means in action:\\
+Here is an example of the K-means algorithm in action:\\
 \url{https://i.ibb.co/bKFVVx2/ezgif-com-gif-maker.gif}
 
 
@@ -937,13 +953,18 @@ Here is an exemple of the algorithm K-means in action:\\
 \section*{Contact}
 % --------------------------------- %
 You can contact 42AI association by email: contact@42ai.fr\\
-You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
-and/or posutale to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
 
+If you are a student from 42, you can access our Discord server 
+on \href{https://discord.com/channels/887850395697807362/887850396314398720}{42 student's associations portal} and ask your
+questions to your peers in the dedicated Bootcamp channel. 
+
+Find all the relevant and up-to-date information about 42AI on \href{https://42-ai.github.io}{our Website} ! 
+
+Thank you for attending this Python Bootcamp module03 !
 % ================================= %
 \section*{Acknowledgements}
 % --------------------------------- %
-The modules Python \& ML is the result of a collective work, we would like to thanks:
+The modules Python \& ML is the result of a collective work, we would like to thank:
 \begin{itemize}
   \item Maxime Choulika (cmaxime),
   \item Pierre Peigné (ppeigne, pierre@42ai.fr),

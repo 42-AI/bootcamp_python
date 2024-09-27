@@ -126,7 +126,7 @@
 \summary
 {
   Today you will learn how to use a Python library that will allow you
-  to manipulate dataframes.
+  to manipulate gigantic amounts of data: Pandas.
 }
 \maketitle
 \input{en.py_proj.tex}
@@ -226,7 +226,7 @@ age         workclass  fnlwgt  ... hours-per-week  native-country salary
 % --------------------------------- %
 The goal of this exercise is to create a function that will return a
 dictionary containing the age of the youngest woman and the youngest
-man who took part in the Olympics a given year.
+man who took part in the Olympics for a given year.
 
 % ================================= %
 \section*{Instructions}
@@ -241,7 +241,7 @@ Write a function \texttt{youngest\_fellah} that takes two arguments:
 
 The function returns a dictionary containing the age of the youngest
 woman and man who took part in the Olympics on that year.
-The name of the dictionary's keys is up to you, but it must be self-explanatory.
+The names of the dictionary's keys are up to you, but they must be explicit and self-explanatory.
 
 % ================================= %
 \section*{Examples}
@@ -252,7 +252,6 @@ loader = FileLoader()
 data = loader.load('../data/athlete_events.csv')
 # Output
 Loading dataset of dimensions 271116 x 15
-
 
 from YoungestFellah import youngest_fellah
 youngest_fellah(data, 2004)
@@ -282,7 +281,7 @@ youngest_fellah(data, 2004)
 % --------------------------------- %
 The goal of this exercise is to create a function displaying
 the proportion of participants who played a given sport, among
-the participants of a given genders.
+the participants of a given gender.
 
 % ================================= %
 \section*{Instructions}
@@ -301,14 +300,12 @@ The function returns a float corresponding to the proportion (percentage) of par
 who played the given sport among the participants of the given gender.
 
 The function answers questions like the following : 
-"What was the percentage of female basketball players among all the female 
-participants of the 2016 Olympics?"
-
+"What was the percentage of female basketball players among all female 
+participants in the 2016 Olympics?"
 
 \hint{
-Here and further, if needed, drop duplicated sports people
-to count only unique ones. Beware to call the dropping function
-at the right moment and with the right parameters, in order not to omit any individuals.
+Here and later on, if needed, drop duplicate sports people to count only unique ones. Beware to call the dropping function
+at the right moment and with the right parameters, in order not to omit any individual.
 }
 
 % ================================= %
@@ -328,7 +325,7 @@ proportion_by_sport(data, 2004, 'Tennis', 'F')
 0.019302325581395347
 \end{minted}
 
-We assume that we are always using appropriate arguments as input,
+We assume that we are always using valid arguments as input,
 and thus do not need to handle input errors.
 
 % ===========================(fin ex 02)         %
@@ -351,7 +348,7 @@ and thus do not need to handle input errors.
 \section*{Objective}
 % --------------------------------- %
 The goal of this exercise is to implement a function that will return
-a dictionary of dictionaries giving the number and type of medals
+a dictionary of dictionaries giving the number and types of medals
 for each year during which the participant won medals.
 
 % ================================= %
@@ -363,15 +360,18 @@ This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 Write a function \texttt{how\_many\_medals} that takes two arguments:
 \begin{itemize}
   \item a pandas.DataFrame which contains the dataset,
-  \item a participant name.
+  \item a participant's name.
 \end{itemize}
 
 The function returns a dictionary of dictionaries giving the number and type of medals 
 for each year during which the participant won medals.
-The keys of the main dictionary are the Olympic games years. 
+
+The keys of the main dictionary are the  years of the Olympic games. 
+
 In each year's dictionary, the keys are 'G', 'S', 'B' corresponding to the type of 
-medals won (gold, silver, bronze). The innermost values correspond to the number of 
-medals of a given type won for a given year.
+medals won (Gold, Silver, Bronze). 
+
+The innermost values correspond to the number of medals of a given type won for a given year.
 
 % ================================= %
 \section*{Examples}
@@ -487,8 +487,8 @@ sp.when('Paris')
 \section*{Objective}
 % --------------------------------- %
 The goal of this exercise is to write a function that returns a
-dictionary of dictionaries giving the number and type of medal for
-each competition where the country delegation earned medals.
+dictionary of dictionaries giving the number and types of medals for
+each competition where a given country delegation earned medals.
 
 % ================================= %
 \section*{Instructions}
@@ -502,13 +502,16 @@ Write a function \texttt{how\_many\_medals\_by\_country} that takes two argument
 \end{itemize}
 
 The function returns a dictionary of dictionaries giving the number and
-type of medal for each competition where the country delegation earned medals.  
+types of medals for each competition where the country delegation earned medals.
+
 The keys of the main dictionary are the Olympic games' years. In each
-year's dictionary, the key are 'G', 'S', 'B' corresponding to the
-type of medals won.
+year's dictionary, the keys are 'G', 'S', 'B' corresponding to the
+types of medals won.
 
 Duplicated medals per team games should be handled and not counted twice.
+
 Hint: You may find this list to be of some use.
+
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
   team_sports = ['Basketball', 'Football',  'Tug-Of-War', 'Badminton', 'Sailing',
                  'Handball', 'Water Polo', 'Hockey', 'Rowing', 'Bobsleigh', 'Softball',
@@ -536,9 +539,10 @@ how_many_medals_by_country(data, 'Martian Federation')
 You probably guessed by now that we gave up providing real examples...
 
 If you want real examples, you can easily look online.
+
 Do beware that some medals might be awarded or removed years after the games
-are over, for example if a previous medallist was found to have cheated
-and is sanctioned.
+are over, for example if a previous medallist was found to have cheated.
+
 The \texttt{athlete\_events.csv} dataset might not always take these posterior
 changes into account.
 
@@ -561,8 +565,8 @@ changes into account.
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal the exercise is to introduce plotting methods among the different
-libraries Pandas, Matplotlib, Seaborn or Scipy.
+The goal of this exercise is to introduce you to plotting methods using different
+libraries like Pandas, Matplotlib, Seaborn or Scipy.
 
 % ================================= %
 \section*{Instructions}
@@ -570,10 +574,10 @@ libraries Pandas, Matplotlib, Seaborn or Scipy.
 This exercise uses the following dataset: \texttt{athlete\_events.csv}
 
 Write a class called \texttt{MyPlotLib}. This class implements different plotting
-methods, each of which take two arguments:
+methods, each of which takes two arguments:
 \begin{itemize}
   \item a pandas.DataFrame which contains the dataset,
-  \item a list of feature names.
+  \item a list of features names.
 \end{itemize}
 
 \hint{
@@ -635,7 +639,7 @@ methods, each of which take two arguments:
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal the exercise is to introduce plotting methods among the different
+The goal of this exercise is to introduce plotting methods among the different
 libraries Pandas, Matplotlib, Seaborn or Scipy.
 
 % ================================= %
@@ -645,6 +649,7 @@ This exercise uses the following dataset: \texttt{athlete\_events.csv}.
 
 
 Write a class called \texttt{Komparator} whose constructor takes as an argument a pandas.DataFrame which contains the dataset.
+
 The class must implement the following methods, which take as input two variable names:
 \begin{itemize}
   \item \texttt{compare\_box\_plots(self, categorical\_var, numerical\_var)}: displays a series of box plots 
@@ -670,13 +675,18 @@ BONUS: Your functions can also accept a list of numerical variables (instead of 
 \section*{Contact}
 % --------------------------------- %
 You can contact 42AI association by email: contact@42ai.fr\\
-You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
-and/or posutale to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
 
+If you are a student from 42, you can access our Discord server 
+on \href{https://discord.com/channels/887850395697807362/887850396314398720}{42 student's associations portal} and ask your
+questions to your peers in the dedicated Bootcamp channel. 
+
+Find all the relevant and up-to-date information about 42AI on \href{https://42-ai.github.io}{our Website} ! 
+
+Thank you for attending this Python Bootcamp module04 !
 % ================================= %
 \section*{Acknowledgements}
 % --------------------------------- %
-The modules Python \& ML is the result of a collective work, we would like to thanks:
+The modules Python \& ML is the result of a collective work, we would like to thank:
 \begin{itemize}
   \item Maxime Choulika (cmaxime),
   \item Pierre Peigné (ppeigne, pierre@42ai.fr),
@@ -694,7 +704,7 @@ who supervised the creation, the enhancement and this present transcription.
     \item Amric Trudel (amric@42ai.fr)
     \item Baptiste Lefeuvre (blefeuvr@student.42.fr)
     \item Mathilde Boivin (mboivin@student.42.fr)
-    \item Tristan Duquesne (tduquesn@student.42.fr)
+    \item Tristan Duquesne (tduquesn@student.42.fr)- Mathieu Perez (mathieu.perez@42ai.fr)
 \end{itemize}
 for your investment for the creation and development of these modules.
 

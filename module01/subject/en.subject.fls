@@ -1,0 +1,7 @@
+PWD /home/gh0st/Bureau/ci_cd_exp/module01/subject
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/gh0st/Bureau/ci_cd_exp/module01/subject/en.subject.tex
+OUTPUT en.subject.log
