@@ -4,107 +4,42 @@ on: [push]
 
 jobs:
   make-it:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
-    container:
-      image: blang/latex:ubuntu
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: version
-        run: echo "::set-output name=version::$(cat version)"
-        id: version
-      - name: Make pdf
-        run: |
-          make
-          cp build/module00.pdf /
-          cp build/module01.pdf /
-          cp build/module02.pdf /
-          cp build/module03.pdf /
-          cp build/module04.pdf /
-      - name: Upload pdf artifacts
-        uses: actions/upload-artifact@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install LaTex utilities
+        run:  sudo apt-get install -y texlive-full
+      - name: Get version from file
+        id: get_version
+        run: echo "VERSION=version/$(cat version)" >> $GITHUB_ENV
+      - name: Name release from version
+        id: get_release
+        run: echo "RELEASE=release_$(cat version)" >> $GITHUB_ENV
+      - name: Build PDFs
+        run: make
+      - name: Upload PDFs archives
+        uses: actions/upload-artifact@v4
         with:
           name: modules.pdf
           path: |
-            /module00.pdf
-            /module01.pdf
-            /module02.pdf
-            /module03.pdf
-            /module04.pdf
-        
-  release-it:
-    runs-on: ubuntu-latest
-    container:
-      image: blang/latex:ubuntu
-    if: "contains(github.ref, 'master')"
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: version
-        run: echo "::set-output name=version::$(cat version)"
-        id: version
-      - name: Make pdf
-        run: |
-          make
-          cp build/module00.pdf /
-          cp build/module01.pdf /
-          cp build/module02.pdf /
-          cp build/module03.pdf /
-          cp build/module04.pdf /
-          cp CHANGELOG.md /
-      - name: create release
-        uses: actions/create-release@v1
-        id: create_release
+            build/module00.pdf
+            build/module01.pdf
+            build/module02.pdf
+            build/module03.pdf
+            build/module04.pdf
+      - name: Bundle Release 
+        uses: softprops/action-gh-release@v2
         with:
-          draft: false
-          prerelease: false
-          release_name: release_${{ steps.version.outputs.version }}
-          tag_name: version/${{ steps.version.outputs.version }}
-          body_path: /CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: Release Module00
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module00.pdf
-          asset_name: module00.pdf
-          asset_content_type: application/pdf
-      - name: Release Module01
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module01.pdf
-          asset_name: module01.pdf
-          asset_content_type: application/pdf
-      - name: Release Module02
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module02.pdf
-          asset_name: module02.pdf
-          asset_content_type: application/pdf
-      - name: Release Module03
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module03.pdf
-          asset_name: module03.pdf
-          asset_content_type: application/pdf
-      - name: Release Module04
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /module04.pdf
-          asset_name: module04.pdf
-          asset_content_type: application/pdf
+          files: |
+            build/module00.pdf
+            build/module01.pdf
+            build/module02.pdf
+            build/module03.pdf
+            build/module04.pdf
+          name: ${{env.RELEASE}}
+          tag_name: ${{env.VERSION}}
+          make_latest: true
+          body_path: CHANGELOG.md
