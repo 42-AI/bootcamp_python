@@ -100,7 +100,7 @@
 %                     =====================================                    %
 
 \title{Python \& ML - Module 00}
-\subtitle{Basic stuff - Eleven Commandments}
+\subtitle{Basic stuff - The Eleven Commandments}
 \author{
 	Maxime Choulika (cmaxime), Pierre Peigné (ppeigne), Matthieu David (mdavid)
 }
@@ -138,10 +138,10 @@
 
 \emph{The first thing you need to do is install Python.}
 \\\\
-Most modern Unix-based system have a \texttt{python} interpreter installed by default,
+Most modern Unix-based systems have a \texttt{python} interpreter installed by default,
 but its version might be lower/higher than the one used for these modules.
 It is also possible that the default \texttt{python} command uses a version 2.x (for legacy reasons).
-This is obviously very confusing for new developper.
+This is obviously very confusing for a new developper.
 \\
 
 \begin{42console}
@@ -149,14 +149,14 @@ $> python -V
 $> python3 -V
 \end{42console}
 \hfill \break
-To deal with those version issues we will use \texttt{conda}. This program allow you to manage your Python packages and different working environments. 
+To deal with those version issues we will use \texttt{conda}. This program allows you to manage your Python packages and several working environments. 
 \\\\
 \emph{Note: the actual requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
 \pagebreak
 
 % ===========================(Conda Manual)       %
 \section*{Conda manual installation}
-\emph{Go the next section for an automated installation.}
+\emph{Go to the next section for an automated installation.}
 \\\\
 We recommend the following path for your \texttt{conda} folder.
 \begin{42console}
@@ -195,7 +195,7 @@ $> source ~/.bash_profile
 
 
 % ---------------------------------- %
-\subsection*{3. Create an environment for 42AI !}
+\subsection*{3. Create a dedicated environment for 42AI !}
 \begin{42console}
 $> conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle numpy
 \end{42console}
@@ -227,7 +227,7 @@ $> python -c "print('Hello World!')"
 % ===========================(Conda Auto)       %
 \section*{Conda automated installation}
 
-Copy the following script into a file, launch it and follow the instruction. It downloads miniconda, installs it in a \texttt{/goinfre} subfolder and creates a \texttt{python} environment in \texttt{conda}.
+Copy the following script into a file, launch it and follow the instructions. It downloads and installs miniconda in a \texttt{/goinfre} subfolder and creates a \texttt{python} environment in \texttt{conda}.
 
 
 \begin{42console}
@@ -323,7 +323,7 @@ python -c "print('Hello World!')"
 % =================================(Question) %
 \section*{(Finally) getting started}
 
-Now that your setup is ready to run, here's a few questions that need to be solved using \texttt{python}, \texttt{pip} or \texttt{conda}. Save your answers in a file \texttt{answers.txt} (one answer per line and per question), and check them with your peers.\\\\
+Now that your setup is ready to run, here are a few questions that need to be solved using \texttt{python}, \texttt{pip} or \texttt{conda}. Save your answers in a file \texttt{answers.txt} (one answer per line and per question), and check them with your peers.\\\\
 Find the commands to:
 \begin{itemize}
 	\item Output a list of installed packages and their versions.
@@ -348,10 +348,10 @@ Find the commands to:
 
 % ================================= %
 % \section*{}
-Make a program that takes a string as argument, reverses it, swaps its letters case and print the result.
+Make a program that takes a string as argument, reverses it, swaps its letters case and prints the result.
 \begin{itemize}
-	\item If more than one argument are provided, merge them into a single string with each argument separated by a space character.
-	\item If no argument are provided, do nothing or print an usage.
+	\item If more than one argument is provided, merge them into a single string with each argument separated by a single space character.
+	\item If no argument is provided, do nothing or print an usage.
 \end{itemize}
 
 
@@ -383,10 +383,10 @@ $>
 
 % ================================= %
 % \section*{}
-Make a program that takes a number as argument, checks whether it is odd, even or zero, and print the result.
+Make a program that takes a number as argument, checks whether it is odd, even or zero, and prints the result.
 \begin{itemize}
-	\item If more than one argument are provided or if the argument is not an integer, print an error message.
-	\item If no argument are provided, do nothing or print an usage.
+	\item If more than one argument is provided or if the argument is not an integer, print an error message.
+	\item If no argument is provided, do nothing or print an usage.
 \end{itemize}
 
 
@@ -408,7 +408,7 @@ $> python3 whois.py Hello
 AssertionError: argument is not an integer
 $>
 $> python3 whois.py 12 3
-AssertionError: more than one argument are provided
+AssertionError: more than one argument is provided
 $>
 \end{42console}
 
@@ -431,7 +431,7 @@ $>
 % ================================= %
 \section*{Part 1. text\_analyzer}
 Create a function called \texttt{text\_analyzer} that takes a single string argument
-and displays the sums of its upper-case characters, lower-case characters, punctuation characters and spaces.
+and displays the total number of printable characters, and respectively : the number of upper-case characters, lower-case characters, punctuation characters and spaces.
 \begin{itemize}
 	\item If \texttt{None} or nothing is provided, the user is prompted to provide a string. 
 	\item If the argument is not a string, print an error message.
@@ -448,7 +448,7 @@ $> python3
 >>> text_analyzer("Python 2.0, released 2000, introduced
 features like List comprehensions and a garbage collection
 system capable of collecting reference cycles.")
-The text contains 143 character(s):
+The text contains 143 printable character(s):
 - 2 upper letter(s)
 - 113 lower letter(s)
 - 4 punctuation mark(s)
@@ -458,7 +458,7 @@ general-purpose programming language. Created by Guido van
 Rossum and first released in 1991, Python's design philosophy
 emphasizes code readability with its notable use of significant
 whitespace.")
-The text contains 234 character(s):
+The text contains 234 printable character(s):
 - 5 upper letter(s)
 - 187 lower letter(s)
 - 8 punctuation mark(s)
@@ -466,7 +466,7 @@ The text contains 234 character(s):
 >>> text_analyzer()
 What is the text to analyze?
 >> Hello World!
-The text contains 8 character(s):
+The text contains 8 printable character(s):
 - 2 upper letter(s)
 - 8 lower letter(s)
 - 1 punctuation mark(s)
@@ -483,7 +483,7 @@ AssertionError: argument is not a string
 \section*{Part 2. \_\_name\_\_==\_\_main\_\_}
 
 
-In the previous part, you wrote a function that can be used in the console or in another file when  imported.
+In the previous part, you wrote a function that can be used in the console or in another file when imported.
 Without changing this behavior, update your file so it can also be launched as a standalone program.
 
 \begin{itemize}
@@ -495,7 +495,7 @@ Without changing this behavior, update your file so it can also be launched as a
 \subsection*{Examples}
 \begin{42console}
 $> python3 count.py 'Hello World!'
-The text contains 8 character(s):
+The text contains 12 character(s):
 - 2 upper letter(s)
 - 8 lower letter(s)
 - 1 punctuation mark(s)
@@ -503,7 +503,7 @@ The text contains 8 character(s):
 $> python3
 >>> from count import text_analyzer
 >>> text_analyzer("Hello World!")
-The text contains 8 character(s):
+The text contains 12 character(s):
 - 2 upper letter(s)
 - 8 lower letter(s)
 - 1 punctuation mark(s)
@@ -526,16 +526,16 @@ The text contains 8 character(s):
 % \section*{}
 Write a program that takes two integers A and B as arguments and prints the result of the following operations:
 \begin{42console}
-Sum:         A+B
-Difference: A-B
-Product:     A*B
-Quotient:    A/B
-Remainder:   A%B
+Sum:         	A+B
+Difference: 	A-B
+Product:     	A*B
+Quotient:    	A/B
+Remainder:   	A%B
 \end{42console}
 
 \begin{itemize}
-	\item If more or less than two argument are provided or if either of the argument is not an integer, print an error message.
-	\item If no argument are provided, do nothing or print an usage.
+	\item If more or less than two arguments are provided or if one of the arguments is not an integer, print an error message.
+	\item If no argument is provided, do nothing or print an usage.
 	\item If an operation is impossible, print an error message instead of a numerical result.
 \end{itemize}
 
@@ -598,13 +598,13 @@ Each exercice will provide you with a \texttt{kata} variable. This variable can 
 
 % ================================= %
 \section*{kata00}
-The \texttt{kata} variable is always a tuple and can only be filled with integer.
+The \texttt{kata} variable is always a tuple and can only be filled with integers.
 \begin{42console}
 # Put this at the top of your kata00.py file
 kata = (19,42,21)
 \end{42console}
 
-Write a program that display this variable content according to the format shown below:
+Write a program that displays this variable content according to the format shown below:
 
 \begin{42console}
 $> python3 kata00.py
@@ -626,7 +626,7 @@ kata = {
     }
 \end{42console}
 
-Write a program that display this variable content according to the format shown below:
+Write a program that displays this variable content according to the format shown below:
 
 \begin{42console}
 $> python3 kata01.py
@@ -646,7 +646,7 @@ The \texttt{kata} variable is always a tuple that contains 5 non-negative intege
 kata = (2019, 9, 25, 3, 30)
 \end{42console}
 
-Write a program that display this variable content according to the format shown below:
+Write a program that displays this variable content according to the format shown below:
 
 \begin{42console}
 $> python3 kata02.py | cat -e
@@ -666,7 +666,7 @@ The \texttt{kata} variable is always a string whose length is not higher than 42
 kata = "The right format"
 \end{42console}
 
-Write a program that display this variable content according to the format shown below:
+Write a program that displays this variable content according to the format shown below:
 
 \begin{42console}
 $> python3 kata03.py | cat -e
@@ -681,7 +681,7 @@ $>
 
 The \texttt{kata} variable is always a tuple that contains, in the following order:
 \begin{itemize}
-	\item 2 non-negative integer containing up to 2 digits
+	\item 2 non-negative integers containing up to 2 digits
 	\item 1 decimal
 	\item 1 integer
 	\item 1 decimal
@@ -692,7 +692,7 @@ The \texttt{kata} variable is always a tuple that contains, in the following ord
 kata = (0, 4, 132.42222, 10000, 12345.67)
 \end{42console}
 
-Write a program that display this variable content according to the format shown below:
+Write a program that displays this variable content according to the format shown below:
 
 \begin{42console}
 $> python3 kata04.py
@@ -715,16 +715,16 @@ $> python3 kata04.py | cut -c 10,18
 % ================================= %
 \section*{Part 1: Nested Dictionaries}
 
-Create a dictionary called \texttt{cookbook}. You will use this \texttt{cookbook} to store recipe.
+Create a dictionary called \texttt{cookbook}. You will use this \texttt{cookbook} to store recipes.
 \\\\
-A recipe is a \textbf{dictionary} that stores (at least) 3 couples key-value:
+A recipe is a \textbf{dictionary} that stores (at least) 3 key-value pairs:
 \begin{itemize}
-	\item ''ingredients": a \textbf{list of string} representing the list of ingredients
+	\item ''ingredients": a \textbf{list of strings} containing the list of ingredients
 	\item "meal": a \textbf{string} representing the type of meal
-	\item "prep\_time": a \textbf{non-negative integer} representing a time in minutes
+	\item "prep\_time": a \textbf{non-negative integer} representing a preparation time in minutes
 \end{itemize}
 
-In the \texttt{cookbook}, the  \textbf{key} to a recipe is the recipe name.
+In the \texttt{cookbook}, the  \textbf{key} to a recipe is the recipe's name.
 \\
 Initialize your \texttt{cookbook} with 3 recipes:
 \begin{itemize}
@@ -737,15 +737,15 @@ It is a \textit{lunch} and it takes $15$ minutes of preparation.
 \end{itemize}
 
 % ================================= %
-\section*{Part 2: A series of Helpful Functions}
+\section*{Part 2: A Handful of Helpful Functions}
 
 Create a series of useful functions to handle your \texttt{cookbook}:
 
 \begin{enumerate}
-	\item A function that print all recipe names.
-	\item A function that takes a recipe name and print its details.
+	\item A function that prints all recipe names.
+	\item A function that takes a recipe name and prints its details.
 	\item A function that takes a recipe name and delete it.
-	\item A function that add a recipe from user input. You will need a name, a list of ingredient, a meal type and a preparation time.
+	\item A function that adds a recipe from user input. You will need a name, a list of ingredients, a meal type and a preparation time.
 \end{enumerate}
 \subsection*{input example}
 \begin{42console}
@@ -765,16 +765,18 @@ lunch
 % ================================= %
 \section*{Part 3: A command line executable !}
 
-Create a program that use your \texttt{cookbook} and your functions.\\
+Create a program that uses your \texttt{cookbook} and your functions.\\
 
-The program will prompt the user to make a choice between printing the cookbook content, printing one recipe, adding a recipe, deleting a recipe or quitting the cookbook.\\
+The program will prompt the user to make a choice between printing the cookbook's content, printing one recipe, adding a recipe, deleting a recipe or quitting the cookbook.\\
 
-Your program will continue to ask for prompt until the user decide to quit it. The program cannot crash if a wrong value is entered: you must handle the error and ask for another prompt.
+Your program will continue to prompt the user until the user decides to quit it. 
+
+The program cannot crash if a wrong value is entered: you must handle the error and ask for another prompt. 
 
 \begin{42console}
 $> python3 recipe.py
 Welcome to the Python Cookbook !
-List of available option:
+List of available options:
    1: Add a recipe
    2: Delete a recipe
    3: Print a recipe
@@ -796,7 +798,7 @@ Please select an option:
 >> Hello
 
 Sorry, this option does not exist.
-List of available option:
+List of available options:
    1: Add a recipe
    2: Delete a recipe
    3: Print a recipe
@@ -815,22 +817,22 @@ $>
 \newpage
 % ===========================(start ex 07)       %
 \chapter{Exercise 07}
-\extitle{Shorter, faster, pythonest}
+\extitle{Shorter, faster, pythonic}
 \turnindir{ex07}
 \exnumber{07}
 \exfiles{filterwords.py}
 \exforbidden{filter}
 \makeheaderfilesforbidden
 
-Make a program that takes a string S and an integer N as argument and print the list of words in S that contains more than N non-punctuation characters.
+Make a program that takes a string S and an integer N as argument and prints the list of words in S that contains more than N non-punctuation characters.
 
 \begin{itemize}
 	\item Words are separated from each other by space characters
 	\item Punctuation symbols must be removed from the printed list: they are neither part of a word nor a separator
-	\item The program must contains at least one \textbf{list comprehension} expression. 
+	\item The program must contain at least one \textbf{list comprehension} expression. 
 \end{itemize}
 
-If the number of argument is different from 2, or if the type of any argument is wrong, the program prints an error message.
+If the number of argument is different from 2, or if the type of any argument is invalid, the program prints an error message.
 
 % ================================= %
 \section*{Examples}
@@ -862,7 +864,7 @@ ERROR
 \exforbidden{None}
 \makeheaderfilesforbidden
 
-Make a program that takes a string as argument and encode it into Morse code.
+Make a program that takes a string as argument and encodes it into Morse code.
 
 \begin{itemize}
 	\item The program supports space and alphanumeric characters
@@ -871,7 +873,7 @@ Make a program that takes a string as argument and encode it into Morse code.
 	\item Complete morse characters are separated by a single space\\
 \end{itemize}
 
-If more than one argument are provided, merge them into a single string with each argument separated by a space character.\\
+If more than one argument is provided, merge them into a single string with each argument separated by a single space character.\\
 
 If no argument is provided, do nothing or print an usage.
 
@@ -1042,18 +1044,24 @@ The function will display the progress of a \texttt{for} loop.
 \section*{Contact}
 % --------------------------------- %
 You can contact 42AI association by email: contact@42ai.fr\\
-You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
-and/or apply to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
 
+If you are a student from 42, you can access our Discord server 
+on \href{https://discord.com/channels/887850395697807362/887850396314398720}{42 student's associations portal} and ask your
+questions to your peers in the dedicated Bootcamp channel. 
+
+Find all the relevant and up-to-date information about 42AI on \href{https://42-ai.github.io}{our Website} ! 
+
+Thank you for attending this Python Bootcamp module00 !
 % ================================= %
 \section*{Acknowledgements}
 % --------------------------------- %
-The modules Python \& ML is the result of a collective work, we would like to thanks:
+The modules Python \& ML is the result of a collective work, we would like to thank:
 \begin{itemize}
   \item Maxime Choulika (cmaxime),
   \item Pierre Peigné (ppeigne, pierre@42ai.fr),
   \item Matthieu David (mdavid, matthieu@42ai.fr),
   \item Quentin Feuillade--Montixi (qfeuilla, quentin@42ai.fr)
+  \item Mathieu Perez (maperez, mathieu.perez@42ai.fr)
 \end{itemize}
 who supervised the creation, the enhancement and this present transcription.
 

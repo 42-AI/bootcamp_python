@@ -127,7 +127,7 @@
 
 \summary
 {
-	The goal of the module is to get familiar with object-oriented programming
+	The goal of this module is to get familiar with Object-Oriented Programming ('OOP')
 	and much more.
 }
 
@@ -162,8 +162,8 @@
 % ================================== %
 \section*{Objective}
 % ---------------------------------- %
-The goal of the exercise is to get you familiar with the notions of
-classes and the manipulation of the objects related to those classes.
+The goal of this exercise is to get you familiar with the notions of
+classes and the manipulation of the objects related to these classes.
 
 % ================================== %
 \section*{Instructions}
@@ -183,7 +183,7 @@ Let's describe the \texttt{Recipe} class. It has some attributes:
   \item \texttt{recipe\_type} (str): can be "starter", "lunch" or "dessert".
 \end{itemize}
 
-You have to \textbf{initialize} the object \texttt{Recipe} and check all its values, only the description can be empty.
+You have to \textbf{initialize} the object \texttt{Recipe} and check all its values. Only the description can be empty.
 In case of input errors, you should print what they are and exit properly.
 
 You will have to implement the built-in method \texttt{\_\_str\_\_}.
@@ -199,7 +199,7 @@ It is implemented this way:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 def __str__(self):
-    """Return the string to print with the recipe info"""
+    """Returns the string to print with the recipe's info"""
     txt = ""
     """Your code here"""
     return txt
@@ -209,12 +209,12 @@ The \texttt{Book} class also has some attributes:
 \begin{itemize}
   \item \texttt{name} (str): name of the book,
   \item \texttt{last\_update} \href{https://docs.python.org/3/library/datetime.html}{(datetime)}: the date of the last update,
-  \item \texttt{creation\_date} \href{https://docs.python.org/3/library/datetime.html}{(datetime)}: the creation date,
+  \item \texttt{creation\_date} \href{https://docs.python.org/3/library/datetime.html}{(datetime)}: the creation date of the book,
   \item \texttt{recipes\_list} (dict): a dictionnary with 3 keys: "starter", "lunch", "dessert".
 \end{itemize}
 
 
-You will have to implement some methods in \texttt{Book} class:
+You will have to implement some methods in the \texttt{Book} class:
 
 \begin{minted}[bgcolor=darcula-back	,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 def get_recipe_by_name(self, name):
@@ -222,11 +222,11 @@ def get_recipe_by_name(self, name):
     #... Your code here ...
 
 def get_recipes_by_types(self, recipe_type):
-    """Get all recipe names for a given recipe_type """
+    """Gets all recipes names for a given recipe_type """
     #... Your code here ...
 
 def add_recipe(self, recipe):
-    """Add a recipe to the book and update last_update"""
+    """Adds a recipe to the book and updates last_update"""
     #... Your code here ...
 \end{minted}
 
@@ -261,7 +261,7 @@ from recipe import Recipe
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to tackle the notion inheritance of class.
+The goal of the exercise is to tackle the notion of class inheritance.
 
 % ================================= %
 \section*{Instructions}
@@ -273,7 +273,7 @@ Create a \texttt{GotCharacter} class and initialize it with the following attrib
 \end{itemize}
 
 
-Pick up a GoT House (e.g., Stark, Lannister...) and create a child class that inherits from \texttt{GotCharacter} and 
+Pick up a Game of Thrones House (e.g., Stark, Lannister...) and create a child class that inherits from \texttt{GotCharacter} and 
 define the following attributes:
 \begin{itemize}
   \item \texttt{family\_name} (by default should be the same as the Class)
@@ -319,7 +319,7 @@ Running commands in the Python console, an example of what you should get:
   False
 \end{minted}
 
-You can add any attribute or method you need to your class and format the docstring the way you want to.
+You can add any attribute or method you need to your class and format the docstring the way you want.
 Feel free to create other children of \texttt{GotCharacter} class.
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
@@ -350,9 +350,9 @@ Feel free to create other children of \texttt{GotCharacter} class.
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to get you used with built-in methods, more
+The goal of this exercise is to get you used to working with built-in methods, more
 particularly with those allowing to perform operations.
-Student is expected to code built-in methods for vector-vector and
+You are expected to code built-in methods for vector-vector and
 vector-scalar operations as rigorously as possible.
 
 % ================================= %
@@ -365,10 +365,10 @@ create vectors and be able to perform mathematical operations with them.
   \item Row vectors are represented as a list of a list of several floats (\texttt{[[1., 2., 3.]]}).
 \end{itemize}
 
-\warn{A vector is either a single line of floats or a single column of floats. When more than a line/column is consider, it is a matrix, not a vector.}
+\warn{A vector is either a single line of floats or a single column of floats. When more than a line/column is considered, it is a matrix, not a vector.}
 
 
-The class should also has 2 attributes:
+The class should also have 2 attributes:
 \begin{itemize}
   \item \texttt{values}: list of list of floats (for row vector) or list of lists of single float (for column vector),
   \item \texttt{shape}: tuple of 2 integers: \texttt{(1,n)} for a row vector of dimension $n$
@@ -382,15 +382,15 @@ Just consider the dimension is the number of floats (elements/coordinates) of a 
       
 Finally you have to implement 2 methods: 
 \begin{itemize}
-  \item \texttt{.dot()} produce a dot product between two vectors of same \textbf{shape},
+  \item \texttt{.dot()} produces a dot product between two vectors of same \textbf{shape},
   \item \texttt{.T()} returns the transpose vector (i.e. a column vector into a row vector, or a row vector into a column vector).
 \end{itemize}
 
-You will also provide a testing file (\texttt{test.py}) to demonstrate your class
-works as expected. In this testing file, demonstrate:
+You will also provide a test file (\texttt{test.py}) to demonstrate your class
+works as expected. In this test file, you will demonstrate:
 \begin{itemize}
   \item the addition and substraction are working for 2 vectors of the same shape,
-  \item the mutliplication (\texttt{mul} and \texttt{rmul}) are working for a vector and a scalar,
+  \item the multiplication (\texttt{mul} and \texttt{rmul}) are working for a vector and a scalar,
   \item the division (\texttt{truediv}) is working with a vector and a scalar,
   \item the division (\texttt{rtruediv}) raises an Arithmetic Error (this test can be commented for the other tests and uncommented to show this one),
 \end{itemize}
@@ -513,30 +513,30 @@ You should be able to initialize the object with:
 
 \textit{By default, the vectors are generated as classical column vectors if initialized with a size or range.}
 
-To perform arithmetic operations for Vector-Vector or scalar-Vector, you have to implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
+To perform arithmetic operations for Vector-Vector or Scalar-Vector, you have to implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
   __add__
   __radd__
-  # add & radd : only vectors of same shape.
+  # add & radd : only vectors of the same shape.
   __sub__
   __rsub__
-  # sub & rsub: only vectors of same shape.
+  # sub & rsub: only vectors of the same shape.
   __truediv__
-  # truediv : only with scalars (to perform division of Vector by a scalar).
+  # truediv : only with scalars (to perform division of a Vector by a scalar).
   __rtruediv__
   # rtruediv : raises an NotImplementedError with the message "Division of a scalar by a Vector is not defined here."
   __mul__
   __rmul__
-  # mul & rmul: only scalars (to perform multiplication of Vector by a scalar).
+  # mul & rmul: only scalars (to perform multiplication of a Vector by a scalar).
   __str__
   __repr__
-  # must be identical, i.e we expect that print(vector) and vector within python interpretor behave the same, see corresponding example section.
+  # must be identical, i.e we expect that print(vector) and vector within python interpretor to behave the same, see corresponding example section.
 \end{minted}
 
 \info{
   So it might be a good idea to implement \texttt{values} and \texttt{shape} before built-in arithmetic functions.
-  For the case not specify (e.g vector * vector) you should raise \texttt{NotImplementedError}.
+  For the case not specified (e.g vector * vector) you should raise \texttt{NotImplementedError}.
 }
 
 
@@ -553,7 +553,7 @@ The authorized vector operations are:
     \begin{bmatrix} y_1 \\ \vdots \\ y_m\end{bmatrix} \\ 
      =  \begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_m + y_m \end{bmatrix}
   \end{equation*}
-  \item Subtraction between two vectors of same dimension $m$
+  \item Substraction between two vectors of same dimension $m$
   \begin{equation*}
     x - y = 
     \begin{bmatrix} x_1 \\ \vdots \\ y_m\end{bmatrix} - 
@@ -597,7 +597,7 @@ Do not forget to handle all types of error properly!
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to discover the concept of generator object in Python.
+The goal of this exercise is to discover the concept of generator object in Python.
 
 % ================================= %
 \section*{Instructions}
@@ -610,14 +610,14 @@ The options are:
 \begin{itemize}
   \item \texttt{shuffle}: shuffles the list of words,
   \item \texttt{unique}: returns a list where each word appears only once,
-  \item \texttt{ordered}: alphabetically sorts the words.
+  \item \texttt{ordered}: sorts the words alphabetically.
 \end{itemize}
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
   # function prototype
   def generator(text, sep=" ", option=None):
-    '''Splits the text according to sep value and yield the substrings.
-       option precise if a action is performed to the substrings before it is yielded.
+    '''
+    Splits the text according to sep value and yields the substrings.
     '''
 \end{minted}
 
@@ -705,7 +705,7 @@ ERROR
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to discover 2 useful methods for lists, tuples,
+The goal of this exercise is to discover 2 useful methods for lists, tuples,
 dictionnaries (iterable class objects more generally) named \texttt{zip}
 and \texttt{enumerate}.
 
@@ -717,9 +717,9 @@ and \texttt{enumerate\_evaluate}.
 
 
 The goal of these 2 functions is to compute the sum of the lengths of every
-\texttt{words} of a given list weighted by a list of coefficinents \texttt{coefs} (yes, the 2 functions should do the same thing).
+\texttt{words} of a given list weighted by a list of coefficients \texttt{coefs} (yes, the 2 functions should do the same thing).
 
-The lists \texttt{coefs} and \texttt{words} have to be the same length. If this is not the
+The lists \texttt{coefs} and \texttt{words} have to be of the same length. If this is not the
 case, the function should return -1.
 
 You have to obtain the desired result using \texttt{zip} in the \texttt{zip\_evaluate} function,
@@ -760,16 +760,16 @@ and with \texttt{enumerate} in the \texttt{enumerate\_evaluate} function.
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goals of this exercise is to discover new built-in functions and
-deepen your class manipulation and to be aware of possibility
-to modify instanced objects.\\
-In this exercise you learn how to modify or add attributes to an object.
+The goal of this exercise is to discover new built-in functions, 
+deepen your class understanding, and to be aware of modifications on 
+instanced objects.\\
+In this exercise, you will learn how to modify or add attributes to an object.
 
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
 It is all about security.
-Have a look at the class named \texttt{Account} in the snippet of code below.
+Have a look at the class named \texttt{Account} in the code snippet below.
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 # in the_bank.py
@@ -822,8 +822,8 @@ Meaning you are not expected to evaluate the validity of the account based on th
 
 Moreover, verification has to be performed when account objects are added to to Bank instance 
 (\texttt{bank.add(Account(...))}).
-The verification in \texttt{add} only check the type of the new\_account and if there 
-is no account among the one already in Bank instance with the same name.
+The verification in \texttt{add} only checsk the type of the new\_account and if there 
+is no account among the ones already in Bank instance with the same name.
 
 A transaction is invalid if \texttt{amount < 0} or if the amount is larger than
 the balance of the account.
@@ -904,18 +904,24 @@ Success
 \section*{Contact}
 % --------------------------------- %
 You can contact 42AI association by email: contact@42ai.fr\\
-You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
-and/or posutale to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
 
+If you are a student from 42, you can access our Discord server 
+on \href{https://discord.com/channels/887850395697807362/887850396314398720}{42 student's associations portal} and ask your
+questions to your peers in the dedicated Bootcamp channel. 
+
+Find all the relevant and up-to-date information about 42AI on \href{https://42-ai.github.io}{our Website} ! 
+
+Thank you for attending this Python Bootcamp module01 !
 % ================================= %
 \section*{Acknowledgements}
 % --------------------------------- %
-The modules Python \& ML is the result of a collective work, we would like to thanks:
+The modules Python \& ML is the result of a collective work, we would like to thank:
 \begin{itemize}
   \item Maxime Choulika (cmaxime),
   \item Pierre Peigné (ppeigne, pierre@42ai.fr),
   \item Matthieu David (mdavid, matthieu@42ai.fr),
   \item Quentin Feuillade--Montixi (qfeuilla, quentin@42ai.fr)
+  \item Mathieu Perez (maperez, mathieu.perez@42ai.fr)
 \end{itemize}
 who supervised the creation, the enhancement and this present transcription.
 

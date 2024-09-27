@@ -127,7 +127,7 @@
 \summary
 {
   Let's continue practicing with more advanced Python programming exercises.
-  Destination: Decorators, lambda, context manager and build package.
+  Destination: Decorators, lambda, context manager and packaging.
 }
 
 \maketitle
@@ -159,20 +159,22 @@
 % ================================== %
 \section*{Objective}
 % ---------------------------------- %
-The goal of the exercise is to work on the built-in functions \texttt{map},
+The goal of this exercise is to work on the built-in functions \texttt{map},
 \texttt{filter} and \texttt{reduce}.
 
 % ================================== %
 \section*{Instructions}
 % ---------------------------------- %
 Implement the functions \texttt{ft\_map}, \texttt{ft\_filter} and \texttt{ft\_reduce}.
+
 Take the time to understand the use cases of these two built-in functions
-(\texttt{map} and \texttt{filter}) and the function \texttt{reduce} in functools module.
+(\texttt{map} and \texttt{filter}) and the function \texttt{reduce} in the functools module.
+
 You are not expected to code specific classes to create \texttt{ft\_map},
 \texttt{ft\_filter} or \texttt{ft\_reduce} objects, take a closer look
-to the examples to know what to do.
+at the examples to know what to do.
 
-Here the signatures of the functions:
+Here are the signatures of the functions:
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 def ft_map(function_to_apply, iterable):
@@ -242,7 +244,7 @@ ft_reduce(lambda u, v: u + v, lst)
 
 You are expected to produce the raise of exception for the functions similar to exceptions of
 \texttt{map}, \texttt{filter} and \texttt{reduce} when wrong parameters are given (but no need
-to reproduce the exact the same exception messages).
+to reproduce the exact same exception messages).
 
 % ===========================(fin ex 00)         %
 % ============================================== %
@@ -261,16 +263,18 @@ to reproduce the exact the same exception messages).
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to discover and manipulate \texttt{*args} and \texttt{**kwargs} arguments.
+The goal of this exercise is to discover and manipulate \texttt{*args} and \texttt{**kwargs} arguments.
 
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
 In this exercise you have to implement a function named \texttt{what\_are\_the\_vars}
 which returns an instance of class ObjectC.\\
+
 ObjectC attributes are set via the parameters received during the instanciation.
 You will have to modify the 'instance' \texttt{ObjectC}, \textbf{NOT} the class.\\
-You should take a look to \texttt{getattr}, \texttt{setattr} built-in functions.
+
+You should take a look at \texttt{getattr}, \texttt{setattr} built-in functions.
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
 def what_are_the_vars(...):
@@ -335,7 +339,7 @@ end
 ERROR
 end
 a: 10
-var_0: 12
+var_0: 42
 var_1: Yes
 var_2: world
 end
@@ -361,6 +365,7 @@ end
 % --------------------------------- %
 In this exercise, you will learn about decorators and we are not talking about 
 the decoration of your room.
+
 The \texttt{@log} will write info about the decorated function in a
 \texttt{machine.log} file.
 
@@ -368,9 +373,10 @@ The \texttt{@log} will write info about the decorated function in a
 \section*{Instructions}
 % --------------------------------- %
 You have to create the log decorator in the same file.
+
 Pay attention to all the different actions logged at the call of
-each methods. You may notice the username from environment
-variable is written to the log file.
+each method. You may notice the username from environment
+variables is written to the log file.
 
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
@@ -485,24 +491,29 @@ Draw the corresponding conclusions on this part of a log entry.
 \section*{Objective}
 % --------------------------------- %
 The goal of this exercise is to implement a context manager as a class.
-Thus you are strongly encouraged to do some research about context manager.
+
+Thus you are strongly encouraged to do some preliminary research about context manager.
 
 % ================================= %
 \section*{Instructions}
 % --------------------------------- %
 Implement a \texttt{CsvReader} class that opens, reads, and parses a CSV file.
-This class is then a context manager as class.
+
+This class is then a context manager as a class.
+
 In order to create it, your class requires a few built-in methods:
 \begin{itemize}
   \item \texttt{\_\_init\_\_},
   \item \texttt{\_\_enter\_\_},
   \item \texttt{\_\_exit\_\_}.
 \end{itemize}
-It is mandatory to close the file once the process has completed.
+
+It is mandatory to close the file once the process is completed.
 You are expected to handle properly badly formatted CSV file (i.e. handle the exception):
+
 \begin{itemize}
   \item mistmatch between number of fields and number of records,
-  \item records with different length.
+  \item records with different lengths.
 \end{itemize}
 
 \begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
@@ -518,34 +529,34 @@ You are expected to handle properly badly formatted CSV file (i.e. handle the ex
 	
 	def getdata(self):
 	""" Retrieves the data/records from skip_top to skip bottom.
-	Return:
-		nested list (list(list, list, ...)) representing the data.
+	  Returns:
+		  nested list (list(list, list, ...)) representing the data.
 	"""
 		# ... Your code here ...
 
 	def getheader(self):
-	""" Retrieves the header from csv file.
+	""" Retrieves the header from the csv file.
 	Returns:
 		list: representing the data (when self.header is True).
-        None: (when self.header is False).
+    None: (when self.header is False).
 	"""
 		# ... Your code here ...
 \end{minted}
 
-\texttt{CSV} (for Comma-Separated Values) file is a delimited text file which uses a comma to separate values.
-Therefore, the field separator (or delimiter) is usually a comma (\texttt{,})
-but with your context manager you have to offer the possibility to change this parameter.
+\texttt{CSV} (for Comma-Separated Values) files are delimited text files which use a given character to separate values.
 
+The separator (or delimiter) is usually a comma (\texttt{,}) or an hyphen comma (\texttt{;}), 
+but with your context manager you have to offer the possibility to change this parameter.
 
 One can decide if the class instance skips lines at the top and the bottom of the file via the
 parameters \texttt{skip\_top} and \texttt{skip\_bottom}.
-One should also be able to keep the first line as a header if \texttt{header} is \texttt{True}.
 
+One should also be able to keep the first line as a header if \texttt{header} is \texttt{True}.
 
 The file should not be corrupted (either a line with too many values or a line
 with too few values), otherwise return \texttt{None}.\\
-You have to handle the case \texttt{file not found}.\\
 
+You have to handle the case \texttt{file not found}.\\
 
 You are expected to implement two methods:
 \begin{itemize}
@@ -591,8 +602,7 @@ if __name__ == "__main__":
 % ================================= %
 \section*{Objective}
 % --------------------------------- %
-The goal of the exercise is to learn how to build a package and understand the magnificence of \href{https://pypi.org/}{PyPi}.
-
+The goal of this exercise is to learn how to build a package and understand the magnificence of \href{https://pypi.org/}{PyPi}.
 
 % ================================= %
 \section*{Instructions}
@@ -605,7 +615,6 @@ It will have 2 \textbf{modules}:
   \item the progress bar (module00 ex10) which should be imported it via \texttt{import my\_minipack.progressbar},
   \item the logger (module02 ex02), which should be imported via \texttt{import my\_minipack.logger}.
 \end{itemize}
-
 
 The package will be installed via pip using one of the following commands (both should work):  
 \begin{42console}
@@ -667,12 +676,12 @@ Based on the following terminal commands and corresponding outputs, draw the nec
 (tmp_env) $>
 \end{42console}
 
-Also add a LICENSE.md (you can choose a real license or a fake one it does not matter) and a README file where you write a small documentation about your library.
+Also add a LICENSE.md (you can choose a real license or a fake one it does not matter) and a README file where you will write a small documentation about your packaged library.
 
-The `build.sh` script upgrades `pip`, and \textbf{builds} the distribution packages in `wheel` and `egg` format.
+The `build.sh` script upgrades `pip`, and \textbf{builds} the distribution packages in `wheel` and `egg` formats.
 
 \info{
-You can ensure whether the package was properly installed by running the command \texttt{pip list}
+You can check whether the package was properly installed by running the command \texttt{pip list}
 that displays the list of installed packages and check the metadata of the package with
 \texttt{pip show -v my\_minipack}.
 Of course do not reproduce the exact same metadata, change the author information, modify the summary Topic and Audience items if you want to.
@@ -718,7 +727,7 @@ Create a class named \texttt{TinyStatistician} that implements the following met
   $$
   \sigma^2 = \frac{\sum_{i = 1}^{m}{(x_i - \mu)^2}}{m} = \frac{\sum_{i = 1}^{m}{[x_i - (\frac{1}{m}\sum_{j = 1}^{m}{x_j}})]^2}{m}
   $$
-  \item \texttt{std(x)} : computes the standard deviation of a given non-empty list  or array \texttt{x}, using a for-loop.
+  \item \texttt{std(x)} : computes the standard deviation of a given non-empty list or array \texttt{x}, using a for-loop.
   The method returns the standard deviation as a float, otherwise \texttt{None} if \texttt{x} is an empty list or array.
   Given a vector \texttt{x} of dimension $m \times 1$, the mathematical formula of its standard deviation is:
   $$
@@ -727,9 +736,10 @@ Create a class named \texttt{TinyStatistician} that implements the following met
 \end{itemize}
 
 All methods take a \texttt{list} or a \texttt{numpy.ndarray} as parameter.\\
-We are assuming that all inputs have a correct format, i.e. a list or array of numeric type or empty list or array.
-You don't have to protect your functions against input errors.
 
+We are assuming that all inputs have a correct format, i.e. a list or array of numeric type or empty list or array.
+
+You don't have to protect your functions against input errors.
 
 % ================================= %
 \section*{Examples}
@@ -766,18 +776,24 @@ tstat.std(a)
 \section*{Contact}
 % --------------------------------- %
 You can contact 42AI association by email: contact@42ai.fr\\
-You can join the association on \href{https://join.slack.com/t/42-ai/shared_invite/zt-ebccw5r7-YPkDM6xOiYRPjqJXkrKgcA}{42AI slack}
-and/or posutale to \href{https://forms.gle/VAFuREWaLmaqZw2D8}{one of the association teams}.
 
+If you are a student from 42, you can access our Discord server 
+on \href{https://discord.com/channels/887850395697807362/887850396314398720}{42 student's associations portal} and ask your
+questions to your peers in the dedicated Bootcamp channel. 
+
+Find all the relevant and up-to-date information about 42AI on \href{https://42-ai.github.io}{our Website} ! 
+
+Thank you for attending this Python Bootcamp module02 !
 % ================================= %
 \section*{Acknowledgements}
 % --------------------------------- %
-The modules Python \& ML is the result of a collective work, we would like to thanks:
+The modules Python \& ML is the result of a collective work, we would like to thank:
 \begin{itemize}
   \item Maxime Choulika (cmaxime),
   \item Pierre Peigné (ppeigne, pierre@42ai.fr),
   \item Matthieu David (mdavid, matthieu@42ai.fr),
   \item Quentin Feuillade--Montixi (qfeuilla, quentin@42ai.fr)
+  \item Mathieu Perez (maperez, mathieu.perez@42ai.fr)
 \end{itemize}
 who supervised the creation, the enhancement and this present transcription.
 
