@@ -1,4 +1,4 @@
-name: Latex Builder
+name: make-it
 
 on: [push]
 
