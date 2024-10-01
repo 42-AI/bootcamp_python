@@ -3,10 +3,11 @@ name: Latex Builder
 on: [push]
 
 jobs:
-  make-it:
+  release-it:
     permissions:
       contents: write
     runs-on: ubuntu-latest
+    if: contains(github.ref, 'master')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
