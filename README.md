@@ -24,9 +24,13 @@
   - [Beta-testers](#beta-testers)
   - [Thanks to Ilyes and Kévin for the PR](#thanks-to-ilyes-and-kévin-for-the-pr)
 
-This project is a Python programming and Machine Learning bootcamp created by [42 AI](http://www.42ai.fr).
+>This project is a Python programming and Machine Learning bootcamp created by [42 AI](http://www.42ai.fr).
+>
+>No prior Python programming or Machine Learning experience is required! 
 
-No prior Python programming or Machine Learning experience is required! Your mission, should you choose to accept it, is to come and learn some of the essential knowledge for Machine Learning, Data Science and statistics, in a single week. You will start with the basics of the Python language and then get acquainted with some libraries that are invaluable to any programmer interested in the field of AI or data science.
+Your mission, should you choose to accept it, is to learn some of the essential knowledge for Machine Learning, Data Science and statistics, in a single week. 
+
+You will start with the basics of **Python** and then get acquainted with some libraries that are invaluable to any programmer interested in the field of AI or data science.
 
 42 Artificial Intelligence is a student organization of the Paris campus of the school 42. Our purpose is to foster discussion, learning, and interest in the field of artificial intelligence, by organizing various activities such as lectures and workshops.
 
@@ -68,6 +72,7 @@ The pdf files of each module can be downloaded from our realease page:
 * Tristan Duquesne (tduquesn@student.42.fr)
 * Pierre Peigné (ppeigne@student.42.fr)
 * Quentin Feuillade Montixi (qfeuilla@student.42.fr)
+* Mathieu Perez (mathieu.perez@42ai.fr)
 
 ### Beta-testers
 
