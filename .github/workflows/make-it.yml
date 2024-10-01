@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install LaTex utilities
-        run:  sudo apt-get install -y texlive-full
+        run:  sudo apt update && sudo apt-get install -y texlive-full
       - name: Get version from file
         id: get_version
         run: echo "VERSION=version/$(cat version)" >> $GITHUB_ENV
