@@ -1,4 +1,2 @@
-## Fixs
-
-> Typo in examples for D00 ex03 "text_analyzer"
+FIX wrong example for D01 ex03 "vector"
 
