@@ -1,0 +1,73 @@
+\chapter{Exercise 09}
+\extitle{Secret number}
+\turnindir{ex09}
+\exnumber{09}
+\exfiles{guess.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+You have to make a program that will be an interactive guessing game.\\
+\newline
+It will prompt the user to guess a number between $1$ and $99$. The program will tell the user if their 
+input is too high or too low.
+\newline
+The game ends when the user finds out the secret number or types \texttt{exit}.\\
+\newline
+You will import the \texttt{random} module with the \texttt{randint} function to get a random number.
+You have to count the number of trials and print that number when the user wins.
+
+\section*{Examples}
+\begin{42console}
+$> python guess.py
+This is an interactive guessing game!
+You have to enter a number between 1 and 99 to find out the secret number.
+Type 'exit' to end the game.
+Good luck!
+
+What's your guess between 1 and 99?
+>> 54
+Too high!
+What's your guess between 1 and 99?
+>> 34
+Too low!
+What's your guess between 1 and 99?
+>> 45
+Too high!
+What's your guess between 1 and 99?
+>> A
+That's not a number.
+What's your guess between 1 and 99?
+>> 43
+Congratulations, you've got it!
+You won in 5 attempts!
+\end{42console}
+If the user discovers the secret number on the first try, tell them !\\
+\newline
+If the secret number is 42, make a reference to Douglas Adams.\\
+\newline
+
+\begin{42console}
+	$> python guess.py
+	This is an interactive guessing game!
+	You have to enter a number between 1 and 99 to find out the secret number.
+	Type 'exit' to end the game.
+	Good luck!
+
+	What's your guess between 1 and 99?
+	>> 42
+	The answer to the ultimate question of life, the universe and everything is 42.
+	Congratulations! You got it on your first try!
+\end{42console}
+
+Other example:
+
+\begin{42console}
+	$> python guess.py
+	This is an interactive guessing game!
+	You have to enter a number between 1 and 99 to find out the secret number.
+	Type 'exit' to end the game.
+	Good luck!
+
+	What's your guess between 1 and 99?
+	>> exit
+	Goodbye!
+\end{42console}

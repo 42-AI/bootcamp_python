@@ -1,0 +1,63 @@
+\chapter{Exercise 04}
+\extitle{Elementary}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{operations.py}
+\exforbidden{None}
+\makeheaderfilesforbidden\\
+Write a program that takes two integers A and B as arguments and prints the result of the following operations:
+\newline
+\begin{42console}
+Sum:         	A+B
+Difference: 	A-B
+Product:     	A*B
+Quotient:    	A/B
+Remainder:   	A%B
+\end{42console}
+
+\begin{itemize}
+	\item If more or less than two arguments are provided or if one of the arguments is not an integer, print an error message.
+	\item If no argument is provided, do nothing or print an usage.
+	\item If an operation is impossible, print an error message instead of a numerical result.
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+\begin{42console}
+$> python3 operations.py 10 3
+Sum:         13
+Difference:  7
+Product:     30
+Quotient:    3.3333...
+Remainder:   1
+$>
+$> python3 operations.py 42 10
+Sum:         52
+Difference:  32
+Product:     420
+Quotient:    4.2
+Remainder:   2
+$>
+$> python3 operations.py 1 0
+Sum:         1
+Difference:  1
+Product:     0
+Quotient:    ERROR (division by zero)
+Remainder:   ERROR (modulo by zero)
+$>
+$> python3 operations.py
+Usage: python operations.py <number1> <number2>
+Example:
+	python operations.py 10 3
+$>
+$> python3 operations.py 12 10 5
+AssertionError: too many arguments
+$>
+$> python3 operations.py "one" "two"
+AssertionError: only integers
+$>
+\end{42console}
+
+\hint{
+	No bonus point to be gained from handling decimal point or scientific notation. Keep it simple.
+}

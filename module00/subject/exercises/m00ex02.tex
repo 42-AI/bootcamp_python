@@ -1,0 +1,38 @@
+\chapter{Exercise 02}
+\extitle{The Odd, the Even and the Zero}
+\turnindir{ex02}
+\exnumber{02}
+\exfiles{whois.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+Make a program that takes a number as argument, checks whether it is odd, even or zero, and prints the result.
+\begin{itemize}
+	\item If more than one argument is provided or if the argument is not an integer, print an error message.
+	\item If no argument is provided, do nothing or print an usage.
+\end{itemize}
+
+% --------------------------------- %
+\section*{Examples}
+\begin{42console}
+$> python3 whois.py 12
+I'm Even.
+$>
+$> python3 whois.py 3
+I'm Odd.
+$>
+$> python3 whois.py
+$>
+$> python3 whois.py 0
+I'm Zero.
+$>
+$> python3 whois.py Hello
+AssertionError: argument is not an integer
+$>
+$> python3 whois.py 12 3
+AssertionError: more than one argument is provided
+$>
+\end{42console}
+
+\hint{
+	No bonus point to be gained from a complex error management system. Keep it simple.
+}

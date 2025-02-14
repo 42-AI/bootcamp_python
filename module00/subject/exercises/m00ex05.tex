@@ -1,0 +1,109 @@
+\chapter{Exercise 05}
+\extitle{The right format}
+\turnindir{ex05}
+\exnumber{05}
+\exfiles{kata00.py, kata01.py, kata02.py, kata03.py, kata04.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+Let's get familiar with the useful concept of \textbf{string formatting} through a kata series.\\
+\newline
+Each exercice will provide you with a \texttt{kata} variable. This variable can be modified to a certain extent: your program must react accordingly.
+% ================================= %
+\section*{kata00}
+The \texttt{kata} variable is always a tuple and can only be filled with integers.
+\begin{42console}
+# Put this at the top of your kata00.py file
+kata = (19,42,21)
+\end{42console}
+Write a program that displays this variable content according to the format shown below:
+
+\begin{42console}
+$> python3 kata00.py
+The 3 numbers are: 19, 42, 21
+$>
+\end{42console}
+
+% ================================= %
+\section*{kata01}
+
+The \texttt{kata} variable is always a dictionary and can only be filled with strings.
+
+\begin{42console}
+# Put this at the top of your kata01.py file
+kata = {
+    'Python': 'Guido van Rossum',
+    'Ruby': 'Yukihiro Matsumoto',
+    'PHP': 'Rasmus Lerdorf',
+    }
+\end{42console}
+Write a program that displays this variable content according to the format shown below:
+
+\begin{42console}
+$> python3 kata01.py
+Python was created by Guido van Rossum
+Ruby was created by Yukihiro Matsumoto
+PHP was created by Rasmus Lerdorf
+$>
+\end{42console}
+
+% ================================= %
+\section*{kata02}
+
+The \texttt{kata} variable is always a tuple that contains 5 non-negative integers. The first integer contains up to 4 digits, the rest up to 2 digits.
+
+\begin{42console} 
+# Put this at the top of your kata02.py file
+kata = (2019, 9, 25, 3, 30)
+\end{42console}
+Write a program that displays this variable content according to the format shown below:
+
+\begin{42console}
+$> python3 kata02.py | cat -e
+09/25/2019 03:30$
+$> python3 kata02.py | wc -c
+17
+$>
+\end{42console}
+
+% ================================= %
+\section*{kata03}
+
+The \texttt{kata} variable is always a string whose length is not higher than 42.
+
+\begin{42console}
+# Put this at the top of your kata03.py file
+kata = "The right format"
+\end{42console}
+Write a program that displays this variable content according to the format shown below:
+
+\begin{42console}
+$> python3 kata03.py | cat -e
+--------------------------The right format%
+$> python3 kata03.py | wc -c
+42
+$>
+\end{42console}
+
+% ================================= %
+\section*{kata04}
+
+The \texttt{kata} variable is always a tuple that contains, in the following order:
+\begin{itemize}
+	\item 2 non-negative integers containing up to 2 digits
+	\item 1 decimal
+	\item 1 integer
+	\item 1 decimal
+\end{itemize}
+
+\begin{42console}
+# Put this at the top of your kata04.py file
+kata = (0, 4, 132.42222, 10000, 12345.67)
+\end{42console}
+Write a program that displays this variable content according to the format shown below:
+
+\begin{42console}
+$> python3 kata04.py
+module_00, ex_04 : 132.42, 1.00e+04, 1.23e+04
+$> python3 kata04.py | cut -c 10,18
+,:
+\end{42console}
