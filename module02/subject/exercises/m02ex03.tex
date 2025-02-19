@@ -1,0 +1,100 @@
+\chapter{Exercise 03}
+\extitle{Json issues}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{csvreader.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to implement a context manager as a class.\\
+Thus you are strongly encouraged to do some preliminary research about context manager.\\
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Implement a \texttt{CsvReader} class that opens, reads, and parses a CSV file.\\
+\
+This class is then a context manager as a class.\\
+\
+In order to create it, your class requires a few built-in methods:
+\begin{itemize}
+  \item \texttt{\_\_init\_\_},
+  \item \texttt{\_\_enter\_\_},
+  \item \texttt{\_\_exit\_\_}.
+\end{itemize}
+It is mandatory to close the file once the process is completed.
+You are expected to handle properly badly-formatted CSV file (i.e. handle the exception):
+
+\begin{itemize}
+  \item mistmatch between number of fields and number of records,
+  \item records with different lengths.
+\end{itemize}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  class CsvReader():
+	def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
+		# ... Your code here ...
+
+	def __enter__(...):
+		# ... Your code here ...
+	
+	def __exit__(...):
+		# ... Your code here ...
+	
+	def getdata(self):
+	""" Retrieves the data/records from skip_top to skip bottom.
+	  Returns:
+		  nested list (list(list, list, ...)) representing the data.
+	"""
+		# ... Your code here ...
+
+	def getheader(self):
+	""" Retrieves the header from the csv file.
+	Returns:
+		list: representing the data (when self.header is True).
+    None: (when self.header is False).
+	"""
+		# ... Your code here ...
+\end{minted}
+\newline
+\texttt{CSV} (for Comma-Separated Values) files are delimited text files which use a given character to separate values.\\
+\\
+The separator (or delimiter) is usually a comma (\texttt{,}) or an hyphen comma (\texttt{;}), 
+but with your context manager you have to offer the possibility to change this parameter.\\
+\\
+One can decide if the class instance skips lines at the top and the bottom of the file via the
+parameters \texttt{skip\_top} and \texttt{skip\_bottom}.\\
+\\
+One should also be able to keep the first line as a header if \texttt{header} is \texttt{True}.\\
+\\
+The file should not be corrupted (either a line with too many values or a line
+with too few values), otherwise return \texttt{None}.\\
+\\
+You have to handle the case \texttt{file not found}.\\
+\\
+You are expected to implement two methods:
+\begin{itemize}
+  \item \texttt{getdata()},
+  \item \texttt{getheader()}.
+\end{itemize}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from csvreader import CsvReader
+
+if __name__ == "__main__":
+	with CsvReader('good.csv') as file:
+		data = file.getdata()
+		header = file.getheader()
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from csvreader import CsvReader
+
+if __name__ == "__main__":
+	with CsvReader('bad.csv') as file:
+		if file == None:
+			print("File is corrupted")
+\end{minted}

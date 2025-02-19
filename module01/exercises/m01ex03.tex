@@ -1,0 +1,99 @@
+\chapter{Exercise 03}
+\extitle{Generator!}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{generator.py}
+\exauthorize{random.randint, random.choice}
+\exforbidden{random.shuffle, random.sample}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to discover the concept of generator object in Python.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Code a function called \texttt{generator} that takes a text as input (only printable characters), uses the string
+parameter \texttt{sep} as a splitting parameter, and \texttt{yield}s the resulting substrings.
+
+The function can take an optional argument.
+The options are:
+\begin{itemize}
+  \item \texttt{shuffle}: shuffles the list of words,
+  \item \texttt{unique}: returns a list where each word appears only once,
+  \item \texttt{ordered}: sorts the words alphabetically.
+\end{itemize}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  # function prototype
+  def generator(text, sep=" ", option=None):
+    '''
+    Splits the text according to sep value and yields the substrings.
+    '''
+\end{minted}
+
+You can only call one option at a time.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  >> text = "Le Lorem Ipsum est simplement du faux texte."
+  >> for word in generator(text, sep=" "):
+  ...     print(word)
+  ...
+  Le
+  Lorem
+  Ipsum
+  est
+  simplement
+  du
+  faux
+  texte.
+
+  >> for word in generator(text, sep=" ", option="shuffle"):
+  ...     print(word)
+  ...
+  simplement
+  texte.
+  est
+  faux
+  Le
+  Lorem
+  Ipsum
+  du
+
+  >> for word in generator(text, sep=" ", option="ordered"):
+  ...     print(word)
+  ...
+  Ipsum
+  Le
+  Lorem
+  du
+  est
+  faux
+  simplement
+  texte.
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> text = "Lorem Ipsum Lorem Ipsum"
+>> for word in generator(text, sep=" ", option="unique"):
+...     print(word)
+...
+Lorem
+Ipsum
+\end{minted}
+
+The function should return "ERROR" one time if the \texttt{text} argument is not a string, or if the \texttt{option} argument is not valid.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> text = 1.0
+>> for word in generator(text, sep="."):
+...     print(word)
+...
+ERROR
+\end{minted}

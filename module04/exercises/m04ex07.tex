@@ -1,0 +1,36 @@
+\chapter{Exercise 07}
+\extitle{Komparator}
+\turnindir{ex07}
+\exnumber{07}
+\exfiles{Komparator.py, MyPlotLib.py (optional)}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to introduce plotting methods among the different
+libraries Pandas, Matplotlib, Seaborn or Scipy.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the following dataset: \texttt{athlete\_events.csv}.\\
+\\
+Write a class called \texttt{Komparator} whose constructor takes as an argument a pandas.DataFrame which contains the dataset.\\
+\\
+The class must implement the following methods, which take as input two variable names:
+\begin{itemize}
+  \item \texttt{compare\_box\_plots(self, categorical\_var, numerical\_var)}: displays a series of box plots 
+  to compare how the distribution of the numerical variable changes if we only consider 
+  the subpopulation which belongs to each category. 
+  There should be as many box plots as categories. 
+  For example, with Sex and Height, we would compare 
+  the height distributions of men vs. women with two box plots.
+  \item \texttt{density(self, categorical\_var, numerical\_var)}: displays the density of the numerical variable.
+  Each subpopulation should be represented by a separate curve on the graph.
+  \item \texttt{compare\_histograms(self, categorical\_var, numerical\_var)}: plots the numerical variable in a separate histogram for each category.
+  As an extra, you can use overlapping histograms with a color code.
+\end{itemize}
+BONUS: Your functions can also accept a list of numerical variables (instead of just one), and output a comparison plot for each variable in the list.

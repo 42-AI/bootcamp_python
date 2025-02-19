@@ -1,0 +1,32 @@
+\chapter{Exercise 07}
+\extitle{Shorter, Faster ... Pythonic !}
+\turnindir{ex07}
+\exnumber{07}
+\exfiles{filterwords.py}
+\exforbidden{filter}
+\makeheaderfilesforbidden
+Make a program that takes a string S and an integer N as argument and prints the list of words in S that contains more than N non-punctuation characters.
+
+\begin{itemize}
+	\item Words are separated from each other by space characters
+	\item Punctuation symbols must be removed from the printed list: they are neither part of a word nor a separator
+	\item The program must contain at least one \textbf{list comprehension} expression. 
+\end{itemize}
+If the number of argument is different from 2, or if the type of any argument is invalid, the program prints an error message.
+
+\section*{Examples}
+\begin{42console}
+$> python3 filterwords.py 'Hello, my friend' 3
+['Hello', 'friend']
+$> python3 filterwords.py 'Hello, my friend' 10
+[]
+$>  python3 filterwords.py 'A robot must protect its own existence as long as such protection does not conflict with the First or Second Law' 6
+['protect', 'existence', 'protection', 'conflict']
+$> python3 filterwords.py Hello World
+ERROR
+$> python3 filterwords.py 3 'Hello, my friend'
+ERROR
+$> python3 filterwords.py
+ERROR
+\end{42console}
+    

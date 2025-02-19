@@ -1,0 +1,59 @@
+\chapter{Exercise 00}
+\extitle{FileLoader}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{FileLoader.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================== %
+\section*{Objective}
+% ---------------------------------- %
+The goal of this exercise is to create a Fileloader class containing a
+load and a display method.
+
+% ================================== %
+\section*{Instructions}
+% ---------------------------------- %
+Write a class named \texttt{FileLoader} which implements the following methods:  
+\begin{itemize}
+  \item \texttt{load(self, path)}: takes as an argument the file path of the dataset to load, 
+    displays a message specifying the dimensions of the dataset (e.g. 340 x 500) 
+    and returns the dataset loaded as a pandas.DataFrame.
+  \item \texttt{display(self, df, n)}: takes a pandas.DataFrame and an integer as arguments, 
+    displays the first n rows of the dataset if n is positive, or the last n rows if n is negative.
+\end{itemize}
+
+
+\noindent \texttt{FileLoader} object should not raise any exceptions (wrong path, file does not exist, parameters different than a string ...).
+% ================================== %
+\section*{Examples}
+% ---------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load("../data/adult_data.csv")
+# Output
+Loading dataset of dimensions 32561 x 15
+
+
+loader.display(data, 12)
+# Output
+age         workclass  fnlwgt  ... hours-per-week  native-country salary
+0    39         State-gov   77516  ...             40   United-States  <=50K
+1    50  Self-emp-not-inc   83311  ...             13   United-States  <=50K
+2    38           Private  215646  ...             40   United-States  <=50K
+3    53           Private  234721  ...             40   United-States  <=50K
+4    28           Private  338409  ...             40            Cuba  <=50K
+5    37           Private  284582  ...             40   United-States  <=50K
+6    49           Private  160187  ...             16         Jamaica  <=50K
+7    52  Self-emp-not-inc  209642  ...             45   United-States   >50K
+8    31           Private   45781  ...             50   United-States   >50K
+9    42           Private  159449  ...             40   United-States   >50K
+10   37           Private  280464  ...             80   United-States   >50K
+11   30         State-gov  141297  ...             40           India   >50K
+
+[12 rows x 15 columns]
+\end{minted}
+
+\hint{NB: Your terminal may display more columns if the window is wider.}

@@ -13,6 +13,7 @@ all: clean dirs
 %.pdf: 
 	@echo "We are taking care of: $@"
 	@$(MAKE) -C $(shell dirname $@)
+	@$(MAKE) clean -C $(shell dirname $@)
 	cp $@ build/$(shell dirname `dirname $@`).pdf
 
 dirs: $(TARGETS_DIRS)

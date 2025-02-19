@@ -1,0 +1,97 @@
+\chapter{Exercise 00}
+\extitle{Map, filter, reduce}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{ft\_map.py, ft\_filter.py, ft\_reduce.py}
+\exforbidden{map, filter, reduce}
+\makeheaderfilesforbidden
+
+% ================================== %
+\section*{Objective}
+% ---------------------------------- %
+The goal of this exercise is to work on the built-in functions \texttt{map},
+\texttt{filter} and \texttt{reduce}.
+
+% ================================== %
+\section*{Instructions}
+% ---------------------------------- %
+Implement the functions \texttt{ft\_map}, \texttt{ft\_filter} and \texttt{ft\_reduce}.\\
+\\
+Take the time to understand the use cases of these two built-in functions
+(\texttt{map} and \texttt{filter}) and the function \texttt{reduce} in the functools module.\\
+\\
+You are not expected to code specific classes to create \texttt{ft\_map},
+\texttt{ft\_filter} or \texttt{ft\_reduce} objects, take a closer look
+at the examples to know what to do.\\
+\\
+Here are the signatures of the functions:\
+\\
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+def ft_map(function_to_apply, iterable):
+	"""Map the function to all elements of the iterable.
+	Args:
+	  function_to_apply: a function taking an iterable.
+	  iterable: an iterable object (list, tuple, iterator).
+	Return:
+	  An iterable.
+	  None if the iterable can not be used by the function.
+	"""
+  # ... Your code here ...
+
+def ft_filter(function_to_apply, iterable):
+	"""Filter the result of function apply to all elements of the iterable.
+	Args:
+	  function_to_apply: a function taking an iterable.
+	  iterable: an iterable object (list, tuple, iterator).
+	Return:
+	  An iterable.
+	  None if the iterable can not be used by the function.
+	"""
+  # ... Your code here ...
+
+def ft_reduce(function_to_apply, iterable):
+	"""Apply function of two arguments cumulatively.
+	Args:
+	  function_to_apply: a function taking an iterable.
+	  iterable: an iterable object (list, tuple, iterator).
+	Return:
+	  A value, of same type of elements in the iterable parameter.
+	  None if the iterable can not be used by the function.
+	"""
+  # ... Your code here ...
+\end{minted}
+
+% ================================== %
+\section*{Examples}
+% ---------------------------------- %
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Example 1:
+x = [1, 2, 3, 4, 5]
+ft_map(lambda dum: dum + 1, x)
+# Output:
+<generator object ft_map at 0x7f708faab7b0> # The adress will be different
+
+list(ft_map(lambda t: t + 1, x))
+# Output:
+[2, 3, 4, 5, 6]
+
+# Example 2:
+ft_filter(lambda dum: not (dum % 2), x)
+# Output:
+<generator object ft_filter at 0x7f709c777d00> # The adress will be different
+
+list(ft_filter(lambda dum: not (dum % 2), x))
+# Output:
+[2, 4]
+
+# Example 3:
+lst = ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
+ft_reduce(lambda u, v: u + v, lst)
+# Output:
+"Hello world"
+\end{minted}
+\\
+You are expected to raise similar exceptions than those of
+\texttt{map}, \texttt{filter} and \texttt{reduce} when wrong parameters are given (but no need
+to reproduce the exact same exception messages).

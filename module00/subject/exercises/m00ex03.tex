@@ -1,0 +1,89 @@
+\chapter{Exercise 03}
+\extitle{Functional file}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{count.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+\section*{Part 1. text\_analyzer}
+Create a function called \texttt{text\_analyzer} that takes a single string argument
+and displays the total number of printable characters, and respectively : the number of upper-case characters, lower-case characters, punctuation characters and spaces.
+\begin{itemize}
+	\item If \texttt{None} or nothing is provided, the user is prompted to provide a string. 
+	\item If the argument is not a string, print an error message.
+	\item This function must have a \texttt{docstring} explaning its behavior.
+\end{itemize}
+Test your function within the \texttt{python} console
+
+% --------------------------------- %
+\subsection*{Examples}
+\begin{42console}
+$> python3
+>>> from count import text_analyzer
+>>> text_analyzer("Python 2.0, released 2000, introduced
+features like List comprehensions and a garbage collection
+system capable of collecting reference cycles.")
+The text contains 143 printable character(s):
+- 2 upper letter(s)
+- 113 lower letter(s)
+- 4 punctuation mark(s)
+- 18 space(s)
+>>> text_analyzer("Python is an interpreted, high-level,
+general-purpose programming language. Created by Guido van
+Rossum and first released in 1991, Python's design philosophy
+emphasizes code readability with its notable use of significant
+whitespace.")
+The text contains 234 printable character(s):
+- 5 upper letter(s)
+- 187 lower letter(s)
+- 8 punctuation mark(s)
+- 30 space(s)
+>>> text_analyzer()
+What is the text to analyze?
+>> Hello World!
+The text contains 12 printable character(s):
+- 2 upper letter(s)
+- 8 lower letter(s)
+- 1 punctuation mark(s)
+- 1 space(s)
+>>> text_analyzer(42)
+AssertionError: argument is not a string
+>>> print(text_analyzer.__doc__)
+
+    This function counts the number of upper characters, lower characters,
+    punctuation and spaces in a given text.
+\end{42console}
+
+\hint{
+	Python has a lot of very convenient built-in functions and methods. Do some research, you do not have to reivent the wheel !
+}
+
+% ================================= %
+\section*{Part 2. \_\_name\_\_==\_\_main\_\_}
+
+In the previous part, you wrote a function that can be used in the console or in another file when imported.
+Without changing this behavior, update your file so it can also be launched as a standalone program.
+
+\begin{itemize}
+	\item If more than one argument is provided to the program, print an error message. 
+	\item Otherwise, use the \texttt{text\_analyzer} function.
+\end{itemize}
+
+% --------------------------------- %
+\subsection*{Examples}
+\begin{42console}
+$> python3 count.py 'Hello World!'
+The text contains 12 character(s):
+- 2 upper letter(s)
+- 8 lower letter(s)
+- 1 punctuation mark(s)
+- 1 space(s)
+$> python3
+>>> from count import text_analyzer
+>>> text_analyzer("Hello World!")
+The text contains 12 character(s):
+- 2 upper letter(s)
+- 8 lower letter(s)
+- 1 punctuation mark(s)
+- 1 space(s)
+\end{42console}

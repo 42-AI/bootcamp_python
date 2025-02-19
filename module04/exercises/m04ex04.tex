@@ -1,0 +1,62 @@
+\chapter{Exercise 04}
+\extitle{SpatioTemporalData}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{FileLoader.py, SpatioTemporalData.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to implement a class called \texttt{SpatioTemporalData}
+that takes a dataset (pandas.DataFrame) as argument in its constructor
+and implements two methods.
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the dataset \texttt{athlete\_events.csv}.\\
+\\
+Write a class called \texttt{SpatioTemporalData} that takes a dataset
+(pandas.DataFrame) as argument in its constructor and implements the
+following methods:
+\begin{itemize}
+  \item \texttt{when(location)}: takes a location as an argument and returns
+        a list containing the years where games were held in the given location,  
+  \item \texttt{where(date)}: takes a date as an argument and returns the location
+        where the Olympics took place in the given year.
+\end{itemize}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
+Loading dataset of dimensions 271116 x 15
+
+
+from SpatioTemporalData import SpatioTemporalData
+sp = SpatioTemporalData(data)
+sp.where(1896)
+# Output
+['Athina']
+
+
+sp.where(2016)
+# Output
+['Rio de Janeiro']
+
+
+sp.when('Athina')
+# Output
+[2004, 1906, 1896]
+
+
+sp.when('Paris')
+# Output
+[1900, 1924]
+\end{minted}

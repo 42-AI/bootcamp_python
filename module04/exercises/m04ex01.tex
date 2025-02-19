@@ -1,0 +1,45 @@
+\chapter{Exercise 01}
+\extitle{YoungestFellah}
+\turnindir{ex01}
+\exnumber{01}
+\exfiles{FileLoader.py, YoungestFellah.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to create a function that will return a
+dictionary containing the age of the youngest woman and the youngest
+man who took part in the Olympics for a given year.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the following dataset: \texttt{athlete\_events.csv}.\\
+\\
+Write a function \texttt{youngest\_fellah} that takes two arguments:
+\begin{itemize}
+  \item a pandas.DataFrame which contains the dataset
+  \item an Olympic year.
+\end{itemize}
+The function returns a dictionary containing the age of the youngest
+woman and man who took part in the Olympics on that year.
+The names of the dictionary's keys are up to you, but they must be explicit and self-explanatory.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
+Loading dataset of dimensions 271116 x 15
+
+from YoungestFellah import youngest_fellah
+youngest_fellah(data, 2004)
+# Output
+{'f': 13.0, 'm': 14.0}
+\end{minted}

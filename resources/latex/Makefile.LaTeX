@@ -26,7 +26,7 @@ export TEXINPUTS	:=	..:.:$(RELPATH):${TEXINPUTS}:
 all: $(TARGETS)
 
 clean:
-	rm -f *.aux *.ent *.log *.out *.toc *.nav *.snm *.vrb *.pyg
+	rm -f *.aux *.ent *.log *.out *.toc *.nav *.snm *.vrb *.pyg *.pdf.version *.fls *.fdb_latexmk
 
 distclean: clean
 	rm -f $(TARGETS)

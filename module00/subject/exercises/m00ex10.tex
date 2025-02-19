@@ -1,0 +1,49 @@
+\chapter{Exercise 10}
+\extitle{Loading bar!}
+\turnindir{ex10}
+\exnumber{10}
+\exfiles{loading.py}
+\exforbidden{\texttt{tqdm} or any library for automatic loading bar}
+\makeheaderfilesforbidden
+You are about to discover the \texttt{yield} operator!\\
+\newline
+So let's create a function called \texttt{ft\_progress(lst)}.\\
+\newline
+The function will display the progress of a \texttt{for} loop.\\
+\info{We strongly advise you to take a look at the wonderful \textbf{tqdm} library, it will come in handy in many situations !}
+\section*{Examples}
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(1000)
+	ret = 0
+	for elem in ft_progress(listy):
+	    ret += (elem + 3) % 5
+	    sleep(0.01)
+	print()
+	print(ret)
+\end{42console}
+
+\begin{42console}
+	$> python loading.py
+	ETA: 8.67s [ 23%][=====>                  ] 233/1000 | elapsed time 2.33s
+	...
+	2000
+\end{42console}
+\newpage
+\begin{42console}% SERAIT MIEUX AVEC UN ENVIRONNEMENT PYTHON
+	listy = range(3333)
+	ret = 0
+	for elem in ft_progress(listy):
+		ret += elem
+		sleep(0.005)
+	print()
+	print(ret)
+\end{42console}
+
+\begin{42console}
+	$> python loading.py
+	ETA: 14.67s [  9%][=>                      ] 327/3333 | elapsed time 1.33s
+	...
+	5552778
+\end{42console}
+
+

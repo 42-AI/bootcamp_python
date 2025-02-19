@@ -1,0 +1,108 @@
+\chapter{Exercise 06}
+\extitle{A recipe}
+\turnindir{ex06}
+\exnumber{06}
+\exfiles{recipe.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Part 1: Nested Dictionaries}
+
+Create a dictionary called \texttt{cookbook}. You will use this \texttt{cookbook} to store recipes.
+\\\\
+A recipe is a \textbf{dictionary} that stores (at least) 3 key-value pairs:
+\begin{itemize}
+	\item ''ingredients": a \textbf{list of strings} containing the list of ingredients
+	\item "meal": a \textbf{string} representing the type of meal
+	\item "prep\_time": a \textbf{non-negative integer} representing a preparation time in minutes
+\end{itemize}
+In the \texttt{cookbook}, the  \textbf{key} to a recipe is the recipe's name.
+\\
+Initialize your \texttt{cookbook} with 3 recipes:
+\begin{itemize}
+	\item The Sandwich's ingredients are \textit{ham}, \textit{bread}, \textit{cheese} and \textit{tomatoes}.
+It is a \textit{lunch} and it takes $10$ minutes of preparation.
+	\item The Cake's ingredients are \textit{flour}, \textit{sugar} and \textit{eggs}.
+It is a \textit{dessert} and it takes $60$ minutes of preparation.
+	\item The Salad's ingredients are \textit{avocado}, \textit{arugula}, \textit{tomatoes} and \textit{spinach}.
+It is a \textit{lunch} and it takes $15$ minutes of preparation.
+\end{itemize}
+
+% ================================= %
+\newpage
+\section*{Part 2: A Handful of Helpful Functions}
+
+Create a series of useful functions to handle your \texttt{cookbook}:
+
+\begin{enumerate}
+	\item A function that prints all recipe names.
+	\item A function that takes a recipe name and prints its details.
+	\item A function that takes a recipe name and delete it.
+	\item A function that adds a recipe from user input. You will need a name, a list of ingredients, a meal type and a preparation time.
+\end{enumerate}
+\subsection*{Input example}
+\begin{42console}
+>>> Enter a name:
+chips
+>>> Enter ingredients:
+potatoes
+oil
+salt
+
+>>> Enter a meal type:
+lunch
+>>> Enter a preparation time:
+15
+\end{42console}
+
+% ================================= %
+\section*{Part 3: A command line executable !}
+
+Create a program that uses your \texttt{cookbook} and your functions.\\
+\newline
+The program will prompt the user to make a choice between printing the cookbook's content,
+ printing one recipe, adding a recipe, deleting a recipe or quitting the cookbook.\\
+\newline
+Your program will continue to prompt the user until the user decides to quit it.\\
+\newline
+The program cannot crash if a wrong value is entered: you must handle the error and ask for another prompt.\\
+
+\begin{42console}
+$> python3 recipe.py
+Welcome to the Python Cookbook !
+List of available options:
+   1: Add a recipe
+   2: Delete a recipe
+   3: Print a recipe
+   4: Print the cookbook
+   5: Quit
+
+Please select an option:
+>> 3
+
+Please enter a recipe name to get its details:
+>> cake
+
+Recipe for cake:
+   Ingredients list: ['flour', 'sugar', 'eggs']
+   To be eaten for dessert.
+   Takes 60 minutes of cooking.
+
+Please select an option:
+>> Hello
+
+Sorry, this option does not exist.
+List of available options:
+   1: Add a recipe
+   2: Delete a recipe
+   3: Print a recipe
+   4: Print the cookbook
+   5: Quit
+
+Please select an option:
+>> 5
+
+Cookbook closed. Goodbye !
+$>
+\end{42console}

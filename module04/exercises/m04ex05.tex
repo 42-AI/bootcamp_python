@@ -1,0 +1,70 @@
+\chapter{Exercise 05}
+\extitle{HowManyMedalsByCountry}
+\turnindir{ex05}
+\exnumber{05}
+\exfiles{FileLoader.py, HowManyMedalsByCountry.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to write a function that returns a
+dictionary of dictionaries giving the number and types of medals for
+each competition where a given country delegation earned medals.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the following dataset: \texttt{athlete\_events.csv}\\
+\\
+Write a function \texttt{how\_many\_medals\_by\_country} that takes two arguments:
+\begin{itemize}
+  \item a pandas.DataFrame which contains the dataset  
+  \item a country name.
+\end{itemize}
+The function returns a dictionary of dictionaries giving the number and
+types of medals for each competition where the country delegation earned medals.\\
+\\
+The keys of the main dictionary are the Olympic games' years. In each
+year's dictionary, the keys are 'G', 'S', 'B' corresponding to the
+types of medals won.
+\\
+Duplicated medals per team games should be handled and not counted twice.\\
+\\
+Hint: You may find this list to be of some use.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  team_sports = ['Basketball', 'Football',  'Tug-Of-War', 'Badminton', 'Sailing',
+                 'Handball', 'Water Polo', 'Hockey', 'Rowing', 'Bobsleigh', 'Softball',
+                 'Volleyball', 'Synchronized Swimming', 'Baseball', 'Rugby Sevens',
+                 'Rugby', 'Lacrosse', 'Polo']
+\end{minted}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
+Loading dataset of dimensions 271116 x 15
+
+
+from HowManyMedalsByCountry import how_many_medals_by_country
+how_many_medals_by_country(data, 'Martian Federation')
+# Output
+{2192: {'G': 17, 'S': 14, 'B': 23}, 2196: {'G': 8, 'S': 21, 'B': 19}, 2200: {'G': 26, 'S': 19, 'B': 7}}
+\end{minted}
+\newline
+You probably guessed by now that we gave up providing real examples...\\
+\\
+If you want real examples, you can easily look online.\\
+\\
+Do beware that some medals might be awarded or removed years after the games
+are over, for example if a previous medallist was found to have cheated.\\
+\\
+The \texttt{athlete\_events.csv} dataset might not always take these posterior
+changes into account.

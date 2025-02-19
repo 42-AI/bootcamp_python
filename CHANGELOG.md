@@ -1,2 +1,4 @@
-FIX wrong example for D01 ex03 "vector"
+- One file per exercise
+- Indentation fixes
+- Makefile update to clean latex compilation files
 

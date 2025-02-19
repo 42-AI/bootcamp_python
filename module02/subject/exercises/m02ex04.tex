@@ -1,0 +1,94 @@
+\chapter{Exercise 04}
+\extitle{MiniPack}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{build.sh, *.py, *.md, *.cfg, *.txt}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to learn how to build a package and understand the magnificence of \href{https://pypi.org/}{PyPi}.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+You have to create a package called \texttt{my\_minipack}.\\
+\hint{\href{https://docs.python.org/3.9/distributing/index.html}{RTFM}}
+It will have 2 \textbf{modules}: 
+\begin{itemize}
+  \item the progress bar (module00 ex10) which should be imported it via \texttt{import my\_minipack.progressbar},
+  \item the logger (module02 ex02), which should be imported via \
+    \texttt{import my\_minipack.logger}.
+\end{itemize}
+The package will be installed via pip using one of the following commands (both should work):  
+\begin{42console}
+  $> pip install ./dist/my_minipack-1.0.0.tar.gz
+  $> pip install ./dist/my_minipack-1.0.0-py3-none-any.whl
+\end{42console}
+\
+Based on the following terminal commands and corresponding outputs, draw the necessary conclusion.
+\
+\begin{42console}
+  $> python -m venv tmp_env && source tmp_env/bin/activate
+  (tmp_env) > pip list
+  # Ouput
+  Package    Version
+  ---------- -------
+  pip        19.0.3 
+  setuptools 40.8.0 
+
+  (tmp_env) $> cd ex04/ && bash build.sh
+  # Output ... No specific verbose expected, do as you wish ...
+  ...
+  (tmp_env) $> ls dist
+  # Output
+  my_minipack-1.0.0-py3-none-any.whl  my_minipack-1.0.0.tar.gz
+
+  (tmp_env) $> pip list
+  # Output
+  Package     Version
+  ----------- -------
+  my-minipack 1.0.0
+  pip         21.0.1 # the last version at the time
+  setuptools  54.2.0 # the last version at the time
+  wheel       0.36.2 # the last version at the time
+
+  (tmp_env) $> pip show -v my_minipack
+  # Ouput (minimum metadata asked)
+  Name: my-minipack
+  Version: 1.0.0
+  Summary: Howto create a package in python.
+  Home-page: None
+  Author: mdavid
+  Author-email: mdavid@student.42.fr
+  License: GPLv3
+  Location: [PATH TO BOOTCAMP PYTHON]/module02/tmp_env/lib/python3.7/site-packages
+  Requires: 
+  Required-by: 
+  Metadata-Version: 2.1
+  Installer: pip
+  Classifiers:
+  Development Status :: 3 - Alpha
+  Intended Audience :: Developers
+  Intended Audience :: Students
+  Topic :: Education
+  Topic :: HowTo
+  Topic :: Package
+  License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+  Programming Language :: Python :: 3
+  Programming Language :: Python :: 3 :: Only
+(tmp_env) $>
+\end{42console}
+Also add a LICENSE.md (you can choose a real license or a fake one it does not matter) and a README file where you will write a small documentation about your packaged library.
+\\
+The `build.sh` script upgrades `pip`, and \textbf{builds} the distribution packages in `wheel` and `egg` formats.
+\\
+\info{
+You can check whether the package was properly installed by running the command \texttt{pip list}
+that displays the list of installed packages and check the metadata of the package with
+\texttt{pip show -v my\_minipack}.
+Of course do not reproduce the exact same metadata, change the author information, modify the summary Topic and Audience items if you want to.
+}

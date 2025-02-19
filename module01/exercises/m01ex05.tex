@@ -1,0 +1,145 @@
+\chapter{Exercise 05}
+\extitle{Bank Account}
+\turnindir{ex05}
+\exnumber{05}
+\exfiles{the\_bank.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to discover new built-in functions, 
+deepen your class understanding, and to be aware of modifications on 
+instanced objects.\\
+In this exercise, you will learn how to modify or add attributes to an object.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+It is all about security.
+Have a look at the class named \texttt{Account} in the code snippet below.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# in the_bank.py
+class Account(object):
+
+    ID_COUNT = 1
+
+    def __init__(self, name, **kwargs):
+        self.__dict__.update(kwargs)
+        
+        self.id = self.ID_COUNT
+        Account.ID_COUNT += 1
+        self.name = name
+        if not hasattr(self, 'value'):
+            self.value = 0
+
+        if self.value < 0:
+          raise AttributeError("Attribute value cannot be negative.")
+        if not isinstance(self.name, str)
+          raise AttributeError("Attribute name must be a str object.")
+    
+    def transfer(self, amount):
+        self.value += amount
+\end{minted}
+
+Now, it is your turn to code a class named \texttt{Bank}!
+Its purpose will be to handle the security part of each transfer attempt.
+
+Security means checking if the \texttt{Account} is:
+\begin{itemize}
+  \item the right object,
+  \item not corrupted,
+  \item and stores enough money to complete the transfer.
+\end{itemize}
+
+How do we define if a bank account is corrupted? A corrupted bank account has:
+\begin{itemize}
+  \item an even number of attributes,
+  \item an attribute starting with \texttt{b},
+  \item no attribute starting with \texttt{zip} or \texttt{addr},
+  \item no attribute \texttt{name}, \texttt{id} and \texttt{value},
+  \item \texttt{name} not being a string,
+  \item \texttt{id} not being an \texttt{int},
+  \item \texttt{value} not being an \texttt{int} or a \texttt{float}.
+\end{itemize}
+
+For the rest of the attributes (\texttt{addr}, \texttt{zip}, etc ...
+there is no specific check expected.
+Meaning you are not expected to evaluate the validity of the account based on the type of the other attributes (the conditions listed above are sufficient).
+
+Moreover, verification has to be performed when account objects are added to to Bank instance 
+(\texttt{bank.add(Account(...))}).
+The verification in \texttt{add} only checsk the type of the new\_account and if there 
+is no account among the ones already in Bank instance with the same name.
+
+A transaction is invalid if \texttt{amount < 0} or if the amount is larger than
+the balance of the account.
+Prior to the transfer, the validity of the 2 accounts (\texttt{origin} and \texttt{dest}) are checked
+(according to the list of criteria above).
+A transfer between the same account (\texttt{bank.transfer('Wiliam John', 'William John')})
+is valid but there is no fund movement.
+
+\texttt{fix\_account} recovers a corrupted account if it parameter \texttt{name} correspond to the attribute
+name of one of the account in \texttt{accounts} (attribute of Bank). If name is not a string or does not corresponded
+to an account name, the method return \texttt{False}.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# in the_bank.py
+class Bank(object):
+    """The bank"""
+    def __init__(self):
+        self.accounts = []
+
+    def add(self, new_account):
+        """ Add new_account in the Bank
+            @new_account:  Account() new account to append
+            @return   True if success, False if an error occured
+        """
+        # test if new_account is an Account() instance and if 
+        # it can be appended to the attribute accounts
+        
+        # ... Your code  ...
+
+        self.accounts.append(new_account)
+
+    def transfer(self, origin, dest, amount):
+        """" Perform the fund transfer
+            @origin:  str(name) of the first account
+            @dest:    str(name) of the destination account
+            @amount:  float(amount) amount to transfer
+            @return   True if success, False if an error occured
+        """
+        # ... Your code  ...
+
+    def fix_account(self, name):
+    """ fix account associated to name if corrupted
+            @name:   str(name) of the account
+            @return  True if success, False if an error occured
+        """
+        # ... Your code  ...
+\end{minted}
+
+Check out the \texttt{dir} built-in function.
+
+\warn{YOU WILL HAVE TO MODIFY THE INSTANCES' ATTRIBUTES IN ORDER TO FIX THEM.}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+The script \texttt{banking\_test1.py} is a test which must print \texttt{Failed}.
+The second script \texttt{banking\_test2.py} is a test which must print \texttt{Failed} and then \texttt{Success}.
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{bash}
+>> python banking_test1.py
+Failed
+# The transaction is not performed has the account of Smith Jane is corrupted (due to the attribute 'bref').
+
+>> python banking_test2.py
+Failed
+Success
+# the account are false due to the abscence of addr attribute, fix_account recover the account,
+# thus they become valid.
+\end{minted}
+

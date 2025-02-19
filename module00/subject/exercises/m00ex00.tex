@@ -1,0 +1,202 @@
+\chapter{Exercise 00}
+\extitle{\$PATH}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{answers.txt, requirements.txt}
+\exforbidden{None}
+\makeheaderfilesforbidden\\
+\emph{The first thing you need to do is to install Python.}
+\\\\
+Most modern Unix-based systems have a \texttt{python} interpreter installed by default,
+but its version might be lower/higher than the one used for these modules.
+It is also possible that the default \texttt{python} command uses a version 2.x (for legacy reasons).
+This is obviously very confusing for a new developper.
+\\
+
+\begin{42console}
+$> python -V
+$> python3 -V
+\end{42console}
+\hfill \break
+To deal with those versions issues we will use \texttt{conda}. This program allows you to manage your Python packages and several working environments. 
+\\\\
+\emph{Note: the actual requirement is to use a Python 3.7.X version. You are free to use a different program/utilities to achieve this goal. At your own risk.}
+\pagebreak
+
+% ===========================(Conda Manual)       %
+\section*{Conda manual installation}
+\emph{Go to the next section for an automated installation.}
+\\\\
+We recommend the following path for your \texttt{conda} folder.
+\begin{42console}
+$> MYPATH="/goinfre/$USER/miniconda3"
+\end{42console}
+
+% ---------------------------------- %
+\subsection*{1. Download \& Install conda}
+
+\begin{42console}
+# For MAC
+$> curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+$> sh Miniconda3-latest-MacOSX-x86_64.sh -b -p $MYPATH
+
+# For Linux
+$> curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+$> sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+\end{42console}
+
+
+
+% ---------------------------------- %
+\subsection*{2. Initial configuration of conda}
+\begin{42console}
+# For zsh
+$> $MYPATH/bin/conda init zsh
+$> $MYPATH/bin/conda config --set auto_activate_base false
+$> source ~/.zshrc
+
+# For bash
+$> $MYPATH/bin/conda init bash
+$> $MYPATH/bin/conda config --set auto_activate_base false
+$> source ~/.bash_profile
+\end{42console}
+
+
+
+% ---------------------------------- %
+\subsection*{3. Create a dedicated environment for 42AI !}
+\begin{42console}
+$> conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle numpy
+\end{42console}
+
+
+
+% ---------------------------------- %
+\subsection*{4. Check your 42AI Python environment}
+\begin{42console}
+$> conda info --envs
+$> conda activate 42AI-$USER
+$> which python
+$> python -V
+$> python -c "print('Hello World!')"
+\end{42console}
+
+
+
+% ---------------------------------- %
+\subsection*{Help !}
+\begin{itemize}
+	\item \textbf{I have lost my miniconda3 folder !} Repeat step 1 and 3.
+	\item \textbf{I have lost my home directory !} Repeat step 2.
+\end{itemize}
+\pagebreak
+
+
+
+% ===========================(Conda Auto)       %
+\section*{Conda automated installation}
+
+Copy the following script into a file, launch it and follow the instructions. It downloads and installs miniconda in a \texttt{/goinfre} subfolder and creates a \texttt{python} environment in \texttt{conda}.
+
+
+\begin{42console}
+#!/bin/bash
+
+function which_dl {
+	# If operating system name contains Darwnin: MacOS. Else Linux
+	if uname -s | grep -iqF Darwin; then
+		echo "Miniconda3-latest-MacOSX-x86_64.sh"
+	else
+		echo "Miniconda3-latest-Linux-x86_64.sh"
+	fi
+}
+
+function which_shell {
+	# if $SHELL contains zsh, zsh. Else Bash
+	if echo $SHELL | grep -iqF zsh; then
+		echo "zsh"
+	else
+		echo "bash"
+	fi
+}
+
+function when_conda_exist {
+	# check and install 42AI environement
+	printf "Checking 42AI-$USER environment: "
+	if conda info --envs | grep -iqF 42AI-$USER; then
+		printf "\e[33mDONE\e[0m\n"
+	else
+		printf "\e[31mKO\e[0m\n"
+		printf "\e[33mCreating 42AI environnment:\e[0m\n"
+		conda update -n base -c defaults conda -y
+		conda create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
+	fi
+}
+
+function set_conda {
+	MINICONDA_PATH="/goinfre/$USER/miniconda3"
+	CONDA=$MINICONDA_PATH"/bin/conda"
+	PYTHON_PATH=$(which python)
+	REQUIREMENTS="jupyter numpy pandas pycodestyle"
+	SCRIPT=$(which_dl)
+	MY_SHELL=$(which_shell)
+	DL_LINK="https://repo.anaconda.com/miniconda/"$SCRIPT
+	DL_LOCATION="/tmp/"
+
+	printf "Checking conda: "
+	TEST=$(conda -h 2>/dev/null)
+	if [ $? == 0 ] ; then
+		printf "\e[32mOK\e[0m\n"
+		when_conda_exist
+		return
+	fi
+	printf "\e[31mKO\e[0m\n"
+	if [ ! -f $DL_LOCATION$SCRIPT ]; then
+		printf "\e[33mDonwloading installer:\e[0m\n"
+		cd $DL_LOCATION
+		curl -LO $DL_LINK
+		cd -
+	fi
+	printf "\e[33mInstalling conda:\e[0m\n"
+	sh $DL_LOCATION$SCRIPT -b -p $MINICONDA_PATH
+	printf "\e[33mConda initial setup:\e[0m\n"
+	$CONDA init $MY_SHELL
+	$CONDA config --set auto_activate_base false
+
+	printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
+	$CONDA update -n base -c defaults conda -y
+	$CONDA create --name 42AI-$USER python=3.7 jupyter numpy pandas pycodestyle -y
+	printf "\e[33mLaunch the following command or restart your shell:\e[0m\n"
+	if [ $MY_SHELL == "zsh" ]; then
+		printf "\tsource ~/.zshrc\n"
+	else
+		printf "\tsource ~/.bash_profile\n"
+	fi
+}
+
+set_conda
+\end{42console}
+\hfill \break
+Don't forget to check your 42AI Python environment !
+\begin{42console}
+conda info --envs
+conda activate 42AI-$USER
+which python
+python -V
+python -c "print('Hello World!')"
+\end{42console}
+
+% =================================(Question) %
+\section*{(Finally) getting started}
+
+Now that your setup is ready to run, here are a few questions that need to be solved using \texttt{python}, \texttt{pip} or \texttt{conda}. Save your answers in a file \texttt{answers.txt} (one answer per line and per question), and check them with your peers.\\\\
+Find the commands to:
+\begin{itemize}
+	\item Output a list of installed packages and their versions.
+	\item Show the package metadata of \texttt{numpy}.
+	\item Remove the package \texttt{numpy}.
+	\item (Re)install the package \texttt{numpy}.
+	\item Freeze your \texttt{python} packages and their versions in a \texttt{requirements.txt} file you have to turn-in.
+\end{itemize}
+
+

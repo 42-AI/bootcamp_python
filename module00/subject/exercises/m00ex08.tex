@@ -1,0 +1,34 @@
+\chapter{Exercise 08}
+\extitle{S.O.S}
+\turnindir{ex08}
+\exnumber{08}
+\exfiles{sos.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+Make a program that takes a string as argument and encodes it into Morse code.
+\begin{itemize}
+	\item The program supports space and alphanumeric characters
+	\item An alphanumeric character is represented by dots \texttt{.} and dashes \texttt{-}
+	\item A space character is represented by a slash \texttt{/}
+	\item Complete morse characters are separated by a single space\\
+\end{itemize}
+If more than one argument is provided, merge them into a single string with each argument separated by a single space character.\\
+\newline
+If no argument is provided, do nothing or print an usage.
+
+% ================================= %
+\section*{Examples}
+\begin{42console}
+	$> python3 sos.py "SOS"
+	... --- ...
+	$> python3 sos.py
+	$> python3 sos.py "HELLO / WORLD"
+	ERROR
+
+	$> python3 sos.py "96 BOULEVARD" "Bessiere"
+	----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. .
+\end{42console}
+
+\hint{
+	\url{https://morsecode.world/international/morse2.html}
+}
