@@ -1,0 +1,58 @@
+\chapter{Exercise 02}
+\extitle{ProportionBySport}
+\turnindir{ex02}
+\exnumber{02}
+\exfiles{FileLoader.py, ProportionBySport.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to create a function displaying
+the proportion of participants who played a given sport, among
+the participants of a given gender.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the dataset \texttt{athlete\_events.csv}.
+
+Write a function \texttt{proportion\_by\_sport} that takes four arguments:
+\begin{itemize}
+  \item a pandas.DataFrame of the dataset,
+  \item an olympic year,
+  \item a sport,
+  \item a gender.
+\end{itemize}
+The function returns a float corresponding to the proportion (percentage) of participants 
+who played the given sport among the participants of the given gender.\\
+\\
+The function answers questions like the following : 
+"What was the percentage of female basketball players among all female 
+participants in the 2016 Olympics?"
+
+\hint{
+Here and later on, if needed, drop duplicate sports people to count only unique ones. Beware to call the dropping function
+at the right moment and with the right parameters, in order not to omit any individual.
+}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
+Loading dataset of dimensions 271116 x 15
+
+
+from ProportionBySport import proportion_by_sport
+proportion_by_sport(data, 2004, 'Tennis', 'F')
+# Output
+0.019302325581395347
+\end{minted}
+\newline
+We assume that we are always using valid arguments as input,
+and thus do not need to handle input errors.

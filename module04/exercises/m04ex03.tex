@@ -1,0 +1,56 @@
+\chapter{Exercise 03}
+\extitle{HowManyMedals}
+\turnindir{ex03}
+\exnumber{03}
+\exfiles{FileLoader.py, HowManyMedals.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to implement a function that will return
+a dictionary of dictionaries giving the number and types of medals
+for each year during which the participant won medals.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+This exercise uses the following dataset: \texttt{athlete\_events.csv}.
+
+
+Write a function \texttt{how\_many\_medals} that takes two arguments:
+\begin{itemize}
+  \item a pandas.DataFrame which contains the dataset,
+  \item a participant's name.
+\end{itemize}
+The function returns a dictionary of dictionaries giving the number and type of medals 
+for each year during which the participant won medals.\\
+\\
+The keys of the main dictionary are the  years of the Olympic games.\\
+\\
+In each year's dictionary, the keys are 'G', 'S', 'B' corresponding to the type of 
+medals won (Gold, Silver, Bronze).\
+The innermost values correspond to the number of medals of a given type won for a given year.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from FileLoader import FileLoader
+loader = FileLoader()
+data = loader.load('../data/athlete_events.csv')
+# Output
+Loading dataset of dimensions 271116 x 15
+
+
+from HowManyMedals import how_many_medals
+how_many_medals(data, 'Kjetil Andr Aamodt')
+# Output
+{1992: {'G': 1, 'S': 0, 'B': 1},
+ 1994: {'G': 0, 'S': 2, 'B': 1},
+ 1998: {'G': 0, 'S': 0, 'B': 0},
+ 2002: {'G': 2, 'S': 0, 'B': 0},
+ 2006: {'G': 1, 'S': 0, 'B': 0}}
+\end{minted}
