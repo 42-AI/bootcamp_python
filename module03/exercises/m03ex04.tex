@@ -1,0 +1,134 @@
+\chapter{Exercise 04}
+\extitle{K-means Clustering}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{Kmeans.py}
+\exforbidden{Any functions allowing you to perform K-Means}
+\makeheaderfilesforbidden
+
+ALERT! DATA CORRUPTED
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+Implementation of a basic K-means algorithm.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+The solar system census dataset is corrupted! The citizens' homelands are missing!\\  
+\\
+You must implement the K-means clustering algorithm in order to recover the citizens' origins.\\
+\\
+You can find good explanations on how K-means is working here:
+\href{https://en.wikipedia.org/wiki/K-means_clustering}{Wikipedia - K-Means clustering}\\
+\\
+The missing part is how to compute the distance between 2 data points (cluster centroid or a row in the data).\\
+\\
+In our case, the data we have to process is composed of 3 values (height, weight and bone\_density).\\
+\\
+Thus, each data point is a vector of 3 values.\\
+\\
+Now that we have mathematically defined our data points (vector of 3 values), it is very easy to compute the distance between two points using vector properties.\\
+You can use L1 distance, L2 distance, cosine similarity, and so forth...\\
+Choosing the distance to use is called hyperparameter tuning.\\
+\newline
+I would suggest you to try with the easiest setting (L1 distance) first.\\
+\\
+What you will notice is that the final result of the "training"/"fitting" will depend a lot on the random initialization.\\
+\\
+Commonly, in machine-learning libraries, K-means is run multiple times (with different random initializations) and the best result is saved.\\  
+\\
+NB: To implement the fit function, keep in mind that a centroid can be considered as the gravity center of a set of points.\\
+\\
+Your program \texttt{Kmeans.py} takes 3 parameters: \texttt{filepath}, \texttt{max\_iter} and \texttt{ncentroid}:
+
+\begin{42console}
+  python Kmeans.py filepath='../ressources/solar_system_census.csv' ncentroid=4 max_iter=30
+\end{42console}
+
+Your program is expected to:
+\begin{itemize}
+  \item parse its arguments,
+  \item read the dataset,
+  \item fit the dataset,
+  \item display the coordinates of the different centroids and the associated region (for the case \texttt{ncentroid=4}),
+  \item display the number of individuals associated to each centroid,
+  \item (Optional) display the results  on 3 differents plots, corresponding to 3 combinations of 2 parameters, using different colors to distinguish between Venus,Earth, Mars and Belt asteroids citizens.
+\end{itemize}
+
+Create the class \texttt{KmeansClustering} with the following methods:  
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+class KmeansClustering:
+    def __init__(self, max_iter=20, ncentroid=5):
+        self.ncentroid = ncentroid # number of centroids
+        self.max_iter = max_iter # number of max iterations to update the centroids
+        self.centroids = [] # values of the centroids
+        
+    def fit(self, X):
+        """
+        Run the K-means clustering algorithm.
+        For the location of the initial centroids, randomly pick n centroids from the dataset.
+        Args:
+        -----
+          X: has to be an numpy.ndarray, a matrice of dimension m * n.
+        Return:
+        -------
+          None.
+        Raises:
+        -------
+          This function should not raise any Exception.
+        """
+        ... your code ...
+
+    def predict(self, X):
+        """
+        Predict from wich cluster each datapoint belongs to.
+        Args:
+        -----
+          X: has to be an numpy.ndarray, a matrice of dimension m * n.
+        Return:
+        -------
+          the prediction has a numpy.ndarray, a vector of dimension m * 1.
+        Raises:
+        -------
+          This function should not raise any Exception.
+        """
+        ... your code ...
+\end{minted}
+
+% ================================= %
+\section*{Dataset}
+% --------------------------------- %
+The dataset, named \textbf{solar\_system\_census} can be found in
+the resources folder.\\
+\\
+It is a part of the solar system census dataset, and contains biometric
+data such as the height, weight, and bone density of solar
+system citizens.\\
+\\
+Solar citizens come from four registered areas:
+\begin{itemize}
+  \item The flying cities of Venus,
+  \item United Nations of Earth,
+  \item Mars Republic,
+  \item Asteroids' Belt colonies.  
+\end{itemize}
+Unfortunately the data about the planets of origin was lost...\\
+Use your K-means algorithm to recover it!\\
+Once your clusters are found, try to find matches between clusters and the citizens' homelands.\\
+
+\hint{
+  \begin{itemize}
+    \item People are slender on Venus than on Earth.  
+    \item People of the Martian Republic are taller than on Earth.  
+    \item Citizens of the Belt are the tallest of the solar system and have the lowest bone density due to the lack of gravity.  
+  \end{itemize}
+}
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+Here is an example of the K-means algorithm in action:\\
+\url{https://i.ibb.co/bKFVVx2/ezgif-com-gif-maker.gif}

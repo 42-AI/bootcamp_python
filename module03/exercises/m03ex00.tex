@@ -1,0 +1,101 @@
+\chapter{Exercise 00}
+\extitle{NumPyCreator}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{NumPyCreator.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================== %
+\section*{Objective}
+% ---------------------------------- %
+Introduction to the Numpy library.
+
+% ================================== %
+\section*{Instructions}
+% ---------------------------------- %
+Write a class named \texttt{NumPyCreator}, that implements all of the following methods.\\
+\\
+Each method receives as an argument a different type of data structure and transforms it into a Numpy array:
+\begin{itemize}
+  \item \texttt{from\_list(self, lst)}: takes a list or nested lists and returns its corresponding Numpy array.
+  \item \texttt{from\_tuple(self, tpl)}: takes a tuple or nested tuples and returns its corresponding Numpy array.
+  \item \texttt{from\_iterable(self, itr)}: takes an iterable and returns an array which contains all of its elements.
+  \item \texttt{from\_shape(self, shape, value)}: returns an array filled with the same value.
+  The first argument is a tuple which specifies the shape of the array, and the second argument specifies the value of the elements. 
+  This value must be 0 by default.
+  \item \texttt{random(self, shape)}: returns an array filled with random values.
+  It takes as an argument a tuple which specifies the shape of the array.
+  \item \texttt{identity(self, n)}: returns an array representing the identity matrix of size n.
+\end{itemize}
+\textit{\textbf{BONUS:}} Add to these methods an optional argument which specifies the datatype (dtype) of the array (e.g. to represent its elements as integers, floats, ...)
+
+\hint{Each of these methods can be implemented in one line. You only need to find the right Numpy functions.}
+
+% ================================== %
+\section*{Examples}
+% ---------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from NumpyCreator import NumpyCreator
+npc = NumpyCreator()
+
+npc.from_list([[1,2,3],[6,3,4]])
+# Output :
+array([[1, 2, 3],
+       [6, 3, 4]])
+
+
+npc.from_list([[1,2,3],[6,4]])
+# Output :
+None
+
+
+npc.from_list([[1,2,3],['a','b','c'],[6,4,7]])
+# Output :
+array([['1','2','3'],
+       ['a','b','c'],
+       ['6','4','7'], dtype='<U21'])
+
+
+npc.from_list(((1,2),(3,4)))
+# Output :
+None
+
+
+npc.from_tuple(("a", "b", "c"))
+# Output :
+array(['a', 'b', 'c'])
+
+
+npc.from_tuple(["a", "b", "c"])
+# Output :
+None
+
+
+npc.from_iterable(range(5))
+# Output :
+array([0, 1, 2, 3, 4])
+
+
+shape=(3,5)
+npc.from_shape(shape)
+# Output :
+array([[0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0]])
+
+
+npc.random(shape)
+# Output :
+array([[0.57055863, 0.23519999, 0.56209311, 0.79231567, 0.213768 ],
+      [0.39608366, 0.18632147, 0.80054602, 0.44905766, 0.81313615],
+      [0.79585328, 0.00660962, 0.92910958, 0.9905421 , 0.05244791]])
+
+
+npc.identity(4)
+# Output :
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+\end{minted}
