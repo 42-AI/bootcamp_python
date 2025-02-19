@@ -1,0 +1,76 @@
+\chapter{Exercise 01}
+\extitle{Family tree}
+\turnindir{ex01}
+\exnumber{01}
+\exfiles{game.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of the exercise is to tackle the notion of class inheritance.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Create a \texttt{GotCharacter} class and initialize it with the following attributes:
+\begin{itemize}
+  \item \texttt{first\_name},
+  \item  \texttt{is\_alive} (by default is \texttt{True}).
+\end{itemize}
+Pick up a Game of Thrones House (e.g., Stark, Lannister...), create a child class that inherits from \texttt{GotCharacter} and 
+define the following attributes:
+\begin{itemize}
+  \item \texttt{family\_name} (by default should be the same as the Class)
+  \item \texttt{house\_words} (e.g., the House words for the Stark House is: "Winter is Coming")\\
+\end{itemize}
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  class Stark(GotCharacter):
+    def __init__(self, first_name=None, is_alive=True):
+        super().__init__(first_name=first_name, is_alive=is_alive)
+        self.family_name = "Stark"
+        self.house_words = "Winter is Coming"
+\end{minted}
+
+\newpage
+Add two methods to your child class:
+\begin{itemize}
+  \item \texttt{print\_house\_words}: prints the House words,
+  \item \texttt{die}: changes the value of \texttt{is\_alive} to \texttt{False}.
+\end{itemize}
+
+\section*{Examples}
+Running commands in the Python console, an example of what you should get:\\
+\newline
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+	$> python
+  >>> from game import Stark
+  
+  >>> arya = Stark("Arya")
+  >>> print(arya.__dict__)
+  {'first_name': 'Arya', 'is_alive': True, 'family_name': 'Stark', 'house_words': 'Winter is Coming'}
+  
+  >>> arya.print_house_words()
+  Winter is Coming
+  
+  >>> print(arya.is_alive)
+  True
+  
+  >>> arya.die()
+  >>> print(arya.is_alive)
+  False
+\end{minted}
+\newline
+You can add any attribute or method you need to your class and format the docstring the way you want.
+Feel free to create other children of \texttt{GotCharacter} class.
+\newline
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+	$> python
+  >>> from game import Stark
+  
+  >>> arya = Stark("Arya")
+  >>> print(arya.__doc__)
+  A class representing the Stark family. Or when bad things happen to good people.
+\end{minted}

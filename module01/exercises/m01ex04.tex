@@ -1,0 +1,49 @@
+\chapter{Exercise 04}
+\extitle{Working with lists}
+\turnindir{ex04}
+\exnumber{04}
+\exfiles{eval.py}
+\exauthorize{zip and enumerate}
+\exforbidden{while}
+\makeheaderfilesforbidden
+
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to discover 2 useful methods for lists, tuples,
+dictionnaries (iterable class objects more generally) named \texttt{zip}
+and \texttt{enumerate}.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+Code a class \texttt{Evaluator}, that has two static functions named \texttt{zip\_evaluate}
+and \texttt{enumerate\_evaluate}.
+
+
+The goal of these 2 functions is to compute the sum of the lengths of every
+\texttt{words} of a given list weighted by a list of coefficients \texttt{coefs} (yes, the 2 functions should do the same thing).
+
+The lists \texttt{coefs} and \texttt{words} have to be of the same length. If this is not the
+case, the function should return -1.
+
+You have to obtain the desired result using \texttt{zip} in the \texttt{zip\_evaluate} function,
+and with \texttt{enumerate} in the \texttt{enumerate\_evaluate} function.
+
+% ================================= %
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+>> from eval import Evaluator
+>> 
+>> words = ["Le", "Lorem", "Ipsum", "est", "simple"]
+>> coefs = [1.0, 2.0, 1.0, 4.0, 0.5]
+>> Evaluator.zip_evaluate(coefs, words)
+32.0
+>> words = ["Le", "Lorem", "Ipsum", "n'", "est", "pas", "simple"]
+>> coefs = [0.0, -1.0, 1.0, -12.0, 0.0, 42.42]
+>> Evaluator.enumerate_evaluate(coefs, words)
+-1
+\end{minted}
+

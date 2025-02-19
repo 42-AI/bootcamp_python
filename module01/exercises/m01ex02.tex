@@ -1,0 +1,239 @@
+\chapter{Exercise 02}
+\extitle{The Vector}
+\turnindir{ex02}
+\exnumber{02}
+\exfiles{vector.py, test.py}
+\exforbidden{Numpy library}
+\makeheaderfilesforbidden
+
+% ================================= %
+\section*{Objective}
+% --------------------------------- %
+The goal of this exercise is to get you used to working with built-in methods, more
+particularly with those allowing to perform operations.
+You are expected to code built-in methods for vector-vector and
+vector-scalar operations as rigorously as possible.
+
+% ================================= %
+\section*{Instructions}
+% --------------------------------- %
+In this exercise, you have to create a \texttt{Vector} class. The goal is to
+create vectors and be able to perform mathematical operations with them.
+\begin{itemize}
+  \item Column vectors are represented as list of lists of single float (\texttt{[[1.], [2.], [3.]]}),
+  \item Row vectors are represented as a list of a list of several floats (\texttt{[[1., 2., 3.]]}).
+\end{itemize}
+
+\warn{A vector is either a single line of floats or a single column of floats. When more than a line/column is considered, it is a matrix, not a vector.}
+
+
+The class should also have 2 attributes:
+\begin{itemize}
+  \item \texttt{values}: list of list of floats (for row vector) or list of lists of single float (for column vector),
+  \item \texttt{shape}: tuple of 2 integers: \texttt{(1,n)} for a row vector of dimension $n$
+  or \texttt{(n,1)} for a column vector of dimension $n$. 
+\end{itemize}
+
+\info{If you did not learn at school what is the dimension of a vector, don't worry.
+But for now do not think too hard about what dimension means.
+Just consider the dimension is the number of floats (elements/coordinates) of a vector, and shape gives the layout:
+      if $(1, n)$ the vector is a row, if $(n,1)$ the vector is a column.}
+      
+Finally you have to implement 2 methods: 
+\begin{itemize}
+  \item \texttt{.dot()} produces a dot product between two vectors of same \textbf{shape},
+  \item \texttt{.T()} returns the transpose vector (i.e. a column vector into a row vector, or a row vector into a column vector).
+\end{itemize}
+
+You will also provide a test file (\texttt{test.py}) to demonstrate your class
+works as expected. In this test file, you will demonstrate:
+\begin{itemize}
+  \item the addition and substraction are working for 2 vectors of the same shape,
+  \item the multiplication (\texttt{mul} and \texttt{rmul}) are working for a vector and a scalar,
+  \item the division (\texttt{truediv}) is working with a vector and a scalar,
+  \item the division (\texttt{rtruediv}) raises an Arithmetic Error (this test can be commented for the other tests and uncommented to show this one),
+\end{itemize}
+
+\section*{Examples}
+% --------------------------------- %
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Column vector of shape n * 1
+v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+v2 = v1 * 5
+print(v2)
+# Expected output:
+# Vector([[0.0], [5.0], [10.0], [15.0]])
+
+# Row vector of shape 1 * n
+v1 = Vector([[0.0, 1.0, 2.0, 3.0]])
+v2 = v1 * 5
+print(v2)
+# Expected output
+# Vector([[0.0, 5.0, 10.0, 15.0]])
+
+v2 = v1 / 2.0
+print(v2)
+# Expected output
+# Vector([[0.0, 0.5, 1.0, 1.5]])
+
+v1 / 0.0
+# Expected ouput
+# ZeroDivisionError: division by zero.
+
+2.0 / v1
+# Expected output:
+# NotImplementedError: Division of a scalar by a Vector is not defined here.
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Column vector of shape (n, 1)
+print(Vector([[0.0], [1.0], [2.0], [3.0]]).shape)
+# Expected output
+# (4,1)
+
+print(Vector([[0.0], [1.0], [2.0], [3.0]]).values)
+# Expected output
+# [[0.0], [1.0], [2.0], [3.0]]
+
+# Row vector of shape (1, n)
+print(Vector([[0.0, 1.0, 2.0, 3.0]]).shape)
+# Expected output
+# (1,4)
+
+print(Vector([[0.0, 1.0, 2.0, 3.0]]).values)
+# Expected output
+# [[0.0, 1.0, 2.0, 3.0]]
+\end{minted}
+
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+# Example 1:
+v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+print(v1.shape)
+# Expected output:
+(4,1)
+
+print(v1.T())
+# Expected output:
+# Vector([[0.0, 1.0, 2.0, 3.0]])
+
+print(v1.T().shape)
+# Expected output:
+# (1,4)
+
+# Example 2:
+v2 = Vector([[0.0, 1.0, 2.0, 3.0]])
+print(v2.shape)
+# Expected output:
+# (1,4)
+
+print(v2.T())
+# Expected output:
+# Vector([[0.0], [1.0], [2.0], [3.0]])
+
+print(v2.T().shape)
+# Expected output:
+# (4,1)
+\end{minted}
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  # Example 1:
+  v1 = Vector([[0.0], [1.0], [2.0], [3.0]])
+  v2 = Vector([[2.0], [1.5], [2.25], [4.0]])
+  print(v1.dot(v2))
+  # Expected output:
+  # 18.0
+
+  v3 = Vector([[1.0, 3.0]])
+  v4 = Vector([[2.0, 4.0]])
+  print(v3.dot(v4))
+  # Expected output:
+  # 14.0
+
+  v1
+  # Expected output: to see what __repr__() should do
+  # [[0.0, 1.0, 2.0, 3.0]]
+
+  print(v1)
+  # Expected output: to see what __str__() should do
+  # [[0.0, 1.0, 2.0, 3.0]]
+\end{minted}
+
+You should be able to initialize the object with:
+\begin{itemize}
+  \item a list of a list of floats: \texttt{Vector([[0.0, 1.0, 2.0, 3.0]])},
+  \item a list of lists of single float: \texttt{Vector([[0.0], [1.0], [2.0], [3.0]])},
+  \item a size: \texttt{Vector(3)} -> the vector will have \texttt{values = [[0.0], [1.0], [2.0]]},
+  \item a range: \texttt{Vector((10,16))} -> the vector will have \texttt{values = [[10.0], [11.0], [12.0], [13.0], [14.0], [15.0]]}.
+    in \texttt{Vector((a,b))}, if \texttt{a > b}, you must display accurate error message.
+\end{itemize}
+
+\textit{By default, the vectors are generated as classical column vectors if initialized with a size or range.}
+
+To perform arithmetic operations for Vector-Vector or Scalar-Vector, you have to implement all the following built-in functions (called \texttt{magic/special methods}) for your \texttt{Vector} class:
+
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+  __add__
+  __radd__
+  # add & radd : only vectors of the same shape.
+  __sub__
+  __rsub__
+  # sub & rsub: only vectors of the same shape.
+  __truediv__
+  # truediv : only with scalars (to perform division of a Vector by a scalar).
+  __rtruediv__
+  # rtruediv : raises an NotImplementedError with the message "Division of a scalar by a Vector is not defined here."
+  __mul__
+  __rmul__
+  # mul & rmul: only scalars (to perform multiplication of a Vector by a scalar).
+  __str__
+  __repr__
+  # must be identical, i.e we expect that print(vector) and vector within python interpretor to behave the same, see corresponding example section.
+\end{minted}
+
+\info{
+  So it might be a good idea to implement \texttt{values} and \texttt{shape} before built-in arithmetic functions.
+  For the case not specified (e.g vector * vector) you should raise \texttt{NotImplementedError}.
+}
+
+
+% ================================= %
+\section*{Mathematic notions}
+% --------------------------------- %
+The authorized vector operations are:  
+
+\begin{itemize}
+  \item Addition between two vectors of same dimension $m$
+  \begin{equation*}
+    x + y  =  
+    \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix} + 
+    \begin{bmatrix} y_1 \\ \vdots \\ y_m\end{bmatrix} \\ 
+     =  \begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_m + y_m \end{bmatrix}
+  \end{equation*}
+  \item Substraction between two vectors of same dimension $m$
+  \begin{equation*}
+    x - y = 
+    \begin{bmatrix} x_1 \\ \vdots \\ y_m\end{bmatrix} - 
+    \begin{bmatrix} x_1 \\ \vdots \\ y_m\end{bmatrix} 
+    = \begin{bmatrix} x_1 - y_1 \\ \vdots \\ x_m - y_m \end{bmatrix}
+  \end{equation*}
+  \item  Multiplication and division between one vector $m$ and one scalar.
+  \begin{equation*}
+    \alpha x = \alpha \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix}  = 
+    \begin{bmatrix} \alpha x_1 \\ \vdots \\ \alpha x_m \end{bmatrix}
+  \end{equation*}
+  \item  Dot product between two vectors of same dimension $m$  
+  \begin{equation*}
+    x \cdot y = \begin{bmatrix} x_1 \\ \vdots \\ x_m\end{bmatrix} 
+    \cdot 
+    \begin{bmatrix} y_1 \\ \vdots \\ y_m\end{bmatrix} = 
+    \sum_{i = 1}^{m} x_i \cdot y_i =  x_1 \cdot y_1 + \dots + x_m \cdot y_m 
+  \end{equation*}
+\end{itemize}
+
+Do not forget to handle all types of error properly!
+
+
+% ===========================(fin ex 02)         %
+% ============================================== %
+

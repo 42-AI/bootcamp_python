@@ -1,0 +1,87 @@
+\chapter{Exercise 00}
+\extitle{The Book}
+\turnindir{ex00}
+\exnumber{00}
+\exfiles{book.py, recipe.py, test.py}
+\exforbidden{None}
+\makeheaderfilesforbidden
+
+% ================================== %
+\section*{Objective}
+% ---------------------------------- %
+The goal of this exercise is to get you familiar with the notions of
+classes and the manipulation of the objects related to these classes.
+
+% ================================== %
+\section*{Instructions}
+% ---------------------------------- %
+You will have to make a class \texttt{Book} and a class \texttt{Recipe}.
+The classes \texttt{Book} and \texttt{Recipe} will be written in 
+\texttt{book.py} and \texttt{recipe.py} respectively.\\
+\newline
+Let's describe the \texttt{Recipe} class. It has some attributes:
+\begin{itemize}
+  \item \texttt{name} (str): name of the recipe,
+  \item \texttt{cooking\_lvl} (int): range from $1$ to $5$,
+  \item \texttt{cooking\_time} (int): in minutes (no negative numbers),
+  \item \texttt{ingredients} (list): list of all ingredients each represented by a string,
+  \item \texttt{description} (str): description of the recipe,
+  \item \texttt{recipe\_type} (str): can be "starter", "lunch" or "dessert".
+\end{itemize}
+You have to \textbf{initialize} the object \texttt{Recipe} and check all of its values. Only the description can be empty.
+In case of input errors, you should print what they are and exit properly.\\
+\newline
+You will have to implement the built-in method \texttt{\_\_str\_\_}.
+It's the method called when the following code is executed:\\
+\newline
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+tourte = Recipe(...)
+to_print = str(tourte)
+print(to_print)
+\end{minted}
+\newline
+\newline
+It is implemented this way:\\
+\newline
+\begin{minted}[bgcolor=darcula-back,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+def __str__(self):
+    """Returns the string to print with the recipe's info"""
+    txt = ""
+    """Your code here"""
+    return txt
+\end{minted}
+\newline
+The \texttt{Book} class also has some attributes:
+\begin{itemize}
+  \item \texttt{name} (str): name of the book,
+  \item \texttt{last\_update} \href{https://docs.python.org/3/library/datetime.html}{(datetime)}: the date of the last update,
+  \item \texttt{creation\_date} \href{https://docs.python.org/3/library/datetime.html}{(datetime)}: the creation date of the book,
+  \item \texttt{recipes\_list} (dict): a dictionnary with 3 keys: "starter", "lunch", "dessert".
+\end{itemize}
+You will have to implement some methods in the \texttt{Book} class:\\
+\newline
+\begin{minted}[bgcolor=darcula-back	,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+def get_recipe_by_name(self, name):
+    """Prints a recipe with the name \texttt{name} and returns the instance"""
+    #... Your code here ...
+
+def get_recipes_by_types(self, recipe_type):
+    """Gets all recipes names for a given recipe_type """
+    #... Your code here ...
+
+def add_recipe(self, recipe):
+    """Adds a recipe to the book and updates last_update"""
+    #... Your code here ...
+\end{minted}
+\newline
+You have to handle the error if the argument passed in \texttt{add\_recipe} is not a \texttt{Recipe}.\\
+\newline
+Finally, you will provide a \texttt{test.py} file to test your classes and prove that they are working properly.
+You can import all the classes into your \texttt{test.py} file by adding these lines at the top of the \texttt{test.py} file:\\
+\newline
+\begin{minted}[bgcolor=darcula-back	,formatcom=\color{lightgrey},fontsize=\scriptsize]{python}
+from book import Book
+from recipe import Recipe
+
+# ... Your tests ...
+\end{minted}
